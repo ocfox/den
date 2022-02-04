@@ -82,7 +82,8 @@
       inherit pkgs;
     };
   };
-
+  # gpg agent
+  programs.gnupg.agent.enable = true;
 
   nixpkgs.overlays = [
     (final: prev: {
