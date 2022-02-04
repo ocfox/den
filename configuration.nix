@@ -83,8 +83,6 @@
     };
   };
 
-  # Enable bspwm
-  services.xserver.windowManager.bspwm.enable = true;
 
   nixpkgs.overlays = [
     (final: prev: {
