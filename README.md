@@ -1,5 +1,4 @@
-# My nixos config with dwm&dmenu
+# nixos-config
 
-## No Home-Manager
-
+> my nixos configuration
 ![desktop img](https://i.imgur.com/1w8Wdy4.png)
