@@ -1,0 +1,60 @@
+#!/bin/sh
+
+SPLITER=" ^c#1b2523^|^d^ "
+FG="^c#1b2523^"
+
+get_date() {
+	printf "$FG ^d^ "
+	printf "$FG$(date '+%B/%d %I:%M ^c#eb4034^%p^d^') ^d^"
+}
+
+# battery
+# changed battery here
+# battery="Battery 0"
+# batt() {
+# 	printf "$FG$(acpi | grep "$battery" \
+#     | sed "s/,//g" | sed "s/%/%%/g" \
+#     | awk '{if ($3 == "Discharging"){print "  " $4; exit} else {print " " $4}}')^d^"
+# }
+
+volume() {
+	printf "$FG "
+	printf " $(pamixer --get-volume) %%^d^"
+}
+
+song_max_char=40
+get_song_info() {
+  if ! playerctl metadata > /dev/null 2>&1; then
+    printf "No songs playing"
+    return
+  fi
+  song_info="$(playerctl metadata artist) - $(playerctl metadata title)"
+  song_info_char=${#song_info}
+  if test $[song_info_char] -gt $[song_max_char]; then
+    printf "${song_info:0:$[song_max_char]}..."
+  else
+    printf "$song_info"
+  fi
+}
+
+song() {
+	# printf "$FG^b#0c0c0c^ "
+	printf "$FG  "
+	# printf "$FG ^b#171617^ $(get_song_info) ^d^" 
+	printf "$FG $(get_song_info) ^d^" 
+}
+
+prepend_text() {
+	text=""
+	text+="$(song)"
+	text+=$SPLITER
+	text+="$(volume)"
+	# text+=$SPLITER
+	# text+="$(batt)"
+	text+=$SPLITER
+	text+="$(get_date)"
+
+	echo $text
+}
+
+xsetroot -name "$(prepend_text)"

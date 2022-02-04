@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CONKY_EXEC="$(command -v conky)"
+
+if [ -z $CONKY_EXEC ]; then
+	while true; do
+		$HOME/.local/share/dwm/dwm-bar-refresh
+		sleep 10
+	done
+fi
+
+if [ -n $CONKY_EXEC ]; then
+	$CONKY_EXEC | \
+		while read LINE; do xsetroot -name "$LINE"; done
+fi
