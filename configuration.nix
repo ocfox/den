@@ -88,9 +88,15 @@
 
   nixpkgs.overlays = [
     (final: prev: {
+            # sha256 = "0000000000000000000000000000000000000000000000000000";
       dwm = prev.dwm.overrideAttrs (old: {
           buildInputs = (old.buildInputs or []) ++ [ final.xorg.libXext ];
-          src = ./dwm ;});
+          src = pkgs.fetchFromGitHub {
+            owner = "ocfox";
+            repo = "dwm";
+            rev = "e0125a88755546b132ef9f6894aafee8c9be0417";
+            sha256 = "UNlxYRjDGvjGwlGXyFcbHKhuHt//+pb1w8bQSYnTK/o=";
+          } ;});
       picom = prev.picom.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
             owner = "jonaburg";
@@ -99,7 +105,12 @@
             sha256 = "R+YUGBrLst6CpUgG9VCwaZ+LiBSDWTp0TLt1Ou4xmpQ=";
           };});
       dmenu = prev.dmenu.overrideAttrs (old: {
-          src = ./dmenu ;});
+          src = pkgs.fetchFromGitHub {
+            owner = "ocfox";
+            repo = "dmenu";
+            rev = "967c1844df79bea0d8eaf0a981bd03b1ae5f5fa3";
+            sha256 = "Bf6VEV+xWG+gr9raTeLnf0p4yB/WP6bHFYwQeq69XqY=";
+          } ;});
     })
         (import (builtins.fetchTarball {
       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
