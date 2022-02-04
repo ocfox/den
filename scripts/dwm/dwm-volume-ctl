@@ -1,0 +1,15 @@
+#!/bin/sh
+
+case $1 in
+	"up")
+			pamixer -i 10
+		;;
+	"down")
+			pamixer -d 10
+		;;
+	*)
+		echo "Usage: dwm-volume-ctl up/down"
+		;;
+esac
+
+$HOME/.local/share/dwm/dwm-bar-refresh
