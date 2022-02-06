@@ -58,16 +58,20 @@
     ];
   };
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-chinese-addons
+        fcitx5-configtool
+      ];
+    };
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  #services.xserver.videoDrivers = [ "nvidia" ];
   services.picom.settings = {
     blur = {
     method = "gaussian";
@@ -75,15 +79,15 @@
     deviation = 5.0;
     };
   };
-  
+  programs.gnupg.agent.enable = true;
+
   # Use NUR
   nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-communtiy/NUR/archive/master.tar.gz") {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
       inherit pkgs;
     };
   };
-  # gpg agent
-  programs.gnupg.agent.enable = true;
+
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -138,7 +142,14 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    support32Bit = true;
+    tcp = {
+      enable = true;
+      anonymousClients.allowedIpRanges = ["127.0.0.1"];
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ocfox = {
@@ -162,6 +173,7 @@
     wget
     git
     neofetch
+    ueberzug
     pfetch
     feh
     exa
@@ -174,23 +186,25 @@
     surf
     ripgrep
     tree-sitter
+    pinentry
     unzip
     pamixer
     acpi
 
     # Application
     tdesktop
+    # nur.repos.ilya-fedin.kotatogram-desktop
     firefox
-    spotify
     flameshot
-    rofi
     dmenu
     autorandr
-    polybar
     nitrogen
-    mpv
-    playerctl
     obs-studio
+
+    # Music
+    spotify
+    playerctl
+    cava
 
     # dev
     boost
