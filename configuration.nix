@@ -9,6 +9,13 @@
   # Allow Unfree pkgs
   nixpkgs.config.allowUnfree = true;
 
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -71,14 +78,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  #services.xserver.videoDrivers = [ "nvidia" ];
-  services.picom.settings = {
-    blur = {
-    method = "gaussian";
-    size = 10;
-    deviation = 5.0;
-    };
-  };
+  services.xserver.videoDrivers = [ "nvidia" ];
   programs.gnupg.agent.enable = true;
 
   # Use NUR
@@ -99,7 +99,9 @@
             repo = "dwm";
             rev = "e0125a88755546b132ef9f6894aafee8c9be0417";
             sha256 = "UNlxYRjDGvjGwlGXyFcbHKhuHt//+pb1w8bQSYnTK/o=";
-          } ;});
+          }
+          #src = /home/ocfox/suckless/dwm
+          ;});
       picom = prev.picom.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
             owner = "jonaburg";
@@ -118,20 +120,13 @@
         (import (builtins.fetchTarball {
       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
     }))
+
   ];
 
   services.xserver.windowManager.dwm.enable = true;
- /* services.xserver.windowManager.xmonad = { */
- /*   enable = true; */
- /*   extraPackages = hpkgs: [ */
- /*     hpkgs.xmonad */
- /*     hpkgs.xmonad-contrib */
- /*     hpkgs.xmonad-extras */
- /*   ]; */
- /* }; */
+  environment.variables.EDITOR = "nvim";
 
-  # zsh
-  programs.zsh.enable = true;
+  #programs.zsh.enable = true;
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -155,15 +150,9 @@
   users.users.ocfox = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
-  # Neovim Nightly
-  /* nixpkgs.overlays = [ */
-  /*   (import (builtins.fetchTarball { */
-  /*     url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz; */
-  /*   })) */
-  /* ]; */
 
   environment.systemPackages = with pkgs; [
     # CLI Tools
@@ -172,7 +161,7 @@
     neovim
     wget
     git
-    neofetch
+    screenfetch
     ueberzug
     pfetch
     feh
@@ -190,21 +179,24 @@
     unzip
     pamixer
     acpi
+    bat
 
     # Application
     tdesktop
     # nur.repos.ilya-fedin.kotatogram-desktop
+    screenkey
     firefox
     flameshot
     dmenu
     autorandr
-    nitrogen
-    obs-studio
+    conky
 
-    # Music
+    # Music & Video
     spotify
     playerctl
     cava
+    vlc
+    obs-studio
 
     # dev
     boost
