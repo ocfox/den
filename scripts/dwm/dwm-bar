@@ -1,13 +1,13 @@
 #!/bin/sh
 
-CONKY_EXEC="$(command -v conky)"
-
-if [ -z $CONKY_EXEC ]; then
+#CONKY_EXEC="$(command -v conky)"
+conky -q
+#if [ -z $CONKY_EXEC ]; then
 	while true; do
 		$HOME/.local/share/dwm/dwm-bar-refresh
-		sleep 10
+		sleep 2
 	done
-fi
+#fi
 
 if [ -n $CONKY_EXEC ]; then
 	$CONKY_EXEC | \
