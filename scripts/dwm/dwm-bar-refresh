@@ -4,8 +4,9 @@ SPLITER=" ^c#1b2523^|^d^ "
 FG="^c#1b2523^"
 
 get_date() {
-	printf "$FG ^d^ "
-	printf "$FG$(date '+%B/%d %I:%M ^c#eb4034^%p^d^') ^d^"
+	# printf "$FG ^d^ "
+	# printf "$FG$(date '+%B/%d %I:%M ^c#eb4034^%p^d^') ^d^"
+	printf "$FG$(date '+%I:%M ^c#eb4034^%p^d^') ^d^"
 }
 
 # battery

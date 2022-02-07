@@ -1,8 +1,9 @@
 #!/bin/sh
 
 get_date() {
-	printf "^c#eaeaea^^d^ "
-	printf "^c#eaeaea^$(date '+%B/%d %I:%M ^c#f83434^%p^d^') ^d^"
+	# printf "^c#eaeaea^^d^ "
+	# printf "^c#eaeaea^$(date '+%B/%d %I:%M ^c#f83434^%p^d^') ^d^"
+	printf "^c#eaeaea^$(date '+%I:%M ^c#f83434^%p^d^') ^d^"
 }
 
 # battery
