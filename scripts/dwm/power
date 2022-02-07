@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-options="shutdown\nreboot\nsuspend\ncancel\n"
+options="shutdown\nreboot\nsuspend\ncancel"
 
 selection="$(echo -e $options | \
-             dmenu -i -l 5)"
+             dmenu -i -l 4)"
 
 case $selection in
 	shutdown) systemctl poweroff
