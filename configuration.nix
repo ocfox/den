@@ -77,8 +77,18 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver = {
+    windowManager.dwm.enable = true;
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+    displayManager = {
+      defaultSession = "none+dwm";
+      autoLogin.enable = true;
+      autoLogin.user = "ocfox";
+      lightdm.enable = true;
+    };
+  };
+
   programs.gnupg.agent.enable = true;
 
   # Use NUR
@@ -100,7 +110,7 @@
             rev = "e0125a88755546b132ef9f6894aafee8c9be0417";
             sha256 = "UNlxYRjDGvjGwlGXyFcbHKhuHt//+pb1w8bQSYnTK/o=";
           }
-          #src = /home/ocfox/suckless/dwm
+          # src = /home/ocfox/suckless/dwm
           ;});
       picom = prev.picom.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
@@ -123,14 +133,7 @@
 
   ];
 
-  services.xserver.windowManager.dwm.enable = true;
   environment.variables.EDITOR = "nvim";
-
-  #programs.zsh.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -146,12 +149,12 @@
     };
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ocfox = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ];
     shell = pkgs.fish;
   };
+
 
 
   environment.systemPackages = with pkgs; [
@@ -227,8 +230,6 @@
   ];
 
   services.openssh.enable = true;
-
   system.stateVersion = "unstable";
 
 }
-
