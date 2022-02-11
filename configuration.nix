@@ -17,22 +17,29 @@
   };
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
-
-  networking.hostName = "whitefox"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+    };
+    efi.canTouchEfiVariables = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp6s0.useDHCP = true;
+  networking = {
+    hostName = "whitefox"; # Define your hostname.
+    useDHCP = false;
+    interfaces.enp6s0.useDHCP = true;
+
+    networkmanager = {
+      enable = true;
+      wifi.macAddress = "random";
+      ethernet.macAddress = "random";
+    };
+  };
 
   fonts = {
     enableDefaultFonts = true;
@@ -44,7 +51,6 @@
       };
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "FiraCode" ];
         sansSerif = [ "DejaVu Sans" ];
         serif = [ "DejaVu Serif" ];
       };
@@ -78,13 +84,19 @@
 
   # Enable the X11 windowing system.
   services.xserver = {
+    layout = "us";
+    # swap 'Caps Lock' & 'Escape'
+    xkbOptions = "caps:swapescape";
+
     windowManager.dwm.enable = true;
     enable = true;
     videoDrivers = [ "nvidia" ];
     displayManager = {
       defaultSession = "none+dwm";
-      autoLogin.enable = true;
-      autoLogin.user = "ocfox";
+      autoLogin = {
+        enable = true;
+        user = "ocfox";
+      };
       lightdm.enable = true;
     };
   };
@@ -98,19 +110,26 @@
     };
   };
 
-
   nixpkgs.overlays = [
+    (self: super: {
+     neovim = super.neovim.override {
+       viAlias = true;
+       vimAlias = true;
+     };
+   })
+
     (final: prev: {
             # sha256 = "0000000000000000000000000000000000000000000000000000";
       dwm = prev.dwm.overrideAttrs (old: {
           buildInputs = (old.buildInputs or []) ++ [ final.xorg.libXext ];
-          src = pkgs.fetchFromGitHub {
-            owner = "ocfox";
-            repo = "dwm";
-            rev = "e0125a88755546b132ef9f6894aafee8c9be0417";
-            sha256 = "UNlxYRjDGvjGwlGXyFcbHKhuHt//+pb1w8bQSYnTK/o=";
-          }
-          # src = /home/ocfox/suckless/dwm
+          # src = pkgs.fetchFromGitHub {
+          #   owner = "ocfox";
+          #   repo = "dwm";
+          #   rev = "e0125a88755546b132ef9f6894aafee8c9be0417";
+          #   sha256 = "UNlxYRjDGvjGwlGXyFcbHKhuHt//+pb1w8bQSYnTK/o=";
+          # }
+
+          src = /home/ocfox/suckless/dwm
           ;});
       picom = prev.picom.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
@@ -128,13 +147,9 @@
           } ;});
     })
         (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-    }))
-
+          url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+        }))
   ];
-
-  environment.variables.EDITOR = "nvim";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -155,29 +170,26 @@
     shell = pkgs.fish;
   };
 
-
-
+  environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
     # CLI Tools
     alacritty
-    wezterm
-    neovim
     wget
     git
     screenfetch
-    ueberzug
     pfetch
     feh
+    ueberzug
     exa
     pv
     tty-clock
     lazygit
     ranger
     unzip
+    p7zip
     htop
     surf
     ripgrep
-    tree-sitter
     pinentry
     unzip
     pamixer
@@ -185,14 +197,16 @@
     bat
 
     # Application
-    tdesktop
-    # nur.repos.ilya-fedin.kotatogram-desktop
+    nur.repos.ilya-fedin.kotatogram-desktop
     screenkey
     firefox
+
+    # Desktop
+    picom
+    conky
     flameshot
     dmenu
     autorandr
-    conky
 
     # Music & Video
     spotify
@@ -202,6 +216,8 @@
     obs-studio
 
     # dev
+    neovim
+    tree-sitter
     boost
     gcc
     clang_13
@@ -225,11 +241,12 @@
     (python310.withPackages(ps: with ps; [ pynvim ]))
 
     # System Tools
-    picom
     xclip
+
+    # Game
+    minecraft
   ];
 
   services.openssh.enable = true;
   system.stateVersion = "unstable";
-
 }
