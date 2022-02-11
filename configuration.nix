@@ -103,13 +103,6 @@
 
   programs.gnupg.agent.enable = true;
 
-  # Use NUR
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
-  };
-
   nixpkgs.overlays = [
     (self: super: {
      neovim = super.neovim.override {
@@ -122,15 +115,12 @@
             # sha256 = "0000000000000000000000000000000000000000000000000000";
       dwm = prev.dwm.overrideAttrs (old: {
           buildInputs = (old.buildInputs or []) ++ [ final.xorg.libXext ];
-          # src = pkgs.fetchFromGitHub {
-          #   owner = "ocfox";
-          #   repo = "dwm";
-          #   rev = "e0125a88755546b132ef9f6894aafee8c9be0417";
-          #   sha256 = "UNlxYRjDGvjGwlGXyFcbHKhuHt//+pb1w8bQSYnTK/o=";
-          # }
-
-          src = /home/ocfox/suckless/dwm
-          ;});
+          src = pkgs.fetchFromGitHub {
+            owner = "ocfox";
+            repo = "dwm";
+            rev = "e5810a43bce0ba80190f403f166a2081af712bb2";
+            sha256 = "h6d/gjbtpld8f7P4/i1HILs/AUyimhosuux8CfSfovM=";
+          };});
       picom = prev.picom.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
             owner = "jonaburg";
@@ -146,9 +136,7 @@
             sha256 = "Bf6VEV+xWG+gr9raTeLnf0p4yB/WP6bHFYwQeq69XqY=";
           } ;});
     })
-        (import (builtins.fetchTarball {
-          url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-        }))
+
   ];
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -176,17 +164,14 @@
     alacritty
     wget
     git
-    screenfetch
-    pfetch
+    screenfetch pfetch
     feh
     ueberzug
-    exa
-    pv
+    exa pv bat
     tty-clock
     lazygit
     ranger
-    unzip
-    p7zip
+    unzip p7zip
     htop
     surf
     ripgrep
@@ -194,7 +179,7 @@
     unzip
     pamixer
     acpi
-    bat
+    rsync
 
     # Application
     nur.repos.ilya-fedin.kotatogram-desktop
