@@ -24,6 +24,7 @@
 
     # Application
     nur.repos.ilya-fedin.kotatogram-desktop
+    discord
     screenkey
     firefox
 
@@ -55,6 +56,7 @@
     cmake
     gnumake
     go
+    jdk
     gnupg
     lua
     rustc

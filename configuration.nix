@@ -35,7 +35,7 @@
   networking = {
     hostName = "whitefox"; # Define your hostname.
     useDHCP = false;
-    interfaces.enp6s0.useDHCP = true;
+#interfaces.enp6s0.useDHCP = true;
 
     networkmanager = {
       enable = true;
@@ -43,6 +43,7 @@
       ethernet.macAddress = "random";
     };
   };
+  programs.nm-applet.enable = true;
 
 
   i18n = {

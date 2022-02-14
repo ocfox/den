@@ -2,6 +2,7 @@
   description = "nixos-config";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+#inputs.dwm.url = "github:ocfox/dwm";
   inputs.neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   inputs.nur.url = github:nix-community/NUR;
   # inputs.home-manager = {
