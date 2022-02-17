@@ -35,7 +35,6 @@
   networking = {
     hostName = "whitefox"; # Define your hostname.
     useDHCP = false;
-#interfaces.enp6s0.useDHCP = true;
 
     networkmanager = {
       enable = true;
@@ -83,6 +82,10 @@
 
   # Enable sound.
   sound.enable = true;
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
