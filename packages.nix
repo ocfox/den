@@ -11,9 +11,9 @@
     exa pv bat
     tty-clock
     lazygit
-    ranger
+    ranger fzf zoxide du-dust
     unzip p7zip
-    htop
+    htop bottom
     surf
     ripgrep
     pinentry
@@ -24,6 +24,7 @@
 
     # Application
     nur.repos.ilya-fedin.kotatogram-desktop
+    nur.repos.linyinfeng.wemeet
     discord
     screenkey
     firefox
@@ -73,5 +74,7 @@
 
     # Game
     minecraft
+    # Warm up
+    fahclient
   ];
 }
