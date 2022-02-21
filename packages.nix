@@ -23,7 +23,7 @@
     rsync
 
     # Application
-    nur.repos.ilya-fedin.kotatogram-desktop
+    tdesktop
     nur.repos.linyinfeng.wemeet
     discord
     screenkey
