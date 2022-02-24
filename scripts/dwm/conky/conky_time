@@ -1,0 +1,21 @@
+conky.config = {
+	alignment = 'top_right',
+	background = true,
+	cpu_avg_samples = 2,
+	default_color = 'ffffff',
+	double_buffer = true,
+        font = 'FiraCode Nerd Font:bold:size=100',
+	draw_shades = false,
+	gap_x = -610,
+	gap_y = 200,
+	minimum_width = 300,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 1.0,
+	use_xft = true,
+}
+conky.text = [[
+${voffset -5}${goto 10}${color}${font}$alignc${time %H:%M:%S}
+]]

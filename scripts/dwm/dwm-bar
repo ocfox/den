@@ -1,7 +1,8 @@
 #!/bin/sh
 
 #CONKY_EXEC="$(command -v conky)"
-conky -q
+conky -q -c $HOME/.local/share/dwm/conky/conky_time
+conky -q -c $HOME/.local/share/dwm/conky/conky.conf
 #if [ -z $CONKY_EXEC ]; then
 	while true; do
 		$HOME/.local/share/dwm/dwm-bar-refresh
