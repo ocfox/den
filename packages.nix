@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     # CLI Tools
     alacritty
+    fontpreview
     wget
     git
     screenfetch pfetch
@@ -21,13 +22,16 @@
     pamixer
     acpi
     rsync
+    youtube-dl
 
     # Application
     tdesktop
     nur.repos.linyinfeng.wemeet
     discord
     screenkey
-    firefox
+    # firefox
+    latest.firefox-nightly-bin
+    thunderbird
 
     # Desktop
     picom
@@ -38,6 +42,9 @@
 
     # Music & Video
     spotify
+    spotify-tui
+    spotifyd
+    # sptlrx
     playerctl
     cava
     vlc
@@ -49,6 +56,7 @@
     boost
     gcc
     clang_13
+    bintools-unwrapped
     lua
     sumneko-lua-language-server
     clangStdenv
