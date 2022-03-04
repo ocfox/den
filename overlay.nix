@@ -15,8 +15,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "ocfox";
             repo = "dwm";
-            rev = "e5810a43bce0ba80190f403f166a2081af712bb2";
-            sha256 = "h6d/gjbtpld8f7P4/i1HILs/AUyimhosuux8CfSfovM=";
+            rev = "3cd0aa7543eaee4df4818eab3f473e554ccedf16";
+            sha256 = "nlXg4szkOYTtwk/HqE4Wc/eEI4M2zKwCHBuE01tVy+0=";
           };});
       picom = prev.picom.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
