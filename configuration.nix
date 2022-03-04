@@ -11,6 +11,7 @@
 
   # Allow Unfree pkgs
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
 
   nix = {
     package = pkgs.nixUnstable;
@@ -44,7 +45,7 @@
     };
   };
   programs.nm-applet.enable = true;
-
+  programs.steam.enable = true;
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -59,6 +60,7 @@
 
   # Enable the X11 windowing system.
   services.xserver = {
+    desktopManager.xterm.enable = false;
     layout = "us";
     # swap 'Caps Lock' & 'Escape'
     xkbOptions = "caps:swapescape";
@@ -103,7 +105,7 @@
   };
 
   environment.variables.EDITOR = "nvim";
-  
+  environment.variables.XCURSOR_SIZE = "50";
 
   services.openssh.enable = true;
   system.stateVersion = "unstable";
