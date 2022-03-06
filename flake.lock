@@ -38,11 +38,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1645924784,
-        "narHash": "sha256-mpwIohyuc3RAHmVXEm/vUHGMu2V9SLr4P3kh0xckwpI=",
+        "lastModified": 1646364779,
+        "narHash": "sha256-481vkO9b3h++bHzLbGDDhgpBoXQ0Wlo4lm4h5/EJMO4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2499b916921adde8a694117bc007efdde8bbd918",
+        "rev": "d119cea3763977801ad66330668c1ab4346cb7f7",
         "type": "github"
       },
       "original": {
@@ -54,15 +54,18 @@
     "neovim-flake": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "neovim-nightly-overlay",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1644529849,
-        "narHash": "sha256-r5aDO3kdjZcxsFomxuJbkMUI0/ejOJl6rRp0oEVsz1c=",
+        "lastModified": 1646510521,
+        "narHash": "sha256-VSHLQPk19BKSTpT09IuDs4E7T4TNlNTpv42KrGiiNz0=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "851252f79ddaaca5456b287342cd36130c76ff38",
+        "rev": "8ed9c84481a7d0df0708d11ffa538f832591240f",
         "type": "github"
       },
       "original": {
@@ -76,14 +79,14 @@
       "inputs": {
         "flake-compat": "flake-compat",
         "neovim-flake": "neovim-flake",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1644567178,
-        "narHash": "sha256-Z6Febl4NqO7UAgo80rJOnBWtuQpdNEF008G1JQyl34E=",
+        "lastModified": 1646554432,
+        "narHash": "sha256-FOFDqZweiT+X92dljiIFn+SqP6WsNz6/gj9Putt+f/o=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "f4d6b1ff276dd0c98ebf9f6be89660a26a1d51b8",
+        "rev": "a7383d577ed8f4c4e77102cf0b8199146ba5d17d",
         "type": "github"
       },
       "original": {
@@ -94,11 +97,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1644420267,
-        "narHash": "sha256-rFJuctggkjM412OC6OGPdXogFp7czGDW05ueWqpJbj8=",
+        "lastModified": 1646254136,
+        "narHash": "sha256-8nQx02tTzgYO21BP/dy5BCRopE8OwE8Drsw98j+Qoaw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "98bb5b77c8c6666824a4c13d23befa1e07210ef1",
+        "rev": "3e072546ea98db00c2364b81491b893673267827",
         "type": "github"
       },
       "original": {
@@ -125,27 +128,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1644420267,
-        "narHash": "sha256-rFJuctggkjM412OC6OGPdXogFp7czGDW05ueWqpJbj8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "98bb5b77c8c6666824a4c13d23befa1e07210ef1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1644525281,
-        "narHash": "sha256-D3VuWLdnLmAXIkooWAtbTGSQI9Fc1lkvAr94wTxhnTU=",
+        "lastModified": 1646254136,
+        "narHash": "sha256-8nQx02tTzgYO21BP/dy5BCRopE8OwE8Drsw98j+Qoaw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "48d63e924a2666baf37f4f14a18f19347fbd54a2",
+        "rev": "3e072546ea98db00c2364b81491b893673267827",
         "type": "github"
       },
       "original": {
@@ -157,11 +144,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1644571073,
-        "narHash": "sha256-uGC8u8YMsvCsEFpjJ9nTEJ/8mlKympd4GPkrGTTXGM4=",
+        "lastModified": 1646549286,
+        "narHash": "sha256-xfahbqfsffTn1Q36nJWNpHxPw3/sdMp3Hr6SgKzpyyw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "388e8844e2abea0eb24a0db20b220929f0dd5ced",
+        "rev": "af3b4976500df4f8af86c2de675b3505837cc97f",
         "type": "github"
       },
       "original": {
@@ -174,7 +161,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-mozilla": "nixpkgs-mozilla",
         "nur": "nur"
       }
