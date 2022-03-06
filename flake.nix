@@ -14,26 +14,18 @@
   outputs = { self, nixpkgs-mozilla, nixpkgs, nur, neovim-nightly-overlay, home-manager, ...}@inputs:
     let
       system = "x86_64-linux";
+      username = "ocfox";
       # overlays = [
       #     inputs.neovim-nightly-overlay.overlay
       #   ];
     in {
 
       homeConfigurations.ocfox = home-manager.lib.homeManagerConfiguration {
-        pkgs = self.legacyPackages."x86_64-linux";
         stateVersion = "unstable";
 
-        homeDirectory = "/home/ocfox";
-        username = "ocfox";
-        configuration = { pkgs, ... }:
-            {
-              xsession.enable = true;
-              xsession.pointerCursor = {
-                package = pkgs.gnome.adwaita-icon-theme;
-                name = "Adwaita";
-                size = 38;
-              };
-            };
+        inherit system username;
+        homeDirectory = "/home/${username}";
+        configuration = import ./home.nix;
       };
 
       nixosConfigurations.whitefox =  nixpkgs.lib.nixosSystem {
