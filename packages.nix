@@ -6,13 +6,13 @@
     fontpreview
     wget
     git
-    screenfetch pfetch
+    screenfetch
     feh
     ueberzug
-    exa pv bat
+    exa bat
     tty-clock
     lazygit
-    ranger fzf zoxide du-dust
+    ranger fzf
     unzip p7zip
     htop bottom
     surf
@@ -23,9 +23,11 @@
     acpi
     rsync
     youtube-dl
+    aria2
 
     # Application
     tdesktop
+    element-desktop
     nur.repos.linyinfeng.wemeet
     discord
     screenkey
