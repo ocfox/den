@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     # CLI Tools
-    alacritty
     fontpreview
     wget
     git
@@ -26,8 +25,6 @@
     aria2
 
     # Application
-    tdesktop
-    element-desktop
     nur.repos.linyinfeng.wemeet
     discord
     screenkey

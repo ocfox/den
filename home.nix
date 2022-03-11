@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./programs
+  ];
+
   gtk = {
     enable = true;
     theme = {
@@ -23,16 +27,12 @@
 
   programs.home-manager.enable = true;
 
-  programs.emacs = {
-    enable = true;
-    extraPackages = epkgs: [
-      epkgs.nix-mode
-      epkgs.magit
-    ];
-  };
+
 
   home.packages = with pkgs; [
     tree
+    tdesktop
+    element-desktop
   ];
   home.stateVersion = "21.11";
 }
