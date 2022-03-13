@@ -4,7 +4,7 @@
     enable = true;
     shellAliases = {
       vinix="sudo -E vim /etc/nixos/";
-      nixup="sudo nixos-rebuild switch";
+      nixup="sudo nixos-rebuild switch --impure";
       ls="exa -l";
       top="btm";
       mlm="alacritty -o font.size=30 -e sptlrx & cava";
