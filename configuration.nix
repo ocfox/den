@@ -54,6 +54,7 @@
       fcitx5.addons = with pkgs; [
         fcitx5-chinese-addons
         fcitx5-configtool
+        fcitx5-rime
       ];
     };
   };
@@ -93,6 +94,8 @@
   services.aria2 = {
     enable = true;
     openPorts = true;
+    rpcSecret = "000";
+    downloadDir = "/home/ocfox/aria2dl";
   };
 
   hardware.pulseaudio = {
