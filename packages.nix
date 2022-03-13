@@ -43,7 +43,7 @@
     spotify
     spotify-tui
     spotifyd
-    # sptlrx
+    sptlrx
     playerctl
     cava
     vlc

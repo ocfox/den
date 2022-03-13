@@ -2,6 +2,7 @@
 {
   imports = [
     ./programs
+    #./nvim
   ];
 
   gtk = {
@@ -33,6 +34,8 @@
     tree
     tdesktop
     element-desktop
+    qutebrowser
+    qbittorrent
   ];
   home.stateVersion = "21.11";
 }
