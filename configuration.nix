@@ -1,13 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./overlay.nix
-      ./fonts.nix
-      ./packages.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./overlay.nix
+    ./fonts.nix
+    ./packages.nix
+  ];
 
   # Allow Unfree pkgs
   nixpkgs.config.allowUnfree = true;
