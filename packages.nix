@@ -33,7 +33,6 @@
     thunderbird
 
     # Desktop
-    picom
     conky
     flameshot
     dmenu

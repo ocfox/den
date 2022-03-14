@@ -18,13 +18,22 @@
             rev = "3cd0aa7543eaee4df4818eab3f473e554ccedf16";
             sha256 = "nlXg4szkOYTtwk/HqE4Wc/eEI4M2zKwCHBuE01tVy+0=";
           };});
+      # picom = prev.picom.overrideAttrs (old: {
+      #     src = pkgs.fetchFromGitHub {
+      #       owner = "jonaburg";
+      #       repo = "picom";
+      #       rev = "a8445684fe18946604848efb73ace9457b29bf80";
+      #       sha256 = "R+YUGBrLst6CpUgG9VCwaZ+LiBSDWTp0TLt1Ou4xmpQ=";
+      #     };});
+
       picom = prev.picom.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
-            owner = "jonaburg";
+            owner = "yshui";
             repo = "picom";
-            rev = "a8445684fe18946604848efb73ace9457b29bf80";
-            sha256 = "R+YUGBrLst6CpUgG9VCwaZ+LiBSDWTp0TLt1Ou4xmpQ=";
+            rev = "aa316aa3601a4f3ce9c1ca79932218ab574e61a7";
+            sha256 = "Yb69LTu45HxBWoD/T9Uj6b1lNn7hHzIEjcn73PMMEz0=";
           };});
+
       dmenu = prev.dmenu.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
             owner = "ocfox";
