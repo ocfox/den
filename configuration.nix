@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
     ./overlay.nix
     ./fonts.nix
     ./packages.nix
@@ -29,6 +29,7 @@
     };
     efi.canTouchEfiVariables = true;
   };
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -43,6 +44,7 @@
       ethernet.macAddress = "random";
     };
   };
+
   programs.nm-applet.enable = true;
   programs.steam.enable = true;
 
