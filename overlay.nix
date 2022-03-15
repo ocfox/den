@@ -2,15 +2,20 @@
 {
   nixpkgs.overlays = [
     (self: super: {
-     neovim = super.neovim.override {
+    neovim = super.neovim.override {
        viAlias = true;
        vimAlias = true;
-     };
+    };
+
+    factorio = super.factorio.override {
+      username = "xxxx";
+      token = "xxxx";
+    };
     })
 
     (final: prev: {
             # sha256 = "0000000000000000000000000000000000000000000000000000";
-      dwm = prev.dwm.overrideAttrs (old: {
+            dwm = prev.dwm.overrideAttrs (old: {
           buildInputs = (old.buildInputs or []) ++ [ final.xorg.libXext ];
           src = pkgs.fetchFromGitHub {
             owner = "ocfox";
@@ -28,10 +33,10 @@
 
       picom = prev.picom.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
-            owner = "yshui";
+            owner = "ibhagwan";
             repo = "picom";
-            rev = "aa316aa3601a4f3ce9c1ca79932218ab574e61a7";
-            sha256 = "Yb69LTu45HxBWoD/T9Uj6b1lNn7hHzIEjcn73PMMEz0=";
+            rev = "c4107bb6cc17773fdc6c48bb2e475ef957513c7a";
+            sha256 = "1hVFBGo4Ieke2T9PqMur1w4D0bz/L3FAvfujY9Zergw=";
           };});
 
       dmenu = prev.dmenu.overrideAttrs (old: {

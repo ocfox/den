@@ -29,14 +29,15 @@
 
   programs.home-manager.enable = true;
 
-
-
   home.packages = with pkgs; [
     tree
     tdesktop
     element-desktop
     qutebrowser
     qbittorrent
+    # Game
+    polymc
+    factorio
   ];
   home.stateVersion = "21.11";
 }
