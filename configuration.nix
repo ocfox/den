@@ -12,6 +12,7 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
 
+  networking.firewall.enable = false;
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
@@ -97,6 +98,15 @@
     openPorts = true;
     rpcSecret = "000";
     downloadDir = "/home/ocfox/aria2dl";
+  };
+
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      userServices = true;
+    };
   };
 
   hardware.pulseaudio = {
