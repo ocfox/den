@@ -24,10 +24,6 @@
     youtube-dl
     aria2
 
-    # Application
-    nur.repos.linyinfeng.wemeet
-    discord
-    screenkey
     # firefox
     latest.firefox-nightly-bin
     thunderbird
@@ -37,19 +33,11 @@
     flameshot
     dmenu
     autorandr
-
-    # Music & Video
-    spotify
-    spotify-tui
-    spotifyd
-    sptlrx
-    playerctl
-    cava
-    vlc
-    obs-studio
+    rpiplay
 
     # dev
     neovim
+    helix
     tree-sitter
     boost
     gcc
@@ -78,8 +66,6 @@
     # System Tools
     xclip
 
-    # Game
-    minecraft
     # Warm up
     fahclient
   ];

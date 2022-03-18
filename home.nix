@@ -31,13 +31,29 @@
 
   home.packages = with pkgs; [
     tree
-    tdesktop
     element-desktop
     qutebrowser
     qbittorrent
+    nur.repos.ilya-fedin.kotatogram-desktop
     # Game
     polymc
     factorio
+
+    # Music & Video
+    spotify
+    spotify-tui
+    spotifyd
+    sptlrx
+    playerctl
+    cava
+    vlc
+    obs-studio
+
+    # Application
+    nur.repos.linyinfeng.wemeet
+    discord
+    screenkey
+    neovide
   ];
   home.stateVersion = "21.11";
 }
