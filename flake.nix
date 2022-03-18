@@ -33,7 +33,7 @@
         inherit system;
         modules = [
           ./configuration.nix
-          { nixpkgs.overlays = [ nur.overlay neovim-nightly-overlay.overlay nixpkgs-mozilla.overlay polymc.overlay ]; }
+          { nixpkgs.overlays = [ nur.overlay nixpkgs-mozilla.overlay polymc.overlay ]; }
           home-manager.nixosModules.home-manager
           {
            home-manager.useGlobalPkgs = true;
