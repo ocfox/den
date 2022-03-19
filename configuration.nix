@@ -13,6 +13,10 @@
   nixpkgs.config.allowBroken = true;
 
   networking.firewall.enable = false;
+
+  virtualisation.libvirtd.enable = true;
+  boot.kernelModules = [ "kvm-amd" ];
+
   nix = {
     package = pkgs.nixUnstable;
     extraOptions = ''
@@ -120,11 +124,12 @@
 
   users.users.ocfox = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "libvirtd" ];
     shell = pkgs.fish;
   };
 
   environment.variables.EDITOR = "nvim";
+  environment.variables.TERM = "alacritty";
   environment.variables.XCURSOR_SIZE = "50";
 
   services.openssh.enable = true;
