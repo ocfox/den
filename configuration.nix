@@ -15,7 +15,6 @@
   networking.firewall.enable = false;
 
   virtualisation.libvirtd.enable = true;
-  boot.kernelModules = [ "kvm-amd" ];
 
   nix = {
     package = pkgs.nixUnstable;

@@ -5,7 +5,7 @@
     fontpreview
     wget
     git
-    screenfetch
+    screenfetch neofetch
     feh
     ueberzug
     exa bat
@@ -25,7 +25,8 @@
     aria2
 
     # firefox
-    latest.firefox-nightly-bin
+    # latest.firefox-nightly-bin
+    firefox
     thunderbird
 
     # Desktop
@@ -68,5 +69,8 @@
 
     # Warm up
     fahclient
+
+    # Virt
+    virt-manager
   ];
 }
