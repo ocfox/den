@@ -25,8 +25,10 @@
       fira-code
       wqy_microhei
       wqy_zenhei
-      nerdfonts
       symbola
+      (nerdfonts.override { fonts = [
+        "FiraCode" "DroidSansMono" "JetBrainsMono" "FantasqueSansMono"
+      ]; })
     ];
   };
 }
