@@ -53,7 +53,6 @@
     nur.repos.linyinfeng.wemeet
     discord
     screenkey
-    neovide
   ];
   home.stateVersion = "21.11";
 }
