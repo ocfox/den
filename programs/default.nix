@@ -3,5 +3,6 @@
   imports = [
     ./alacritty.nix
     ./fish.nix
+    ./kitty.nix
   ];
 }
