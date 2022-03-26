@@ -66,10 +66,9 @@
 
   # Enable the X11 windowing system.
   services.xserver = {
-    desktopManager.xterm.enable = false;
     layout = "us";
     # swap 'Caps Lock' & 'Escape'
-    xkbOptions = "caps:swapescape";
+    # xkbOptions = "caps:swapescape";
 
     windowManager.dwm.enable = true;
     enable = true;
