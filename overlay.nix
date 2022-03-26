@@ -8,8 +8,8 @@
     };
 
     factorio = super.factorio.override {
-      username = "xxxx";
-      token = "xxxx";
+      username = "{}";
+      token = "{}";
     };
     })
 
@@ -20,8 +20,8 @@
           src = pkgs.fetchFromGitHub {
             owner = "ocfox";
             repo = "dwm";
-            rev = "3cd0aa7543eaee4df4818eab3f473e554ccedf16";
-            sha256 = "nlXg4szkOYTtwk/HqE4Wc/eEI4M2zKwCHBuE01tVy+0=";
+            rev = "4320f2d7a610ae85cb1a630bc0713800e262e5be";
+            sha256 = "4745EhooIQ422rQnixtMXfjw5cxUPjoSdScJPskl1IU=";
           };});
       # picom = prev.picom.overrideAttrs (old: {
       #     src = pkgs.fetchFromGitHub {
