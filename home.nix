@@ -30,6 +30,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    calibre
     tree
     element-desktop
     qutebrowser
@@ -50,6 +51,7 @@
     obs-studio
 
     # Application
+    nur.repos.linyinfeng.icalingua-plus-plus
     nur.repos.linyinfeng.wemeet
     discord
     screenkey

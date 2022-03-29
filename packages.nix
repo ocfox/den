@@ -23,10 +23,12 @@
     rsync
     youtube-dl
     aria2
+    opendrop
+    openssl
+    owl
 
     # firefox
-    # latest.firefox-nightly-bin
-    firefox
+    latest.firefox-esr-bin
     thunderbird
 
     # Desktop
@@ -38,6 +40,8 @@
 
     # dev
     neovim
+    glfw2
+    libGL
     helix
     tree-sitter
     boost
