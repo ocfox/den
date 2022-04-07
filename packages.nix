@@ -23,12 +23,12 @@
     rsync
     youtube-dl
     aria2
-    opendrop
     openssl
-    owl
+    mpv
+    xwinwrap
+    ffmpeg
 
     # firefox
-    latest.firefox-esr-bin
     thunderbird
 
     # Desktop
