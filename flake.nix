@@ -11,26 +11,35 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs-mozilla, nixpkgs, nur, home-manager, polymc, ...}@inputs:
+  outputs = { self
+            , nixpkgs-mozilla
+            , nixpkgs
+            # , dwm
+            , nur
+            , home-manager
+            , polymc
+            , ...}@inputs:
     let
       system = "x86_64-linux";
       username = "ocfox";
-      # overlays = [
-      #     inputs.neovim-nightly-overlay.overlay
-      #   ];
     in {
 
       nixosConfigurations.whitefox =  nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./configuration.nix
-          { nixpkgs.overlays = [ nur.overlay nixpkgs-mozilla.overlay polymc.overlay ]; }
           home-manager.nixosModules.home-manager
           {
            home-manager.useGlobalPkgs = true;
            home-manager.useUserPackages = true;
            home-manager.users.ocfox = import ./home.nix;
           }
+          { nixpkgs.overlays = [
+              nur.overlay
+              # dwm.overlay
+              nixpkgs-mozilla.overlay
+              polymc.overlay
+          ]; }
         ];
         specialArgs = { inherit inputs; };
       };
