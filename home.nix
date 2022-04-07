@@ -30,12 +30,13 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    calibre
+    bitwarden
+    # calibre
     tree
     element-desktop
-    qutebrowser
     qbittorrent
     nur.repos.ilya-fedin.kotatogram-desktop
+    latest.firefox-nightly-bin
     # Game
     polymc
     factorio
