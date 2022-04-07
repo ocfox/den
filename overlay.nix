@@ -8,36 +8,37 @@
     };
 
     factorio = super.factorio.override {
-      username = "{}";
-      token = "{}";
+      username = "ocfox";
+      token = "483926ff66c4429ec6084fc0533c17";
     };
     })
 
     (final: prev: {
             # sha256 = "0000000000000000000000000000000000000000000000000000";
             dwm = prev.dwm.overrideAttrs (old: {
-          buildInputs = (old.buildInputs or []) ++ [ final.xorg.libXext ];
-          src = pkgs.fetchFromGitHub {
-            owner = "ocfox";
-            repo = "dwm";
-            rev = "4320f2d7a610ae85cb1a630bc0713800e262e5be";
-            sha256 = "4745EhooIQ422rQnixtMXfjw5cxUPjoSdScJPskl1IU=";
+              buildInputs = (old.buildInputs or []) ++ [ final.xorg.libXext ];
+              src = pkgs.fetchFromGitHub {
+              owner = "ocfox";
+              repo = "dwm";
+              rev = "4320f2d7a610ae85cb1a630bc0713800e262e5be";
+              sha256 = "4745EhooIQ422rQnixtMXfjw5cxUPjoSdScJPskl1IU=";
           };});
-      # picom = prev.picom.overrideAttrs (old: {
-      #     src = pkgs.fetchFromGitHub {
-      #       owner = "jonaburg";
-      #       repo = "picom";
-      #       rev = "a8445684fe18946604848efb73ace9457b29bf80";
-      #       sha256 = "R+YUGBrLst6CpUgG9VCwaZ+LiBSDWTp0TLt1Ou4xmpQ=";
-      #     };});
 
       picom = prev.picom.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
-            owner = "ibhagwan";
-            repo = "picom";
-            rev = "c4107bb6cc17773fdc6c48bb2e475ef957513c7a";
-            sha256 = "1hVFBGo4Ieke2T9PqMur1w4D0bz/L3FAvfujY9Zergw=";
+            owner = "Arian8j2";
+            repo = "picom-jonaburg-fix";
+            rev = "31d25da22b44f37cbb9be49fe5c239ef8d00df12";
+            sha256 = "1z4bKDoNgmG40y2DKTSSh1NCafrE1rkHkCB3ob8ibm4=";
           };});
+
+      # picom = prev.picom.overrideAttrs (old: {
+      #     src = pkgs.fetchFromGitHub {
+      #       owner = "ibhagwan";
+      #       repo = "picom";
+      #       rev = "c4107bb6cc17773fdc6c48bb2e475ef957513c7a";
+      #       sha256 = "1hVFBGo4Ieke2T9PqMur1w4D0bz/L3FAvfujY9Zergw=";
+      #     };});
 
       dmenu = prev.dmenu.overrideAttrs (old: {
           src = pkgs.fetchFromGitHub {
