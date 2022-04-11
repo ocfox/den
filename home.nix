@@ -30,6 +30,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    aseprite-unfree
     bitwarden
     # calibre
     tree
@@ -57,5 +58,5 @@
     discord
     screenkey
   ];
-  home.stateVersion = "21.11";
+  home.stateVersion = "22.05";
 }
