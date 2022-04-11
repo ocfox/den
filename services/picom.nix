@@ -8,7 +8,7 @@
     blurExclude = [ "class_g = 'dwmsystray'" "class_g = 'conky'" ];
     opacityRule = [ "100:class_g = 'dwm'" ];
     shadow = true;
-    shadowOpacity = "0.9";
+    shadowOpacity = "0.6";
     shadowExclude = [ "class_g = 'dwmsystray'" "class_g = 'conky'" ];
     shadowOffsets = [ (-17) (-17) ];
     inactiveOpacity = "0.95";

@@ -13,7 +13,7 @@
           family = "JetBrainsMono Nerd Font";
           style = "Regular";
         };
-        size = 16;
+        size = 16.5;
       };
 
       colors = {
