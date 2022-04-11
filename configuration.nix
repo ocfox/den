@@ -95,13 +95,6 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  services.aria2 = {
-    enable = true;
-    openPorts = true;
-    rpcSecret = "000";
-    downloadDir = "/home/ocfox/aria2dl";
-  };
-
   services.avahi = {
     enable = true;
     nssmdns = true;
@@ -127,8 +120,6 @@
   };
 
   environment.variables.EDITOR = "nvim";
-  environment.variables.TERM = "alacritty";
-  environment.variables.XCURSOR_SIZE = "50";
 
   services.openssh.enable = true;
   system.stateVersion = "unstable";
