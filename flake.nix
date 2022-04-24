@@ -1,7 +1,7 @@
 {
   description = "nixos-config";
 
-  inputs.nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
+  # inputs.nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   # inputs.dwm.url = "github:ocfox/dwm";
   inputs.polymc.url = "github:PolyMC/PolyMC";
@@ -12,7 +12,7 @@
   };
 
   outputs = { self
-            , nixpkgs-mozilla
+            # , nixpkgs-mozilla
             , nixpkgs
             # , dwm
             , nur
@@ -37,7 +37,7 @@
           { nixpkgs.overlays = [
               nur.overlay
               # dwm.overlay
-              nixpkgs-mozilla.overlay
+              # nixpkgs-mozilla.overlay
               polymc.overlay
           ]; }
         ];
