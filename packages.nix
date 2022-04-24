@@ -5,15 +5,20 @@
     fontpreview
     wget
     git
-    screenfetch neofetch
+    screenfetch
+    neofetch
     feh
     ueberzug
-    exa bat
+    exa
+    bat
     tty-clock
     lazygit
-    ranger fzf
-    unzip p7zip
-    htop bottom
+    ranger
+    fzf
+    unzip
+    p7zip
+    htop
+    bottom
     surf
     ripgrep
     pinentry
@@ -40,6 +45,7 @@
 
     # dev
     neovim
+    taplo-lsp
     glfw2
     libGL
     helix
@@ -62,17 +68,18 @@
     rustc
     rustup
     rust-analyzer
+    rnix-lsp
     cargo
     nodejs
     nodePackages.typescript
     yarn
-    (python310.withPackages(ps: with ps; [ pynvim ]))
+    (python310.withPackages (ps: with ps; [ pynvim ]))
 
     # System Tools
     xclip
 
     # Warm up
-    fahclient
+    # fahclient
 
     # Virt
     virt-manager

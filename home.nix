@@ -33,14 +33,18 @@
     aseprite-unfree
     bitwarden
     # calibre
+    lapce
+    lolcat
     tree
     element-desktop
     qbittorrent
     nur.repos.ilya-fedin.kotatogram-desktop
-    latest.firefox-nightly-bin
+    # latest.firefox-nightly-bin
+    firefox-devedition-bin
     # Game
     polymc
-    factorio
+    # factorio
+    tetrio-desktop
 
     # Music & Video
     spotify
