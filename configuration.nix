@@ -6,6 +6,7 @@
     ./overlay.nix
     ./fonts.nix
     ./packages.nix
+    ./env.nix
   ];
 
   # Allow Unfree pkgs
@@ -13,7 +14,6 @@
   nixpkgs.config.allowBroken = true;
 
   networking.firewall.enable = false;
-
   virtualisation.libvirtd.enable = true;
 
   nix = {
@@ -39,7 +39,7 @@
   time.timeZone = "Asia/Shanghai";
 
   networking = {
-    hostName = "whitefox"; # Define your hostname.
+    hostName = "whitefox";
     useDHCP = false;
 
     networkmanager = {
@@ -71,6 +71,8 @@
     # xkbOptions = "caps:swapescape";
 
     windowManager.dwm.enable = true;
+    windowManager.leftwm.enable = true;
+
     enable = true;
     videoDrivers = [ "nvidia" ];
     displayManager = {
@@ -109,7 +111,7 @@
     support32Bit = true;
     tcp = {
       enable = true;
-      anonymousClients.allowedIpRanges = ["127.0.0.1"];
+      anonymousClients.allowedIpRanges = [ "127.0.0.1" ];
     };
   };
 
