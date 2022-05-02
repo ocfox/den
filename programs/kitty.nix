@@ -4,7 +4,7 @@
     enable = true;
     font = {
       name = "JetBrainsMono Nerd Font";
-      size = 19;
+      size = 20;
     };
     settings = {
       background_opacity = "0.85";
