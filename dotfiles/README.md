@@ -1,6 +1,6 @@
 # Dotfiles
 
-picom and some another config
+conky config
 
 ### Where
 

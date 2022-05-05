@@ -1,0 +1,25 @@
+conky.config = {
+	xftalpha = 0.5,
+	alignment = 'top_right',
+	background = true,
+	cpu_avg_samples = 2,
+	default_color = '000000',
+	double_buffer = true,
+        font = 'ttyclock:size=144',
+	draw_shades = false,
+	gap_x = -1900,
+	gap_y = 440,
+	minimum_width = 300,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 1.0,
+	use_xft = true,
+}
+
+conky.text = [[
+${goto 10}${color}${font}$alignc${time %H}
+${voffset 45}${goto 10}${color}${font}$alignc${time %M}
+${voffset 45}${goto 10}${color}${font}$alignc${time %S}
+]]
