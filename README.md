@@ -1,10 +1,10 @@
 # nixos-config
 
-> my nixos configuration
+> *my nixos configuration with flake*
 
-![desktop img](https://i.imgur.com/1w8Wdy4.png)
-![with conky](https://s2.loli.net/2022/03/08/xdPpBhMCrYUQTty.png)
+![desktop img](https://i.imgur.com/AQgx4Ip.png)
+![with conky](https://i.imgur.com/VIWzMqj.png)
 
-- [dwm](https://github.com/ocfox/dwm)
+- [dwm](https://github.com/ocfox/dwm) -- *[fork from [sdwm](https://github.com/Avimitin/sdwm)]*
 - [dmenu](https://github.com/ocfox/dmenu)
 - [NixOS-CN-telegram](https://github.com/nixos-cn/NixOS-CN-telegram)
