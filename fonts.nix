@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   fonts = {
     enableDefaultFonts = true;
     fontconfig = {
@@ -9,9 +8,9 @@
         autohint = false;
       };
       defaultFonts = {
-        emoji = [ "Noto Color Emoji" ];
-        sansSerif = [ "DejaVu Sans" ];
-        serif = [ "DejaVu Serif" ];
+        emoji = ["Noto Color Emoji"];
+        sansSerif = ["DejaVu Sans"];
+        serif = ["DejaVu Serif"];
       };
     };
 
@@ -26,9 +25,14 @@
       wqy_microhei
       wqy_zenhei
       symbola
-      (nerdfonts.override { fonts = [
-        "FiraCode" "DroidSansMono" "JetBrainsMono" "FantasqueSansMono"
-      ]; })
+      (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "DroidSansMono"
+          "JetBrainsMono"
+          "FantasqueSansMono"
+        ];
+      })
     ];
   };
 }

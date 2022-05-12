@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./programs
     #./nvim
@@ -39,8 +38,10 @@
     element-desktop
     qbittorrent
     nur.repos.ilya-fedin.kotatogram-desktop
-    # latest.firefox-nightly-bin
+
+    # firefox
     firefox-devedition-bin
+
     # Game
     polymc
     # factorio
@@ -61,6 +62,10 @@
     nur.repos.linyinfeng.wemeet
     discord
     screenkey
+    vimPlugins.markdown-preview-nvim
+
+    #dev
+    julia-bin
   ];
   home.stateVersion = "22.05";
 }

@@ -1,5 +1,7 @@
-{ pkgs, lib }:
 {
+  pkgs,
+  lib,
+}: {
   filetype = pkgs.vimUtils.buildVimPlugin rec {
     pname = "filetype";
     version = "v0.4";

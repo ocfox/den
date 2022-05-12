@@ -1,10 +1,15 @@
-{ pkgs, lib, ... }:
-let
-  vim-plugins = import ./plugins.nix { inherit pkgs lib; };
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  vim-plugins = import ./plugins.nix {inherit pkgs lib;};
   nixos-unstable = import <unstable> {};
 in {
   home.packages = with pkgs; [
-    nodePackages.pyright tree-sitter luaPackages.lua-lsp
+    nodePackages.pyright
+    tree-sitter
+    luaPackages.lua-lsp
     rnix-lsp
   ];
   programs.neovim = {
@@ -28,5 +33,3 @@ in {
     # extraConfig = builtins.readFile ./init.lua;
   };
 }
-
-

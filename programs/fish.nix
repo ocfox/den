@@ -1,16 +1,20 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.fish = {
     enable = true;
     shellAliases = {
-      vinix="sudo -E vim /etc/nixos/";
-      nixup="sudo nixos-rebuild switch";
-      ls="exa -l";
-      top="btm";
+      vinix = "sudo -E vim /etc/nixos/";
+      nixup = "sudo nixos-rebuild switch";
+      ls = "exa -l";
+      top = "btm";
     };
 
     functions = {
-        fish_prompt = "
+      fish_prompt = "
           echo -n (set_color blue)' '
           if test -n \"$SSH_TTY\"
               echo -n (set_color brred)\"$USER\"(set_color white)'@'(set_color yellow)(prompt_hostname)' '
@@ -23,7 +27,7 @@
           echo -n (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯ '
           set_color normal";
 
-        fish_right_prompt = "
+      fish_right_prompt = "
           set -l cmd_status $status
           if test $cmd_status -ne 0
               echo -n (set_color red)\"✘ $cmd_status\"

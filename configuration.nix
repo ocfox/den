@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware.nix
     ./overlay.nix
@@ -74,7 +76,7 @@
     windowManager.leftwm.enable = true;
 
     enable = true;
-    videoDrivers = [ "nvidia" ];
+    videoDrivers = ["nvidia"];
     displayManager = {
       defaultSession = "none+dwm";
       autoLogin = {
@@ -111,13 +113,13 @@
     support32Bit = true;
     tcp = {
       enable = true;
-      anonymousClients.allowedIpRanges = [ "127.0.0.1" ];
+      anonymousClients.allowedIpRanges = ["127.0.0.1"];
     };
   };
 
   users.users.ocfox = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "libvirtd" ];
+    extraGroups = ["wheel" "libvirtd"];
     shell = pkgs.fish;
   };
 

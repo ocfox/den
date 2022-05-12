@@ -11,37 +11,41 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self
-            # , nixpkgs-mozilla
-            , nixpkgs
-            # , dwm
-            , nur
-            , home-manager
-            , polymc
-            , ...}@inputs:
-    let
-      system = "x86_64-linux";
-      username = "ocfox";
-    in {
-
-      nixosConfigurations.whitefox =  nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-           home-manager.useGlobalPkgs = true;
-           home-manager.useUserPackages = true;
-           home-manager.users.ocfox = import ./home.nix;
-          }
-          { nixpkgs.overlays = [
-              nur.overlay
-              # dwm.overlay
-              # nixpkgs-mozilla.overlay
-              polymc.overlay
-          ]; }
-        ];
-        specialArgs = { inherit inputs; };
-      };
+  outputs = {
+    self
+    # , nixpkgs-mozilla
+    ,
+    nixpkgs
+    # , dwm
+    ,
+    nur,
+    home-manager,
+    polymc,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    username = "ocfox";
+  in {
+    nixosConfigurations.whitefox = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.ocfox = import ./home.nix;
+        }
+        {
+          nixpkgs.overlays = [
+            nur.overlay
+            # dwm.overlay
+            # nixpkgs-mozilla.overlay
+            polymc.overlay
+          ];
+        }
+      ];
+      specialArgs = {inherit inputs;};
     };
+  };
 }

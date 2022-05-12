@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -31,7 +34,6 @@
           magenta = "0x957fb8";
           cyan = "0x6a9589";
           white = "0xc8c093";
-
         };
         bright = {
           black = "0x727169";

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   nixpkgs.overlays = [
     (self: super: {
       neovim = super.neovim.override {
@@ -16,7 +15,7 @@
     (final: prev: {
       # sha256 = "0000000000000000000000000000000000000000000000000000";
       dwm = prev.dwm.overrideAttrs (old: {
-        buildInputs = (old.buildInputs or [ ]) ++ [ final.xorg.libXext ];
+        buildInputs = (old.buildInputs or []) ++ [final.xorg.libXext];
         src = pkgs.fetchFromGitHub {
           owner = "ocfox";
           repo = "dwm";
@@ -43,6 +42,5 @@
         };
       });
     })
-
   ];
 }
