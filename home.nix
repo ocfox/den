@@ -20,7 +20,8 @@
 
   xsession.enable = true;
 
-  xsession.pointerCursor = {
+  home.pointerCursor = {
+    x11.enable = true;
     package = pkgs.nur.repos.ambroisie.vimix-cursors;
     name = "Vimix-white-cursors";
     size = 38;
@@ -31,6 +32,7 @@
   home.packages = with pkgs; [
     aseprite-unfree
     bitwarden
+
     # calibre
     lapce
     lolcat
@@ -44,6 +46,7 @@
 
     # Game
     polymc
+
     # factorio
     tetrio-desktop
 
@@ -66,6 +69,7 @@
 
     #dev
     julia-bin
+    texlive.combined.scheme-medium
   ];
   home.stateVersion = "22.05";
 }
