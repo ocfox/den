@@ -9,7 +9,7 @@
     fade = true;
     backend = "glx";
     blur = true;
-    blurExclude = ["class_g = 'dwmsystray'" "class_g = 'conky'"];
+    blurExclude = ["class_g = 'dwmsystray'" "class_g = 'conky'" "class_g = 'firefox'"];
     opacityRule = ["100:class_g = 'dwm'"];
     shadow = true;
     shadowOpacity = "0.6";
