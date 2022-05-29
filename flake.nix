@@ -1,9 +1,7 @@
 {
   description = "nixos-config";
 
-  # inputs.nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  # inputs.dwm.url = "github:ocfox/dwm";
   inputs.polymc.url = "github:PolyMC/PolyMC";
   inputs.nur.url = github:nix-community/NUR;
   inputs.home-manager = {
@@ -12,12 +10,8 @@
   };
 
   outputs = {
-    self
-    # , nixpkgs-mozilla
-    ,
-    nixpkgs
-    # , dwm
-    ,
+    self,
+    nixpkgs,
     nur,
     home-manager,
     polymc,
