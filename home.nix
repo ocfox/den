@@ -39,7 +39,7 @@
     tree
     element-desktop
     qbittorrent
-    nur.repos.ilya-fedin.kotatogram-desktop
+    kotatogram-desktop
 
     # firefox
     firefox-devedition-bin
