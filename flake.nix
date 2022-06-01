@@ -33,8 +33,6 @@
         {
           nixpkgs.overlays = [
             nur.overlay
-            # dwm.overlay
-            # nixpkgs-mozilla.overlay
             polymc.overlay
           ];
         }
