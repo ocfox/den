@@ -36,7 +36,7 @@
     efi.canTouchEfiVariables = true;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_lqx;
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
@@ -88,6 +88,15 @@
   };
 
   programs.gnupg.agent.enable = true;
+
+  # garbage collect
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 5d";
+    dates = "Sun 14:00";
+  };
+
+  nix.autoOptimiseStore = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
