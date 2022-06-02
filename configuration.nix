@@ -23,6 +23,12 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+
+    nixPath = [
+      "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+      "nixos-config=/home/ocfox/nixos/configuration.nix"
+      "/nix/var/nix/profiles/per-user/root/channels"
+    ];
   };
 
   # Use the systemd-boot EFI boot loader.
