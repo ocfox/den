@@ -7,7 +7,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      vinix = "sudo -E vim /etc/nixos/";
+      vinix = "vim ~/nixos";
       nixup = "sudo nixos-rebuild switch";
       ls = "exa -l";
       top = "btm";

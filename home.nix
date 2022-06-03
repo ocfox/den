@@ -21,6 +21,7 @@
   xsession.enable = true;
 
   home.pointerCursor = {
+    gtk.enable = true;
     x11.enable = true;
     package = pkgs.nur.repos.ambroisie.vimix-cursors;
     name = "Vimix-white-cursors";
@@ -65,7 +66,7 @@
     nur.repos.linyinfeng.wemeet
     discord
     screenkey
-    vimPlugins.markdown-preview-nvim
+    # vimPlugins.markdown-preview-nvim
 
     #dev
     julia-bin

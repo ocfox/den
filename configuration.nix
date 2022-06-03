@@ -24,6 +24,14 @@
       experimental-features = nix-command flakes
     '';
 
+    # garbage collect
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 5d";
+      dates = "Sun 14:00";
+    };
+    autoOptimiseStore = true;
+
     nixPath = [
       "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
       "nixos-config=/home/ocfox/nixos/configuration.nix"
@@ -57,8 +65,12 @@
     };
   };
 
-  programs.nm-applet.enable = true;
-  programs.steam.enable = true;
+  programs = {
+    nm-applet.enable = true;
+    steam.enable = true;
+    gnupg.agent.enable = true;
+    dconf.enable = true;
+  };
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -93,20 +105,8 @@
     };
   };
 
-  programs.gnupg.agent.enable = true;
-
-  # garbage collect
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 5d";
-    dates = "Sun 14:00";
-  };
-
-  nix.autoOptimiseStore = true;
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  programs.dconf.enable = true;
 
   # Enable sound.
   sound.enable = true;
