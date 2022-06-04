@@ -25,7 +25,7 @@
     x11.enable = true;
     package = pkgs.nur.repos.ambroisie.vimix-cursors;
     name = "Vimix-white-cursors";
-    size = 38;
+    size = 42;
   };
 
   programs.home-manager.enable = true;

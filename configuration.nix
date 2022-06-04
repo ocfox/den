@@ -85,43 +85,45 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    layout = "us";
-    # swap 'Caps Lock' & 'Escape'
-    # xkbOptions = "caps:swapescape";
+  services = {
+    xserver = {
+      layout = "us";
+      # swap 'Caps Lock' & 'Escape'
+      # xkbOptions = "caps:swapescape";
 
-    windowManager.dwm.enable = true;
-    windowManager.leftwm.enable = true;
+      windowManager.dwm.enable = true;
+      # windowManager.leftwm.enable = true;
 
-    enable = true;
-    videoDrivers = ["nvidia"];
-    displayManager = {
-      defaultSession = "none+dwm";
-      autoLogin = {
-        enable = true;
-        user = "ocfox";
+      enable = true;
+      videoDrivers = ["nvidia"];
+      displayManager = {
+        defaultSession = "none+dwm";
+        autoLogin = {
+          enable = true;
+          user = "ocfox";
+        };
+        lightdm.enable = true;
       };
-      lightdm.enable = true;
+    };
+
+    printing.enable = true;
+    blueman.enable = true;
+    openssh.enable = true;
+
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      publish = {
+        enable = true;
+        userServices = true;
+      };
     };
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
   # Enable bluetooth
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    publish = {
-      enable = true;
-      userServices = true;
-    };
-  };
 
   hardware.pulseaudio = {
     enable = true;
@@ -140,6 +142,5 @@
 
   environment.variables.EDITOR = "nvim";
 
-  services.openssh.enable = true;
   system.stateVersion = "unstable";
 }
