@@ -15,7 +15,6 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
 
-  networking.firewall.enable = false;
   virtualisation.libvirtd.enable = true;
 
   nix = {
@@ -55,13 +54,17 @@
   time.timeZone = "Asia/Shanghai";
 
   networking = {
+
+    firewall.enable = false;
     hostName = "whitefox";
     useDHCP = false;
 
+    interfaces.enp5s0.wakeOnLan.enable = true;
+
     networkmanager = {
       enable = true;
-      wifi.macAddress = "random";
-      ethernet.macAddress = "random";
+      # wifi.macAddress = "random";
+      # ethernet.macAddress = "random";
     };
   };
 
