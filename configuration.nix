@@ -54,7 +54,6 @@
   time.timeZone = "Asia/Shanghai";
 
   networking = {
-
     firewall.enable = false;
     hostName = "whitefox";
     useDHCP = false;
@@ -70,7 +69,7 @@
 
   programs = {
     nm-applet.enable = true;
-    steam.enable = true;
+    steam.enable = false;
     gnupg.agent.enable = true;
     dconf.enable = true;
   };
@@ -87,6 +86,11 @@
     };
   };
 
+  # xdg.portal = {
+  #   enable = false;
+  #   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # };
+
   # Enable the X11 windowing system.
   services = {
     xserver = {
@@ -95,6 +99,8 @@
       # xkbOptions = "caps:swapescape";
 
       windowManager.dwm.enable = true;
+      dpi = 144;
+
       # windowManager.leftwm.enable = true;
 
       enable = true;
@@ -107,6 +113,11 @@
         };
         lightdm.enable = true;
       };
+    };
+
+    xrdp = {
+      enable = false;
+      defaultWindowManager = "dwm";
     };
 
     printing.enable = true;
@@ -122,6 +133,8 @@
       };
     };
   };
+
+  hardware.video.hidpi.enable = true;
 
   # Enable sound.
   sound.enable = true;
