@@ -46,6 +46,7 @@
 
     # dev
     neovim
+    texlab
     taplo-lsp
     glfw2
     libGL

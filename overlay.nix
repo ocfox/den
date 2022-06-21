@@ -13,14 +13,13 @@
     })
 
     (final: prev: {
-      # sha256 = "0000000000000000000000000000000000000000000000000000";
       dwm = prev.dwm.overrideAttrs (old: {
         buildInputs = (old.buildInputs or []) ++ [final.xorg.libXext];
         src = pkgs.fetchFromGitHub {
           owner = "ocfox";
           repo = "dwm";
-          rev = "265270282811ae390fb29beb91ead4f59efc19ff";
-          sha256 = "vifwD6DalgtK76lFLLr188lFB1TRsdxrBlxhfBlHsVQ=";
+          rev = "6955b228e2742d903c8dbf0dde6d4c8d6c79d398";
+          sha256 = "7bJu+P/XX/xol+ClryGlK5GfBGE5y7+C+lTOwWGfxlw=";
         };
       });
 
