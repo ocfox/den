@@ -9,6 +9,7 @@
     ./fonts.nix
     ./packages.nix
     ./env.nix
+    ./services/frp.nix
   ];
 
   # Allow Unfree pkgs
@@ -49,7 +50,7 @@
     efi.canTouchEfiVariables = true;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_lqx;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
@@ -87,8 +88,8 @@
   };
 
   # xdg.portal = {
-  #   enable = false;
-  #   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  #   enable = true;
+  #   wlr.enable = true;
   # };
 
   # Enable the X11 windowing system.
