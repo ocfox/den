@@ -1,7 +1,7 @@
 #!/bin/sh
 
-SPLITER=" ^c#1b2523^|^d^ "
-FG="^c#1b2523^"
+SPLITER=" ^c#eaeaea^|^d^ "
+FG="^c#ffffff^"
 
 get_date() {
 	# printf "$FG ^d^ "

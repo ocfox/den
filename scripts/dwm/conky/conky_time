@@ -1,13 +1,14 @@
 conky.config = {
+	xftalpha = 0.5,
 	alignment = 'top_right',
 	background = true,
 	cpu_avg_samples = 2,
-	default_color = 'ffffff',
+	default_color = '000000',
 	double_buffer = true,
-        font = 'FiraCode Nerd Font:bold:size=100',
+        font = 'ttyclock:size=144',
 	draw_shades = false,
-	gap_x = -610,
-	gap_y = 200,
+	gap_x = -1900,
+	gap_y = 440,
 	minimum_width = 300,
 	no_buffers = true,
 	own_window = true,
@@ -16,6 +17,9 @@ conky.config = {
 	update_interval = 1.0,
 	use_xft = true,
 }
+
 conky.text = [[
-${voffset -5}${goto 10}${color}${font}$alignc${time %H:%M:%S}
+${goto 10}${color}${font}$alignc${time %H}
+${voffset 45}${goto 10}${color}${font}$alignc${time %M}
+${voffset 45}${goto 10}${color}${font}$alignc${time %S}
 ]]
