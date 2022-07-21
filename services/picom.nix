@@ -6,14 +6,16 @@
 }: {
   services.picom = {
     enable = true;
+    # enable = false;
     fade = true;
     backend = "glx";
     blur = true;
-    blurExclude = ["class_g = 'dwmsystray'" "class_g = 'conky'" "class_g = 'firefox'"];
-    opacityRule = ["100:class_g = 'dwm'"];
-    shadow = true;
+    vSync = true;
+    blurExclude = ["class_g = 'dwmsystray'" "class_g = 'conky'" "class_g = 'firefox-aurora'" "class_g = 'firefox-aurora' && argb" "class_g = 'KotatogramDesktop' && argb"];
+    opacityRule = ["100:class_g = 'dwm'" "100:class_g = 'KotatogramDesktop'" "100:class_g = 'firefox-aurora'"];
+    shadow = false;
     shadowOpacity = "0.6";
-    shadowExclude = ["class_g = 'dwmsystray'" "class_g = 'conky'"];
+    shadowExclude = ["class_g = 'dwmsystray'" "class_g = 'conky'" "class_g = 'firefox-aurora' && argb" "class_g = 'KotatogramDesktop' && argb" "class_g = 'KotatogramDesktop'"];
     shadowOffsets = [(-17) (-17)];
     inactiveOpacity = "0.95";
     experimentalBackends = true;
