@@ -18,7 +18,29 @@
     };
   };
 
+  wayland.windowManager.sway = {
+    enable = true;
+    extraOptions = ["--unsupported-gpu"];
+    wrapperFeatures.gtk = true;
+
+    config = {
+      modifier = "Mod4";
+      startup = [
+        {command = "firefox-devedition";}
+        {command = "kotatogram-desktop";}
+        # { command = "thunderbird"; }
+      ];
+      gaps = {
+        inner = 5;
+        outer = 5;
+        smartGaps = true;
+      };
+    };
+  };
+
   xsession.enable = true;
+
+  services.pasystray.enable = true;
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -31,8 +53,9 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    aseprite-unfree
+    # aseprite-unfree
     bitwarden
+    anbox
 
     # calibre
     lapce
@@ -48,7 +71,7 @@
     # Game
     polymc
 
-    # factorio
+    factorio
     tetrio-desktop
 
     # Music & Video

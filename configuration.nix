@@ -49,6 +49,7 @@
     };
     efi.canTouchEfiVariables = true;
   };
+  boot.kernelParams = ["nvidia-drm.modeset=1"];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
   # Set your time zone.
