@@ -9,7 +9,7 @@
     ./fonts.nix
     ./packages.nix
     ./env.nix
-    ./services/frp.nix
+    # ./services/frp.nix
   ];
 
   # Allow Unfree pkgs
@@ -49,7 +49,6 @@
     };
     efi.canTouchEfiVariables = true;
   };
-  boot.kernelParams = ["nvidia-drm.modeset=1"];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
   # Set your time zone.
@@ -59,8 +58,6 @@
     firewall.enable = false;
     hostName = "whitefox";
     useDHCP = false;
-
-    interfaces.enp5s0.wakeOnLan.enable = true;
 
     networkmanager = {
       enable = true;
@@ -104,16 +101,15 @@
       dpi = 144;
 
       # windowManager.leftwm.enable = true;
-
       enable = true;
-      videoDrivers = ["nvidia"];
+      videoDrivers = ["amdgpu"];
       displayManager = {
         defaultSession = "none+dwm";
         autoLogin = {
           enable = true;
           user = "ocfox";
         };
-        lightdm.enable = true;
+        gdm.enable = true;
       };
     };
 
