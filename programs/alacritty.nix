@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  programs.alacritty = {
+  home-manager.users.ocfox.programs.alacritty = {
     enable = true;
     settings = {
       window = {
@@ -21,8 +21,8 @@
 
       colors = {
         primary = {
-          background = "0x1f1f28";
-          foreground = "0xdcd7ba";
+          background = "0x2b3339";
+          foreground = "0xd8caac";
         };
 
         normal = {

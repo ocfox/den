@@ -4,13 +4,14 @@
   pkgs,
   ...
 }: {
-  programs.fish = {
+  home-manager.users.ocfox.programs.fish = {
     enable = true;
     shellAliases = {
       vinix = "vim ~/nixos";
       nixup = "sudo nixos-rebuild switch";
       ls = "exa -l";
       top = "btm";
+      disoff = "xset dpms force off";
     };
 
     functions = {

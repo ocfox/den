@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./programs
+    # ./programs
     #./nvim
     ./services
   ];
@@ -20,7 +20,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
-    extraOptions = ["--unsupported-gpu"];
+
     wrapperFeatures.gtk = true;
 
     config = {
@@ -51,11 +51,13 @@
   };
 
   programs.home-manager.enable = true;
+  # programs.waybar.enable = true;
 
   home.packages = with pkgs; [
     # aseprite-unfree
     bitwarden
     anbox
+    waybar
 
     # calibre
     lapce
@@ -64,6 +66,7 @@
     element-desktop
     qbittorrent
     kotatogram-desktop
+    tdesktop
 
     # firefox
     firefox-devedition-bin
@@ -71,7 +74,7 @@
     # Game
     polymc
 
-    factorio
+    # factorio
     tetrio-desktop
 
     # Music & Video
