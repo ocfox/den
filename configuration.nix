@@ -9,12 +9,16 @@
     ./fonts.nix
     ./packages.nix
     ./env.nix
+    ./programs
     # ./services/frp.nix
   ];
 
   # Allow Unfree pkgs
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
+  nixpkgs.config = { 
+    allowUnfree = true;
+    allowBroken = true;
+    permittedInsecurePackages = ["libdwarf-20210528"];
+  };
 
   virtualisation.libvirtd.enable = true;
 
@@ -30,7 +34,7 @@
       options = "--delete-older-than 5d";
       dates = "Sun 14:00";
     };
-    autoOptimiseStore = true;
+    settings.auto-optimise-store = true;
 
     nixPath = [
       "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
@@ -80,7 +84,6 @@
       fcitx5.addons = with pkgs; [
         fcitx5-chinese-addons
         fcitx5-configtool
-        fcitx5-rime
       ];
     };
   };
@@ -106,10 +109,10 @@
       displayManager = {
         defaultSession = "none+dwm";
         autoLogin = {
-          enable = true;
+          enable = false;
           user = "ocfox";
         };
-        gdm.enable = true;
+        sddm.enable = true;
       };
     };
 
