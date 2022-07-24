@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     # ./programs
     #./nvim
@@ -15,26 +19,6 @@
     iconTheme = {
       package = pkgs.numix-icon-theme-circle;
       name = "Numix-Circle";
-    };
-  };
-
-  wayland.windowManager.sway = {
-    enable = true;
-
-    wrapperFeatures.gtk = true;
-
-    config = {
-      modifier = "Mod4";
-      startup = [
-        {command = "firefox-devedition";}
-        {command = "kotatogram-desktop";}
-        # { command = "thunderbird"; }
-      ];
-      gaps = {
-        inner = 5;
-        outer = 5;
-        smartGaps = true;
-      };
     };
   };
 
@@ -56,8 +40,9 @@
   home.packages = with pkgs; [
     # aseprite-unfree
     bitwarden
-    anbox
     waybar
+    foot
+    wl-clipboard
 
     # calibre
     lapce
@@ -65,11 +50,11 @@
     tree
     element-desktop
     qbittorrent
-    kotatogram-desktop
+    # kotatogram-desktop
     tdesktop
 
     # firefox
-    firefox-devedition-bin
+    firefox-wayland
 
     # Game
     polymc

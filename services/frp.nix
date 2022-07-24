@@ -1,9 +1,8 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   systemd.services.frp = {
     enable = true;
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+    wantedBy = ["multi-user.target"];
+    after = ["network.target"];
     description = "frp service";
     serviceConfig = {
       Type = "idle";

@@ -9,7 +9,6 @@
     neofetch
     feh
     ueberzug
-    deno
     exa
     bat
     tty-clock
@@ -21,6 +20,7 @@
     htop
     bottom
     surf
+    screen
     ripgrep
     pinentry
     unzip
@@ -33,6 +33,7 @@
     mpv
     xwinwrap
     ffmpeg
+    alejandra
 
     # firefox
     thunderbird
@@ -78,7 +79,6 @@
     (python310.withPackages (ps: with ps; [pynvim]))
 
     # System Tools
-    xclip
 
     # Warm up
     # fahclient

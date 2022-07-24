@@ -10,11 +10,11 @@
     ./packages.nix
     ./env.nix
     ./programs
-    # ./services/frp.nix
+    ./services/frp.nix
   ];
 
   # Allow Unfree pkgs
-  nixpkgs.config = { 
+  nixpkgs.config = {
     allowUnfree = true;
     allowBroken = true;
     permittedInsecurePackages = ["libdwarf-20210528"];
@@ -88,10 +88,10 @@
     };
   };
 
-  # xdg.portal = {
-  #   enable = true;
-  #   wlr.enable = true;
-  # };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
 
   # Enable the X11 windowing system.
   services = {
@@ -107,11 +107,6 @@
       enable = true;
       videoDrivers = ["amdgpu"];
       displayManager = {
-        defaultSession = "none+dwm";
-        autoLogin = {
-          enable = false;
-          user = "ocfox";
-        };
         sddm.enable = true;
       };
     };
