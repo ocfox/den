@@ -75,6 +75,7 @@
     steam.enable = false;
     gnupg.agent.enable = true;
     dconf.enable = true;
+    fish.enable = true;
   };
 
   i18n = {
@@ -88,33 +89,28 @@
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   wlr.enable = true;
+  # };
 
   # Enable the X11 windowing system.
   services = {
-    xserver = {
-      layout = "us";
-      # swap 'Caps Lock' & 'Escape'
-      # xkbOptions = "caps:swapescape";
-
-      windowManager.dwm.enable = true;
-      dpi = 144;
-
-      # windowManager.leftwm.enable = true;
-      enable = true;
-      videoDrivers = ["amdgpu"];
-      displayManager = {
-        sddm.enable = true;
-      };
-    };
-
-    xrdp = {
-      enable = false;
-      defaultWindowManager = "dwm";
-    };
+  #   xserver = {
+  #     layout = "us";
+  #     # swap 'Caps Lock' & 'Escape'
+  #     # xkbOptions = "caps:swapescape";
+  #
+  #     windowManager.dwm.enable = true;
+  #     dpi = 144;
+  #
+  #     # windowManager.leftwm.enable = true;
+  #     enable = true;
+  #     videoDrivers = ["amdgpu"];
+  #     displayManager = {
+  #       sddm.enable = true;
+  #     };
+  #   };
 
     printing.enable = true;
     blueman.enable = true;
@@ -132,9 +128,7 @@
 
   hardware.video.hidpi.enable = true;
 
-  # Enable sound.
   sound.enable = true;
-  # Enable bluetooth
   hardware.bluetooth.enable = true;
 
   hardware.pulseaudio = {
