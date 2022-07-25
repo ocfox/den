@@ -14,6 +14,12 @@
       disoff = "xset dpms force off";
     };
 
+    loginShellInit = ''
+      if test (id --user $USER) -ge 1000 && test (tty) = "/dev/tty1"
+        exec bash -c sway
+      end
+    '';
+
     plugins = [
       {
         name = "babelfish";
