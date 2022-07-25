@@ -39,38 +39,37 @@
     "spacing" = 5;
   };
   "clock" = {
-    "format" = "  {:%H:%M   %e %b}";
+    "format" = " {:%H:%M %b %e}";
     "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
     "today-format" = "<b>{}</b>";
-    "on-click" = "gnome-calendar";
   };
   "cpu" = {
-    "interval" = "1";
-    "format" = "﬙  {max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>";
+    "interval" = "5";
+    "format" = "﬙ {max_frequency}GHz <span color=\"darkgray\">{usage}%</span>";
     "max-length" = 13;
     "min-length" = 13;
     "on-click" = "kitty -e htop --sort-key PERCENT_CPU";
     "tooltip" = false;
   };
   "temperature" = {
-    "interval" = "4";
+    "interval" = "5";
     "hwmon-path" = "/sys/class/hwmon/hwmon3/temp1_input";
     "critical-threshold" = 74;
-    "format-critical" = "  {temperatureC}°C";
-    "format" = "{icon}  {temperatureC}°C";
+    "format-critical" = " {temperatureC}°C";
+    "format" = "{icon} {temperatureC}°C";
     "format-icons" = ["" "" ""];
     "max-length" = 7;
     "min-length" = 7;
   };
   "network" = {
-    "format-wifi" = "  {essid}";
-    "format-ethernet" = "{ifname}: {ipaddr}/{cidr} ";
-    "format-linked" = "{ifname} (No IP) ";
-    "format-disconnected" = "";
+    "format-wifi" = " {essid}";
+    "format-ethernet" = "{ifname}: {ipaddr}/{cidr}";
+    "format-linked" = "{ifname} (No IP)";
+    "format-disconnected" = " ";
     "format-alt" = "{ifname}: {ipaddr}/{cidr}";
     "family" = "ipv4";
-    "tooltip-format-wifi" = "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n {bandwidthUpBits}  {bandwidthDownBits}";
-    "tooltip-format-ethernet" = " {ifname}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}";
+    "tooltip-format-wifi" = " {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n{bandwidthUpBits} {bandwidthDownBits}";
+    "tooltip-format-ethernet" = " {ifname}\nIP: {ipaddr}\n{bandwidthUpBits} {bandwidthDownBits}";
   };
   "pulseaudio" = {
     "scroll-step" = 3;

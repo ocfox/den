@@ -96,21 +96,22 @@
 
   # Enable the X11 windowing system.
   services = {
-  #   xserver = {
-  #     layout = "us";
-  #     # swap 'Caps Lock' & 'Escape'
-  #     # xkbOptions = "caps:swapescape";
-  #
-  #     windowManager.dwm.enable = true;
-  #     dpi = 144;
-  #
-  #     # windowManager.leftwm.enable = true;
-  #     enable = true;
-  #     videoDrivers = ["amdgpu"];
-  #     displayManager = {
-  #       sddm.enable = true;
-  #     };
-  #   };
+    getty.autologinUser = "ocfox";
+    #   xserver = {
+    #     layout = "us";
+    #     # swap 'Caps Lock' & 'Escape'
+    #     # xkbOptions = "caps:swapescape";
+    #
+    #     windowManager.dwm.enable = true;
+    #     dpi = 144;
+    #
+    #     # windowManager.leftwm.enable = true;
+    #     enable = true;
+    #     videoDrivers = ["amdgpu"];
+    #     displayManager = {
+    #       sddm.enable = true;
+    #     };
+    #   };
 
     printing.enable = true;
     blueman.enable = true;

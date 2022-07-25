@@ -72,6 +72,7 @@
     cava
     vlc
     obs-studio
+    wf-recorder
 
     # Application
     nur.repos.linyinfeng.icalingua-plus-plus
