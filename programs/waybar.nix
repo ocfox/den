@@ -96,10 +96,8 @@
     "interval" = 3600;
   };
   "custom/recorder" = {
-    "format" = "";
-    "return-type" = "json";
     "interval" = 1;
-    "exec" = "echo '{\"class\": \"recording\"}'";
-    "exec-if" = "pgrep wf-recorder";
+    "exec" = "record-status";
+    "on-click" = "exec screen-recorder-toggle";
   };
 }

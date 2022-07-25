@@ -17,6 +17,21 @@
     )
 
     (
+      pkgs.writeShellScriptBin "record-status" ''
+        #!/usr/bin/env bash
+        pid=`pgrep wf-recorder`
+        status=$?
+
+        if [ $status != 0 ]
+        then
+          echo '';
+        else
+          echo '';
+        fi;
+      ''
+    )
+
+    (
       pkgs.writeShellScriptBin "screen-recorder-toggle" ''
         #!/usr/bin/env bash
         pid=`pgrep wf-recorder`
