@@ -36,7 +36,7 @@
     alejandra
 
     # firefox
-    thunderbird
+    thunderbird-wayland
 
     # Desktop
     conky

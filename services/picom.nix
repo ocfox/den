@@ -10,7 +10,7 @@
     fade = true;
     backend = "glx";
     vSync = true;
-    opacityRule = ["100:class_g = 'dwm'" "100:class_g = 'KotatogramDesktop'" "100:class_g = 'firefox-aurora'"];
+    opacityRules = ["100:class_g = 'dwm'" "100:class_g = 'KotatogramDesktop'" "100:class_g = 'firefox-aurora'"];
     shadow = false;
     shadowOpacity = "0.6";
     shadowExclude = ["class_g = 'dwmsystray'" "class_g = 'conky'" "class_g = 'firefox-aurora' && argb" "class_g = 'KotatogramDesktop' && argb" "class_g = 'KotatogramDesktop'"];

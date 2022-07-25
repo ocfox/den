@@ -7,6 +7,7 @@
     # ./programs
     #./nvim
     ./services
+    ./scripts
   ];
 
   gtk = {
@@ -22,7 +23,7 @@
     };
   };
 
-  xsession.enable = true;
+  # xsession.enable = true;
 
   services.pasystray.enable = true;
 

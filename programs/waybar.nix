@@ -1,9 +1,9 @@
 {pkgs}: {
   "layer" = "top";
   "position" = "top";
-  "modules-right" = ["cpu" "temperature" "pulseaudio" "bluetooth" "network" "tray"];
+  "modules-right" = ["bluetooth" "network" "pulseaudio" "tray"];
   "modules-center" = ["sway/workspaces" "sway/mode"];
-  "modules-left" = ["clock"];
+  "modules-left" = ["clock" "cpu" "temperature"];
   "sway/workspaces" = {
     "disable-scroll" = true;
     "all-outputs" = true;
