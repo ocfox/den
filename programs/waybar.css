@@ -86,6 +86,7 @@
 #custom-alsa,
 #custom-pacman,
 #custom-weather,
+#custom-recorder,
 #custom-gpu,
 #tray,
 #backlight,
@@ -194,6 +195,11 @@
     background: @mode;
     font-weight: bold;
     padding: 0 0.6em;
+}
+#custom-recorder {
+    background: @nord_bg;
+    font-weight: bold;
+    color: #FFFFFF;
 }
 #custom-pacman {
     background: @nord_light;

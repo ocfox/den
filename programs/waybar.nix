@@ -3,7 +3,7 @@
   "position" = "top";
   "modules-right" = ["bluetooth" "network" "pulseaudio" "tray"];
   "modules-center" = ["sway/workspaces" "sway/mode"];
-  "modules-left" = ["clock" "cpu" "temperature"];
+  "modules-left" = ["clock" "cpu" "temperature" "custom/recorder"];
   "sway/workspaces" = {
     "disable-scroll" = true;
     "all-outputs" = true;
@@ -95,5 +95,12 @@
   "custom/weather" = {
     "exec" = "curl 'https://wttr.in/?format=1'";
     "interval" = 3600;
+  };
+  "custom/recorder" = {
+    "format" = "";
+    "return-type" = "json";
+    "interval" = 1;
+    "exec" = "echo '{\"class\": \"recording\"}'";
+    "exec-if" = "pgrep wf-recorder";
   };
 }

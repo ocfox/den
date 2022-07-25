@@ -56,6 +56,7 @@
           "${modifier}+o" = "exec ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3";
           "${modifier}+space" = null;
           "${modifier}+shift+s" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" $HOME/Pictures/screenshot-$(date +\"%Y-%m-%d-%H-%M-%S\").png";
+          "${modifier}+shift+r" = "exec screen-recorder-toggle";
         };
     };
   };
