@@ -36,7 +36,7 @@
   };
 
   programs.home-manager.enable = true;
-  # programs.waybar.enable = true;
+  programs.mako.enable = true;
 
   home.packages = with pkgs; [
     # aseprite-unfree
@@ -44,6 +44,7 @@
     waybar
     foot
     wl-clipboard
+    swayidle
 
     # calibre
     lapce
@@ -51,7 +52,7 @@
     tree
     element-desktop
     qbittorrent
-    # kotatogram-desktop
+    kotatogram-desktop
     tdesktop
 
     # firefox
