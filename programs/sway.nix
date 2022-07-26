@@ -32,6 +32,7 @@
         DP-1 = {
           bg = "~/Pictures/Wallpapers/rurudo.jpg fill";
           mode = "2560x1440";
+          position = "0 0";
           scale = "2";
         };
         HDMI-A-1 = {
@@ -50,12 +51,13 @@
           "${modifier}+j" = "focus down";
           "${modifier}+k" = "focus up";
           "${modifier}+l" = "focus right";
-          "${modifier}+shift+u" = "exec pamixer -i 10";
-          "${modifier}+shift+d" = "exec pamixer -d 10";
+          "${modifier}+Shift+u" = "exec pamixer -i 10";
+          "${modifier}+Shift+d" = "exec pamixer -d 10";
+          "${modifier}+Shift+e" = "exec power-menu";
           "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
           "${modifier}+o" = "exec ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3";
           "${modifier}+space" = null;
-          "${modifier}+shift+s" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" $HOME/Pictures/screenshot-$(date +\"%Y-%m-%d-%H-%M-%S\").png";
+          "${modifier}+Shift+s" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" $HOME/Pictures/screenshot-$(date +\"%Y-%m-%d-%H-%M-%S\").png";
           "${modifier}+shift+r" = "exec screen-recorder-toggle";
         };
     };
