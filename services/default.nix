@@ -6,5 +6,6 @@
 }: {
   imports = [
     ./picom.nix
+    ./swayidle.nix
   ];
 }
