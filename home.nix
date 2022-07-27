@@ -45,6 +45,8 @@
     foot
     wl-clipboard
     swayidle
+    nur.repos.linyinfeng.canokey-udev-rules
+    chromium
 
     # calibre
     lapce

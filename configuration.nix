@@ -13,7 +13,6 @@
     ./services/frp.nix
   ];
 
-  # Allow Unfree pkgs
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = true;
@@ -43,6 +42,9 @@
     ];
   };
 
+  security.pam.u2f.enable = true;
+  services.pcscd.enable = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     grub = {
@@ -53,9 +55,7 @@
     };
     efi.canTouchEfiVariables = true;
   };
-
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
   networking = {
@@ -65,15 +65,16 @@
 
     networkmanager = {
       enable = true;
-      # wifi.macAddress = "random";
-      # ethernet.macAddress = "random";
     };
   };
 
   programs = {
     nm-applet.enable = true;
     steam.enable = false;
-    gnupg.agent.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
     dconf.enable = true;
     fish.enable = true;
   };
@@ -128,7 +129,6 @@
   };
 
   hardware.video.hidpi.enable = true;
-
   sound.enable = true;
   hardware.bluetooth.enable = true;
 

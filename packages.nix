@@ -34,6 +34,7 @@
     xwinwrap
     ffmpeg
     alejandra
+    ccid
 
     # firefox
     thunderbird-wayland
