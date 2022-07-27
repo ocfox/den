@@ -97,7 +97,29 @@
   };
   "custom/recorder" = {
     "interval" = 1;
-    "exec" = "record-status";
-    "on-click" = "exec screen-recorder-toggle";
+    "exec" = pkgs.writeShellScript "record-status" ''
+      #!/usr/bin/env bash
+      pid=`${pkgs.procps}/bin/pgrep wf-recorder`
+      status=$?
+
+      if [ $status != 0 ]
+      then
+        echo '';
+      else
+        echo '';
+      fi;
+    '';
+    "on-click" = pkgs.writeShellScript "recorder-toggle" ''
+        #!/usr/bin/env bash
+        pid=`${pkgs.procps}/bin/pgrep wf-recorder`
+        status=$?
+
+        if [ $status != 0 ]
+        then
+          ${pkgs.mpv}/bin/mpv $HOME/Videos/record/$(ls $HOME/Videos/record -t | head -n1)
+        else
+          ${pkgs.procps}/bin/pkill --signal SIGINT wf-recorder
+        fi;
+    '';
   };
 }
