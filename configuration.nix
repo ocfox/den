@@ -42,7 +42,10 @@
     ];
   };
 
-  security.pam.u2f.enable = true;
+  security = {
+    pam.u2f.enable = true;
+    polkit.enable = true;
+  };
   services.pcscd.enable = true;
 
   # Use the systemd-boot EFI boot loader.
@@ -55,6 +58,7 @@
     };
     efi.canTouchEfiVariables = true;
   };
+
   boot.kernelPackages = pkgs.linuxPackages_zen;
   time.timeZone = "Asia/Shanghai";
 
@@ -73,6 +77,7 @@
     steam.enable = false;
     gnupg.agent = {
       enable = true;
+      pinentryFlavor = "curses";
       enableSSHSupport = true;
     };
     dconf.enable = true;
@@ -143,7 +148,10 @@
 
   users.users.ocfox = {
     isNormalUser = true;
-    extraGroups = ["wheel" "libvirtd"];
+    extraGroups = [
+      "wheel"
+      # "libvirtd"
+    ];
     shell = pkgs.fish;
   };
 

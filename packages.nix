@@ -35,6 +35,7 @@
     ffmpeg
     alejandra
     ccid
+    polkit_gnome
 
     # firefox
     thunderbird-wayland
