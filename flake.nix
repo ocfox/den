@@ -8,6 +8,10 @@
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  inputs.nur-pkgs = {
+    url = "github:ocfox/nur-pkgs";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   inputs.hyprland = {
     url = "github:hyprwm/Hyprland";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +24,7 @@
     home-manager,
     polymc,
     hyprland,
+    nur-pkgs,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -34,10 +39,13 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.ocfox = import ./home.nix;
+          home-manager.users.${username} = import ./home.nix;
         }
         {
           nixpkgs.overlays = [
+            (final: prev: {
+              nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";
+            })
             nur.overlay
             polymc.overlay
           ];
