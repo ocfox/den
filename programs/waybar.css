@@ -87,6 +87,7 @@
 #custom-pacman,
 #custom-weather,
 #custom-recorder,
+#custom-music,
 #custom-gpu,
 #tray,
 #backlight,
@@ -198,6 +199,10 @@
 }
 #custom-recorder {
     background: @nord_bg;
+    color: #FFFFFF;
+}
+#custom-music{
+    background: #575757;
     color: #FFFFFF;
 }
 #custom-pacman {

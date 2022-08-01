@@ -3,7 +3,7 @@
   "position" = "top";
   "modules-right" = ["bluetooth" "network" "pulseaudio" "tray"];
   "modules-center" = ["sway/workspaces" "sway/mode"];
-  "modules-left" = ["clock" "cpu" "temperature" "custom/recorder"];
+  "modules-left" = ["clock" "cpu" "temperature" "custom/music" "custom/recorder"];
   "sway/workspaces" = {
     "disable-scroll" = true;
     "all-outputs" = true;
@@ -39,16 +39,14 @@
     "spacing" = 5;
   };
   "clock" = {
-    "format" = " {:%H:%M %b %e}";
+    "format" = "{:%H:%M %b %e}";
     "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
     "today-format" = "<b>{}</b>";
   };
   "cpu" = {
     "interval" = "5";
-    "format" = "﬙ {max_frequency}GHz <span color=\"darkgray\">{usage}%</span>";
-    "max-length" = 13;
-    "min-length" = 13;
-    "on-click" = "kitty -e htop --sort-key PERCENT_CPU";
+    "format" = "{max_frequency}GHz <span color=\"darkgray\">{usage}%</span>";
+    "on-click" = "${pkgs.kitty}/bin/kitty -e ${pkgs.htop}/bin/htop --sort-key PERCENT_CPU";
     "tooltip" = false;
   };
   "temperature" = {
@@ -56,10 +54,7 @@
     "hwmon-path" = "/sys/class/hwmon/hwmon3/temp1_input";
     "critical-threshold" = 74;
     "format-critical" = " {temperatureC}°C";
-    "format" = "{icon} {temperatureC}°C";
-    "format-icons" = ["" "" ""];
-    "max-length" = 7;
-    "min-length" = 7;
+    "format" = "{temperatureC}°C";
   };
   "network" = {
     "format-wifi" = " {essid}";
@@ -94,6 +89,12 @@
   "custom/weather" = {
     "exec" = "curl 'https://wttr.in/?format=1'";
     "interval" = 3600;
+  };
+  "custom/music" = {
+    "format" = "{}";
+    "interval" = 1;
+    "exec-if" = "${pkgs.playerctl}/bin/playerctl metadata";
+    "exec" = "echo $(${pkgs.playerctl}/bin/playerctl metadata artist) - $(${pkgs.playerctl}/bin/playerctl metadata title)";
   };
   "custom/recorder" = {
     "interval" = 1;
