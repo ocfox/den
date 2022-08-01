@@ -46,10 +46,10 @@
     wl-clipboard
     swayidle
     nur.repos.linyinfeng.canokey-udev-rules
-    chromium
+    vimPlugins.markdown-preview-nvim
+    nur-pkgs.showmethekey
 
     # calibre
-    lapce
     lolcat
     tree
     element-desktop
@@ -57,7 +57,6 @@
     kotatogram-desktop
     tdesktop
 
-    # firefox
     firefox-wayland
 
     # Game

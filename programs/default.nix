@@ -10,7 +10,7 @@
     ./kitty.nix
     ./nnn.nix
     ./sway.nix
-    ./hyprland.nix
+    # ./hyprland.nix
   ];
 
   home-manager.users.ocfox.programs.waybar = {

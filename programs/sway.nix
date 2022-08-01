@@ -12,6 +12,7 @@
       modifier = "Mod4";
       startup = [
         {command = "fcitx5 -d";}
+        {command = "firefox";}
       ];
       gaps = {
         top = 0;

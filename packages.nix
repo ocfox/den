@@ -36,6 +36,8 @@
     alejandra
     ccid
     polkit_gnome
+    zola
+    gitui
 
     # firefox
     thunderbird-wayland
