@@ -110,16 +110,16 @@
       fi;
     '';
     "on-click" = pkgs.writeShellScript "recorder-toggle" ''
-        #!/usr/bin/env bash
-        pid=`${pkgs.procps}/bin/pgrep wf-recorder`
-        status=$?
+      #!/usr/bin/env bash
+      pid=`${pkgs.procps}/bin/pgrep wf-recorder`
+      status=$?
 
-        if [ $status != 0 ]
-        then
-          ${pkgs.mpv}/bin/mpv $HOME/Videos/record/$(ls $HOME/Videos/record -t | head -n1)
-        else
-          ${pkgs.procps}/bin/pkill --signal SIGINT wf-recorder
-        fi;
+      if [ $status != 0 ]
+      then
+        ${pkgs.mpv}/bin/mpv $HOME/Videos/record/$(${pkgs.coreutils-full}/bin/ls -rt $HOME/Videos/record | ${pkgs.coreutils-full}/bin/tail -n 1)
+      else
+        ${pkgs.procps}/bin/pkill --signal SIGINT wf-recorder
+      fi;
     '';
   };
 }

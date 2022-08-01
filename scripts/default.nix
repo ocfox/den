@@ -58,17 +58,17 @@
         #!/usr/bin/env bash
         options="shutdown\nreboot\nsuspend"
 
-        selection="$(echo -e $options | \
-                     bemenu -i -l 3 -c -W 0.3)"
+        selection="$(${pkgs.coreutils}/bin/echo -e $options | \
+                     ${pkgs.bemenu}/bin/bemenu -i -l 3 -c -W 0.3)"
 
         case $selection in
-        	shutdown) systemctl poweroff
+        	shutdown) ${pkgs.systemd}/bin/systemctl poweroff
         		exit 0
         		;;
-        	reboot) systemctl reboot
+        	reboot) ${pkgs.systemd}/bin/systemctl reboot
         		exit 0
         		;;
-        	suspend) systemctl suspend
+        	suspend) ${pkgs.systemd}/bin/systemctl suspend
         		exit 0
         		;;
         esac''
