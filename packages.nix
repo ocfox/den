@@ -34,7 +34,6 @@
     xwinwrap
     ffmpeg
     alejandra
-    ccid
     polkit_gnome
     zola
     gitui

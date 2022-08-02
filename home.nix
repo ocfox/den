@@ -45,7 +45,6 @@
     foot
     wl-clipboard
     swayidle
-    nur.repos.linyinfeng.canokey-udev-rules
     vimPlugins.markdown-preview-nvim
     nur-pkgs.showmethekey
 

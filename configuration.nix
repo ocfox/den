@@ -10,13 +10,13 @@
     ./packages.nix
     ./env.nix
     ./programs
+    ./modules
     ./services/frp.nix
   ];
 
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = true;
-    permittedInsecurePackages = ["libdwarf-20210528"];
   };
 
   virtualisation.libvirtd.enable = true;
@@ -42,11 +42,7 @@
     ];
   };
 
-  security = {
-    pam.u2f.enable = true;
-    polkit.enable = true;
-  };
-  services.pcscd.enable = true;
+  security.polkit.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
@@ -100,24 +96,8 @@
   #   wlr.enable = true;
   # };
 
-  # Enable the X11 windowing system.
   services = {
     getty.autologinUser = "ocfox";
-    #   xserver = {
-    #     layout = "us";
-    #     # swap 'Caps Lock' & 'Escape'
-    #     # xkbOptions = "caps:swapescape";
-    #
-    #     windowManager.dwm.enable = true;
-    #     dpi = 144;
-    #
-    #     # windowManager.leftwm.enable = true;
-    #     enable = true;
-    #     videoDrivers = ["amdgpu"];
-    #     displayManager = {
-    #       sddm.enable = true;
-    #     };
-    #   };
 
     printing.enable = true;
     blueman.enable = true;
