@@ -1,4 +1,0 @@
-#!/bin/sh
-
-feh --bg-fill --randomize --recursive ~/Pictures/Wallpapers
-feh --bg-fill ~/pictures/cirno-a.png
