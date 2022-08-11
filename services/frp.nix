@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   systemd.services.frp = {
-    enable = true;
+    enable = false;
     wantedBy = ["multi-user.target"];
     after = ["network.target"];
     description = "frp service";

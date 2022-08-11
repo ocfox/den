@@ -46,7 +46,8 @@
     wl-clipboard
     swayidle
     vimPlugins.markdown-preview-nvim
-    nur-pkgs.showmethekey
+    showmethekey
+    gh
 
     # calibre
     lolcat
