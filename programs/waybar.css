@@ -61,14 +61,14 @@
     border: none;
     border-radius: 3px;
     min-height: 0;
-    margin: 0.1em 0.2em 0em 0.3em;
+    margin: 0.1em 0.1em 0em 0.1em;
 }
 
 /* The whole bar */
 #waybar {
     background: transparent;
     color: @light;
-    font-family: "Fira Code";
+    font-family: "Xiaolai Mono SC";
     font-size: 10px;
     font-weight: bold;
 }
