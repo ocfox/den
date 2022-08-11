@@ -36,7 +36,6 @@
     alejandra
     polkit_gnome
     zola
-    gitui
 
     # firefox
     thunderbird-wayland

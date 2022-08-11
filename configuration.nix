@@ -11,7 +11,6 @@
     ./env.nix
     ./programs
     ./modules
-    ./services/frp.nix
   ];
 
   nixpkgs.config = {
@@ -73,7 +72,7 @@
     steam.enable = false;
     gnupg.agent = {
       enable = true;
-      pinentryFlavor = "curses";
+      pinentryFlavor = "gnome3";
       enableSSHSupport = true;
     };
     dconf.enable = true;
@@ -90,11 +89,6 @@
       ];
     };
   };
-
-  # xdg.portal = {
-  #   enable = true;
-  #   wlr.enable = true;
-  # };
 
   services = {
     getty.autologinUser = "ocfox";
@@ -128,6 +122,7 @@
 
   users.users.ocfox = {
     isNormalUser = true;
+    hashedPassword = "$6$jVI2tdENaEqUyZGh$rni.joO5US9t9RYM9wlIvia4L1YOObs44Kt3gBcooBJTeSFGyEorciM2CrKMEnzbojpi1KgPPe256i5Q46N1d0";
     extraGroups = [
       "wheel"
       # "libvirtd"
