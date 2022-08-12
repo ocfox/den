@@ -2,6 +2,7 @@
   description = "nixos-config";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  inputs.grub2-themes.url = "github:vinceliuice/grub2-themes";
   inputs.nur.url = github:nix-community/NUR;
   inputs.home-manager = {
     url = "github:nix-community/home-manager";
@@ -18,6 +19,7 @@
     nur,
     home-manager,
     nur-pkgs,
+    grub2-themes,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -28,6 +30,7 @@
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
+        grub2-themes.nixosModule
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

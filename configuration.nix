@@ -37,8 +37,12 @@
 
   security.polkit.enable = true;
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader = {
+    grub2-theme = {
+      enable = true;
+      theme = "whitesur";
+      screen = "2k";
+    };
     grub = {
       enable = true;
       device = "nodev";
