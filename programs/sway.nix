@@ -85,7 +85,7 @@
           "${modifier}+o" = "exec ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3";
           "${modifier}+space" = "floating toggle";
           "${modifier}+Shift+space" = null;
-          "${modifier}+Shift+s" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" $HOME/Pictures/screenshot-$(date +\"%Y-%m-%d-%H-%M-%S\").png";
+          "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
           "${modifier}+shift+r" = "exec screen-recorder-toggle";
         };
     };
