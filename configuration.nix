@@ -33,12 +33,6 @@
       dates = "Sun 14:00";
     };
     settings.auto-optimise-store = true;
-
-    nixPath = [
-      "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-      "nixos-config=/home/ocfox/nixos/configuration.nix"
-      "/nix/var/nix/profiles/per-user/root/channels"
-    ];
   };
 
   security.polkit.enable = true;
@@ -54,7 +48,7 @@
     efi.canTouchEfiVariables = true;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   time.timeZone = "Asia/Shanghai";
 
   networking = {

@@ -8,15 +8,14 @@
     enable = true;
     shellAliases = {
       vinix = "vim ~/nixos";
-      nixup = "sudo nixos-rebuild switch";
+      nixup = "nixos-rebuild switch --use-remote-sudo --flake $HOME/nixos";
       ls = "exa -l";
       top = "btm";
-      disoff = "xset dpms force off";
     };
 
     loginShellInit = ''
       if test (id --user $USER) -ge 1000 && test (tty) = "/dev/tty1"
-        exec bash -c sway
+        exec sway
       end
     '';
 
@@ -43,7 +42,7 @@
           if fish_is_root_user
               echo -n (set_color red)'# '
           end
-          echo -n (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯ '
+          echo -n (set_color green)' ~>'
           set_color normal";
 
       fish_right_prompt = "
