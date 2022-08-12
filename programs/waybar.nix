@@ -1,5 +1,6 @@
 {pkgs}: {
   "layer" = "top";
+  "output" = "DP-1";
   "position" = "top";
   "modules-right" = ["bluetooth" "network" "pulseaudio" "tray"];
   "modules-center" = ["sway/workspaces" "sway/mode"];
