@@ -5,6 +5,8 @@
   ...
 }: {
   home-manager.users.ocfox.programs.tmux = {
-    prefix = "Escape";
+    # enable = true;
+    prefix = "C-Space";
+    keyMode = "vi";
   };
 }
