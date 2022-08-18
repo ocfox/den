@@ -38,6 +38,11 @@
   programs.home-manager.enable = true;
   programs.mako.enable = true;
 
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs; [ obs-studio-plugins.wlrobs ];
+  };
+
   home.packages = with pkgs; [
     # aseprite-unfree
     bitwarden
@@ -54,10 +59,10 @@
     tree
     element-desktop
     qbittorrent
-    kotatogram-desktop
     tdesktop
 
     firefox-wayland
+    qutebrowser
 
     # Game
     polymc
@@ -73,7 +78,6 @@
     playerctl
     cava
     vlc
-    obs-studio
     wf-recorder
 
     # Application
