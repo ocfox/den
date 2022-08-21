@@ -1,16 +1,19 @@
 {
   description = "nixos-config";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  inputs.grub2-themes.url = "github:vinceliuice/grub2-themes";
-  inputs.nur.url = github:nix-community/NUR;
-  inputs.home-manager = {
-    url = "github:nix-community/home-manager";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-  inputs.nur-pkgs = {
-    url = "github:ocfox/nur-pkgs";
-    inputs.nixpkgs.follows = "nixpkgs";
+  inputs = {
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+    grub2-themes.url = github:vinceliuice/grub2-themes;
+    nur.url = github:nix-community/NUR;
+    nix-doom-emacs.url = github:nix-community/nix-doom-emacs;
+    home-manager = {
+      url = github:nix-community/home-manager;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur-pkgs = {
+      url = github:ocfox/nur-pkgs;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -19,6 +22,7 @@
     nur,
     home-manager,
     nur-pkgs,
+    nix-doom-emacs,
     grub2-themes,
     ...
   } @ inputs: let
@@ -34,7 +38,12 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ./home.nix;
+          home-manager.users.${username} = nixpkgs.lib.mkMerge [
+            {
+              imports = [ nix-doom-emacs.hmModule ];
+            }
+            ./home.nix
+          ];
         }
         {
           nixpkgs.overlays = [

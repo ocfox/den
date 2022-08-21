@@ -14,6 +14,12 @@
   ];
 
   home-manager.users.ocfox.programs = {
+
+    doom-emacs = {
+      enable = true;
+      doomPrivateDir = ./doom.d;
+    };
+
     chromium = {
       enable = true;
       commandLineArgs = ["--enable-features=UseOzonePlatform" "-ozone-platform=wayland" "--gtk-version=4"];
