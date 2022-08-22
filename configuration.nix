@@ -32,7 +32,16 @@
       options = "--delete-older-than 5d";
       dates = "Sun 14:00";
     };
-    settings.auto-optimise-store = true;
+    settings = {
+      substituters = [
+        "https://cache.nixos.org/"
+        "https://nix-community.cachix.org"
+      ];
+      trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+      auto-optimise-store = true;
+    };
   };
 
   security.polkit.enable = true;
@@ -123,7 +132,7 @@
     hashedPassword = "$6$jVI2tdENaEqUyZGh$rni.joO5US9t9RYM9wlIvia4L1YOObs44Kt3gBcooBJTeSFGyEorciM2CrKMEnzbojpi1KgPPe256i5Q46N1d0";
     extraGroups = [
       "wheel"
-      # "libvirtd"
+      "libvirtd"
     ];
     shell = pkgs.fish;
   };
