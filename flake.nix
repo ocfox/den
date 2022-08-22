@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     grub2-themes.url = github:vinceliuice/grub2-themes;
+    emacs-overlay.url = github:nix-community/emacs-overlay;
     nur.url = github:nix-community/NUR;
     nix-doom-emacs.url = github:nix-community/nix-doom-emacs;
     home-manager = {
@@ -24,6 +25,7 @@
     nur-pkgs,
     nix-doom-emacs,
     grub2-themes,
+    emacs-overlay,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -51,6 +53,7 @@
               nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";
             })
             nur.overlay
+            emacs-overlay.overlay
           ];
         }
       ];
