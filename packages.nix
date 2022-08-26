@@ -36,6 +36,7 @@
     alejandra
     polkit_gnome
     zola
+    ghc
 
     # firefox
     thunderbird-wayland

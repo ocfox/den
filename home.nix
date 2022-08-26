@@ -25,8 +25,7 @@
 
   # xsession.enable = true;
 
-  services.pasystray.enable = true;
-
+  # services.pasystray.enable = true;
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -40,7 +39,7 @@
 
   programs.obs-studio = {
     enable = true;
-    plugins = with pkgs; [ obs-studio-plugins.wlrobs ];
+    plugins = with pkgs; [obs-studio-plugins.wlrobs];
   };
 
   home.packages = with pkgs; [
@@ -60,6 +59,7 @@
     element-desktop
     qbittorrent
     tdesktop
+    nur-pkgs.gtk-qq
 
     firefox-wayland
     qutebrowser

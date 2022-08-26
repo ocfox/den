@@ -55,14 +55,14 @@
         DP-1 = {
           bg = "~/Pictures/Wallpapers/rurudo.jpg fill";
           mode = "2560x1440";
+          position = "0 0";
           scale = "2";
         };
         HDMI-A-1 = {
-          bg = "~/Pictures/Wallpapers/rurudo-purple.jpg fill";
+          bg = "~/Pictures/Wallpapers/fubuki-school.jpg fill";
           mode = "1920x1080";
-          scale = "1.5";
-          position = "0 0";
-          # transform = "180";
+          scale = "2";
+          transform = "90";
         };
       };
 
