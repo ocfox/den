@@ -36,7 +36,7 @@
       fish_greeting = "${pkgs.fortune}/bin/fortune";
 
       haskellEnv = ''
-        nix-shell -p "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
+        nix-shell -p haskell-language-server "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
       '';
 
       fish_prompt = ''
