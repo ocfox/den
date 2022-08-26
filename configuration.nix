@@ -25,13 +25,12 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-
-    # garbage collect
     gc = {
       automatic = true;
       options = "--delete-older-than 5d";
       dates = "Sun 14:00";
     };
+
     settings = {
       substituters = [
         "https://cache.nixos.org/"
@@ -103,15 +102,6 @@
     printing.enable = true;
     blueman.enable = true;
     openssh.enable = true;
-
-    avahi = {
-      enable = true;
-      nssmdns = true;
-      publish = {
-        enable = true;
-        userServices = true;
-      };
-    };
   };
 
   hardware.video.hidpi.enable = true;
