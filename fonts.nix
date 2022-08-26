@@ -28,6 +28,7 @@
       (nerdfonts.override {
         fonts = [
           "FiraCode"
+          "Hack"
           "DroidSansMono"
           "JetBrainsMono"
           "FantasqueSansMono"

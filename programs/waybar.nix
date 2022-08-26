@@ -1,94 +1,87 @@
-{pkgs}: {
+{pkgs}:
+{
   "layer" = "top";
   "output" = "DP-1";
   "position" = "top";
-  "modules-right" = ["bluetooth" "network" "pulseaudio" "tray"];
-  "modules-center" = ["sway/workspaces" "sway/mode"];
-  "modules-left" = ["clock" "cpu" "temperature" "custom/music" "custom/recorder"];
+  "modules-left" = [
+    "sway/workspaces"
+    "temperature"
+    "idle_inhibitor"
+    "custom/music"
+  ];
+  "modules-center" = [
+    "clock"
+  ];
+  "modules-right" = [
+    "pulseaudio"
+    "backlight"
+    "memory"
+    "cpu"
+    "network"
+    "tray"
+  ];
   "sway/workspaces" = {
     "disable-scroll" = true;
-    "all-outputs" = true;
     "format" = "{icon}";
+    "all-outputs" = true;
     "format-icons" = {
       "1" = "<span color=\"#FF7139\"></span>";
       "2" = "<span color=\"#019733\"></span>";
       "3" = "<span color=\"#757575\"></span>";
       "4" = "<span color=\"#26A5E4\"></span>";
       "5" = "<span color=\"#0A84FF\"></span>";
-      "urgent" = "";
+      "6" = "<span color=\"#a738fd\"></span>";
+      "7" = "<span color=\"#019733\">7</span>";
+      "8" = "<span color=\"#757575\">8</span>";
+      "9" = "<span color=\"#26A5E4\"></span>";
       "focused" = "";
       "default" = "";
     };
   };
-  "bluetooth" = {
-    "format" = "bluetooth:{status}";
-    "format-connected" = "{device_alias}";
-    "on-click" = "${pkgs.blueman}/bin/blueman-manager";
-  };
-  "sway/mode" = {
-    "format" = "<span style=\"italic\">{}</span>";
-  };
-  "sway/window" = {
-    "format" = "{}";
-    "max-length" = 50;
-    "tooltip" = false;
-  };
   "idle_inhibitor" = {
     "format" = "{icon}";
     "format-icons" = {
-      "activated" = "";
-      "deactivated" = "";
+      "activated" = "";
+      "deactivated" = "";
     };
-    "tooltip" = "true";
-  };
-  "tray" = {
-    "spacing" = 5;
-  };
-  "clock" = {
-    "format" = "{:%H:%M %b %e}";
-    "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-    "today-format" = "<b>{}</b>";
-  };
-  "cpu" = {
-    "interval" = "5";
-    "format" = "{max_frequency}GHz <span color=\"darkgray\">{usage}%</span>";
-    "on-click" = "${pkgs.kitty}/bin/kitty -e ${pkgs.htop}/bin/htop --sort-key PERCENT_CPU";
     "tooltip" = false;
   };
-  "temperature" = {
-    "interval" = "5";
-    "hwmon-path" = "/sys/class/hwmon/hwmon3/temp1_input";
-    "critical-threshold" = 74;
-    "format-critical" = " {temperatureC}°C";
-    "format" = "{temperatureC}°C";
-  };
-  "network" = {
-    "format-wifi" = "wifi:{essid}";
-    "format-ethernet" = "{ifname}: {ipaddr}/{cidr}";
-    "format-linked" = "{ifname} (No IP)";
-    "format-disconnected" = "disconnect";
-    "format-alt" = "{ifname}: {ipaddr}/{cidr}";
-    "family" = "ipv4";
-    "tooltip-format-wifi" = " {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n{bandwidthUpBits} {bandwidthDownBits}";
-    "tooltip-format-ethernet" = " {ifname}\nIP: {ipaddr}\n{bandwidthUpBits} {bandwidthDownBits}";
+  "backlight" = {
+    "device" = "intel_backlight";
+    "on-scroll-up" = "light -A 5";
+    "on-scroll-down" = "light -U 5";
+    "format" = "{icon} {percent}%";
+    "format-icons" = ["" "" "" ""];
   };
   "pulseaudio" = {
-    "scroll-step" = 3;
-    "format" = "{volume}%";
-    "format-muted" = "muted";
-    "on-click" = pkgs.writeShellScript "mute-toggle" ''
-      #!/usr/bin/env bash
-      if [[ $(${pkgs.pamixer}/bin/pamixer --get-volume-human) == "muted" ]]
-      then
-        ${pkgs.pamixer}/bin/pamixer -u
-      else
-        ${pkgs.pamixer}/bin/pamixer -m
-      fi
-    '';
+    "format" = "{icon} {volume}%"; 
+    "format-muted" = "婢 Muted";
+    "format-icons" = {
+      "default" = ["" "" ""];
+    };
+    "states" = {
+      "warning" = 85;
+    };
+    "scroll-step" = 1;
+    "on-click" = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+    "tooltip" = false;
   };
-  "custom/weather" = {
-    "exec" = "curl 'https://wttr.in/?format=1'";
-    "interval" = 3600;
+  "clock" = {
+    "interval" = 1;
+    "format" = "{:%I:%M %p  %A %b %d}";
+    "tooltip" = false;
+    "tooltip-format" = "{:%A; %d %B %Y}\n<tt>{calendar}</tt>";
+  };
+  "memory" = {
+    "interval" = 1;
+    "format" = "﬙ {percentage}%";
+    "states" = {
+      "warning" = 85;
+    };
+  };
+  "cpu" = {
+    "interval" = 1;
+    "format" = " {usage}%";
   };
   "custom/music" = {
     "format" = "{}";
@@ -105,31 +98,21 @@
       fi
     '';
   };
-  "custom/recorder" = {
+  "network" = {
     "interval" = 1;
-    "exec" = pkgs.writeShellScript "record-status" ''
-      #!/usr/bin/env bash
-      pid=`${pkgs.procps}/bin/pgrep wf-recorder`
-      status=$?
-
-      if [ $status != 0 ]
-      then
-        echo '';
-      else
-        echo '';
-      fi;
-    '';
-    "on-click" = pkgs.writeShellScript "recorder-toggle" ''
-      #!/usr/bin/env bash
-      pid=`${pkgs.procps}/bin/pgrep wf-recorder`
-      status=$?
-
-      if [ $status != 0 ]
-      then
-        ${pkgs.mpv}/bin/mpv $HOME/Videos/record/$(${pkgs.coreutils-full}/bin/ls -rt $HOME/Videos/record | ${pkgs.coreutils-full}/bin/tail -n 1)
-      else
-        ${pkgs.procps}/bin/pkill --signal SIGINT wf-recorder
-      fi;
-    '';
+    "format-wifi" = "說 {essid}";
+    "format-ethernet" = "  {ifname} ({ipaddr})";
+    "format-linked" = "說 {essid} (No IP)";
+    "format-disconnected" = "說 Disconnected";
+    "tooltip" = false;
+  };
+  "temperature" = {
+    "hwmon-path" = "/sys/class/hwmon/hwmon6/temp2_input";
+    "tooltip" = false;
+    "format" = " {temperatureC}°C";
+  };
+  "tray" = {
+    "icon-size" = 15;
+    "spacing" = 5;
   };
 }
