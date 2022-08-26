@@ -4,9 +4,7 @@
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     grub2-themes.url = github:vinceliuice/grub2-themes;
-    emacs-overlay.url = github:nix-community/emacs-overlay;
     nur.url = github:nix-community/NUR;
-    nix-doom-emacs.url = github:nix-community/nix-doom-emacs;
     home-manager = {
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,9 +21,7 @@
     nur,
     home-manager,
     nur-pkgs,
-    nix-doom-emacs,
     grub2-themes,
-    emacs-overlay,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -41,9 +37,6 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.${username} = nixpkgs.lib.mkMerge [
-            {
-              imports = [ nix-doom-emacs.hmModule ];
-            }
             ./home.nix
           ];
         }
@@ -53,7 +46,6 @@
               nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";
             })
             nur.overlay
-            emacs-overlay.overlay
           ];
         }
       ];
