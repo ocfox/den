@@ -1,8 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }: {
   imports = [
     ./alacritty.nix
@@ -17,11 +16,11 @@
 
     chromium = {
       enable = true;
-      commandLineArgs = ["--enable-features=UseOzonePlatform" "-ozone-platform=wayland" "--gtk-version=4"];
+      commandLineArgs = [ "--enable-features=UseOzonePlatform" "-ozone-platform=wayland" "--gtk-version=4" ];
     };
     waybar = {
       enable = true;
-      settings = [(import ./waybar.nix {inherit pkgs;})];
+      settings = [ (import ./waybar.nix { inherit pkgs; }) ];
       style = builtins.readFile ./waybar.css;
       systemd.enable = true;
     };

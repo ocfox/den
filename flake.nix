@@ -15,41 +15,43 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nur,
-    home-manager,
-    nur-pkgs,
-    grub2-themes,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    username = "ocfox";
-  in {
-    nixosConfigurations.whitefox = nixpkgs.lib.nixosSystem {
-      inherit system;
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        grub2-themes.nixosModule
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = nixpkgs.lib.mkMerge [
-            ./home.nix
-          ];
-        }
-        {
-          nixpkgs.overlays = [
-            (final: prev: {
-              nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";
-            })
-            nur.overlay
-          ];
-        }
-      ];
-      specialArgs = {inherit inputs;};
+  outputs =
+    { self
+    , nixpkgs
+    , nur
+    , home-manager
+    , nur-pkgs
+    , grub2-themes
+    , ...
+    } @ inputs:
+    let
+      system = "x86_64-linux";
+      username = "ocfox";
+    in
+    {
+      nixosConfigurations.whitefox = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          grub2-themes.nixosModule
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = nixpkgs.lib.mkMerge [
+              ./home.nix
+            ];
+          }
+          {
+            nixpkgs.overlays = [
+              (final: prev: {
+                nur-pkgs = inputs.nur-pkgs.packages."${prev.system}";
+              })
+              nur.overlay
+            ];
+          }
+        ];
+        specialArgs = { inherit inputs; };
+      };
     };
-  };
 }

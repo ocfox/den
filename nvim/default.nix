@@ -1,11 +1,12 @@
+{ pkgs
+, lib
+, ...
+}:
+let
+  vim-plugins = import ./plugins.nix { inherit pkgs lib; };
+  nixos-unstable = import <unstable> { };
+in
 {
-  pkgs,
-  lib,
-  ...
-}: let
-  vim-plugins = import ./plugins.nix {inherit pkgs lib;};
-  nixos-unstable = import <unstable> {};
-in {
   home.packages = with pkgs; [
     nodePackages.pyright
     tree-sitter

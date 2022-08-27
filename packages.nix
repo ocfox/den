@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     # CLI Tools
     pkg-config
@@ -79,7 +79,7 @@
     nodejs
     nodePackages.typescript
     yarn
-    (python310.withPackages (ps: with ps; [pynvim]))
+    (python310.withPackages (ps: with ps; [ pynvim ]))
 
     # System Tools
 

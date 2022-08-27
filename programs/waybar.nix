@@ -1,4 +1,4 @@
-{pkgs}:
+{ pkgs }:
 {
   "layer" = "top";
   "output" = "DP-1";
@@ -51,13 +51,13 @@
     "on-scroll-up" = "light -A 5";
     "on-scroll-down" = "light -U 5";
     "format" = "{icon} {percent}%";
-    "format-icons" = ["" "" "" ""];
+    "format-icons" = [ "" "" "" "" ];
   };
   "pulseaudio" = {
-    "format" = "{icon} {volume}%"; 
+    "format" = "{icon} {volume}%";
     "format-muted" = "婢 Muted";
     "format-icons" = {
-      "default" = ["" "" ""];
+      "default" = [ "" "" "" ];
     };
     "states" = {
       "warning" = 85;

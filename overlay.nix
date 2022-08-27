@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   nixpkgs.overlays = [
     (self: super: {
       neovim = super.neovim.override {
@@ -13,7 +13,7 @@
 
       sway = super.sway.overrideAttrs (old: {
         patches =
-          (old.patches or [])
+          (old.patches or [ ])
           ++ [
             (super.fetchpatch {
               url = "https://github.com/swaywm/sway/commit/9debeb40ceaeae9e577bddcc248a36d99f0a066f.patch";
@@ -25,7 +25,7 @@
 
     (final: prev: {
       dwm = prev.dwm.overrideAttrs (old: {
-        buildInputs = (old.buildInputs or []) ++ [final.xorg.libXext];
+        buildInputs = (old.buildInputs or [ ]) ++ [ final.xorg.libXext ];
         src = pkgs.fetchFromGitHub {
           owner = "ocfox";
           repo = "dwm";

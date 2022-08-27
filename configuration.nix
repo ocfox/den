@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   imports = [
     ./hardware.nix
@@ -113,7 +112,7 @@
     support32Bit = true;
     tcp = {
       enable = true;
-      anonymousClients.allowedIpRanges = ["127.0.0.1"];
+      anonymousClients.allowedIpRanges = [ "127.0.0.1" ];
     };
   };
 

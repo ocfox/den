@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   fonts = {
     enableDefaultFonts = true;
     fontconfig = {
@@ -8,9 +8,9 @@
         autohint = false;
       };
       defaultFonts = {
-        emoji = ["Noto Color Emoji"];
-        sansSerif = ["DejaVu Sans"];
-        serif = ["DejaVu Serif"];
+        emoji = [ "Noto Color Emoji" ];
+        sansSerif = [ "DejaVu Sans" ];
+        serif = [ "DejaVu Serif" ];
       };
     };
 

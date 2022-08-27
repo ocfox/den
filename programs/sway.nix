@@ -1,8 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }: {
   home-manager.users.ocfox.wayland.windowManager.sway = {
     enable = true;
@@ -11,14 +10,14 @@
     config = {
       modifier = "Mod4";
       startup = [
-        {command = "fcitx5 -d";}
-        {command = "firefox";}
+        { command = "fcitx5 -d"; }
+        { command = "firefox"; }
       ];
       gaps = {
         inner = 2;
         outer = 1;
       };
-      bars = [];
+      bars = [ ];
 
       colors = {
         focused = {
@@ -68,9 +67,10 @@
 
       window.hideEdgeBorders = "smart";
 
-      keybindings = let
-        modifier = config.home-manager.users.ocfox.wayland.windowManager.sway.config.modifier;
-      in
+      keybindings =
+        let
+          modifier = config.home-manager.users.ocfox.wayland.windowManager.sway.config.modifier;
+        in
         pkgs.lib.mkOptionDefault {
           "${modifier}+h" = "focus left";
           "${modifier}+j" = "focus down";
