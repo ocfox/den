@@ -35,7 +35,14 @@
   };
 
   programs.home-manager.enable = true;
-  programs.mako.enable = true;
+  programs.mako = {
+    enable = true;
+    backgroundColor = "#2b3339";
+    borderSize = 1;
+    borderColor = "#83b6af";
+    defaultTimeout = 5000;
+    font = "JetBrainsMono Nerd Font 12";
+  };
 
   programs.obs-studio = {
     enable = true;
