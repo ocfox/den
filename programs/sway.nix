@@ -76,8 +76,8 @@
           "${modifier}+j" = "focus down";
           "${modifier}+k" = "focus up";
           "${modifier}+l" = "focus right";
-          "${modifier}+i" = "move scratchpad";
-          "${modifier}+Shift+i" = "scratchpad show";
+          "${modifier}+d" = "move scratchpad";
+          "${modifier}+i" = "scratchpad show";
           "${modifier}+Shift+u" = "exec pamixer -i 10";
           "${modifier}+Shift+d" = "exec pamixer -d 10";
           "${modifier}+Shift+e" = "exec power-menu";

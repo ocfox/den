@@ -44,7 +44,6 @@
     # Desktop
     conky
     flameshot
-    dmenu
     autorandr
     rpiplay
 
