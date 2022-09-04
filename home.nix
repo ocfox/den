@@ -73,7 +73,7 @@
     # Game
     polymc
 
-    # factorio
+    factorio-experimental
     tetrio-desktop
 
     # Music & Video

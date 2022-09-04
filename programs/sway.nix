@@ -83,6 +83,8 @@
           "${modifier}+Shift+e" = "exec power-menu";
           "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
           "${modifier}+o" = "exec ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3";
+          "${modifier}+Shift+m" = "exec ${pkgs.sway}/bin/swaymsg output DP-1 scale 1";
+          "${modifier}+m" = "exec ${pkgs.sway}/bin/swaymsg output DP-1 scale 2";
           "${modifier}+space" = "floating toggle";
           "${modifier}+Shift+space" = null;
           "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
