@@ -83,12 +83,27 @@
           "${modifier}+Shift+e" = "exec power-menu";
           "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
           "${modifier}+o" = "exec ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3";
-          "${modifier}+Shift+m" = "exec ${pkgs.sway}/bin/swaymsg output DP-1 scale 1";
-          "${modifier}+m" = "exec ${pkgs.sway}/bin/swaymsg output DP-1 scale 2";
           "${modifier}+space" = "floating toggle";
           "${modifier}+Shift+space" = null;
           "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
-          "${modifier}+shift+r" = "exec screen-recorder-toggle";
+          "${modifier}+Shift+r" = "exec screen-recorder-toggle";
+          # while using full screen xwayland
+          "${modifier}+Shift+m" =
+            let
+              test = pkgs.writeShellScript "scale toggle" ''
+                #!/usr/bin/env bash
+                output=`${pkgs.sway}/bin/swaymsg -t get_tree | ${pkgs.jq}/bin/jq -r '.nodes[] | select([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | .name'`
+                scale=`${pkgs.sway}/bin/swaymsg -t get_tree | ${pkgs.jq}/bin/jq -r '.nodes[] | select([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | .scale'`
+
+                if [ $scale != 1 ]
+                then
+                  ${pkgs.sway}/bin/swaymsg output $output scale 1
+                else
+                  ${pkgs.sway}/bin/swaymsg output $output scale ${config.home-manager.users.ocfox.wayland.windowManager.sway.config.output.DP-1.scale}
+                fi
+              '';
+            in
+            "exec ${test}";
         };
     };
   };
