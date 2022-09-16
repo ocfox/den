@@ -9,7 +9,6 @@
     ./kitty.nix
     ./nnn.nix
     ./sway.nix
-    ./tmux.nix
   ];
 
   home-manager.users.ocfox.programs = {
