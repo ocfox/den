@@ -13,10 +13,6 @@
         { command = "fcitx5 -d"; }
         { command = "firefox"; }
       ];
-      gaps = {
-        inner = 2;
-        outer = 1;
-      };
       bars = [ ];
 
       colors = {

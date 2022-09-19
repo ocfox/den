@@ -87,7 +87,6 @@
     "format" = "{}";
     "interval" = 1;
     "exec-if" = "${pkgs.playerctl}/bin/playerctl metadata";
-    # "exec" = "echo $(${pkgs.playerctl}/bin/playerctl metadata artist) - $(${pkgs.playerctl}/bin/playerctl metadata title)";
     "exec" = pkgs.writeShellScript "music" ''
       #!/usr/bin/env bash
       if [[ $(${pkgs.playerctl}/bin/playerctl metadata artist) ]]
