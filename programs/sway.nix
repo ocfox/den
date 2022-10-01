@@ -3,7 +3,7 @@
 , pkgs
 , ...
 }: {
-  home-manager.users.ocfox.wayland.windowManager.sway = {
+  wayland.windowManager.sway = {
     enable = true;
 
     wrapperFeatures.gtk = true;
@@ -54,10 +54,10 @@
           scale = "2";
         };
         HDMI-A-1 = {
-          bg = "~/Pictures/Wallpapers/fubuki-school.jpg fill";
+          bg = "~/Pictures/Wallpapers/rurudo.jpg fill";
           mode = "1920x1080";
           scale = "2";
-          transform = "90";
+          transform = "180";
         };
       };
 
@@ -65,7 +65,7 @@
 
       keybindings =
         let
-          modifier = config.home-manager.users.ocfox.wayland.windowManager.sway.config.modifier;
+          modifier = config.wayland.windowManager.sway.config.modifier;
         in
         pkgs.lib.mkOptionDefault {
           "${modifier}+h" = "focus left";
@@ -95,7 +95,7 @@
                 then
                   ${pkgs.sway}/bin/swaymsg output $output scale 1
                 else
-                  ${pkgs.sway}/bin/swaymsg output $output scale ${config.home-manager.users.ocfox.wayland.windowManager.sway.config.output.DP-1.scale}
+                  ${pkgs.sway}/bin/swaymsg output $output scale ${config.wayland.windowManager.sway.config.output.DP-1.scale}
                 fi
               '';
             in

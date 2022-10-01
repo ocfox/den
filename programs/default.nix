@@ -11,7 +11,7 @@
     ./sway.nix
   ];
 
-  home-manager.users.ocfox.programs = {
+  programs = {
 
     chromium = {
       enable = true;

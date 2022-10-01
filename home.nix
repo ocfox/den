@@ -3,8 +3,7 @@
 , ...
 }: {
   imports = [
-    # ./programs
-    #./nvim
+    ./programs
     ./services
     ./scripts
   ];

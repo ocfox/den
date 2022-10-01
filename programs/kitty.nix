@@ -3,7 +3,7 @@
 , pkgs
 , ...
 }: {
-  home-manager.users.ocfox.programs.kitty = {
+  programs.kitty = {
     enable = true;
     font = {
       name = "JetBrainsMono Nerd Font";

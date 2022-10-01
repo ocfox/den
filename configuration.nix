@@ -8,7 +8,6 @@
     ./fonts.nix
     ./packages.nix
     ./env.nix
-    ./programs
     ./modules
   ];
 

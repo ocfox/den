@@ -3,7 +3,7 @@
 , pkgs
 , ...
 }: {
-  home-manager.users.ocfox.programs.fish = {
+  programs.fish = {
     enable = true;
     shellAliases = {
       vinix = "vim ~/nixos";
