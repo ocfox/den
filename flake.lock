@@ -107,34 +107,13 @@
         "type": "github"
       }
     },
-    "nur-pkgs": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1661252084,
-        "narHash": "sha256-WfILmPbJtk703m7RoCraH2JRSw4Zl931NkanDZlRoYY=",
-        "owner": "ocfox",
-        "repo": "nur-pkgs",
-        "rev": "78356fa30241aeb20e13cfa76046173853621297",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ocfox",
-        "repo": "nur-pkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "darwin": "darwin",
         "grub2-themes": "grub2-themes",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
-        "nur": "nur",
-        "nur-pkgs": "nur-pkgs"
+        "nur": "nur"
       }
     },
     "utils": {

@@ -3,9 +3,9 @@
 , ...
 }: {
   imports = [
-    ./programs
-    ./services
-    ./scripts
+    ../../programs
+    ../../services
+    ../../scripts
   ];
 
   gtk = {
@@ -64,7 +64,6 @@
     element-desktop
     qbittorrent
     tdesktop
-    nur-pkgs.gtk-qq
 
     firefox-wayland
     qutebrowser

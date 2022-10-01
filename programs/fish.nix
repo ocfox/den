@@ -7,9 +7,8 @@
     enable = true;
     shellAliases = {
       vinix = "vim ~/nixos";
-      nixup = "nixos-rebuild switch --use-remote-sudo --flake $HOME/nixos";
+      nixup = "nixos-rebuild switch --use-remote-sudo --flake $HOME/nixos#$hostname";
       ls = "exa -l";
-      top = "btm";
       nixs = "nix-shell --run fish";
     };
 
