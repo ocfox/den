@@ -1,4 +1,4 @@
-{ username, nixpkgs, inputs, ... }:
+{ username, nixpkgs, darwin, inputs, ... }:
 darwin.lib.darwinSystem {
   system = "aarch64-darwin";
   modules = [

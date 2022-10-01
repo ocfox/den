@@ -19,7 +19,7 @@
       };
 
       darwinConfigurations.sliverfox = import ./hosts/sliverfox {
-        inherit self nixpkgs inputs username;
+        inherit self nixpkgs darwin inputs username;
       };
     };
 
