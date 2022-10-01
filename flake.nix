@@ -14,42 +14,12 @@
       username = "ocfox";
     in
     {
-      nixosConfigurations.whitefox = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/whitefox/configuration.nix
-          home-manager.nixosModules.home-manager
-          grub2-themes.nixosModule
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = nixpkgs.lib.mkMerge [
-              ./hosts/whitefox/home.nix
-            ];
-          }
-          {
-            nixpkgs.overlays = [
-              nur.overlay
-            ];
-          }
-        ];
-        specialArgs = { inherit inputs; };
+      nixosConfigurations.whitefox = import ./hosts/whitefox {
+        inherit self nixpkgs inputs username;
       };
 
-      darwinConfigurations.sliverfox = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          ./hosts/sliverfox/configuration.nix
-          home-manager.darwinModules.home-manager
-          {
-            nixpkgs.config.allowUnfree = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = nixpkgs.lib.mkMerge [
-              ./hosts/sliverfox/home.nix
-            ];
-          }
-        ];
+      darwinConfigurations.sliverfox = import ./hosts/sliverfox {
+        inherit self nixpkgs inputs username;
       };
     };
 
