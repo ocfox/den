@@ -7,7 +7,6 @@
     enable = true;
     shellAliases = {
       vinix = "vim ~/nixos";
-      nixup = "nixos-rebuild switch --use-remote-sudo --flake $HOME/nixos#$hostname";
       ls = "exa -l";
       nixs = "nix-shell --run fish";
     };
@@ -32,6 +31,16 @@
 
     functions = {
       fish_greeting = "${pkgs.fortune}/bin/fortune";
+
+      rebuild = ''
+        if test (uname) = "Linux"
+          set os "nixos"
+        else
+          set os "darwin"
+        end
+
+        $os-rebuild switch --use-remote-sudo --flake $HOME/nixos#$hostname
+      '';
 
       haskellEnv = ''
         nix-shell -p haskell-language-server "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
