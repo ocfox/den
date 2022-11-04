@@ -56,6 +56,7 @@
   "pulseaudio" = {
     "format" = "{icon} {volume}%";
     "format-muted" = "婢 Muted";
+    "max-volume" = 200;
     "format-icons" = {
       "default" = [ "" "" "" ];
     };
