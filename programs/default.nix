@@ -7,7 +7,6 @@
     ./alacritty.nix
     ./fish.nix
     ./kitty.nix
-    ./nnn.nix
     ./sway.nix
   ];
 

@@ -8,7 +8,6 @@
     settings = {
       window = {
         opacity = 0.8;
-        # decorations = none;
       };
       font = {
         normal = {

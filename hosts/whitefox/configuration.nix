@@ -8,7 +8,7 @@
     ./fonts.nix
     ./packages.nix
     ./env.nix
-    ../../modules
+    ../../devices
   ];
 
   nixpkgs.config = {
