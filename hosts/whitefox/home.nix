@@ -54,7 +54,6 @@
     foot
     wl-clipboard
     swayidle
-    vimPlugins.markdown-preview-nvim
     showmethekey
     gh
 
@@ -87,11 +86,8 @@
     # Application
     nur.repos.linyinfeng.icalingua-plus-plus
     nur.repos.linyinfeng.wemeet
-    discord
     screenkey
-    # vimPlugins.markdown-preview-nvim
 
-    #dev
     julia-bin
     texlive.combined.scheme-medium
   ];

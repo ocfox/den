@@ -38,13 +38,9 @@
     zola
     ghc
 
-    # firefox
     thunderbird-wayland
 
     # Desktop
-    conky
-    flameshot
-    autorandr
     rpiplay
 
     # dev
