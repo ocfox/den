@@ -5,6 +5,7 @@
 }: {
   wayland.windowManager.sway = {
     enable = true;
+    package = pkgs.sway-unwrapped;
 
     wrapperFeatures.gtk = true;
     config = {

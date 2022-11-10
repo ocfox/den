@@ -11,7 +11,7 @@
         token = "483926ff66c4429ec6084fc0533c17";
       };
 
-      sway = super.sway.overrideAttrs (old: {
+      sway-unwrapped = super.sway-unwrapped.overrideAttrs (old: {
         patches =
           (old.patches or [ ])
           ++ [

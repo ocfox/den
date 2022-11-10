@@ -4,11 +4,11 @@
 }: {
   imports = [
     ./hardware.nix
-    ./overlay.nix
     ./fonts.nix
     ./packages.nix
     ./env.nix
     ../../devices
+    ../../overlays
   ];
 
   nixpkgs.config = {
