@@ -57,7 +57,6 @@
     showmethekey
     gh
 
-    # calibre
     lolcat
     tree
     element-desktop
@@ -67,11 +66,7 @@
     firefox-wayland
     qutebrowser
 
-    # Game
-    polymc
-
     factorio-experimental
-    tetrio-desktop
 
     # Music & Video
     spotify
@@ -85,7 +80,6 @@
 
     # Application
     nur.repos.linyinfeng.icalingua-plus-plus
-    nur.repos.linyinfeng.wemeet
     screenkey
 
     julia-bin

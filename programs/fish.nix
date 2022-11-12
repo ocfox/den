@@ -42,6 +42,10 @@
         $os-rebuild switch --use-remote-sudo --flake $HOME/nixos#$hostname
       '';
 
+      ns = ''
+        nix shell nixpkgs#{ $argv }
+      '';
+
       haskellEnv = ''
         nix-shell -p haskell-language-server "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
       '';
