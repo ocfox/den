@@ -8,6 +8,7 @@
     ./fish.nix
     ./kitty.nix
     ./sway.nix
+    ./git.nix
   ];
 
   programs = {
