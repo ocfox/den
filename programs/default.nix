@@ -4,6 +4,7 @@
 , ...
 }: {
   imports = [
+    ./waybar
     ./alacritty.nix
     ./fish.nix
     ./kitty.nix
@@ -12,16 +13,13 @@
   ];
 
   programs = {
-
     chromium = {
       enable = true;
       commandLineArgs = [ "--enable-features=UseOzonePlatform" "-ozone-platform=wayland" "--gtk-version=4" ];
     };
-    waybar = {
+    exa = {
       enable = true;
-      settings = [ (import ./waybar.nix { inherit pkgs; }) ];
-      style = builtins.readFile ./waybar.css;
-      systemd.enable = true;
+      enableAliases = true;
     };
   };
 }

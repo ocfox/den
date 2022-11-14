@@ -7,8 +7,6 @@
     enable = true;
     shellAliases = {
       vinix = "vim ~/nixos";
-      ls = "exa -l";
-      nixs = "nix-shell --run fish";
     };
 
     loginShellInit = ''
