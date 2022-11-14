@@ -21,5 +21,6 @@
       enable = true;
       enableAliases = true;
     };
+    man.enable = true;
   };
 }
