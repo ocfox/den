@@ -15,18 +15,6 @@
       end
     '';
 
-    plugins = [
-      {
-        name = "babelfish";
-        src = pkgs.fetchFromGitHub {
-          owner = "bouk";
-          repo = "babelfish";
-          rev = "348cc55ff299bcdce307c4edc4a17e5747c07ff4";
-          sha256 = "4cbR7pqbLc8RRwlP+bUDt53C6J7KtMEJtfxzSpO0Myw=";
-        };
-      }
-    ];
-
     functions = {
       fish_greeting = "${pkgs.fortune}/bin/fortune";
 

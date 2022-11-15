@@ -80,7 +80,10 @@
       enableSSHSupport = true;
     };
     dconf.enable = true;
-    fish.enable = true;
+    fish = {
+      useBabelfish = true;
+      enable = true;
+    };
   };
 
   i18n = {
