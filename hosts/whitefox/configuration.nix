@@ -103,6 +103,9 @@
     printing.enable = true;
     blueman.enable = true;
     openssh.enable = true;
+    udev.extraRules = ''
+      KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"
+    '';
   };
 
   hardware.video.hidpi.enable = true;
