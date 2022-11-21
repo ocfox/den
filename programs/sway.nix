@@ -13,32 +13,11 @@
       startup = [
         { command = "fcitx5 -d"; }
         { command = "firefox"; }
+        { command = "telegram-desktop"; }
+        { command = "thunderbird"; }
       ];
-      bars = [ ];
 
-      colors = {
-        focused = {
-          background = "#83b6af";
-          border = "#83b6af";
-          childBorder = "#83b6af";
-          indicator = "#a7c080";
-          text = "#ffffff";
-        };
-        unfocused = {
-          background = "#2b3339";
-          border = "#2b3339";
-          childBorder = "#2b3339";
-          indicator = "#a7c080";
-          text = "#888888";
-        };
-        urgent = {
-          background = "#e68183";
-          border = "#e68183";
-          childBorder = "#e68183";
-          indicator = "#a7c080";
-          text = "#ffffff";
-        };
-      };
+      bars = [ ];
 
       workspaceOutputAssign = [
         {
@@ -46,6 +25,12 @@
           workspace = "9";
         }
       ];
+
+      assigns = {
+        "1" = [{ app_id = "firefox"; }];
+        "4" = [{ app_id = "telegramdesktop"; }];
+        "5" = [{ app_id = "thunderbird"; }];
+      };
 
       output = {
         DP-1 = {
@@ -55,7 +40,7 @@
           scale = "2";
         };
         HDMI-A-1 = {
-          bg = "~/Pictures/Wallpapers/rurudo.jpg fill";
+          bg = "~/Pictures/Wallpapers/nixos.png fill";
           mode = "1920x1080";
           scale = "2";
           transform = "180";
@@ -102,6 +87,29 @@
             in
             "exec ${test}";
         };
+      colors = {
+        focused = {
+          background = "#83b6af";
+          border = "#83b6af";
+          childBorder = "#83b6af";
+          indicator = "#a7c080";
+          text = "#ffffff";
+        };
+        unfocused = {
+          background = "#2b3339";
+          border = "#2b3339";
+          childBorder = "#2b3339";
+          indicator = "#a7c080";
+          text = "#888888";
+        };
+        urgent = {
+          background = "#e68183";
+          border = "#e68183";
+          childBorder = "#e68183";
+          indicator = "#a7c080";
+          text = "#ffffff";
+        };
+      };
     };
   };
 }
