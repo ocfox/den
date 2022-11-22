@@ -28,7 +28,7 @@
     grub2-themes.url = github:vinceliuice/grub2-themes;
     nur.url = github:nix-community/NUR;
     darwin = {
-      url = "github:lnl7/nix-darwin/master";
+      url = github:lnl7/nix-darwin/master;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
