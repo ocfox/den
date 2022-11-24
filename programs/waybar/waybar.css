@@ -23,20 +23,15 @@ window#waybar {
   background-color: transparent;
 }
 window > box {
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
+  margin: 0 0px;
   background-color: #2b3339;
 }
 #workspaces {
-  padding-left: 0px;
-  padding-right: 4px;
+  margin: 0 0px;
 }
 #workspaces button {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
+  min-width: 30px;
+  padding: 0 0px;
 }
 #workspaces button.focused {
   background-color: #a7c080;
