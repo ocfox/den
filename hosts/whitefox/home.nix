@@ -21,9 +21,7 @@
     };
   };
 
-  # xsession.enable = true;
-
-  # services.pasystray.enable = true;
+  services.pasystray.enable = true;
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -69,9 +67,7 @@
     factorio-experimental
 
     # Music & Video
-    spotify
-    spotify-tui
-    spotifyd
+    ncspot
     sptlrx
     playerctl
     cava

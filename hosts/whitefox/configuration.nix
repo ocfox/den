@@ -109,16 +109,14 @@
   };
 
   hardware.video.hidpi.enable = true;
-  sound.enable = true;
   hardware.bluetooth.enable = true;
 
-  hardware.pulseaudio = {
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
-    support32Bit = true;
-    tcp = {
-      enable = true;
-      anonymousClients.allowedIpRanges = [ "127.0.0.1" ];
-    };
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
 
   users.users.ocfox = {
