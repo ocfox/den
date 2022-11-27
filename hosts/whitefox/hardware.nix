@@ -20,7 +20,7 @@
   };
 
   fileSystems."/run/mount/win" = {
-    device = "/dev/disk/by-uuid/B86695766695365A";
+    device = "/dev/disk/by-uuid/5C489A5D489A35AC";
     fsType = "ntfs3";
     options = [ "rw" "uid=1000" ];
   };
