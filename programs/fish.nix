@@ -16,7 +16,7 @@
     '';
 
     functions = {
-      fish_greeting = "${pkgs.fortune}/bin/fortune";
+      fish_greeting = "w";
 
       rebuild = ''
         if test (uname) = "Linux"
