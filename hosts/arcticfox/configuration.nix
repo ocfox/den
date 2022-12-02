@@ -1,4 +1,4 @@
-{ username, ... }: {
+{ username, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     ./packages.nix
@@ -8,7 +8,7 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    auto-optimise-store = true;
+    settings.auto-optimise-store = true;
   };
 
   boot.cleanTmpDir = true;

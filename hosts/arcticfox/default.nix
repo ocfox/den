@@ -4,5 +4,5 @@ nixpkgs.lib.nixosSystem {
   modules = [
     ./configuration.nix
   ];
-  specialArgs = { inherit inputs; };
+  specialArgs = { inherit inputs username; };
 }
