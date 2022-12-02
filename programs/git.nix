@@ -1,6 +1,7 @@
 { config
 , lib
 , pkgs
+, username
 , ...
 }:
 {
@@ -8,7 +9,7 @@
     enable = true;
     delta.enable = true;
     userEmail = "i@ocfox.me";
-    userName = "ocfox";
+    userName = username;
 
     signing = {
       signByDefault = true;

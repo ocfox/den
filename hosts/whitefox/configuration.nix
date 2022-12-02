@@ -1,5 +1,6 @@
 { config
 , pkgs
+, username
 , ...
 }: {
   imports = [
@@ -98,7 +99,7 @@
   };
 
   services = {
-    getty.autologinUser = "ocfox";
+    getty.autologinUser = username;
     devmon.enable = true;
     printing.enable = true;
     blueman.enable = true;
@@ -119,7 +120,7 @@
     pulse.enable = true;
   };
 
-  users.users.ocfox = {
+  users.users.${username} = {
     isNormalUser = true;
     hashedPassword = "$6$jVI2tdENaEqUyZGh$rni.joO5US9t9RYM9wlIvia4L1YOObs44Kt3gBcooBJTeSFGyEorciM2CrKMEnzbojpi1KgPPe256i5Q46N1d0";
     extraGroups = [

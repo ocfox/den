@@ -6,11 +6,12 @@ nixpkgs.lib.nixosSystem {
     inputs.home-manager.nixosModules.home-manager
     inputs.grub2-themes.nixosModule
     {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.${username} = nixpkgs.lib.mkMerge [
-          ./home.nix
-        ];
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.users.${username} = nixpkgs.lib.mkMerge [
+        ./home.nix
+      ];
+      home-manager.extraSpecialArgs = { inherit username; };
     }
     {
       nixpkgs.overlays = [
@@ -18,5 +19,5 @@ nixpkgs.lib.nixosSystem {
       ];
     }
   ];
-  specialArgs = { inherit inputs; };
+  specialArgs = { inherit inputs username; };
 }
