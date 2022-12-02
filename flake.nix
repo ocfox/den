@@ -18,6 +18,10 @@
         inherit self nixpkgs inputs username;
       };
 
+      nixosConfigurations.arcticfox = import ./hosts/arcticfox {
+        inherit self nixpkgs inputs username;
+      };
+
       darwinConfigurations.sliverfox = import ./hosts/sliverfox {
         inherit self nixpkgs darwin inputs username;
       };
