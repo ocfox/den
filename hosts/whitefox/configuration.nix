@@ -127,7 +127,6 @@
       "wheel"
       "libvirtd"
     ];
-    shell = pkgs.fish;
   };
 
   environment.variables.EDITOR = "nvim";
