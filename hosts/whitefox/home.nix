@@ -45,6 +45,18 @@
     plugins = with pkgs; [ obs-studio-plugins.wlrobs ];
   };
 
+  programs.bash = {
+    enable = true;
+    initExtra = ''
+      if test $(id --user $USER) = 1000 && test $(tty) = "/dev/tty1"
+      then
+        exec sway
+      else
+        fish
+      fi
+    '';
+  };
+
   home.packages = with pkgs; [
     # aseprite-unfree
     bitwarden
