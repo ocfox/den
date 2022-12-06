@@ -14,7 +14,7 @@
   boot.cleanTmpDir = true;
   zramSwap.enable = true;
   networking.hostName = "arcticfox";
-  networking.domain = "";
+  networking.domain = "arctic.ocfox.me";
   services.openssh.enable = true;
 
   programs = {
