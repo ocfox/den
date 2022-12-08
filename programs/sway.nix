@@ -28,7 +28,7 @@
 
       assigns = {
         "1" = [{ app_id = "firefox"; }];
-        "4" = [{ app_id = "telegramdesktop"; }];
+        "4" = [{ app_id = "org.telegram.desktop"; }];
         "5" = [{ app_id = "thunderbird"; }];
       };
 
