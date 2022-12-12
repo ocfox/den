@@ -31,6 +31,11 @@
   };
 
   programs.home-manager.enable = true;
+
+  programs.starship = {
+    enable = true;
+    enableBashIntegration = true;
+  };
   programs.mako = {
     enable = true;
     backgroundColor = "#2b3339";
@@ -88,6 +93,7 @@
 
     # Application
     nur.repos.linyinfeng.icalingua-plus-plus
+    nur.repos.pokon548.tencent-qq-electron
     screenkey
 
     julia-bin
