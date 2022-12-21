@@ -56,8 +56,9 @@
       if test $(id --user $USER) = 1000 && test $(tty) = "/dev/tty1"
       then
         exec sway
-      else
-        fish
+      elif test $TERM = "xterm-kitty" || $TERM = "xterm-256color"
+      then
+        exec fish
       fi
     '';
   };
