@@ -32,10 +32,6 @@
 
   programs.home-manager.enable = true;
 
-  programs.starship = {
-    enable = true;
-    enableBashIntegration = true;
-  };
   programs.mako = {
     enable = true;
     backgroundColor = "#2b3339";
@@ -56,7 +52,7 @@
       if test $(id --user $USER) = 1000 && test $(tty) = "/dev/tty1"
       then
         exec sway
-      elif test $TERM = "xterm-kitty" || $TERM = "xterm-256color"
+      elif test $TERM = "xterm-kitty" || test $TERM = "xterm-256color"
       then
         exec fish
       fi

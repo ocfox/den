@@ -9,6 +9,13 @@
       vinix = "vim ~/nixos";
     };
 
+    plugins = [
+      {
+        name = "tide";
+        src = pkgs.fishPlugins.tide.src;
+      }
+    ];
+
     functions = {
       fish_greeting = "w";
 
@@ -18,13 +25,13 @@
         else
           set os "darwin"
         end
-
         $os-rebuild switch --use-remote-sudo --flake $HOME/nixos#$hostname
       '';
 
       ns = ''
         nix shell nixpkgs#{ $argv }
       '';
+
 
       haskellEnv = ''
         nix-shell -p haskell-language-server "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
