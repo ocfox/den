@@ -22,7 +22,7 @@ in
 
   programs = {
     chromium = {
-      enable = true;
+      enable = hostname == "whitefox";
       commandLineArgs = [ "--enable-features=UseOzonePlatform" "-ozone-platform=wayland" "--gtk-version=4" ];
     };
     exa = {
