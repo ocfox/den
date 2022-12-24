@@ -8,9 +8,7 @@ nixpkgs.lib.nixosSystem {
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.${username} = nixpkgs.lib.mkMerge [
-        ./home.nix
-      ];
+      home-manager.users.${username} = import ./home.nix;
       home-manager.extraSpecialArgs = { inherit username; };
     }
     {

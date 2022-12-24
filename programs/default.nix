@@ -1,16 +1,24 @@
 { config
+, nixosConfig
 , lib
 , pkgs
 , ...
-}: {
+}:
+let
+  hostname = nixosConfig.networking.hostName;
+in
+{
   imports = [
-    ./waybar
     ./alacritty.nix
     ./fish.nix
-    ./kitty.nix
-    ./sway.nix
     ./git.nix
-  ];
+  ] ++ (if hostname == "whitefox" then
+    [
+      ./sway.nix
+      ./waybar
+      ./kitty.nix
+    ] else [ ]
+  );
 
   programs = {
     chromium = {

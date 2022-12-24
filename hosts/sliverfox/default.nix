@@ -8,9 +8,7 @@ darwin.lib.darwinSystem {
       nixpkgs.config.allowUnfree = true;
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.${username} = nixpkgs.lib.mkMerge [
-        ./home.nix
-      ];
+      home-manager.users.${username} = import ./home.nix;
     }
   ];
 }
