@@ -12,6 +12,7 @@ in
     ./alacritty.nix
     ./fish.nix
     ./git.nix
+    ./tmux.nix
   ] ++ (if hostname == "whitefox" then
     [
       ./sway.nix
