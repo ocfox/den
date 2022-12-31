@@ -8,7 +8,12 @@ nixpkgs.lib.nixosSystem {
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.${username} = import ./home.nix;
+      home-manager.users.${username} = {
+        imports = [
+          ./home.nix
+          inputs.hyprland.homeManagerModules.default
+        ];
+      };
       home-manager.extraSpecialArgs = { inherit username; };
     }
     {

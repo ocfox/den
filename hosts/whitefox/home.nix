@@ -1,5 +1,6 @@
 { pkgs
 , config
+, inputs
 , ...
 }: {
   imports = [
@@ -20,6 +21,7 @@
       name = "Numix-Circle";
     };
   };
+  wayland.windowManager.hyprland.enable = true;
 
   services.pasystray.enable = true;
   home.pointerCursor = {
