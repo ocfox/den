@@ -74,6 +74,7 @@
 
   programs = {
     nm-applet.enable = true;
+    nix-ld.enable = true;
     steam.enable = false;
     gnupg.agent = {
       enable = true;
