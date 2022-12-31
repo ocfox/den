@@ -1,12 +1,9 @@
 {
-  description = "nixos-config";
+  description = "ocfox's nixos-config";
 
   outputs =
     { self
     , nixpkgs
-    , nur
-    , home-manager
-    , grub2-themes
     , darwin
     , ...
     } @ inputs:
@@ -31,6 +28,7 @@
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     grub2-themes.url = github:vinceliuice/grub2-themes;
     nur.url = github:nix-community/NUR;
+    hyprland.url = "github:hyprwm/Hyprland";
     darwin = {
       url = github:lnl7/nix-darwin/master;
       inputs.nixpkgs.follows = "nixpkgs";
