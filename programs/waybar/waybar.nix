@@ -1,24 +1,23 @@
 { pkgs }:
 {
   "layer" = "top";
-  "output" = "DP-1";
+  "output" = "HDMI-A-1";
   "position" = "top";
   "modules-left" = [
     "sway/workspaces"
     "temperature"
-    "idle_inhibitor"
+    "sway/window"
     "custom/music"
   ];
-  "modules-center" = [
-    "clock"
-  ];
   "modules-right" = [
+    "tray"
+    "idle_inhibitor"
     "pulseaudio"
     "backlight"
     "memory"
     "cpu"
     "network"
-    "tray"
+    "clock"
   ];
   "sway/workspaces" = {
     "disable-scroll" = true;
@@ -46,13 +45,13 @@
     };
     "tooltip" = false;
   };
-  "backlight" = {
-    "device" = "intel_backlight";
-    "on-scroll-up" = "light -A 5";
-    "on-scroll-down" = "light -U 5";
-    "format" = "{icon} {percent}%";
-    "format-icons" = [ "" "" "" "" ];
-  };
+  # "backlight" = {
+  #   "device" = "intel_backlight";
+  #   "on-scroll-up" = "light -A 5";
+  #   "on-scroll-down" = "light -U 5";
+  #   "format" = "{icon} {percent}%";
+  #   "format-icons" = [ "" "" "" "" ];
+  # };
   "pulseaudio" = {
     "format" = "{icon} {volume}%";
     "format-muted" = "婢 Muted";
@@ -69,9 +68,10 @@
   };
   "clock" = {
     "interval" = 1;
-    "format" = "{:%I:%M %p  %A %b %d}";
-    "tooltip" = false;
-    "tooltip-format" = "{:%A; %d %B %Y}\n<tt>{calendar}</tt>";
+    "format" = "{:%H:%M %b %d}";
+    "tooltip" = true;
+    "today-format" = "<span color='#ff6699'><b>{}</b></span>";
+    "tooltip-format" = "{:%A %B %Y}\n<tt>{calendar}</tt>";
   };
   "memory" = {
     "interval" = 1;

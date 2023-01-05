@@ -30,7 +30,8 @@ window > box {
   margin: 0 0px;
 }
 #workspaces button {
-  min-width: 30px;
+  min-width: 25px;
+  min-height: 18px;
   padding: 0 0px;
 }
 #workspaces button.focused {
@@ -51,14 +52,9 @@ tooltip label {
   color: rgb(217, 224, 238);
 }
 #mode, #clock, #memory, #temperature,#cpu,#custom-music, #idle_inhibitor, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
-/* #mode { */
-/* 	margin-left: 10px; */
-/* 	background-color: rgb(248, 189, 150); */
-/*     color: rgb(26, 24, 38); */
-/* } */
 #memory {
   color: rgb(181, 232, 224);
 }
@@ -89,6 +85,9 @@ tooltip label {
 #tray {
   padding-right: 8px;
   padding-left: 10px;
+}
+#window {
+  color: rgb(181, 232, 224);
 }
 #custom-music {
   color: #87c095;
