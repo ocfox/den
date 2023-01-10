@@ -15,21 +15,22 @@
       package = pkgs.materia-theme;
       name = "Materia";
     };
-
     iconTheme = {
-      package = pkgs.numix-icon-theme-circle;
-      name = "Numix-Circle";
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
+    };
+    gtk3.extraConfig = {
+      gtk-xft-hinting = 1;
+      gtk-xft-hintstyle = "hintslight";
     };
   };
   wayland.windowManager.hyprland.enable = true;
 
-  services.pasystray.enable = true;
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.nur.repos.ambroisie.vimix-cursors;
     name = "Vimix-white-cursors";
-    size = 42;
   };
 
   programs.home-manager.enable = true;

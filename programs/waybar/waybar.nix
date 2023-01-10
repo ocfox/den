@@ -63,7 +63,7 @@
       "warning" = 85;
     };
     "scroll-step" = 1;
-    "on-click" = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+    "on-click" = "${pkgs.pavucontrol}/bin/pavucontrol";
     "tooltip" = false;
   };
   "clock" = {
@@ -112,7 +112,7 @@
     "format" = " {temperatureC}°C";
   };
   "tray" = {
-    "icon-size" = 15;
+    "icon-size" = 14;
     "spacing" = 5;
   };
 }
