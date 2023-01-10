@@ -4,7 +4,7 @@ nixpkgs.lib.nixosSystem {
   modules = [
     ./configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.grub2-themes.nixosModule
+    inputs.grub2-themes.nixosModules.default
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
