@@ -9,12 +9,12 @@ let
 in
 {
   imports = [
-    ./alacritty.nix
     ./fish.nix
     ./git.nix
     ./tmux.nix
   ] ++ (if hostname == "whitefox" then
     [
+      ./alacritty.nix
       ./sway.nix
       ./waybar
       ./kitty.nix
