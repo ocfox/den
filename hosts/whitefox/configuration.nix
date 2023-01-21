@@ -105,6 +105,7 @@
     printing.enable = true;
     blueman.enable = true;
     openssh.enable = true;
+    v2raya.enable = true;
     udev.extraRules = ''
       KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"
     '';
