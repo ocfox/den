@@ -24,7 +24,7 @@ window#waybar {
 }
 window > box {
   margin: 0 0px;
-  background-color: #2b3339;
+  background-color: rgba(39, 46, 51, 0.9);
 }
 #workspaces {
   margin: 0 0px;
@@ -34,9 +34,9 @@ window > box {
   min-height: 18px;
   padding: 0 0px;
 }
-#workspaces button.focused {
+#workspaces button.active {
   background-color: #a7c080;
-  color: #2b3339;
+  color: #272e33;
 }
 #workspaces button.urgent {
   color: #d8caac;
