@@ -10,7 +10,7 @@
       size = 12;
     };
     settings = {
-      # background_opacity = "0.9";
+      background_opacity = "0.9";
       confirm_os_window_close = "0";
     };
 
@@ -23,7 +23,7 @@
 
     extraConfig = "
       remember_window_size  no
-      background  #2b3339
+      background  #272e33
       foreground  #d8caac
 
       cursor                #d8caac
