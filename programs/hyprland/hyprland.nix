@@ -6,17 +6,12 @@
 
   input {
       kb_layout = us
-      kb_variant =
-      kb_model =
-      kb_options =
-      kb_rules =
 
       follow_mouse = 1
 
       touchpad {
           natural_scroll = no
       }
-
       sensitivity = 0
   }
 
@@ -55,6 +50,7 @@
   dwindle {
       pseudotile = yes
       preserve_split = yes
+      no_gaps_when_only = true
   }
 
   master {
@@ -113,4 +109,9 @@
 
   bindm = $mod, mouse:272, movewindow
   bindm = $mod, mouse:273, resizewindow
+
+  windowrulev2 = opacity 0.97 0.97, class:org.telegram.desktop
+  windowrulev2 = workspace 1, class:firefox
+  windowrulev2 = workspace 4, class:org.telegram.desktop
+  windowrulev2 = workspace 5, class:thunderbird
 ''
