@@ -4,9 +4,9 @@
   "output" = "HDMI-A-1";
   "position" = "top";
   "modules-left" = [
-    "sway/workspaces"
+    "wlr/workspaces"
     "temperature"
-    "sway/window"
+    "wlr/window"
     "custom/music"
   ];
   "modules-right" = [
@@ -19,7 +19,7 @@
     "network"
     "clock"
   ];
-  "sway/workspaces" = {
+  "wlr/workspaces" = {
     "disable-scroll" = true;
     "format" = "{icon}";
     "all-outputs" = true;

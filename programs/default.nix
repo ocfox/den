@@ -15,9 +15,10 @@ in
   ] ++ (if hostname == "whitefox" then
     [
       ./alacritty.nix
-      ./sway.nix
+      # ./sway.nix
       ./waybar
       ./kitty.nix
+      ./hyprland
     ] else [ ]
   );
 

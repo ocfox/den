@@ -24,7 +24,6 @@
       gtk-xft-hintstyle = "hintslight";
     };
   };
-  wayland.windowManager.hyprland.enable = true;
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -54,7 +53,7 @@
     initExtra = ''
       if test $(id --user $USER) = 1000 && test $(tty) = "/dev/tty1"
       then
-        exec sway
+        exec Hyprland
       elif test $TERM = "xterm-kitty" || test $TERM = "xterm-256color"
       then
         exec fish
@@ -81,7 +80,7 @@
     firefox-wayland
     qutebrowser
 
-    factorio-experimental
+    # factorio-experimental
 
     # Music & Video
     ncspot
