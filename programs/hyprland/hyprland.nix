@@ -2,67 +2,66 @@
 ''
   monitor=HDMI-A-1,preferred,auto,2
 
-  exec-once = telegram-desktop & firefox & thunderbird & fcitx -d
+  exec-once =  thunderbird & fcitx -d & telegram-desktop & firefox
 
   input {
-      kb_layout = us
+    kb_layout = us
+    follow_mouse = 1
 
-      follow_mouse = 1
-
-      touchpad {
-          natural_scroll = no
-      }
-      sensitivity = 0
+    touchpad {
+      natural_scroll = no
+    }
+    sensitivity = 0
   }
 
   general {
-      gaps_in = 2
-      gaps_out = 2
-      border_size = 1
-      col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-      col.inactive_border = rgba(595959aa)
-      layout = dwindle
+    gaps_in = 2
+    gaps_out = 2
+    border_size = 1
+    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+    col.inactive_border = rgba(595959aa)
+    layout = dwindle
   }
 
   decoration {
-      # rounding = 10
-      blur = yes
-      blur_size = 3
-      blur_passes = 1
-      blur_new_optimizations = on
+    # rounding = 10
+    blur = yes
+    blur_size = 3
+    blur_passes = 1
+    blur_new_optimizations = on
 
-      drop_shadow = yes
-      shadow_range = 4
-      shadow_render_power = 3
-      col.shadow = rgba(1a1a1aee)
+    drop_shadow = yes
+    shadow_range = 4
+    shadow_render_power = 3
+    col.shadow = rgba(1a1a1aee)
   }
 
   animations {
-      enabled = yes
-      bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-      animation = windows, 1, 7, myBezier
-      animation = windowsOut, 1, 7, default, popin 80%
-      animation = border, 1, 10, default
-      animation = fade, 1, 7, default
-      animation = workspaces, 1, 6, default
+    enabled = yes
+    bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+    animation = windows, 1, 7, myBezier
+    animation = windowsOut, 1, 7, default, popin 80%
+    animation = border, 1, 10, default
+    animation = fade, 1, 7, default
+    animation = workspaces, 1, 6, default
   }
 
   dwindle {
-      pseudotile = yes
-      preserve_split = yes
-      no_gaps_when_only = true
+    pseudotile = yes
+    preserve_split = yes
+    no_gaps_when_only = true
   }
 
   master {
-      new_is_master = true
+    new_is_master = true
   }
 
   gestures {
-      workspace_swipe = off
+    workspace_swipe = off
   }
 
   device:epic mouse V1 {
-      sensitivity = -0.5
+    sensitivity = -0.5
   }
 
   $mod = SUPER
@@ -76,11 +75,20 @@
   bind = $mod, P, pseudo,
   bind = $mod, e, togglesplit,
   bind = $mod SHIFT, s, exec, ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area
+  bind = $mod SHIFT, u, exec, ${pkgs.pamixer}/bin/pamixer -i 10
+  bind = $mod SHIFT, d, exec, ${pkgs.pamixer}/bin/pamixer -d 10
+  bind = $mod SHIFT, e, exec, power-menu
+  bind = $mod SHIFT, r, exec, screen-recorder-toggle
 
   bind = $mod, h, movefocus, l
   bind = $mod, l, movefocus, r
   bind = $mod, j, movefocus, d
   bind = $mod, k, movefocus, u
+
+  bind = $mod SHIFT, h, movewindow, l
+  bind = $mod SHIFT, l, movewindow, r
+  bind = $mod SHIFT, j, movewindow, d
+  bind = $mod SHIFT, k, movewindow, u
 
   bind = $mod, 1, workspace, 1
   bind = $mod, 2, workspace, 2
