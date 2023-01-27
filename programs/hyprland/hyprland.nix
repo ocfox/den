@@ -1,9 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
+let
+  swww = "${pkgs.nur.repos.ocfox.swww}/bin/swww";
+in
 ''
   monitor=HDMI-A-1,preferred,auto,2
 
   exec-once = thunderbird & fcitx5 -d & telegram-desktop & firefox
-  exec-once = swww init & swww img ~/Pictures/Wallpapers/cat.gif
+  exec-once = ${swww} init & sleep 3; ${swww} img /home/${username}/Pictures/Wallpapers/cat.gif
 
   input {
     kb_layout = us
