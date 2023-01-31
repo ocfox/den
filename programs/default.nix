@@ -12,6 +12,7 @@ in
     ./fish.nix
     ./git.nix
     ./tmux.nix
+    ./nvim
   ] ++ (if hostname == "whitefox" then
     [
       ./alacritty.nix
