@@ -25,16 +25,16 @@
     };
 
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
-    grub2-themes.url = github:vinceliuice/grub2-themes;
-    nur.url = github:nix-community/NUR;
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    grub2-themes.url = "github:vinceliuice/grub2-themes";
+    nur.url = "github:nix-community/NUR";
     hyprland.url = "github:hyprwm/Hyprland";
     darwin = {
-      url = github:lnl7/nix-darwin/master;
+      url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = github:nix-community/home-manager;
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
