@@ -93,7 +93,6 @@ require("neo-tree").setup {
       folder_closed = "",
       folder_open = "",
       folder_empty = "",
-      default = "",
     },
     git_status = {
       symbols = {
@@ -303,3 +302,42 @@ telescope.setup {
     },
   },
 }
+
+require('nvim-web-devicons').setup {
+ color_icons = true;
+ default = true;
+}
+
+vim.g.mapleader = ' '
+local map = vim.keymap.set
+local function desc(s)
+  return { desc = s }
+end
+
+map('n', '<leader>w', '<cmd>w<cr>', desc('Save'))
+map('n', '<leader>q', '<cmd>w<cr>', desc('Quit'))
+map('n', '<leader>h', '<cmd>nohlsearch<cr>', desc('No Highlight'))
+map('n', '|', '<cmd>vsplit<cr>', desc('Vertical Split'))
+map('n', '\\', '<cmd>split<cr>', desc('Horizontal Split'))
+
+map('n', '<leader>/', function() require("Comment.api").toggle.linewise.current() end, desc('Comment'))
+map('v', '<leader>/', "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc('Comment'))
+map('n', '<leader>e', '<cmd>Neotree toggle<cr>', desc('Neotree'))
+
+map('t', "<C-'>", '<cmd>ToggleTerm<cr>')
+map('n', "<C-'>", '<cmd>ToggleTerm<cr>')
+
+-- map('n', '<C-h>', function() require("smart-splits").move_cursor_left() end)
+-- map('n', '<C-j>', function() require("smart-splits").move_cursor_down() end)
+-- map('n', '<C-k>', function() require("smart-splits").move_cursor_up() end)
+-- map('n', '<C-l>', function() require("smart-splits").move_cursor_right() end)
+
+map('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, desc('Format'))
+
+map('n', '<leader>gg', "<cmd>TermExec cmd='exec lazygit'<cr>", desc('Lazygit'))
+map('n', '<leader>gc', function() require("telescope.builtin").git_commits() end, desc('Git commits'))
+map('n', '<leader>fw', function() require("telescope.builtin").live_grep() end, desc('Search words'))
+map('n', '<leader>ff', function() require("telescope.builtin").find_files() end, desc('Search files'))
+
+map('n', '<S-l>', '<cmd>BufferLineCycleNext<cr>')
+map('n', '<S-h>', '<cmd>BufferLineCyclePrev<cr>')

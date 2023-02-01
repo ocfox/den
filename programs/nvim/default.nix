@@ -39,6 +39,7 @@
       lspkind-nvim
       indent-blankline-nvim
       better-escape-nvim
+      nvim-web-devicons
       (nvim-treesitter.withPlugins (
         plugins: with plugins; [
           nix
@@ -50,9 +51,9 @@
         ]
       ))
     ];
-    #extraConfig = ''
-    #  :source ${./nvim.lua}
-    #'';
+    extraConfig = ''
+      :source ${./nvim.lua}
+    '';
   };
 
   home.packages = with pkgs; [
