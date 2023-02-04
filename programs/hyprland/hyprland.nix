@@ -76,13 +76,15 @@ in
   bind = $mod, f, fullscreen, 
   bind = $mod SHIFT, f, fakefullscreen, 
   bind = $mod, O, exec, ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3
-  bind = $mod, P, pseudo,
-  bind = $mod, e, togglesplit,
   bind = $mod SHIFT, s, exec, ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area
   bind = $mod SHIFT, u, exec, ${pkgs.pamixer}/bin/pamixer -i 10
   bind = $mod SHIFT, d, exec, ${pkgs.pamixer}/bin/pamixer -d 10
   bind = $mod SHIFT, e, exec, power-menu
   bind = $mod SHIFT, r, exec, screen-recorder-toggle
+
+  bind = $mod, P, pseudo,
+  bind = $mod, e, togglesplit
+  bind = $mod, w, togglegroup
 
   bind = $mod, h, movefocus, l
   bind = $mod, l, movefocus, r

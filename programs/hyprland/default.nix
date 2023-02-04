@@ -6,6 +6,6 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = (import ./hyprland.nix { inherit username pkgs; });
+    extraConfig = import ./hyprland.nix { inherit username pkgs; };
   };
 }
