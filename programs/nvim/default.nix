@@ -26,7 +26,8 @@
       toggleterm-nvim
       which-key-nvim
       bufferline-nvim
-      #heirline-nvim
+      # vim-wakatime
+      lualine-nvim
       impatient-nvim
       nvim-notify
       FixCursorHold-nvim
