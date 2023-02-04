@@ -22,8 +22,6 @@
       noto-fonts-cjk
       noto-fonts-emoji
       fira-code
-      wqy_microhei
-      wqy_zenhei
       symbola
       (nerdfonts.override {
         fonts = [
