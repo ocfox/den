@@ -54,9 +54,6 @@
       if test $(id --user $USER) = 1000 && test $(tty) = "/dev/tty1"
       then
         exec Hyprland
-      elif test $TERM = "xterm-kitty" || test $TERM = "xterm-256color"
-      then
-        exec fish
       fi
     '';
   };
