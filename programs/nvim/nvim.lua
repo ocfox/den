@@ -2,6 +2,8 @@ vim.opt.background = 'dark'
 vim.opt.number = true
 vim.opt.termguicolors = true
 
+vim.o.cmdheight=0
+
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
@@ -323,10 +325,10 @@ map('n', '<leader>e', '<cmd>Neotree toggle<cr>', desc('Neotree'))
 map('t', "<C-'>", '<cmd>ToggleTerm<cr>')
 map('n', "<C-'>", '<cmd>ToggleTerm<cr>')
 
--- map('n', '<C-h>', function() require("smart-splits").move_cursor_left() end)
--- map('n', '<C-j>', function() require("smart-splits").move_cursor_down() end)
--- map('n', '<C-k>', function() require("smart-splits").move_cursor_up() end)
--- map('n', '<C-l>', function() require("smart-splits").move_cursor_right() end)
+map('n', '<C-h>', function() require("smart-splits").move_cursor_left() end)
+map('n', '<C-j>', function() require("smart-splits").move_cursor_down() end)
+map('n', '<C-k>', function() require("smart-splits").move_cursor_up() end)
+map('n', '<C-l>', function() require("smart-splits").move_cursor_right() end)
 
 map('n', '<leader>lf', function() vim.lsp.buf.format {async = true} end,
     desc('Format'))
@@ -348,8 +350,6 @@ map('n', '<leader>p', '"+p', desc('Paste Clipboard'))
 
 local lualine = require('lualine')
 
--- Color table for highlights
--- stylua: ignore
 local colors = {
   bg       = '#202328',
   fg       = '#bbc2cf',
@@ -381,29 +381,22 @@ local conditions = {
 -- Config
 local config = {
   options = {
-    -- Disable sections and component separators
     component_separators = '',
     section_separators = '',
     theme = {
-      -- We are going to use lualine_c an lualine_x as left and
-      -- right section. Both are highlighted by c theme .  So we
-      -- are just setting default looks o statusline
       normal = { c = { fg = colors.fg, bg = colors.bg } },
       inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
   },
   sections = {
-    -- these are to remove the defaults
     lualine_a = {},
     lualine_b = {},
     lualine_y = {},
     lualine_z = {},
-    -- These will be filled later
     lualine_c = {},
     lualine_x = {},
   },
   inactive_sections = {
-    -- these are to remove the defaults
     lualine_a = {},
     lualine_b = {},
     lualine_y = {},
@@ -432,12 +425,10 @@ ins_left {
 }
 
 ins_left {
-  -- mode component
   function()
     return ''
   end,
   color = function()
-    -- auto change color according to neovims mode
     local mode_color = {
       n = colors.red,
       i = colors.green,
@@ -466,7 +457,6 @@ ins_left {
 }
 
 ins_left {
-  -- filesize component
   'filesize',
   cond = conditions.buffer_not_empty,
 }
@@ -492,8 +482,6 @@ ins_left {
   },
 }
 
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it's any number greater then 2
 ins_left {
   function()
     return '%='
@@ -521,10 +509,9 @@ ins_left {
   color = { fg = '#ffffff', gui = 'bold' },
 }
 
--- Add components to right sections
 ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
+  'o:encoding',
+  fmt = string.upper,
   cond = conditions.hide_in_width,
   color = { fg = colors.green, gui = 'bold' },
 }
@@ -532,7 +519,7 @@ ins_right {
 ins_right {
   'fileformat',
   fmt = string.upper,
-  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+  icons_enabled = false,
   color = { fg = colors.green, gui = 'bold' },
 }
 
@@ -544,7 +531,6 @@ ins_right {
 
 ins_right {
   'diff',
-  -- Is it me or the symbol for modified us really weird
   symbols = { added = ' ', modified = '柳 ', removed = ' ' },
   diff_color = {
     added = { fg = colors.green },
@@ -562,5 +548,4 @@ ins_right {
   padding = { left = 1 },
 }
 
--- Now don't forget to initialize lualine
 lualine.setup(config)
