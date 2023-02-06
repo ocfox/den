@@ -1,7 +1,5 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    # CLI Tools
-    pkg-config
     fontpreview
     wget
     git
@@ -36,52 +34,23 @@
     alejandra
     polkit_gnome
     zola
-    ghc
-
     thunderbird-wayland
 
-    # Desktop
     rpiplay
 
-    # dev
     neovim
-    texlab
     taplo-lsp
-    glfw2
-    libGL
     helix
     tree-sitter
     boost
     gcc
-    clang_13
-    bintools-unwrapped
     lua
     sumneko-lua-language-server
-    clangStdenv
-    xorg.libXext
-    clang-tools
-    cmake
-    gnumake
-    go
     jdk
-    gnupg
     lua
-    rustc
     rustup
     rust-analyzer
-    rnix-lsp
-    cargo
-    nodejs
-    nodePackages.typescript
     yarn
-    (python310.withPackages (ps: with ps; [ pynvim ]))
-
-    # System Tools
-
-    # Warm up
-    # fahclient
-
-    # Virt
     virt-manager
   ];
 }

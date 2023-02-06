@@ -25,6 +25,11 @@
     };
   };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -79,7 +84,6 @@
 
     # factorio-experimental
 
-    # Music & Video
     ncspot
     sptlrx
     playerctl
@@ -92,7 +96,6 @@
     nur.repos.pokon548.tencent-qq-electron
     screenkey
 
-    julia-bin
     texlive.combined.scheme-medium
   ];
   home.stateVersion = "22.05";

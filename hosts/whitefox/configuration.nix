@@ -23,10 +23,12 @@
     package = pkgs.nixUnstable;
     extraOptions = ''
       experimental-features = nix-command flakes
+      keep-outputs = true
+      keep-derivations = true
     '';
     gc = {
       automatic = true;
-      options = "--delete-older-than 5d";
+      options = "--delete-older-than 30d";
       dates = "Sun 14:00";
     };
 
@@ -74,8 +76,6 @@
 
   programs = {
     nm-applet.enable = true;
-    nix-ld.enable = true;
-    steam.enable = false;
     gnupg.agent = {
       enable = true;
       pinentryFlavor = "gnome3";
@@ -130,8 +130,6 @@
       "libvirtd"
     ];
   };
-
-  environment.variables.EDITOR = "nvim";
 
   system.stateVersion = "unstable";
 }
