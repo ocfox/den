@@ -13,6 +13,7 @@ in
     ./git.nix
     ./tmux.nix
     ./nvim
+    ./helix
   ] ++ (if hostname == "whitefox" then
     [
       ./alacritty.nix
