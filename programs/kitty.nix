@@ -24,7 +24,7 @@
 
     extraConfig = "
       remember_window_size  no
-      background  #272e33
+      background  #2b3339
       foreground  #d8caac
 
       cursor                #d8caac

@@ -41,7 +41,7 @@
 
   programs.mako = {
     enable = true;
-    backgroundColor = "#272E33";
+    backgroundColor = "#2b3339";
     borderSize = 1;
     borderColor = "#83b6af";
     defaultTimeout = 5000;
