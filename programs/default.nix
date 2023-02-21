@@ -14,6 +14,7 @@ in
     ./tmux.nix
     ./nvim
     ./helix
+    ./ssh.nix
   ] ++ (if hostname == "whitefox" then
     [
       ./alacritty.nix
