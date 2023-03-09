@@ -3,7 +3,8 @@ let
   swww = "${pkgs.nur.repos.ocfox.swww}/bin/swww";
 in
 ''
-  monitor=HDMI-A-1,preferred,auto,2
+  monitor = DP-1,2560x1440,0x0,2
+  monitor = HDMI-A-1,1920x1080,auto,2
 
   exec-once = thunderbird & fcitx5 -d & telegram-desktop & firefox
   exec-once = ${swww} init & sleep 3; ${swww} img /home/${username}/Pictures/Wallpapers/cat.gif
@@ -124,8 +125,11 @@ in
   bindm = $mod, mouse:272, movewindow
   bindm = $mod, mouse:273, resizewindow
 
+  workspace = HDMI-A-1, 9
+
   windowrulev2 = opacity 0.97 0.97, class:org.telegram.desktop
   windowrulev2 = workspace 1, class:firefox
   windowrulev2 = workspace 4, class:org.telegram.desktop
   windowrulev2 = workspace 5, class:thunderbird
+  windowrulev2 = float, class:wemeetapp
 ''

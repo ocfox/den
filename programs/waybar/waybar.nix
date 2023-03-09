@@ -1,12 +1,12 @@
 { pkgs }:
 {
   "layer" = "top";
-  "output" = "HDMI-A-1";
+  "output" = "DP-1";
   "position" = "top";
   "modules-left" = [
     "wlr/workspaces"
     "temperature"
-    "wlr/window"
+    "hyprland/window"
     "custom/music"
   ];
   "modules-right" = [
@@ -101,8 +101,8 @@
   "network" = {
     "interval" = 1;
     "format-wifi" = "說 {essid}";
-    "format-ethernet" = "  {ifname} ({ipaddr})";
-    "format-linked" = "說 {essid} (No IP)";
+    "format-ethernet" = " {ipaddr}";
+    "format-linked" = "說 {essid}";
     "format-disconnected" = "說 Disconnected";
     "tooltip" = false;
   };
