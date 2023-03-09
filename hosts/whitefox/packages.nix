@@ -35,9 +35,8 @@
     polkit_gnome
     zola
     thunderbird-wayland
-
+    rustup
     rpiplay
-
     neovim
     taplo-lsp
     helix
@@ -48,7 +47,6 @@
     sumneko-lua-language-server
     jdk
     lua
-    rustup
     rust-analyzer
     yarn
     virt-manager

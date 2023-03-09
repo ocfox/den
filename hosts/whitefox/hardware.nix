@@ -19,11 +19,11 @@
     fsType = "ext4";
   };
 
-  fileSystems."/run/mount/win" = {
-    device = "/dev/disk/by-uuid/5C489A5D489A35AC";
-    fsType = "ntfs3";
-    options = [ "rw" "uid=1000" ];
-  };
+ #  fileSystems."/run/mount/win" = {
+ #   device = "/dev/disk/by-uuid/5C489A5D489A35AC";
+ #   fsType = "ntfs3";
+ #   options = [ "rw" "uid=1000" ];
+ # };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/EEE9-4D3C";

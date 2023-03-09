@@ -92,9 +92,9 @@
     wf-recorder
 
     # Application
+    nur.repos.linyinfeng.wemeet
     nur.repos.linyinfeng.icalingua-plus-plus
     nur.repos.pokon548.tencent-qq-electron
-    screenkey
 
     texlive.combined.scheme-medium
   ];
