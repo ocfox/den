@@ -33,8 +33,8 @@
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.nur.repos.ambroisie.vimix-cursors;
-    name = "Vimix-white-cursors";
+    package = pkgs.apple-cursor;
+    name = "macOS-Monterey-White";
   };
 
   programs.home-manager.enable = true;
