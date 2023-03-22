@@ -78,27 +78,6 @@
     hostName = "whitefox";
     useDHCP = false;
 
-    wireguard.interfaces = {
-      wg0 = {
-        ips = [ "10.0.0.7/24" ];
-        listenPort = 51820;
-        privateKey = "UGD+jzUJCrd+PUVDLq1Dysd+d+BX5YCaObNiCzgIxGw=";
-        peers = [
-          {
-            publicKey = "BhOuRTB2juG1EyzmPup373PPlWHK6a8xsk6fPtrOHjQ=";
-            allowedIPs = [ "10.0.0.0/24" ];
-            endpoint = "174.138.27.173:51820";
-            persistentKeepalive = 25;
-          }
-          {
-            publicKey = "xN5i8n5hKOsiNxC4TVQ2JVdOvuKF2NQCbcaPMgG/uxQ=";
-            allowedIPs = [ "10.0.0.0/24" ];
-            persistentKeepalive = 25;
-          }
-        ];
-      };
-    };
-
     networkmanager = {
       enable = true;
     };
@@ -135,11 +114,11 @@
     devmon.enable = true;
     printing.enable = true;
 
-    postgresql = {
-      enable = true;
-      extraPlugins = with pkgs.postgresql_14.pkgs; [ postgis ];
-      package = pkgs.postgresql_14;
-    };
+    # postgresql = {
+    #   enable = true;
+    #   extraPlugins = with pkgs.postgresql_14.pkgs; [ postgis ];
+    #   package = pkgs.postgresql_14;
+    # };
     blueman.enable = true;
     openssh.enable = true;
     v2raya.enable = true;
