@@ -1,10 +1,11 @@
 { pkgs, username, ... }:
 let
-  swww = "${pkgs.nur.repos.ocfox.swww}/bin/swww";
+  swww = "${pkgs.swww}/bin/swww";
 in
 ''
-  monitor = DP-1,2560x1440,0x0,2
-  monitor = HDMI-A-1,1920x1080,auto,2
+  monitor = HDMI-A-1,1920x1080,0x0,2
+  monitor = HDMI-A-1,transform,1
+  monitor = DP-1,3840x2160,540x480,3,bitdepth,10
 
   exec-once = thunderbird & fcitx5 -d & telegram-desktop & firefox
   exec-once = ${swww} init & sleep 3; ${swww} img /home/${username}/Pictures/Wallpapers/cat.gif
