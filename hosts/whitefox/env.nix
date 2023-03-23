@@ -1,6 +1,4 @@
-{ config
-, pkgs
-, ...
+{ ...
 }: {
   environment = {
     sessionVariables = rec {
