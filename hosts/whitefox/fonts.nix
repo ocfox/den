@@ -1,9 +1,12 @@
 { pkgs, ... }: {
   fonts = {
     enableDefaultFonts = true;
-    optimizeForVeryHighDPI = true;
+    # see https://github.com/NixOS/nixpkgs/pull/222236
+    # optimizeForVeryHighDPI = true;
     fontconfig = {
       enable = true;
+      antialias = true;
+      hinting.enable = true;
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         sansSerif = [ "DejaVu Sans" ];
