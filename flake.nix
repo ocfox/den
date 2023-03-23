@@ -5,41 +5,34 @@
     { self
     , nixpkgs
     , darwin
-    , flake-utils
     , ...
     } @ inputs:
-    flake-utils.lib.eachDefaultSystem
-      (system:
-      let
-        username = "ocfox";
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        nixosConfigurations.whitefox = import ./hosts/whitefox {
-          inherit self nixpkgs inputs username;
-        };
+    let
+      username = "ocfox";
+    in
+    {
+      nixosConfigurations.whitefox = import ./hosts/whitefox {
+        inherit self nixpkgs inputs username;
+      };
 
-        nixosConfigurations.arcticfox = import ./hosts/arcticfox {
-          inherit self nixpkgs inputs username;
-        };
+      nixosConfigurations.arcticfox = import ./hosts/arcticfox {
+        inherit self nixpkgs inputs username;
+      };
 
-        darwinConfigurations.sliverfox = import ./hosts/sliverfox {
-          inherit self nixpkgs darwin inputs username;
-        };
+      darwinConfigurations.sliverfox = import ./hosts/sliverfox {
+        inherit self nixpkgs darwin inputs username;
+      };
+    };
 
-        devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            nil
-          ];
-        };
-      });
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
     grub2-themes.url = "github:vinceliuice/grub2-themes";
     nur.url = "github:nix-community/NUR";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";

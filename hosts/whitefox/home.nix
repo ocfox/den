@@ -39,7 +39,7 @@
 
   programs.home-manager.enable = true;
 
-  programs.mako = {
+  services.mako = {
     enable = true;
     backgroundColor = "#2b3339";
     borderSize = 1;

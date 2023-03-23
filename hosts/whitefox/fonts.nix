@@ -1,12 +1,9 @@
 { pkgs, ... }: {
   fonts = {
     enableDefaultFonts = true;
+    optimizeForVeryHighDPI = true;
     fontconfig = {
       enable = true;
-      hinting = {
-        enable = true;
-        autohint = false;
-      };
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         sansSerif = [ "DejaVu Sans" ];
