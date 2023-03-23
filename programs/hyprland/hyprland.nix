@@ -1,6 +1,6 @@
 { lib, pkgs, username, ... }:
 let
-  swww = "${lib.getExe pkgs.nur.repos.ocfox.swww}";
+  swww = "${lib.getExe pkgs.swww}";
 in
 ''
   monitor = HDMI-A-1, 2560x1440, 0x0, 3
@@ -36,6 +36,7 @@ in
     blur_size = 3
     blur_passes = 1
     blur_new_optimizations = on
+    inactive_opacity = 0.95
 
     drop_shadow = yes
     shadow_range = 4
@@ -134,4 +135,7 @@ in
   windowrulev2 = workspace 4, class:org.telegram.desktop
   windowrulev2 = workspace 5, class:thunderbird
   windowrulev2 = float, class:wemeetapp
+
+  layerrule = blur, waybar
+  layerrule = blur, notifications
 ''

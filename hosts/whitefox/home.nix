@@ -39,9 +39,9 @@
 
   services.mako = {
     enable = true;
-    backgroundColor = "#2b3339";
-    borderSize = 1;
-    borderColor = "#83b6af";
+    backgroundColor = "#2b333900";
+    borderSize = 0;
+    borderColor = "#83b6af00";
     defaultTimeout = 5000;
     font = "JetBrainsMono Nerd Font 12";
   };
