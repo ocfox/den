@@ -14,6 +14,10 @@
         name = "tide";
         src = pkgs.fishPlugins.tide.src;
       }
+      {
+        name = "forgit";
+        src = pkgs.fishPlugins.forgit.src;
+      }
     ];
 
     functions = {

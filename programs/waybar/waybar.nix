@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, lib }:
 {
   "layer" = "top";
   "output" = "DP-1";
@@ -63,7 +63,7 @@
       "warning" = 85;
     };
     "scroll-step" = 1;
-    "on-click" = "${pkgs.pavucontrol}/bin/pavucontrol";
+    "on-click" = "${lib.getExe pkgs.pavucontrol}";
     "tooltip" = false;
   };
   "clock" = {
@@ -87,14 +87,14 @@
   "custom/music" = {
     "format" = "{}";
     "interval" = 1;
-    "exec-if" = "${pkgs.playerctl}/bin/playerctl metadata";
+    "exec-if" = "${lib.getExe pkgs.playerctl} metadata";
     "exec" = pkgs.writeShellScript "music" ''
       #!/usr/bin/env bash
-      if [[ $(${pkgs.playerctl}/bin/playerctl metadata artist) ]]
+      if [[ $(${lib.getExe pkgs.playerctl} metadata artist) ]]
       then
-        echo $(${pkgs.playerctl}/bin/playerctl metadata artist) - $(${pkgs.playerctl}/bin/playerctl metadata title)
+        echo $(${lib.getExe pkgs.playerctl} metadata artist) - $(${lib.getExe pkgs.playerctl} metadata title)
       else
-        echo $(${pkgs.playerctl}/bin/playerctl metadata title)
+        echo $(${lib.getExe pkgs.playerctl} metadata title)
       fi
     '';
   };

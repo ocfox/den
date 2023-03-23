@@ -1,4 +1,5 @@
 { pkgs
+, lib
 , config
 , ...
 }: {
@@ -45,7 +46,7 @@
 
         if [ $status != 0 ]
         then
-          ${pkgs.wf-recorder}/bin/wf-recorder -g "$(${pkgs.slurp}/bin/slurp)" -f $HOME/Videos/record/$(date +'recording_%Y-%m-%d-%H%M%S.mp4');
+          ${lib.getExe pkgs.wf-recorder} -g "$(${lib.getExe pkgs.slurp})" -f $HOME/Videos/record/$(date +'recording_%Y-%m-%d-%H%M%S.mp4');
         else
           ${pkgs.procps}/bin/pkill --signal SIGINT wf-recorder
         fi;
@@ -58,7 +59,7 @@
         options="shutdown\nreboot\nsuspend\nexit sway"
 
         selection="$(${pkgs.coreutils}/bin/echo -e $options | \
-                     ${pkgs.bemenu}/bin/bemenu -i -l 4 -c -W 0.3)"
+                     ${lib.getExe pkgs.bemenu} -i -l 4 -c -W 0.3)"
 
         case $selection in
         	shutdown) ${pkgs.systemd}/bin/systemctl poweroff
@@ -68,9 +69,6 @@
         		exit 0
         		;;
         	suspend) ${pkgs.systemd}/bin/systemctl suspend
-        		exit 0
-        		;;
-        	suspend) ${pkgs.sway}/bin/swaymsg exit
         		exit 0
         		;;
         esac''

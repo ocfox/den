@@ -1,14 +1,15 @@
-{ pkgs, username, ... }:
+{ lib, pkgs, username, ... }:
 let
-  swww = "${pkgs.swww}/bin/swww";
+  swww = "${lib.getExe pkgs.nur.repos.ocfox.swww}";
 in
 ''
-  monitor = HDMI-A-1,1920x1080,0x0,2
-  monitor = HDMI-A-1,transform,1
-  monitor = DP-1,3840x2160,540x480,3,bitdepth,10
+  monitor = HDMI-A-1, 2560x1440, 0x0, 3
+  monitor = HDMI-A-1, transform, 1
 
-  exec-once = thunderbird & fcitx5 -d & telegram-desktop & firefox
-  exec-once = ${swww} init & sleep 3; ${swww} img /home/${username}/Pictures/Wallpapers/cat.gif
+  monitor = DP-1, 3840x2160, 480x130, 3, bitdepth, 10
+
+  exec-once = fcitx5 -d & telegram-desktop & firefox
+  exec-once = ${swww} init & sleep 5; ${swww} img -o DP-1 /home/${username}/Pictures/Wallpapers/rurudo.jpg & ${swww} img -o HDMI-A-1 /home/${username}/Pictures/Wallpapers/tighnari.jpg
 
   input {
     kb_layout = us
