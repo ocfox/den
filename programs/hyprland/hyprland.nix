@@ -1,6 +1,7 @@
 { lib, pkgs, username, ... }:
 let
   swww = "${lib.getExe pkgs.swww}";
+  swww-daemon = "${pkgs.swww}/bin/swww-daemon";
 in
 ''
   monitor = HDMI-A-1, 2560x1440, 0x0, 3
@@ -8,8 +9,8 @@ in
 
   monitor = DP-1, 3840x2160, 480x130, 3, bitdepth, 10
 
-  exec-once = fcitx5 -d & telegram-desktop & firefox
-  exec-once = ${swww} init & sleep 5; ${swww} img -o DP-1 /home/${username}/Pictures/Wallpapers/rurudo.jpg & ${swww} img -o HDMI-A-1 /home/${username}/Pictures/Wallpapers/tighnari.jpg
+  exec-once = fcitx5 -d & telegram-desktop & firefox &
+  exec-once = ${swww-daemon} & sleep 3; ${swww} img -o DP-1 /home/${username}/Pictures/Wallpapers/rurudo.jpg && ${swww} img -o HDMI-A-1 /home/${username}/Pictures/Wallpapers/tighnari.jpg
 
   input {
     kb_layout = us
