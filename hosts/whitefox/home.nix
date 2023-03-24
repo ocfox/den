@@ -32,7 +32,7 @@
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.apple-cursor;
-    name = "macOS-Monterey-White";
+    name = "macOS-Monterey";
   };
 
   programs.home-manager.enable = true;

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   nixpkgs.overlays = [
     (self: super: {
       factorio = super.factorio.override {
