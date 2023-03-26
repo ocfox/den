@@ -4,13 +4,11 @@ let
   swww-daemon = "${pkgs.swww}/bin/swww-daemon";
 in
 ''
-  monitor = HDMI-A-1, 2560x1440, 0x0, 3
-  monitor = HDMI-A-1, transform, 1
-
-  monitor = DP-1, 3840x2160, 480x130, 3, bitdepth, 10
+  monitor = HDMI-A-1, 2560x1440, 0x0, 2
+  monitor = DP-1, 3840x2160, 1280x0, 3, bitdepth, 10
 
   exec-once = fcitx5 -d & telegram-desktop & firefox &
-  exec-once = ${swww-daemon} & sleep 3; ${swww} img -o DP-1 /home/${username}/Pictures/Wallpapers/rurudo.jpg && ${swww} img -o HDMI-A-1 /home/${username}/Pictures/Wallpapers/tighnari.jpg
+  exec-once = ${swww-daemon} & sleep 3; ${swww} img -o DP-1 /home/${username}/Pictures/Wallpapers/rurudo.jpg && ${swww} img -o HDMI-A-1 /home/${username}/Pictures/Wallpapers/cloud.gif
 
   input {
     kb_layout = us

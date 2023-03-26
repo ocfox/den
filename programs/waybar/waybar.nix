@@ -1,7 +1,7 @@
 { pkgs, lib }:
 {
   "layer" = "top";
-  "output" = "DP-1";
+  # "output" = "DP-1";
   "position" = "top";
   "modules-left" = [
     "wlr/workspaces"
