@@ -35,7 +35,6 @@
     polkit_gnome
     zola
     thunderbird-wayland
-    rustup
     rpiplay
     neovim
     taplo-lsp
