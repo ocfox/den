@@ -1,6 +1,4 @@
-{ config
-, lib
-, pkgs
+{ pkgs
 , ...
 }: {
   security.pam.u2f.enable = true;

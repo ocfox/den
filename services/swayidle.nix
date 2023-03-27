@@ -1,5 +1,4 @@
 { pkgs
-, config
 , ...
 }: {
   services.swayidle = {

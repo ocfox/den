@@ -1,10 +1,11 @@
 { pkgs
+, lib
 , ...
 }:
 {
   programs.tmux = {
     enable = true;
-    shell = "${pkgs.fish}/bin/fish";
+    shell = "${lib.getExe pkgs.fish}";
     prefix = "`";
     baseIndex = 1;
     escapeTime = 0;

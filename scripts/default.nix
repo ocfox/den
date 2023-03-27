@@ -1,28 +1,8 @@
 { pkgs
 , lib
-, config
 , ...
 }: {
   home.packages = [
-    (pkgs.writeShellScriptBin "icalingua" ''
-      #!/usr/bin/env bash
-      icalingua-plus-plus --enable-features=UseOzonePlatform --ozone-platform=wayland
-    '')
-
-    (
-      pkgs.writeShellScriptBin "spoti" ''
-        #!/usr/bin/env bash
-        spotify --enable-features=UseOzonePlatform --ozone-platform=wayland
-      ''
-    )
-
-    (
-      pkgs.writeShellScriptBin "element" ''
-        #!/usr/bin/env bash
-        element-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
-      ''
-    )
-
     (
       pkgs.writeShellScriptBin "record-status" ''
         #!/usr/bin/env bash

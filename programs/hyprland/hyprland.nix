@@ -73,15 +73,15 @@ in
 
   $mod = SUPER
 
-  bind = $mod, Return, exec, ${pkgs.kitty}/bin/kitty
+  bind = $mod, Return, exec, ${lib.getExe pkgs.kitty}
   bind = $mod SHIFT, Q, killactive, 
   bind = $mod, space, togglefloating, 
   bind = $mod, f, fullscreen, 
   bind = $mod SHIFT, f, fakefullscreen, 
   bind = $mod, O, exec, ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3
-  bind = $mod SHIFT, s, exec, ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area
-  bind = $mod SHIFT, u, exec, ${pkgs.pamixer}/bin/pamixer -i 10
-  bind = $mod SHIFT, d, exec, ${pkgs.pamixer}/bin/pamixer -d 10
+  bind = $mod SHIFT, s, exec, ${lib.getExe pkgs.sway-contrib.grimshot} copy area
+  bind = $mod SHIFT, u, exec, ${lib.getExe pkgs.pamixer} -i 10
+  bind = $mod SHIFT, d, exec, ${lib.getExe pkgs.pamixer} -d 10
   bind = $mod SHIFT, e, exec, power-menu
   bind = $mod SHIFT, r, exec, screen-recorder-toggle
 
