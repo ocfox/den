@@ -146,5 +146,5 @@
     ];
   };
 
-  system.stateVersion = "unstable";
+  system.stateVersion = "23.05";
 }

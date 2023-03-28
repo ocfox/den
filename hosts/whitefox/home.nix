@@ -97,5 +97,5 @@
 
     texlive.combined.scheme-medium
   ];
-  home.stateVersion = "22.05";
+  home.stateVersion = "23.05";
 }
