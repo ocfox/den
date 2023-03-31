@@ -30,6 +30,10 @@
         $os-rebuild switch --use-remote-sudo --flake $HOME/nixos#$hostname
       '';
 
+      post = ''
+        curl -F "c=@$argv" https://pastb.in
+      '';
+
       ns = ''
         nix shell nixpkgs#{ $argv }
       '';
