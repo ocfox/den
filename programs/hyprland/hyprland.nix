@@ -4,21 +4,22 @@ let
   swww-daemon = "${pkgs.swww}/bin/swww-daemon";
   grimshot = "${lib.getExe pkgs.sway-contrib.grimshot}";
   home = "/home/${username}";
-  mac_shot = pkgs.writeShellScriptBin "mac_shot" ''
-    FILE=$(date "+%Y-%m-%d"T"%H:%M:%S").png
+  convert = "${pkgs.imagemagick}/bin/convert";
+  mac-shot = pkgs.writeShellScriptBin "mac-shot" ''
+    file=/tmp/xxx.png
     ${grimshot} --notify save area /tmp/src.png >> /dev/null 2>&1
 
-    convert /tmp/src.png \
+    ${convert} /tmp/src.png \
       \( +clone -alpha extract \
       -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
       \( +clone -flip \) -compose Multiply -composite \
       \( +clone -flop \) -compose Multiply -composite \
       \) -alpha off -compose CopyOpacity -composite /tmp/output.png
 
-    convert /tmp/output.png -bordercolor none -border 20 \( +clone -background black -shadow 80x8+15+15 \) \
-      +swap -background transparent -layers merge +repage ${home}/Pictures/$FILE
+    ${convert} /tmp/output.png -bordercolor none -border 20 \( +clone -background black -shadow 80x8+15+15 \) \
+      +swap -background transparent -layers merge +repage $file
 
-    ${pkgs.wl-clipboard}/bin/wl-copy -t image/png < ${home}/Pictures/$FILE
+    ${pkgs.wl-clipboard}/bin/wl-copy -t image/png < $file
     rm /tmp/src.png /tmp/output.png
   '';
 in
@@ -99,7 +100,7 @@ in
   bind = $mod SHIFT, f, fakefullscreen, 
   bind = $mod, O, exec, ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3
   bind = $mod SHIFT, s, exec, ${grimshot} --notify copy area
-  bind = $mod SHIFT, a, exec, ${lib.getExe mac_shot}
+  bind = $mod SHIFT, a, exec, ${lib.getExe mac-shot}
   bind = $mod SHIFT, u, exec, ${lib.getExe pkgs.pamixer} -i 10
   bind = $mod SHIFT, d, exec, ${lib.getExe pkgs.pamixer} -d 10
   bind = $mod SHIFT, e, exec, power-menu
