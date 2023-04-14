@@ -156,6 +156,7 @@ in
   windowrulev2 = workspace 5, class:thunderbird
   windowrulev2 = float, class:wemeetapp
 
+  layerrule = noanim,selection
   layerrule = blur, waybar
   layerrule = blur, notifications
 ''
