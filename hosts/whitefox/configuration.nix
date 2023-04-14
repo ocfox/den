@@ -112,12 +112,6 @@
     getty.autologinUser = username;
     devmon.enable = true;
     printing.enable = true;
-
-    # postgresql = {
-    #   enable = true;
-    #   extraPlugins = with pkgs.postgresql_14.pkgs; [ postgis ];
-    #   package = pkgs.postgresql_14;
-    # };
     blueman.enable = true;
     openssh.enable = true;
     v2raya.enable = true;
