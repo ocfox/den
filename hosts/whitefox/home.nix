@@ -40,7 +40,7 @@
 
   services.mako = {
     enable = true;
-    backgroundColor = "#2b333900";
+    backgroundColor = "#2b3339CC";
     borderSize = 0;
     borderColor = "#83b6af00";
     defaultTimeout = 5000;
@@ -63,7 +63,6 @@
   };
 
   home.packages = with pkgs; [
-    # aseprite-unfree
     bitwarden
     waybar
     foot
@@ -71,6 +70,7 @@
     swayidle
     showmethekey
     gh
+    nixpkgs-review
 
     lolcat
     tree
@@ -90,7 +90,6 @@
     vlc
     wf-recorder
 
-    # Application
     nur.repos.linyinfeng.wemeet
     nur.repos.linyinfeng.icalingua-plus-plus
     nur.repos.pokon548.tencent-qq-electron
