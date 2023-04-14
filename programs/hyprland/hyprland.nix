@@ -2,13 +2,32 @@
 let
   swww = "${lib.getExe pkgs.swww}";
   swww-daemon = "${pkgs.swww}/bin/swww-daemon";
+  grimshot = "${lib.getExe pkgs.sway-contrib.grimshot}";
+  home = "/home/${username}";
+  mac_shot = pkgs.writeShellScriptBin "mac_shot" ''
+    FILE=$(date "+%Y-%m-%d"T"%H:%M:%S").png
+    ${grimshot} --notify save area /tmp/src.png >> /dev/null 2>&1
+
+    convert /tmp/src.png \
+      \( +clone -alpha extract \
+      -draw 'fill black polygon 0,0 0,8 8,0 fill white circle 8,8 8,0' \
+      \( +clone -flip \) -compose Multiply -composite \
+      \( +clone -flop \) -compose Multiply -composite \
+      \) -alpha off -compose CopyOpacity -composite /tmp/output.png
+
+    convert /tmp/output.png -bordercolor none -border 20 \( +clone -background black -shadow 80x8+15+15 \) \
+      +swap -background transparent -layers merge +repage ${home}/Pictures/$FILE
+
+    ${pkgs.wl-clipboard}/bin/wl-copy -t image/png < ${home}/Pictures/$FILE
+    rm /tmp/src.png /tmp/output.png
+  '';
 in
 ''
   monitor = HDMI-A-1, 2560x1440, 0x0, 2
   monitor = DP-1, 3840x2160, 1280x0, 3, bitdepth, 10
 
-  exec-once = fcitx5 -d & telegram-desktop & firefox &
-  exec-once = ${swww-daemon} & sleep 3; ${swww} img -o DP-1 /home/${username}/Pictures/Wallpapers/rurudo.jpg && ${swww} img -o HDMI-A-1 /home/${username}/Pictures/Wallpapers/cloud.gif
+  exec-once = fcitx5 -d & telegram-desktop & firefox & thunderbird
+  exec-once = ${swww-daemon} & sleep 3; ${swww} img -o DP-1 ${home}/Pictures/Wallpapers/rurudo.jpg && ${swww} img -o HDMI-A-1 ${home}/Pictures/Wallpapers/cloud.gif
 
   input {
     kb_layout = us
@@ -79,7 +98,8 @@ in
   bind = $mod, f, fullscreen, 
   bind = $mod SHIFT, f, fakefullscreen, 
   bind = $mod, O, exec, ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3
-  bind = $mod SHIFT, s, exec, ${lib.getExe pkgs.sway-contrib.grimshot} copy area
+  bind = $mod SHIFT, s, exec, ${grimshot} --notify copy area
+  bind = $mod SHIFT, a, exec, ${lib.getExe mac_shot}
   bind = $mod SHIFT, u, exec, ${lib.getExe pkgs.pamixer} -i 10
   bind = $mod SHIFT, d, exec, ${lib.getExe pkgs.pamixer} -d 10
   bind = $mod SHIFT, e, exec, power-menu
