@@ -14,24 +14,16 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/d666a5ff-d7d0-4883-a5dc-5e7b8bd7845e";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/fe0ecfb9-db21-43f0-915a-70c37765f181";
+    fsType = "btrfs";
   };
 
- #  fileSystems."/run/mount/win" = {
- #   device = "/dev/disk/by-uuid/5C489A5D489A35AC";
- #   fsType = "ntfs3";
- #   options = [ "rw" "uid=1000" ];
- # };
-
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/EEE9-4D3C";
+    device = "/dev/disk/by-uuid/9CC7-9ECA";
     fsType = "vfat";
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/acedeff6-cdcd-473f-b347-a74409bed8ee"; }
-  ];
+  swapDevices = [ ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.opengl.enable = true;
