@@ -3,7 +3,6 @@ let
   swww = "${lib.getExe pkgs.swww}";
   swww-daemon = "${pkgs.swww}/bin/swww-daemon";
   grimshot = "${lib.getExe pkgs.sway-contrib.grimshot}";
-  home = "/home/${username}";
   convert = "${pkgs.imagemagick}/bin/convert";
   mac-shot = pkgs.writeShellScriptBin "mac-shot" ''
     file=/tmp/xxx.png
@@ -22,13 +21,18 @@ let
     ${pkgs.wl-clipboard}/bin/wl-copy -t image/png < $file
     rm /tmp/src.png /tmp/output.png
   '';
+  rurudo = pkgs.fetchurl {
+    url = "https://pastb.in/rurudo.jpg";
+    name = "rurudo.jpg";
+    hash = "sha256-TtzQhvYAXf39DM2ZzzciRzOHhXePsVBCOPXoQCngwDs=";
+  };
 in
 ''
   monitor = HDMI-A-1, 2560x1440, 0x0, 2
   monitor = DP-1, 3840x2160, 1280x0, 3, bitdepth, 10
 
   exec-once = fcitx5 -d & telegram-desktop & firefox & thunderbird
-  exec-once = ${swww-daemon} & sleep 3; ${swww} img -o DP-1 ${home}/Pictures/Wallpapers/rurudo.jpg && ${swww} img -o HDMI-A-1 ${home}/Pictures/Wallpapers/cloud.gif
+  exec-once = ${swww-daemon} & sleep 3; ${swww} img -o DP-1 ${rurudo}
 
   input {
     kb_layout = us
