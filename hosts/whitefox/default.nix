@@ -1,4 +1,5 @@
-{ username
+{ self
+, username
 , nixpkgs
 , inputs
 , ...
@@ -24,6 +25,11 @@ nixpkgs.lib.nixosSystem {
       nixpkgs.overlays = [
         inputs.nur.overlay
       ];
+      nix.settings.nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
+      nix.registry = {
+        self.flake = self;
+        nixpkgs.flake = inputs.nixpkgs;
+      };
     }
   ];
   specialArgs = { inherit inputs username; };
