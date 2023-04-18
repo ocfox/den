@@ -26,7 +26,7 @@
       toggleterm-nvim
       which-key-nvim
       bufferline-nvim
-      # vim-wakatime
+      vim-wakatime
       smart-splits-nvim
       lualine-nvim
       impatient-nvim
