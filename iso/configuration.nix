@@ -4,7 +4,8 @@
 , ...
 }: {
   imports = [
-    (modulesPath + "/installer/cd-dvd/installation-cd-base.nix")
+    (modulesPath + "/installer/cd-dvd/iso-image.nix")
+    (modulesPath + "/profiles/all-hardware.nix")
   ];
 
   nix = {
