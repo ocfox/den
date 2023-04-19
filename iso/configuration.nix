@@ -4,7 +4,7 @@
 , ...
 }: {
   imports = [
-    (modulesPath + "/installer/cd-dvd/iso-image.nix")
+    (modulesPath + "/installer/cd-dvd/installation-cd-base.nix")
   ];
 
   nix = {
@@ -16,8 +16,6 @@
 
   isoImage.makeEfiBootable = true;
   isoImage.makeUsbBootable = true;
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   time.timeZone = "Asia/Shanghai";
 
