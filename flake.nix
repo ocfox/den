@@ -22,6 +22,10 @@
       darwinConfigurations.sliverfox = import ./hosts/sliverfox {
         inherit self nixpkgs darwin inputs username;
       };
+
+      ferrucyon = import ./iso {
+        inherit self nixpkgs inputs username;
+      };
     };
 
 

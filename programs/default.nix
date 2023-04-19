@@ -12,7 +12,7 @@ in
     ./nvim
     ./helix
     ./ssh.nix
-  ] ++ (if hostname == "whitefox" then
+  ] ++ (if hostname == "whitefox" || hostname == "ferrucyon" then
     [
       ./alacritty.nix
       # ./sway.nix
