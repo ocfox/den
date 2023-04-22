@@ -4,6 +4,15 @@
 , inputs
 , ...
 }:
+let
+  home-manager = { pkgs, ... }@args: inputs.haumea.lib.load {
+    src = ../../home;
+    inputs = args // {
+      inherit inputs;
+    };
+    transformer = inputs.haumea.lib.transformers.liftDefault;
+  };
+in
 nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   modules = [
@@ -15,7 +24,7 @@ nixpkgs.lib.nixosSystem {
       home-manager.useUserPackages = true;
       home-manager.users.${username} = {
         imports = [
-          ./home.nix
+          home-manager
           inputs.hyprland.homeManagerModules.default
         ];
       };

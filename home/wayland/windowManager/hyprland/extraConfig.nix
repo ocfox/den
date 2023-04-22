@@ -1,4 +1,8 @@
-{ lib, pkgs, username, ... }:
+{ lib
+, pkgs
+, username
+, ...
+}:
 let
   swww = "${lib.getExe pkgs.swww}";
   swww-daemon = "${pkgs.swww}/bin/swww-daemon";

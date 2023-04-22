@@ -1,5 +1,5 @@
 {
-  description = "ocfox's nixos-config";
+  description = "ocfox's flake";
 
   outputs =
     { self
@@ -33,6 +33,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     grub2-themes.url = "github:vinceliuice/grub2-themes";
     nur.url = "github:nix-community/NUR";
+    haumea = {
+      url = "github:nix-community/haumea";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -114,7 +114,7 @@
     printing.enable = true;
     blueman.enable = true;
     openssh.enable = true;
-    v2raya.enable = true;
+    # v2raya.enable = true;
     udev.extraRules = ''
       KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"
     '';
@@ -132,6 +132,7 @@
 
   users.users.${username} = {
     isNormalUser = true;
+    shell = pkgs.fish;
     hashedPassword = "$6$jVI2tdENaEqUyZGh$rni.joO5US9t9RYM9wlIvia4L1YOObs44Kt3gBcooBJTeSFGyEorciM2CrKMEnzbojpi1KgPPe256i5Q46N1d0";
     extraGroups = [
       "wheel"
