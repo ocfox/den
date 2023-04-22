@@ -1,6 +1,0 @@
-{ ...
-}: {
-  environment = {
-    sessionVariables = { };
-  };
-}

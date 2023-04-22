@@ -5,18 +5,22 @@
     { self
     , nixpkgs
     , darwin
+    , haumea
     , ...
     } @ inputs:
     let
       username = "ocfox";
+      home-manager = { pkgs, ... }@args: haumea.lib.load {
+        src = ./home;
+        inputs = args // {
+          inherit inputs;
+        };
+        transformer = haumea.lib.transformers.liftDefault;
+      };
     in
     {
-      nixosConfigurations.whitefox = import ./hosts/whitefox {
-        inherit self nixpkgs inputs username;
-      };
-
-      nixosConfigurations.arcticfox = import ./hosts/arcticfox {
-        inherit self nixpkgs inputs username;
+      nixosConfigurations = import ./hosts {
+        inherit self nixpkgs inputs username home-manager;
       };
 
       darwinConfigurations.sliverfox = import ./hosts/sliverfox {

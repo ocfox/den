@@ -1,5 +1,11 @@
-{ ... }: {
-  nixpkgs.overlays = [
+{ inputs }:
+{
+  config = {
+    allowUnfree = true;
+    allowBroken = true;
+  };
+  overlays = [
+    inputs.nur.overlay
     (self: super: {
       factorio = super.factorio.override {
         username = "ocfox";

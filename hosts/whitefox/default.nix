@@ -1,45 +1,21 @@
-{ self
+{ pkgs
 , username
-, nixpkgs
-, inputs
 , ...
-}:
-let
-  home-manager = { pkgs, ... }@args: inputs.haumea.lib.load {
-    src = ../../home;
-    inputs = args // {
-      inherit inputs;
-    };
-    transformer = inputs.haumea.lib.transformers.liftDefault;
+}: {
+  time.timeZone = "Asia/Shanghai";
+
+  hardware.bluetooth.enable = true;
+
+  users.users.${username} = {
+    isNormalUser = true;
+    shell = pkgs.fish;
+    hashedPassword = "$6$jVI2tdENaEqUyZGh$rni.joO5US9t9RYM9wlIvia4L1YOObs44Kt3gBcooBJTeSFGyEorciM2CrKMEnzbojpi1KgPPe256i5Q46N1d0";
+    extraGroups = [
+      "wheel"
+      "docker"
+      "libvirtd"
+    ];
   };
-in
-nixpkgs.lib.nixosSystem {
-  system = "x86_64-linux";
-  modules = [
-    ./configuration.nix
-    inputs.home-manager.nixosModules.home-manager
-    inputs.grub2-themes.nixosModules.default
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users.${username} = {
-        imports = [
-          home-manager
-          inputs.hyprland.homeManagerModules.default
-        ];
-      };
-      home-manager.extraSpecialArgs = { inherit username; };
-    }
-    {
-      nixpkgs.overlays = [
-        inputs.nur.overlay
-      ];
-      nix.settings.nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
-      nix.registry = {
-        self.flake = self;
-        nixpkgs.flake = inputs.nixpkgs;
-      };
-    }
-  ];
-  specialArgs = { inherit inputs username; };
+
+  system.stateVersion = "23.05";
 }
