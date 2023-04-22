@@ -32,7 +32,10 @@
       };
     };
 
-    window.hideEdgeBorders = "smart";
+    window = {
+      titlebar = false;
+      hideEdgeBorders = "smart";
+    };
 
     keybindings =
       let

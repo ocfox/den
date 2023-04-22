@@ -34,7 +34,7 @@ window > box {
   min-height: 18px;
   padding: 0 0px;
 }
-#workspaces button.active {
+#workspaces button.focused {
   background-color: #a7c080;
   color: #2b3339;
 }

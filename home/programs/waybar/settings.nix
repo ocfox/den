@@ -7,7 +7,7 @@
     # "output" = "DP-1";
     "position" = "top";
     "modules-left" = [
-      "wlr/workspaces"
+      "sway/workspaces"
       "temperature"
       "hyprland/window"
       "custom/music"
@@ -22,7 +22,7 @@
       "network"
       "clock"
     ];
-    "wlr/workspaces" = {
+    "sway/workspaces" = {
       "disable-scroll" = true;
       "format" = "{icon}";
       "all-outputs" = true;

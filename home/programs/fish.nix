@@ -19,7 +19,7 @@
 
   interactiveShellInit = ''
     if test (id --user $USER) = 1000 && test (tty) = "/dev/tty1"
-      exec Hyprland
+      exec sway
     end
   '';
 
@@ -40,7 +40,6 @@
     poststd = ''curl -F "c=@-" https://pastb.in'';
 
     ns = ''nix shell nixpkgs#{ $argv }'';
-
 
     haskellEnv = ''
       nix-shell -p haskell-language-server "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
