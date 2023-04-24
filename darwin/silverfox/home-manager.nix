@@ -8,6 +8,7 @@
   users.${username} = {
     imports = [
       home.default
+      home.darwin
     ];
   };
   extraSpecialArgs = { inherit username; };

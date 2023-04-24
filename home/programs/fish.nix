@@ -17,23 +17,8 @@
     }
   ];
 
-  interactiveShellInit = ''
-    if test (id --user $USER) = 1000 && test (tty) = "/dev/tty1"
-      exec sway
-    end
-  '';
-
   functions = {
     fish_greeting = "w";
-
-    rebuild = ''
-      if test (uname) = "Linux"
-        set os "nixos"
-      else
-        set os "darwin"
-      end
-      $os-rebuild switch --use-remote-sudo --flake $HOME/nixos#$hostname
-    '';
 
     post = ''curl -F "c=@$argv" https://pastb.in'';
 

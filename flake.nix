@@ -19,7 +19,14 @@
           transformer = haumea.lib.transformers.liftDefault;
         };
         desktop = { pkgs, ... }@args: haumea.lib.load {
-          src = ./home;
+          src = ./home-desktop;
+          inputs = args // {
+            inherit inputs;
+          };
+          transformer = haumea.lib.transformers.liftDefault;
+        };
+        darwin = { pkgs, ... }@args: haumea.lib.load {
+          src = ./home-darwin;
           inputs = args // {
             inherit inputs;
           };
@@ -32,7 +39,7 @@
         inherit self nixpkgs inputs username home;
       };
 
-      darwinConfigurations.sliverfox = import ./darwin {
+      darwinConfigurations.silverfox = import ./darwin {
         inherit self nixpkgs darwin inputs username home;
       };
 

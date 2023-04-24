@@ -18,7 +18,7 @@
 
   services.nix-daemon.enable = true;
 
-  environment.shells = pkgs.fish;
+  environment.shells = [ pkgs.fish ];
 
   users.users.ocfox.shell = pkgs.fish;
 
