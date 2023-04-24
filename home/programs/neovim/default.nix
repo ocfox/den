@@ -4,7 +4,6 @@
   vimAlias = true;
   vimdiffAlias = true;
   defaultEditor = true;
-  package = pkgs.neovim-unwrapped;
   plugins = with pkgs.vimPlugins; [
     nvim-lspconfig
     aerial-nvim

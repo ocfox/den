@@ -8,8 +8,7 @@
   users.${username} = {
     imports = [
       home.default
-      home.desktop
-      inputs.hyprland.homeManagerModules.default
+      home.darwin
     ];
   };
   extraSpecialArgs = { inherit username; };

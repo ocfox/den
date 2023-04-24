@@ -40,7 +40,6 @@ with pkgs;
   zola
   thunderbird-wayland
   rpiplay
-  neovim
   taplo-lsp
   helix
   tree-sitter
