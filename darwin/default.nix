@@ -1,14 +1,23 @@
-{ username, nixpkgs, darwin, inputs, ... }:
+{ username
+, darwin
+, inputs
+, home
+, ...
+}:
+let
+  silverfox = { pkgs, username, ... }@args: inputs.haumea.lib.load {
+    src = ./silverfox;
+    inputs = args // {
+      inherit inputs;
+    };
+    transformer = inputs.haumea.lib.transformers.liftDefault;
+  };
+in
 darwin.lib.darwinSystem {
   system = "aarch64-darwin";
   modules = [
-    ./configuration.nix
+    silverfox
     inputs.home-manager.darwinModules.home-manager
-    {
-      nixpkgs.config.allowUnfree = true;
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users.${username} = import ./home.nix;
-    }
   ];
+  specialArgs = { inherit inputs username home; };
 }

@@ -1,6 +1,6 @@
 { username
 , nixpkgs
-, home-manager
+, home
 , inputs
 , ...
 }:
@@ -22,6 +22,6 @@ in
       inputs.home-manager.nixosModules.home-manager
       inputs.grub2-themes.nixosModules.default
     ];
-    specialArgs = { inherit inputs username home-manager; };
+    specialArgs = { inherit inputs username home; };
   };
 }

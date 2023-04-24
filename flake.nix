@@ -10,21 +10,30 @@
     } @ inputs:
     let
       username = "ocfox";
-      home-manager = { pkgs, ... }@args: haumea.lib.load {
-        src = ./home;
-        inputs = args // {
-          inherit inputs;
+      home = {
+        default = { pkgs, ... }@args: haumea.lib.load {
+          src = ./home;
+          inputs = args // {
+            inherit inputs;
+          };
+          transformer = haumea.lib.transformers.liftDefault;
         };
-        transformer = haumea.lib.transformers.liftDefault;
+        desktop = { pkgs, ... }@args: haumea.lib.load {
+          src = ./home;
+          inputs = args // {
+            inherit inputs;
+          };
+          transformer = haumea.lib.transformers.liftDefault;
+        };
       };
     in
     {
       nixosConfigurations = import ./hosts {
-        inherit self nixpkgs inputs username home-manager;
+        inherit self nixpkgs inputs username home;
       };
 
-      darwinConfigurations.sliverfox = import ./hosts/sliverfox {
-        inherit self nixpkgs darwin inputs username;
+      darwinConfigurations.sliverfox = import ./darwin {
+        inherit self nixpkgs darwin inputs username home;
       };
 
       ferrucyon = import ./iso {
