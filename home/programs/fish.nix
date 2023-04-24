@@ -1,6 +1,5 @@
-{ pkgs
-, ...
-}: {
+{ pkgs }:
+{
   enable = true;
   shellAliases = {
     vinix = "vim ~/nixos";

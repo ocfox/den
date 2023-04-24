@@ -1,4 +1,3 @@
-{ pkgs }:
 {
   exa = {
     enable = true;

@@ -1,6 +1,4 @@
-{ lib
-, pkgs
-}:
+{ pkgs }:
 with pkgs;
 [
   nil

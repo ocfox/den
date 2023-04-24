@@ -1,6 +1,5 @@
 { config
 , pkgs
-, ...
 }: {
   enable = true;
   package = pkgs.sway-unwrapped;
