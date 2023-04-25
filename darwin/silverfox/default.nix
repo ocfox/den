@@ -20,7 +20,9 @@
 
   environment.shells = [ pkgs.fish ];
 
-  users.users.ocfox.shell = pkgs.fish;
+  users.users.ocfox = {
+    shell = pkgs.fish;
+  };
 
   fonts.fontDir.enable = true;
 

@@ -8,12 +8,11 @@ in
 [
   {
     "layer" = "top";
-    # "output" = "DP-1";
     "position" = "top";
     "modules-left" = [
       "sway/workspaces"
       "temperature"
-      "hyprland/window"
+      "sway/window"
       "custom/music"
     ];
     "modules-right" = [
