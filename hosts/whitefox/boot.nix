@@ -4,7 +4,7 @@
     grub2-theme = {
       enable = true;
       theme = "whitesur";
-      screen = "2k";
+      screen = "4k";
     };
     grub = {
       enable = true;
