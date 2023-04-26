@@ -1,5 +1,5 @@
 { pkgs }:
 with pkgs;
 [
-  hello
+  python3
 ]
