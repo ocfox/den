@@ -7,9 +7,7 @@
     font = {
       normal = {
         family = "JetBrainsMono Nerd Font";
-        # style = "Regular";
       };
-      size = 10;
     };
 
     colors = {
