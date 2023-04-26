@@ -113,6 +113,9 @@ for _, lsp in pairs(servers) do
 end
 
 require('which-key').setup()
+require('gitsigns').setup {
+  current_line_blame = true,
+}
 
 require("neo-tree").setup {
     close_if_last_window = true,
