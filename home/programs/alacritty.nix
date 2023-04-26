@@ -2,46 +2,46 @@
   enable = true;
   settings = {
     window = {
-      opacity = 0.8;
+      opacity = 0.9;
     };
     font = {
       normal = {
         family = "JetBrainsMono Nerd Font";
-        style = "Regular";
+        # style = "Regular";
       };
-      size = 16.5;
+      size = 10;
     };
 
     colors = {
       primary = {
-        background = "0x2b3339";
-        foreground = "0xd8caac";
+        background = "#2b3339";
+        foreground = "#d8caac";
       };
 
       normal = {
-        black = "0x090618";
-        red = "0xc34043";
-        green = "0x76946a";
-        yellow = "0xc0a36e";
-        blue = "0x7e9cd8";
-        magenta = "0x957fb8";
-        cyan = "0x6a9589";
-        white = "0xc8c093";
+        black = "#3c474d";
+        red = "#e68183";
+        green = "#a7c080";
+        yellow = "#d9bb80";
+        blue = "#83b6af";
+        magenta = "#d39bb6";
+        cyan = "#87c095";
+        white = "#868d80";
       };
       bright = {
-        black = "0x727169";
-        red = "0xe82424";
-        green = "0x98bb6c";
-        yellow = "0xe6c384";
-        blue = "0x7fb4ca";
-        magenta = "0x938aa9";
-        cyan = "0x7aa89f";
-        white = "0xdcd7ba";
+        black = "#868d80";
+        red = "#e68183";
+        green = "#a7c080";
+        yellow = "#d9bb80";
+        blue = "#83b6af";
+        magenta = "#d39bb6";
+        cyan = "#87c095";
+        white = "#868d80";
       };
 
       selection = {
-        background = "0x2d4f67";
-        foreground = "0xc8c093";
+        background = "#505a60";
+        foreground = "#d8caac";
       };
     };
   };

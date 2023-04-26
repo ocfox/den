@@ -58,7 +58,7 @@
         "${modifier}+Shift+u" = "exec pamixer -i 10";
         "${modifier}+Shift+d" = "exec pamixer -d 10";
         "${modifier}+Shift+e" = "exec ${lib.getExe powermenu}";
-        "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+        "${modifier}+Return" = "exec ${lib.getExe pkgs.alacritty}";
         "${modifier}+o" = "exec ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3";
         "${modifier}+space" = "floating toggle";
         "${modifier}+Shift+space" = null;
