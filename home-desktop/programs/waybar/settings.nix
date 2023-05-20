@@ -34,11 +34,11 @@ in
         "2" = "<span color=\"#019733\"></span>";
         "3" = "<span color=\"#757575\"></span>";
         "4" = "<span color=\"#26A5E4\"></span>";
-        "5" = "<span color=\"#0A84FF\"></span>";
+        "5" = "<span color=\"#0A84FF\"></span>";
         "6" = "<span color=\"#a738fd\"></span>";
         "7" = "<span color=\"#019733\">7</span>";
         "8" = "<span color=\"#757575\">8</span>";
-        "9" = "<span color=\"#26A5E4\"></span>";
+        "9" = "<span color=\"#26A5E4\">9</span>";
         "focused" = "";
         "default" = "";
       };
@@ -46,8 +46,8 @@ in
     "idle_inhibitor" = {
       "format" = "{icon}";
       "format-icons" = {
-        "activated" = "";
-        "deactivated" = "";
+        "activated" = "󰈈";
+        "deactivated" = "󰈉";
       };
       "tooltip" = false;
     };
@@ -60,7 +60,7 @@ in
     # };
     "pulseaudio" = {
       "format" = "{icon} {volume}%";
-      "format-muted" = "婢 Muted";
+      "format-muted" = "󰝟 Muted";
       "max-volume" = 200;
       "format-icons" = {
         "default" = [ "" "" "" ];
@@ -81,14 +81,14 @@ in
     };
     "memory" = {
       "interval" = 1;
-      "format" = "﬙ {percentage}%";
+      "format" = "󰍛 {percentage}%";
       "states" = {
         "warning" = 85;
       };
     };
     "cpu" = {
       "interval" = 1;
-      "format" = " {usage}%";
+      "format" = "󰘚 {usage}%";
     };
     "custom/music" = {
       "format" = "{}";
@@ -98,10 +98,10 @@ in
     };
     "network" = {
       "interval" = 1;
-      "format-wifi" = "說 {essid}";
-      "format-ethernet" = " {ipaddr}";
-      "format-linked" = "說 {essid}";
-      "format-disconnected" = "說 Disconnected";
+      "format-wifi" = "󰖩 {essid}";
+      "format-ethernet" = "󰈀 {ipaddr}";
+      "format-linked" = "󰖩 {essid}";
+      "format-disconnected" = "󰖩 Disconnected";
       "tooltip" = false;
     };
     "temperature" = {
