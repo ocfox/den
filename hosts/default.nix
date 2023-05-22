@@ -2,6 +2,7 @@
 , nixpkgs
 , home
 , inputs
+, self
 , ...
 }:
 let
@@ -21,6 +22,9 @@ in
       module
       inputs.home-manager.nixosModules.home-manager
       inputs.grub2-themes.nixosModules.default
+      {
+        nix.registry.self.flake = self;
+      }
     ];
     specialArgs = { inherit inputs username home; };
   };
