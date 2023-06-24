@@ -1,9 +1,11 @@
 { pkgs }:
-[
-  {
-    name = "nix";
-    formatter = {
-      command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
-    };
-  }
-]
+{
+  language = [
+    {
+      name = "nix";
+      formatter = {
+        command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+      };
+    }
+  ];
+}
