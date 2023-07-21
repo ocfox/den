@@ -21,7 +21,7 @@ in
       ./whitefox/_hardware.nix
       module
       inputs.home-manager.nixosModules.home-manager
-      inputs.grub2-themes.nixosModules.default
+      inputs.minegrub.nixosModules.default
       {
         nix.registry.self.flake = self;
       }

@@ -6,8 +6,6 @@ with pkgs;
   bitwarden
   wl-clipboard
   swayidle
-  showmethekey
-  element-desktop
   qbittorrent
   tdesktop
   firefox-wayland
@@ -18,10 +16,4 @@ with pkgs;
   cava
   vlc
   wf-recorder
-
-  nur.repos.linyinfeng.wemeet
-  nur.repos.linyinfeng.icalingua-plus-plus
-  nur.repos.xddxdd.qq
-
-  texlive.combined.scheme-medium
 ]

@@ -1,9 +1,6 @@
 { pkgs, ... }:
 with pkgs;
 [
-  ccid
-  nur.repos.linyinfeng.canokey-udev-rules
-
   fontpreview
   wget
   git
@@ -34,7 +31,6 @@ with pkgs;
   openssl
   mpv
   xwinwrap
-  ffmpeg
   alejandra
   polkit_gnome
   zola

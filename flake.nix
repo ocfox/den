@@ -7,7 +7,7 @@
     , darwin
     , haumea
     , ...
-    } @ inputs:
+    }@inputs:
     let
       username = "ocfox";
       home = {
@@ -51,14 +51,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    grub2-themes.url = "github:vinceliuice/grub2-themes";
+    minegrub.url = "github:ocfox/minegrub-theme";
     nur.url = "github:nix-community/NUR";
     haumea = {
       url = "github:nix-community/haumea";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     darwin = {
