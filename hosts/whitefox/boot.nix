@@ -2,7 +2,10 @@
 {
   loader = {
     grub = {
-      minegrub-theme.enable = true;
+      minegrub-theme = {
+        enable = true;
+        splash = "Infinite recursion";
+      };
       enable = true;
       device = "nodev";
       useOSProber = true;
