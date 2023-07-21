@@ -1,12 +1,8 @@
 { pkgs }:
 {
   loader = {
-    grub2-theme = {
-      enable = true;
-      theme = "whitesur";
-      screen = "4k";
-    };
     grub = {
+      minegrub-theme.enable = true;
       enable = true;
       device = "nodev";
       useOSProber = true;
