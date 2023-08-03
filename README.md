@@ -1,4 +1,4 @@
-# nixos-config
+# den
 
 > *NixOS configuration with Simple directory structure (easy for copy)*
 
