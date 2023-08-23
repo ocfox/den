@@ -1,8 +1,6 @@
 { pkgs
 , ...
 }: {
-  enableDefaultFonts = true;
-
   fontconfig = {
     enable = true;
     antialias = true;
@@ -16,7 +14,8 @@
   fontDir.enable = true;
   enableGhostscriptFonts = true;
 
-  fonts = with pkgs; [
+  enableDefaultPackages = true;
+  packages = with pkgs; [
     sarasa-gothic
     noto-fonts
     noto-fonts-cjk
