@@ -12,8 +12,10 @@ in
     "modules-left" = [
       "sway/workspaces"
       "temperature"
-      "sway/window"
       "custom/music"
+    ];
+    "modules-center" = [
+      "sway/window"
     ];
     "modules-right" = [
       "tray"

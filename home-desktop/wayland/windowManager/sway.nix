@@ -4,7 +4,7 @@
 , pkgs
 }: {
   enable = true;
-  package = pkgs.sway-unwrapped;
+  package = root.pkgs.sway-im;
 
   wrapperFeatures.gtk = true;
   config = {
@@ -26,21 +26,35 @@
 
     output =
       let
-        inherit (root.pkgs) wallpapers;
+        inherit (root.pkgs.wallpapers.cowboyBebop) bebop op;
       in
       {
         DP-1 = {
-          bg = "${wallpapers.door} fill";
+          bg = "${op} fill";
           mode = "3840x2160";
-          position = "0 0";
+          # position = "0 0";
           scale = "3";
         };
+
+        HDMI-A-1 = {
+          bg = "${bebop} fill";
+          mode = "1920x1080";
+          position = "0 0";
+          scale = "1.5";
+        };
       };
+
+    defaultWorkspace = "1";
 
     window = {
       titlebar = false;
       hideEdgeBorders = "smart";
     };
+
+    workspaceOutputAssign = [{
+      output = "HDMI-A-1";
+      workspace = "9";
+    }];
 
     keybindings =
       let
@@ -58,8 +72,8 @@
         "${modifier}+Shift+u" = "exec pamixer -i 10";
         "${modifier}+Shift+d" = "exec pamixer -d 10";
         "${modifier}+Shift+e" = "exec ${lib.getExe powermenu}";
-        "${modifier}+Return" = "exec ${lib.getExe pkgs.alacritty}";
-        "${modifier}+o" = "exec ${pkgs.bemenu}/bin/bemenu-run -c -l 15 -W 0.3";
+        "${modifier}+Return" = "exec ${lib.getExe' pkgs.alacritty "alacritty"}";
+        "${modifier}+o" = "exec ${lib.getExe' pkgs.kickoff "kickoff"}";
         "${modifier}+space" = "floating toggle";
         "${modifier}+Shift+space" = null;
         "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
