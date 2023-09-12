@@ -4,7 +4,7 @@
 with pkgs;
 pkgs.writeShellScriptBin "macshot" ''
   file=/tmp/xxx.png
-  ${lib.getExe sway-contrib.grimshot} --notify save area /tmp/src.png >> /dev/null 2>&1
+  ${lib.getExe' sway-contrib.grimshot "grimshot"} --notify save area /tmp/src.png >> /dev/null 2>&1
 
   ${imagemagick}/bin/convert /tmp/src.png \
     \( +clone -alpha extract \
