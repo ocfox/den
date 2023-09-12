@@ -8,7 +8,6 @@ with pkgs;
   neofetch
   feh
   ueberzug
-  exa
   bat
   tty-clock
   lazygit
