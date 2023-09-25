@@ -1,5 +1,6 @@
 { config
 , lib
+, pkgs
 , modulesPath
 , ...
 }: {
@@ -23,9 +24,15 @@
     fsType = "vfat";
   };
 
-  swapDevices = [ ];
+  swapDevices = [{ device = "/swap/swapfile"; }];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.opengl.enable = true;
+  hardware.opengl = {
+    enable = true;
+    extraPackages = [
+      pkgs.rocm-opencl-icd
+      pkgs.libva
+    ];
+  };
   hardware.keyboard.qmk.enable = true;
 }
