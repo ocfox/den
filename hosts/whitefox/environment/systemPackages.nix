@@ -36,15 +36,7 @@ with pkgs;
   thunderbird-wayland
   rpiplay
   taplo-lsp
-  helix
   tree-sitter
-  boost
-  gcc
-  lua
-  sumneko-lua-language-server
-  jdk
-  lua
-  rust-analyzer
   yarn
   virt-manager
 ]
