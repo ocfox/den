@@ -33,7 +33,7 @@ with pkgs;
   alejandra
   polkit_gnome
   zola
-  thunderbird-wayland
+  thunderbird
   rpiplay
   taplo-lsp
   tree-sitter
