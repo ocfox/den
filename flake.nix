@@ -4,7 +4,6 @@
   outputs =
     { self
     , nixpkgs
-    , darwin
     , haumea
     , ...
     }@inputs:
