@@ -25,13 +25,6 @@
           };
           transformer = haumea.lib.transformers.liftDefault;
         };
-        darwin = { pkgs, ... }@args: haumea.lib.load {
-          src = ./home-darwin;
-          inputs = args // {
-            inherit inputs;
-          };
-          transformer = haumea.lib.transformers.liftDefault;
-        };
       };
     in
     {
@@ -39,26 +32,21 @@
         inherit self nixpkgs inputs username home;
       };
 
-      darwinConfigurations.silverfox = import ./darwin {
-        inherit self nixpkgs darwin inputs username home;
-      };
-
       ferrucyon = import ./iso {
         inherit self nixpkgs inputs username;
       };
     };
 
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     minegrub.url = "github:ocfox/minegrub-theme";
     nur.url = "github:nix-community/NUR";
-    haumea = {
-      url = "github:nix-community/haumea";
+    nixos-apple-silicon = {
+      url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    darwin = {
-      url = "github:lnl7/nix-darwin/master";
+    haumea = {
+      url = "github:nix-community/haumea";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {

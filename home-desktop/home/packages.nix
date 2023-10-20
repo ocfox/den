@@ -16,5 +16,5 @@ with pkgs;
   cava
   vlc
   wf-recorder
-  (blender.override { hipSupport = true; })
+  blender-hip
 ]

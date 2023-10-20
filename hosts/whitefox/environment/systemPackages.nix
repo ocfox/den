@@ -12,7 +12,6 @@ with pkgs;
   tty-clock
   lazygit
   ranger
-  fzf
   unzip
   p7zip
   htop
