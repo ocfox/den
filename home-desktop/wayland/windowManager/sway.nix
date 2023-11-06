@@ -32,15 +32,16 @@
         DP-1 = {
           bg = "${op} fill";
           mode = "3840x2160";
-          # position = "0 0";
+          position = "360 0";
           scale = "3";
         };
 
-        HDMI-A-1 = {
+        DP-3 = {
           bg = "${bebop} fill";
           mode = "1920x1080";
           position = "0 0";
-          scale = "1.5";
+          transform = "90";
+          scale = "3";
         };
       };
 
@@ -52,7 +53,7 @@
     };
 
     workspaceOutputAssign = [{
-      output = "HDMI-A-1";
+      output = "DP-3";
       workspace = "9";
     }];
 
