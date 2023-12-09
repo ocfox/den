@@ -7,6 +7,7 @@
     enableSSHSupport = true;
   };
   dconf.enable = true;
+  sway.enable = true;
   fish = {
     useBabelfish = true;
     enable = true;

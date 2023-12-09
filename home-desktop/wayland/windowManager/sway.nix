@@ -60,13 +60,14 @@
     keybindings =
       let
         modifier = config.wayland.windowManager.sway.config.modifier;
-        inherit (root.pkgs) macshot powermenu recorder-toggle;
+        inherit (root.pkgs) macshot powermenu recorder-toggle swaylock;
       in
       pkgs.lib.mkOptionDefault {
         "${modifier}+h" = "focus left";
         "${modifier}+j" = "focus down";
         "${modifier}+k" = "focus up";
         "${modifier}+l" = "focus right";
+        "${modifier}+apostrophe" = "exec ${lib.getExe swaylock}";
         "${modifier}+d" = "move scratchpad";
         "${modifier}+i" = "scratchpad show";
         "${modifier}+Shift+a" = "exec ${lib.getExe macshot}";

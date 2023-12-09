@@ -1,11 +1,13 @@
-{ lib, pkgs }:
+{ lib, pkgs, root }:
+let
+  inherit (root.pkgs) swaylock;
+in
 {
   enable = true;
   timeouts = [
     {
-      timeout = 900;
-      command = "${lib.getExe pkgs.sway} output '*' dpms off";
-      resumeCommand = "${lib.getExe pkgs.sway} output '*' dpms on";
+      timeout = 300;
+      command = "${lib.getExe swaylock}";
     }
   ];
 }
