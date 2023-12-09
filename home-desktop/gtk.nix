@@ -2,8 +2,8 @@
 {
   enable = true;
   theme = {
-    package = pkgs.materia-theme;
-    name = "Materia";
+    package = pkgs.numix-gtk-theme;
+    name = "Numix";
   };
   iconTheme = {
     package = pkgs.papirus-icon-theme;
