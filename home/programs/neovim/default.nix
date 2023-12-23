@@ -32,7 +32,7 @@
     FixCursorHold-nvim
     gitsigns-nvim
     nvim-autopairs
-    nvim-ts-rainbow
+    rainbow-delimiters-nvim
     nvim-ts-autotag
     nvim-ts-context-commentstring
     gitsigns-nvim

@@ -22,6 +22,7 @@ in
       module
       inputs.home-manager.nixosModules.home-manager
       inputs.minegrub.nixosModules.default
+      inputs.agenix.nixosModules.default
       {
         nix.registry.self.flake = self;
       }

@@ -18,5 +18,4 @@
     pulse.enable = true;
   };
   yubikey-agent.enable = true;
-  tailscale.enable = true;
 }

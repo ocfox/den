@@ -1,15 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 with pkgs;
 [
-  fontpreview
+  inputs.agenix.packages.x86_64-linux.default
   wget
-  git
-  screenfetch
-  neofetch
-  feh
-  ueberzug
   bat
-  tty-clock
+  fzf
   lazygit
   ranger
   unzip
@@ -24,18 +19,13 @@ with pkgs;
   pamixer
   acpi
   rsync
-  youtube-dl
   aria2
   openssl
   mpv
   xwinwrap
-  alejandra
   polkit_gnome
-  zola
   thunderbird
   rpiplay
-  taplo-lsp
   tree-sitter
   yarn
-  virt-manager
 ]

@@ -39,6 +39,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     minegrub.url = "github:ocfox/minegrub-theme";
+    agenix.url = "github:ryantm/agenix";
+    factorio-versions.url = "github:ocfox/factorio-versions";
     nur.url = "github:nix-community/NUR";
     nixos-apple-silicon = {
       url = "github:tpwrules/nixos-apple-silicon";
