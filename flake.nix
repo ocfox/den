@@ -42,6 +42,10 @@
     agenix.url = "github:ryantm/agenix";
     factorio-versions.url = "github:ocfox/factorio-versions";
     nur.url = "github:nix-community/NUR";
+    dae = {
+      url = "github:daeuniverse/flake.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-apple-silicon = {
       url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
