@@ -17,9 +17,10 @@ vim.g.everforest_background = 'hard'
 
 vim.cmd.colorscheme('everforest')
 
+vim.g.skip_ts_context_commentstring_module = true
+
 require("nvim-treesitter.configs").setup {
     highlight = {enable = true, additional_vim_regex_highlighting = false},
-    context_commentstring = {enable = true, enable_autocmd = false},
     rainbow = {
         enable = true,
         disable = {"html"},
@@ -29,6 +30,10 @@ require("nvim-treesitter.configs").setup {
     autotag = {enable = true},
     incremental_selection = {enable = true},
     indent = {enable = false}
+}
+
+require('ts_context_commentstring').setup {
+  enable_autocmd = false,
 }
 
 vim.opt.completeopt = 'menu,menuone,noselect'
