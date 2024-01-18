@@ -1,10 +1,6 @@
 { pkgs }:
 {
   enable = true;
-  shellAliases = {
-    vinix = "vim ~/nixos";
-  };
-
   plugins = [
     {
       name = "tide";
@@ -17,7 +13,7 @@
   ];
 
   functions = {
-    fish_greeting = "w";
+    fish_greeting = "uname -a; w";
 
     post = ''curl -F "c=@$argv" https://pastb.in'';
 
