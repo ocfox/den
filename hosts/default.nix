@@ -19,7 +19,16 @@ let
       inherit inputs;
     };
     transformer = inputs.haumea.lib.transformers.liftDefault;
-  };in
+  };
+
+  redfox-module = { pkgs, username, ... }@args: inputs.haumea.lib.load {
+    src = ./redfox;
+    inputs = args // {
+      inherit inputs;
+    };
+    transformer = inputs.haumea.lib.transformers.liftDefault;
+  };
+in
 {
   whitefox = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
@@ -35,6 +44,7 @@ let
     ];
     specialArgs = { inherit inputs username home; };
   };
+
   arcticfox = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
@@ -44,6 +54,15 @@ let
       {
         nix.registry.self.flake = self;
       }
+    ];
+    specialArgs = { inherit inputs username home; };
+  };
+
+  redfox = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      ./redfox/_hardware.nix
+      redfox-module
     ];
     specialArgs = { inherit inputs username home; };
   };
