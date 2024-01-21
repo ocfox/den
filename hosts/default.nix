@@ -62,6 +62,7 @@ in
     system = "x86_64-linux";
     modules = [
       ./redfox/_hardware.nix
+      inputs.bin.nixosModules.default
       redfox-module
     ];
     specialArgs = { inherit inputs username home; };

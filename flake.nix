@@ -42,12 +42,9 @@
     agenix.url = "github:ryantm/agenix";
     factorio-versions.url = "github:ocfox/factorio-versions";
     nur.url = "github:nix-community/NUR";
+    bin.url = "github:ocfox/bin";
     haumea = {
       url = "github:nix-community/haumea";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    bin = {
-      url = "github:w4/bin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
