@@ -12,6 +12,13 @@
     enable = true;
   };
 
+  uptime-kuma = {
+    enable = true;
+    settings = {
+      PORT = "9000";
+    };
+  };
+
   bin-paste.enable = true;
 
   caddy = {
@@ -23,6 +30,28 @@
         hostName = "shiori.ocfox.me";
         extraConfig = ''
           reverse_proxy localhost:8080
+        '';
+      };
+
+      "atuin" = {
+        hostName = "atuin.ocfox.me";
+        extraConfig = ''
+          reverse_proxy localhost:8888
+        '';
+      };
+
+      "uptime" = {
+        hostName = "uptime.ocfox.me";
+        extraConfig = ''
+          reverse_proxy localhost:9000
+        '';
+      };
+
+      "up" = {
+        hostName = "up.ocfox.me";
+        extraConfig = ''
+          reverse_proxy localhost:9000
+          redir / /status/all
         '';
       };
 
