@@ -6,69 +6,117 @@ let
 in
 {
   log = {
-    level = "debug";
+    disabled = false;
+    level = "info";
+    timestamp = true;
   };
   dns = {
     servers = [
       {
-        tag = "cf";
-        address = "1.1.1.1";
+        tag = "dns_proxy";
+        address = "tls://1.1.1.1";
+        "address_resolver" = "dns_resolver";
       }
       {
-        tag = "local";
+        tag = "dns_direct";
+        address = "h3://dns.alidns.com/dns-query";
+        "address_resolver" = "dns_resolver";
+        detour = "DIRECT";
+      }
+      {
+        tag = "dns_fakeip";
+        address = "fakeip";
+      }
+      {
+        tag = "dns_resolver";
         address = "223.5.5.5";
-        detour = "direct";
+        detour = "DIRECT";
+      }
+      {
+        tag = "block";
+        address = "rcode://success";
       }
     ];
     rules = [
       {
-        domain = [
-          "news.ocfox.me"
+        outbound = [
+          "any"
         ];
-        server = "local";
+        server = "dns_resolver";
       }
       {
-        type = "logical";
-        mode = "and";
-        rules = [
-          {
-            "rule_set" = "geosite-geolocation-!cn";
-          }
-          {
-            "rule_set" = "geosite-cn";
-            invert = true;
-          }
+        geosite = [
+          "category-ads-all"
         ];
-        server = "cf";
+        server = "dns_block";
+        "disable_cache" = true;
+      }
+      {
+        geosite = [
+          "geolocation-!cn"
+        ];
+        "query_type" = [
+          "A"
+          "AAAA"
+        ];
+        server = "dns_fakeip";
+      }
+      {
+        geosite = [
+          "geolocation-!cn"
+        ];
+        server = "dns_proxy";
       }
     ];
-    final = "local";
+    final = "dns_direct";
+    "independent_cache" = true;
+    fakeip = {
+      enabled = true;
+      "inet4_range" = "198.18.0.0/15";
+    };
+  };
+  ntp = {
+    enabled = true;
+    server = "time.apple.com";
+    "server_port" = 123;
+    interval = "30m";
+    detour = "DIRECT";
   };
   inbounds = [
     {
-      tag = "tun-in";
       type = "tun";
+      tag = "tun-in";
       "inet4_address" = "172.19.0.1/30";
       "auto_route" = true;
       "strict_route" = true;
-      stack = "system";
-      mtu = 9000;
+      stack = "mixed";
       sniff = true;
     }
   ];
   outbounds = [
     {
-      tag = "hy";
+      type = "direct";
+      tag = "DIRECT";
+    }
+    {
+      type = "block";
+      tag = "REJECT";
+    }
+    {
+      type = "dns";
+      tag = "dns-out";
+    }
+    {
       type = "vless";
+      tag = "proxy";
       server = "93.179.96.154";
       "server_port" = 14051;
       uuid = uuid;
       flow = "xtls-rprx-vision";
-      network = "tcp";
-      "packet_encoding" = "xudp";
       tls = {
         enabled = true;
         "server_name" = "www.sega.com";
+        insecure = false;
         utls = {
           enabled = true;
           fingerprint = "chrome";
@@ -79,86 +127,76 @@ in
           "short_id" = "29994c658a386220";
         };
       };
-    }
-    {
-      type = "direct";
-      tag = "direct";
-    }
-    {
-      type = "dns";
-      tag = "dns-out";
+      network = "tcp";
+      "tcp_fast_open" = false;
     }
   ];
   route = {
-    "rule_set" = [
-      {
-        type = "remote";
-        tag = "geoip-cn";
-        format = "binary";
-        url = "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs";
-        "download_detour" = "hy";
-      }
-      {
-        type = "remote";
-        tag = "geosite-cn";
-        format = "binary";
-        url = "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs";
-        "download_detour" = "hy";
-      }
-      {
-        type = "remote";
-        tag = "geosite-geolocation-!cn";
-        format = "binary";
-        url = "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs";
-        "download_detour" = "hy";
-      }
-    ];
     rules = [
       {
         protocol = "dns";
         outbound = "dns-out";
       }
       {
-        "ip_is_private" = true;
-        outbound = "direct";
-      }
-      {
-        port = [
-          22
+        "domain_suffix" = [
+          "1password.com"
+          "vultr.com"
+          "mb3admin.com"
+          "rixcloud.io"
+          "tempestapp.io"
+          "baidu.com"
+          "baidu-int.com"
+          "erebor.douban.com"
+          "gateway.push-apple.com.akadns.net"
+          "push.apple.com"
         ];
-        outbound = "direct";
-      }
-      {
         domain = [
-          "shiori.ocfox.me"
+          "mtalk.google.com"
+          "alt1-mtalk.google.com"
+          "alt2-mtalk.google.com"
+          "alt3-mtalk.google.com"
+          "alt4-mtalk.google.com"
+          "alt5-mtalk.google.com"
+          "alt6-mtalk.google.com"
+          "alt7-mtalk.google.com"
+          "alt8-mtalk.google.com"
+          "alt9-mtalk.google.com"
+          "captive.apple.com"
+          "time-ios.apple.com"
         ];
-        outbound = "direct";
+        outbound = "DIRECT";
       }
       {
-        "source_ip_cidr" = [
-          "104.200.67.80"
+        "domain_keyword" = [
+          "github"
         ];
-        outbound = "direct";
+        "domain_suffix" = [
+          "github.com"
+          "github.io"
+          "githubapp.com"
+          "githubassets.com"
+          "githubusercontent.com"
+          "home-intl.console.aliyun.com"
+          "googleapis.cn"
+          "maying.co"
+          "flowercloud.net"
+          "socloud.me"
+          "ytoo.asia"
+          "ytoo.co.uk"
+        ];
+        domain = [
+          "ip.skk.moe"
+          "ip.sb"
+        ];
+        outbound = "proxy";
       }
       {
-        type = "logical";
-        mode = "and";
-        rules = [
-          {
-            "rule_set" = "geosite-geolocation-!cn";
-            invert = true;
-          }
-          {
-            "rule_set" = [
-              "geoip-cn"
-              "geosite-cn"
-            ];
-          }
-        ];
-        outbound = "direct";
+        geoip = "cn";
+        outbound = "DIRECT";
       }
     ];
-    final = "hy";
     "auto_detect_interface" = true;
+    final = "proxy";
   };
+  experimental = { };
 }
