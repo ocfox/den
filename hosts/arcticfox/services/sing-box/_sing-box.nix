@@ -73,6 +73,7 @@ in
     fakeip = {
       enabled = true;
       "inet4_range" = "198.18.0.0/15";
+      "inet6_range" = "fc00::/18";
     };
   };
   ntp = {
@@ -87,6 +88,7 @@ in
       type = "tun";
       tag = "tun-in";
       "inet4_address" = "172.19.0.1/30";
+      "inet6_address" = "fdfe:dcba:9876::1/126";
       "auto_route" = true;
       "strict_route" = true;
       stack = "mixed";
