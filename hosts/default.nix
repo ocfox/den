@@ -51,6 +51,7 @@ in
       ./arcticfox/_hardware.nix
       arcticfox-module
       inputs.home-manager.nixosModules.home-manager
+      inputs.agenix.nixosModules.default
       {
         nix.registry.self.flake = self;
       }
