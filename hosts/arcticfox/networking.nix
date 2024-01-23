@@ -2,6 +2,6 @@
   firewall.enable = false;
   hostName = "arcticfox";
 
-  useDHCP = true;
+  useDHCP = false;
   useNetworkd = true;
 }

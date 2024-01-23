@@ -3,7 +3,7 @@
     enable = true;
     wait-online.anyInterface = true;
     networks."all" = {
-      name = "ens*";
+      name = "eno*";
       networkConfig = {
         DHCP = "yes";
         IPv6AcceptRA = true;
