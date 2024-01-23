@@ -17,5 +17,5 @@ jobs:
     - name: Nix Flake Show
       run: nix flake show --all-systems
 
-    - name: Check whitefox
-      run: nix build .#nixosConfigurations.whitefox.config.system.build.toplevel
+    - name: Check Nix flake Nixpkgs inputs
+      uses: DeterminateSystems/flake-checker-action@main
