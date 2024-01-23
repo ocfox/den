@@ -4,7 +4,10 @@
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     curl
