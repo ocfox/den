@@ -4,7 +4,4 @@
     allowUnfree = true;
     allowBroken = true;
   };
-  overlays = [
-    inputs.nur.overlay
-  ];
 }

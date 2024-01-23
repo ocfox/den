@@ -61,6 +61,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1705890365,
+        "narHash": "sha256-MObB+fipA/2Ai3uMuNouxcwz0cqvELPpJ+hfnhSaUeA=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "9fcdf3375e01e2938a49df103af9fd21bd0f89d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "factorio-versions": {
       "locked": {
         "lastModified": 1705717589,
@@ -124,11 +144,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1705708511,
-        "narHash": "sha256-3f4BkRY70Fj7yvuo87c4QQPAjnt571g2wJ50jY7hnYc=",
+        "lastModified": 1706001011,
+        "narHash": "sha256-J7Bs9LHdZubgNHZ6+eE/7C18lZ1P6S5/zdJSdXFItI4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ce4b88c465d928f4f8b75d0920f1788d5b65ca94",
+        "rev": "3df2a80f3f85f91ea06e5e91071fa74ba92e5084",
         "type": "github"
       },
       "original": {
@@ -205,11 +225,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1705666311,
-        "narHash": "sha256-VYdSQm7zq3AStyHhRr3SBCTA8fVzrl6WtIlXTs2Wlts=",
+        "lastModified": 1705883077,
+        "narHash": "sha256-ByzHHX3KxpU1+V0erFy8jpujTufimh6KaS/Iv3AciHk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a455c5fb3ee513e2f443838a0e84d52b035adb67",
+        "rev": "5f5210aa20e343b7e35f40c033000db0ef80d7b9",
         "type": "github"
       },
       "original": {
@@ -221,11 +241,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1705743938,
-        "narHash": "sha256-Le4i4/bQcJkWVuyfop+iNl08Qs8HDlqSVePibNw0qN0=",
+        "lastModified": 1706005806,
+        "narHash": "sha256-DKzMwoKq7UTsvSv7RELNPfS7xTWqYoHmqcC3KekWTh0=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "74f84f4bb3b36de03f205a75609eca91fe7332e2",
+        "rev": "084c9e5ac47b1da166bb485fe1ade830eb525f07",
         "type": "github"
       },
       "original": {
@@ -238,6 +258,7 @@
       "inputs": {
         "agenix": "agenix",
         "bin": "bin",
+        "disko": "disko",
         "factorio-versions": "factorio-versions",
         "haumea": "haumea",
         "home-manager": "home-manager_2",

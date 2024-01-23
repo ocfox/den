@@ -41,10 +41,13 @@
     minegrub.url = "github:ocfox/minegrub-theme";
     agenix.url = "github:ryantm/agenix";
     factorio-versions.url = "github:ocfox/factorio-versions";
-    nur.url = "github:nix-community/NUR";
     bin.url = "github:ocfox/bin";
     haumea = {
       url = "github:nix-community/haumea";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    disko = {
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
