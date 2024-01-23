@@ -63,6 +63,7 @@ in
     system = "x86_64-linux";
     modules = [
       ./redfox/_hardware.nix
+      inputs.disko.nixosModules.disko
       inputs.bin.nixosModules.default
       redfox-module
     ];
