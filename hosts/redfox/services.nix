@@ -12,6 +12,14 @@
     enable = true;
   };
 
+  transfer-sh = {
+    enable = true;
+    settings = {
+      LISTENER = ":7777";
+      RANDOM_TOKEN_LENGTH = 2;
+    };
+  };
+
   uptime-kuma = {
     enable = true;
     settings = {
@@ -52,6 +60,13 @@
         extraConfig = ''
           reverse_proxy localhost:9000
           redir / /status/all
+        '';
+      };
+
+      "transfer" ={
+        hostName = "red.ocfox.me";
+        extraConfig = ''
+          reverse_proxy localhost:7777
         '';
       };
 
