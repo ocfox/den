@@ -4,13 +4,10 @@
     let
       inherit (pkgs) hugo mkShell stdenv;
       inherit (inputs) papermod;
-      inherit (lib) substring;
     in
     {
-      devShells.default = mkShell {
-        packages = [
-          hugo
-        ];
+      devShells.blog = mkShell {
+        packages = [ hugo ];
 
         env = {
           HUGO_MODULE_IMPORTS_PATH = "${papermod}";
@@ -19,18 +16,16 @@
 
       packages.default = stdenv.mkDerivation {
         pname = "blog";
-        version = substring 0 8 self.lastModifiedDate or self.lastModified or "19700101";
+        version = lib.substring 0 8 self.lastModifiedDate;
 
-        src = self;
+        src = "${self}/blog";
         nativeBuildInputs = [ hugo ];
         env = {
           HUGO_MODULE_IMPORTS_PATH = "${papermod}";
           HUGO_PUBLISHDIR = placeholder "out";
         };
 
-        buildPhase = ''
-          hugo
-        '';
+        buildPhase = "hugo";
       };
     };
 }

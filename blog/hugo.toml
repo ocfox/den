@@ -1,0 +1,64 @@
+baseURL = "https://ocfox.me"
+title = "ocfox's den"
+
+[outputs]
+home = ["HTML", "JSON", "RSS"]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+style = "onedark"
+
+[languages.zh]
+languageCode = 'zh-CN'
+languageName = '中文'
+[languages.en]
+languageCode = 'en-US'
+languageName = 'English'
+
+
+[menu]
+main = [
+    { name = "Archive", url = "archives" },
+    { name = "Search", url = "search" },
+    { name = "Tags", url = "tags" },
+    { name = "RSS", url = "index.xml" },
+    { name = "Source", url = "https://github.com/ocfox/den" },
+]
+
+[params]
+author = "ocfox"
+env = "production"
+hideFooter = true
+DateFormat = "2006-01-02"
+ShowCodeCopyButtons = true
+ShowPostNavLinks = true
+ShowReadingTime = true
+ShowRssButtonInSectionTermList = true
+ShowAllPagesInArchive = true
+keywords = ["blog", "nix", "nixos", "tech"]
+socialIcons = [
+    { name = "github", url = "https://github.com/ocfox" },
+    { name = "telegram", url = "https://t.me/ocfox" },
+    { name = "matrix", url = "https://matrix.to/#/@ocfox:matrix.org" },
+    { name = "rss", url = "index.xml" },
+]
+
+[params.editPost]
+URL= "https://github.com/ocfox/den/tree/master/blog/content"
+Text= "Suggest Changes"
+appendFilePath= true
+
+
+[params.assets]
+disableHLJS = true
+favicon16x16 = "favicon.ico"
+favicon32x32 = "favicon.ico"
+apple_touch_icon = "favicon.ico"
+
+[params.homeInfoParams]
+Title = "ocfox's den"
+Content = """
+Alea iacta est.
+"""

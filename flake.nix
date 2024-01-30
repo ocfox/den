@@ -2,11 +2,13 @@
   description = "ocfox's flake";
 
   outputs =
+    inputs@
     { self
     , nixpkgs
     , haumea
+    , flake-parts
     , ...
-    }@inputs:
+    }:
     let
       username = "ocfox";
       home = {
@@ -26,13 +28,26 @@
         };
       };
     in
-    {
-      nixosConfigurations = import ./hosts {
-        inherit self nixpkgs inputs username home;
-      };
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
 
-      ferrucyon = import ./iso {
-        inherit self nixpkgs inputs username;
+      imports = [
+        ./blog
+      ];
+
+      flake = {
+        nixosConfigurations = import ./hosts {
+          inherit self nixpkgs inputs username home;
+        };
+
+        ferrucyon = import ./iso {
+          inherit self nixpkgs inputs username;
+        };
       };
     };
 
