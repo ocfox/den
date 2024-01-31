@@ -2,10 +2,6 @@ name: Deploy Blog Pages
 
 on:
   push:
-    paths:
-      - blog
-
-concurrency: pages
 
 jobs:
   build:
@@ -18,13 +14,9 @@ jobs:
       - name: Install nix
         uses: cachix/install-nix-action@v21
 
-      - name: Setup pages
-        uses: actions/configure-pages@v3
-
       - name: Build docs
         run: |
-          nix build .#blog
-          cp -r --no-preserve=all result/ _site
+          nix build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
