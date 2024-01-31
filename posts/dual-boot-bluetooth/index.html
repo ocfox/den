@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Bluetooth Pairing on Dual Boot | ocfox&#39;s den</title>
+<meta name="keywords" content="bluetooth">
+<meta name="description" content="Edit pairing keys on Windows and Linux, make they are consistent">
+<meta name="author" content="ocfox">
+<link rel="canonical" href="https://ocfox.me/posts/dual-boot-bluetooth/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ocfox.me/favicon.ico">
+<link rel="apple-touch-icon" href="https://ocfox.me/favicon.ico">
+<link rel="mask-icon" href="https://ocfox.me/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://ocfox.me/posts/dual-boot-bluetooth/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Bluetooth Pairing on Dual Boot" />
+<meta property="og:description" content="Edit pairing keys on Windows and Linux, make they are consistent" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ocfox.me/posts/dual-boot-bluetooth/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-23T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bluetooth Pairing on Dual Boot"/>
+<meta name="twitter:description" content="Edit pairing keys on Windows and Linux, make they are consistent"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ocfox.me/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Bluetooth Pairing on Dual Boot",
+      "item": "https://ocfox.me/posts/dual-boot-bluetooth/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bluetooth Pairing on Dual Boot",
+  "name": "Bluetooth Pairing on Dual Boot",
+  "description": "Edit pairing keys on Windows and Linux, make they are consistent",
+  "keywords": [
+    "bluetooth"
+  ],
+  "articleBody": "Dual Boot Bluetooth When pair your device, Bluetooth service generates a unique set of pairing keys. So twice pair will generate two differen keys. Simplely synchronizing two pairing keys can solve it.\nSync pairing keys Pair device once on Windows and Linux. Mount Windows system partition on Linux. Use chntpw to change the pairing key in Windows. Get the pairing key\ncat /var/lib/bluetooth/\u003ccurrent_computer_bluetooth_mac\u003e/\u003cdevice_mac\u003e/info ... [LinkKey] key=YOURDEVICEPAIRINGKEY ... chntpw -e WIN_PATH/Windows/System32/config/SYSTEM \u003e l Node has 17 subkeys and 0 values key name ... Replace ControlSetXXX with the value of your system.\ncd ControlSet001\\Services\\BTHPORT\\Parameters\\Keys (...)\\Services\\BTHPORT\\Parameters\\Keys\u003e l Node has 2 subkeys and 0 values key name \u003c144f8a...\u003e \u003c35d48b...\u003e Edit Windows pairing key\n\u003e cd \u003e l (...)\\BTHPORT\\Parameters\\Keys\\ \u003e l Node has 0 subkeys and 1 values size type value name [value if type DWORD] 16 3 REG_BINARY \u003c25f3e8ad4ce5\u003e 16 3 REG_BINARY Don’t forget add space\ned .: 0 YO UR DE VI CE PA IR IN GK EY .s \u003e q Reboot, and now there is no need to pair again after each system switching.\n",
+  "wordCount" : "180",
+  "inLanguage": "en",
+  "datePublished": "2022-11-23T00:00:00Z",
+  "dateModified": "2022-11-23T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "ocfox"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ocfox.me/posts/dual-boot-bluetooth/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ocfox's den",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ocfox.me/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ocfox.me" accesskey="h" title="ocfox&#39;s den (Alt + H)">ocfox&#39;s den</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://ocfox.me/zh/" title="中文"
+                            aria-label="中文">Zh</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ocfox.me/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/index.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ocfox/den" title="Source">
+                    <span>Source</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Bluetooth Pairing on Dual Boot
+    </h1>
+    <div class="post-meta"><span title='2022-11-23 00:00:00 +0000 UTC'>2022-11-23</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ocfox&nbsp;|&nbsp;<a href="https://github.com/ocfox/den/tree/master/blog/content/posts/dual-boot-bluetooth.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="dual-boot-bluetooth">Dual Boot Bluetooth<a hidden class="anchor" aria-hidden="true" href="#dual-boot-bluetooth">#</a></h2>
+<p>When pair your device, Bluetooth service generates a unique set of pairing keys.
+So twice pair will generate two differen keys.
+Simplely synchronizing two pairing keys can solve it.</p>
+<h2 id="sync-pairing-keys">Sync pairing keys<a hidden class="anchor" aria-hidden="true" href="#sync-pairing-keys">#</a></h2>
+<ul>
+<li>Pair device once on Windows and Linux.</li>
+<li>Mount Windows system partition on Linux.</li>
+<li>Use <a href="http://pogostick.net/~pnh/ntpasswd/">chntpw</a> to change the pairing key in Windows.</li>
+</ul>
+<p>Get the pairing key</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#61afef;font-weight:bold">cat</span> /var/lib/bluetooth/<span style="color:#56b6c2">&lt;</span>current_computer_bluetooth_mac<span style="color:#56b6c2">&gt;</span>/<span style="color:#56b6c2">&lt;</span>device_mac<span style="color:#56b6c2">&gt;</span>/info 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>LinkKey<span style="color:#56b6c2">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">key</span><span style="color:#56b6c2">=</span>YOURDEVICEPAIRINGKEY
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><pre tabindex="0"><code>chntpw -e WIN_PATH/Windows/System32/config/SYSTEM
+
+&gt; l
+Node has 17 subkeys and 0 values
+  key name
+  &lt;ActivationBroker&gt;
+  &lt;ControlSet001&gt;
+  &lt;DriverDatabase&gt;
+  &lt;HardwareConfig&gt;
+  &lt;Input&gt;
+...
+</code></pre><p>Replace ControlSetXXX with the value of your system.</p>
+<pre tabindex="0"><code>cd ControlSet001\Services\BTHPORT\Parameters\Keys
+</code></pre><pre tabindex="0"><code>(...)\Services\BTHPORT\Parameters\Keys&gt; l 
+Node has 2 subkeys and 0 values
+  key name
+  &lt;144f8a...&gt;
+  &lt;35d48b...&gt;
+</code></pre><p>Edit Windows pairing key</p>
+<pre tabindex="0"><code>&gt; cd &lt;computer_bluetooth_mac&gt;
+&gt; l
+(...)\BTHPORT\Parameters\Keys\&lt;computer_bluetooth_mac&gt; &gt; l
+Node has 0 subkeys and 1 values
+  size     type              value name             [value if type DWORD]
+    16  3 REG_BINARY         &lt;25f3e8ad4ce5&gt;
+    16  3 REG_BINARY         &lt;device_mac&gt;
+</code></pre><p>Don&rsquo;t forget add space</p>
+<pre tabindex="0"><code>ed &lt;device_mac&gt;
+.: 0 YO UR DE VI CE PA IR IN GK EY
+.s
+&gt; q
+</code></pre><p>Reboot, and now there is no need to pair again after each system switching.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ocfox.me/tags/bluetooth/">bluetooth</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
