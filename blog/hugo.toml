@@ -37,6 +37,7 @@ ShowPostNavLinks = true
 ShowReadingTime = true
 ShowRssButtonInSectionTermList = true
 ShowAllPagesInArchive = true
+displayFullLangName = true
 keywords = ["blog", "nix", "nixos", "tech"]
 socialIcons = [
     { name = "github", url = "https://github.com/ocfox" },
