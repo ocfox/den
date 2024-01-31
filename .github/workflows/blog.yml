@@ -1,0 +1,32 @@
+name: Deploy Blog Pages
+
+on:
+  push:
+    paths:
+      - blog
+
+concurrency: pages
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v21
+
+      - name: Setup pages
+        uses: actions/configure-pages@v3
+
+      - name: Build docs
+        run: |
+          nix build .#blog
+          cp -r --no-preserve=all result/ _site
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: result
