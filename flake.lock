@@ -68,11 +68,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1706145859,
-        "narHash": "sha256-+iGHKwzKVW6aGAWfUmUSJW1KiE6WLYhKyTyWZMTw/cg=",
+        "lastModified": 1706491084,
+        "narHash": "sha256-eaEv+orTmr2arXpoE4aFZQMVPOYXCBEbLgK22kOtkhs=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "5a2dc95464080764b9ca1b82b5d6d981157522be",
+        "rev": "f67ba6552845ea5d7f596a24d57c33a8a9dc8de9",
         "type": "github"
       },
       "original": {
@@ -83,11 +83,11 @@
     },
     "factorio-versions": {
       "locked": {
-        "lastModified": 1705717589,
-        "narHash": "sha256-qjPvcp7/Zx1HnX5HTfPMBQg/UO9Np/wbgo0973Myo4I=",
+        "lastModified": 1706667516,
+        "narHash": "sha256-W4i+WGXzKghOklD6w8wBxUr2EtT4oEgFxkavmcowgZc=",
         "owner": "ocfox",
         "repo": "factorio-versions",
-        "rev": "0310ad17cd03c2d615aec593eb22d610ba1ca846",
+        "rev": "d83487f3f5815989f1a7b601d5113a9fd219a8ca",
         "type": "github"
       },
       "original": {
@@ -161,11 +161,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1706134977,
-        "narHash": "sha256-KwNb1Li3K6vuVwZ77tFjZ89AWBo7AiCs9t0Cens4BsM=",
+        "lastModified": 1706473109,
+        "narHash": "sha256-iyuAvpKTsq2u23Cr07RcV5XlfKExrG8gRpF75hf1uVc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "6359d40f6ec0b72a38e02b333f343c3d4929ec10",
+        "rev": "d634c3abafa454551f2083b054cd95c3f287be61",
         "type": "github"
       },
       "original": {
