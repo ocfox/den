@@ -28,6 +28,14 @@ let
     };
     transformer = inputs.haumea.lib.transformers.liftDefault;
   };
+
+  sakhalin-module = { pkgs, ... }@args: inputs.haumea.lib.load {
+    src = ./sakhalin;
+    inputs = args // {
+      inherit inputs;
+    };
+    transformer = inputs.haumea.lib.transformers.liftDefault;
+  };
 in
 {
   whitefox = nixpkgs.lib.nixosSystem {
@@ -67,6 +75,15 @@ in
       inputs.bin.nixosModules.default
       redfox-module
     ];
-    specialArgs = { inherit inputs username home; };
+    specialArgs = { inherit inputs; };
+  };
+
+  sakhalin = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      ./sakhalin/_hardware.nix
+      sakhalin-module
+    ];
+    specialArgs = { inherit inputs; };
   };
 }
