@@ -1,0 +1,4 @@
+{ pkgs }:
+{
+  openssh.enable = true;
+}
