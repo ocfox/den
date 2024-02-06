@@ -13,6 +13,7 @@ let
     };
     transformer = inputs.haumea.lib.transformers.liftDefault;
   };
+
   arcticfox-module = { pkgs, username, ... }@args: inputs.haumea.lib.load {
     src = ./arcticfox;
     inputs = args // {
@@ -31,6 +32,14 @@ let
 
   sakhalin-module = { pkgs, ... }@args: inputs.haumea.lib.load {
     src = ./sakhalin;
+    inputs = args // {
+      inherit inputs;
+    };
+    transformer = inputs.haumea.lib.transformers.liftDefault;
+  };
+
+  vulpes-module = { pkgs, ... }@args: inputs.haumea.lib.load {
+    src = ./vulpes;
     inputs = args // {
       inherit inputs;
     };
@@ -83,6 +92,15 @@ in
     modules = [
       ./sakhalin/_hardware.nix
       sakhalin-module
+    ];
+    specialArgs = { inherit inputs; };
+  };
+
+  vulpes = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      ./vulpes/_hardware.nix
+      vulpes-module
     ];
     specialArgs = { inherit inputs; };
   };
