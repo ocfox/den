@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Tailscale with Headscale? | ocfox&#39;s den</title>
+<meta name="keywords" content="tailscale, network, nixos, headscale">
+<meta name="description" content="Last month, I got a Dell R730xd. And pay many time on Fight with ChinaTelecom. Finally, I lost in this war. But fortunately, Tailscale can effectively(maybe) address my issue.
+I used Tailscale past, but stopped by Chinese &lsquo;Premium&rsquo; Network, high latency and loss make me crazy.
+And &rsquo;they&rsquo; provides services, just like Google. Haha, actually, I&rsquo;m not sensitive to this at all. I&rsquo;m not a privacy-paranoid person. &ldquo;Why not selfhost it?">
+<meta name="author" content="ocfox">
+<link rel="canonical" href="https://ocfox.me/posts/headscale-setup/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ocfox.me/favicon.ico">
+<link rel="apple-touch-icon" href="https://ocfox.me/favicon.ico">
+<link rel="mask-icon" href="https://ocfox.me/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://ocfox.me/posts/headscale-setup/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Tailscale with Headscale?" />
+<meta property="og:description" content="Last month, I got a Dell R730xd. And pay many time on Fight with ChinaTelecom. Finally, I lost in this war. But fortunately, Tailscale can effectively(maybe) address my issue.
+I used Tailscale past, but stopped by Chinese &lsquo;Premium&rsquo; Network, high latency and loss make me crazy.
+And &rsquo;they&rsquo; provides services, just like Google. Haha, actually, I&rsquo;m not sensitive to this at all. I&rsquo;m not a privacy-paranoid person. &ldquo;Why not selfhost it?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ocfox.me/posts/headscale-setup/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-06T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tailscale with Headscale?"/>
+<meta name="twitter:description" content="Last month, I got a Dell R730xd. And pay many time on Fight with ChinaTelecom. Finally, I lost in this war. But fortunately, Tailscale can effectively(maybe) address my issue.
+I used Tailscale past, but stopped by Chinese &lsquo;Premium&rsquo; Network, high latency and loss make me crazy.
+And &rsquo;they&rsquo; provides services, just like Google. Haha, actually, I&rsquo;m not sensitive to this at all. I&rsquo;m not a privacy-paranoid person. &ldquo;Why not selfhost it?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ocfox.me/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Tailscale with Headscale?",
+      "item": "https://ocfox.me/posts/headscale-setup/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Tailscale with Headscale?",
+  "name": "Tailscale with Headscale?",
+  "description": "Last month, I got a Dell R730xd. And pay many time on Fight with ChinaTelecom. Finally, I lost in this war. But fortunately, Tailscale can effectively(maybe) address my issue.\nI used Tailscale past, but stopped by Chinese \u0026lsquo;Premium\u0026rsquo; Network, high latency and loss make me crazy.\nAnd \u0026rsquo;they\u0026rsquo; provides services, just like Google. Haha, actually, I\u0026rsquo;m not sensitive to this at all. I\u0026rsquo;m not a privacy-paranoid person. \u0026ldquo;Why not selfhost it?",
+  "keywords": [
+    "tailscale", "network", "nixos", "headscale"
+  ],
+  "articleBody": "Last month, I got a Dell R730xd. And pay many time on Fight with ChinaTelecom. Finally, I lost in this war. But fortunately, Tailscale can effectively(maybe) address my issue.\nI used Tailscale past, but stopped by Chinese ‘Premium’ Network, high latency and loss make me crazy.\nAnd ’they’ provides services, just like Google. Haha, actually, I’m not sensitive to this at all. I’m not a privacy-paranoid person. “Why not selfhost it?”, a real man(character I made up) said. So I host it on a server with CN21 network.\nGot to admit, Tailscale’s Hole Punching works seamlessly without any configuration needed – it’s fantastic!\nSo, log into NixOS first(If you’re not using NixOS, I recommend giving it a try. It’s a must-try!). Then quickly finish configure it about 10 minutes.\nheadscale = { enable = true; # Specify listening on all available interfaces with 0.0.0.0 address = \"0.0.0.0\"; port = 443; # Any port you like settings = { # use \"http://weed.ocfox.me\" if you don't need tls serverUrl = \"https://weed.ocfox.me\"; # Don't forget forwaring if you use other port tls_letsencrypt_hostname = \"weed.ocfox.me\"; tls_letsencrypt_challenge_type = \"TLS-ALPN-01\"; # Any base_domain you like, in this case # your nodes will named `..sex.allnight` dns_config.base_domain = \"sex.allnight\"; }; }; Copy this without commnets headscale = { enable = true; address = \"0.0.0.0\"; port = 443; settings = { serverUrl = \"https://weed.ocfox.me\"; tls_letsencrypt_hostname = \"weed.ocfox.me\"; tls_letsencrypt_challenge_type = \"TLS-ALPN-01\"; dns_config.base_domain = \"sex.allnight\"; }; }; “Why is it headscale instead of services.headscale?” – I use haumea.2 Login headscale server to create a user\nheadscale namespaces create ocfox Now enable tailscale on your nodes in one line.\nservices.tailscale.enable = true; After rebuild, log into headscale.\n[ocfox@bed]$ sudo tailscale up --login-server https://weed.ocfox.me To authenticate, visit: https://weed.ocfox.me/register/nodekey:pleasefuckmefrommorningtothemidnight Visit this site is useless, it has not been implemented yet. But it can be auth at headscale server.\n[root@headserver:~]# headscale nodes register -k nodekey:pleasefuckmefrommorningtothemidnight -u ocfox [ocfox@bed]$ tailscale status 100.64.0.1 bed ocfox linux - Then use same way register another machine sofa. You can communication sofa and bed behind NAT now(I guess it should work). If not work, don’t worrid, at least my(your) nodes connect to headscale server is fast.\nIf you are on darwin(macos), congratulations you’ve fallen into a well. To specify login server with tailscale app(installed by App store), just following this\n$ /Applications/Tailscale.app/Contents/MacOS/Tailscale up --login-server https://^_^ And check nodekey on another terminal\n$ tailscale status ... https://weed.ocfox.me/register/nodekey:pleasefuckmefrommorningtothemidnight Of course, I(you) need to use magicDNS. However, if you happen to live in China and rely on a network proxy, magicDNS may pose some issues. It will prioritize the use of DNS provided by services.headscale.settings.dns_config.nameservers for all access. Currently, I don’t have a good solution, and I’ve resolve this issue by using a system proxy instead of TUN.\nAll last, Why I must use proxy to see this world? – “Maybe I fucked a dog in my past life.”\nIf there’s anything I fucked up, please hit ‘Suggest Changes’ at the top.\nAS4809 - a comprehensive range of high quality network services to customers around the world. ↩︎\nhaumea - Filesystem-based module system for Nix ↩︎\n",
+  "wordCount" : "511",
+  "inLanguage": "en",
+  "datePublished": "2024-02-06T00:00:00Z",
+  "dateModified": "2024-02-06T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "ocfox"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ocfox.me/posts/headscale-setup/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ocfox's den",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ocfox.me/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ocfox.me" accesskey="h" title="ocfox&#39;s den (Alt + H)">ocfox&#39;s den</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://ocfox.me/zh/" title="中文"
+                            aria-label="中文">中文</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ocfox.me/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/index.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ocfox/den" title="Source">
+                    <span>Source</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Tailscale with Headscale?
+    </h1>
+    <div class="post-meta"><span title='2024-02-06 00:00:00 +0000 UTC'>2024-02-06</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;ocfox&nbsp;|&nbsp;<a href="https://github.com/ocfox/den/tree/master/blog/content/posts/headscale-setup.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Last month, I got a Dell R730xd. And pay many time on <strong>Fight with ChinaTelecom</strong>.
+Finally, I lost in this war. But fortunately, Tailscale can <em>effectively(maybe)</em> address my issue.</p>
+<p>I used Tailscale past, but stopped by <strong>Chinese &lsquo;Premium&rsquo; Network</strong>, high latency and loss make me crazy.</p>
+<p>
+
+<p><details >
+  <summary markdown="span">And &rsquo;they&rsquo; provides services, just like Google.</summary>
+  <u>Haha, actually, I&rsquo;m not sensitive to this at all. I&rsquo;m not a privacy-paranoid person.</u>
+</details></p>
+
+<em>&ldquo;Why not selfhost it?&rdquo;</em>, a real man(character I made up) said. So I host it on a server with <em>CN2</em><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> network.</p>
+<p>Got to admit, Tailscale&rsquo;s <em>Hole Punching</em> works seamlessly without any configuration needed – it&rsquo;s fantastic!</p>
+<p>So, log into NixOS first(<em>If you&rsquo;re not using NixOS, I recommend giving it a try. It&rsquo;s a must-try!</em>).
+Then quickly finish configure it about 10 minutes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">headscale</span> = {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">enable</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e"># Specify listening on all available interfaces with 0.0.0.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">address</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;0.0.0.0&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">port</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">443</span>; <span style="color:#7f848e"># Any port you like</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">settings</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#7f848e"># use &#34;http://weed.ocfox.me&#34; if you don&#39;t need tls</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">serverUrl</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;https://weed.ocfox.me&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#7f848e"># Don&#39;t forget forwaring if you use other port</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">tls_letsencrypt_hostname</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;weed.ocfox.me&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">tls_letsencrypt_challenge_type</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;TLS-ALPN-01&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#7f848e"># Any base_domain you like, in this case</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#7f848e"># your nodes will named `&lt;nodename&gt;.&lt;user&gt;.sex.allnight`</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">dns_config</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">base_domain</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;sex.allnight&#34;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>
+
+<p><details >
+  <summary markdown="span">Copy this without commnets</summary>
+  <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">headscale</span> = {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">enable</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">address</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;0.0.0.0&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">port</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">443</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">settings</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">serverUrl</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;https://weed.ocfox.me&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">tls_letsencrypt_hostname</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;weed.ocfox.me&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">tls_letsencrypt_challenge_type</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;TLS-ALPN-01&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">dns_config</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">base_domain</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;sex.allnight&#34;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div>
+</details></p>
+
+&ldquo;Why is it <code>headscale</code> instead of <code>services.headscale</code>?&rdquo; &ndash; I use haumea.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>
+Login headscale server to create a user</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">headscale</span> namespaces create ocfox
+</span></span></code></pre></div><p>Now enable tailscale on your <em>nodes</em> in one line.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">services</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">tailscale</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">enable</span> = <span style="color:#e06c75">true</span>;
+</span></span></code></pre></div><p>After rebuild, log into headscale.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#56b6c2">[</span>ocfox@bed<span style="color:#56b6c2">]</span><span style="color:#e06c75">$ </span>sudo <span style="color:#61afef;font-weight:bold">tailscale</span> up <span style="color:#e06c75">--login-server</span> https://weed.ocfox.me
+</span></span><span style="display:flex;"><span><span style="color:#61afef;font-weight:bold">To</span> authenticate, visit:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#61afef;font-weight:bold">https</span>://weed.ocfox.me/register/nodekey:pleasefuckmefrommorningtothemidnight
+</span></span></code></pre></div><p>Visit this site is useless, it has not been implemented yet.
+But it can be auth at headscale server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#56b6c2">[</span>root@headserver:~<span style="color:#56b6c2">]</span><span style="color:#7f848e">#
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span><span style="color:#61afef;font-weight:bold">headscale</span> nodes register <span style="color:#e06c75">-k</span> nodekey:pleasefuckmefrommorningtothemidnight <span style="color:#e06c75">-u</span> ocfox
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#56b6c2">[</span>ocfox@bed<span style="color:#56b6c2">]</span><span style="color:#e06c75">$ </span>tailscale <span style="color:#e5c07b">status 
+</span></span></span><span style="display:flex;"><span><span style="color:#e5c07b"></span><span style="color:#61afef;font-weight:bold">100</span>.<span style="color:#d19a66">64</span>.<span style="color:#d19a66">0</span>.<span style="color:#d19a66">1</span> bed ocfox linux <span style="color:#e06c75">-
+</span></span></span></code></pre></div><p>Then use same way register another machine <code>sofa</code>.
+You can communication sofa and bed behind NAT now(I guess it should work).
+If not work, don&rsquo;t worrid, at least my(your) nodes connect to headscale server is fast.</p>
+<p>If you are on darwin(macos), congratulations you&rsquo;ve fallen into a well.
+To specify login server with tailscale app(installed by App store), just following this</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ /Applications/Tailscale.app/Contents/MacOS/Tailscale up --login-server https://^_^
+</span></span></code></pre></div><p>And check nodekey on another terminal</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ tailscale status
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>    https://weed.ocfox.me/register/nodekey:pleasefuckmefrommorningtothemidnight
+</span></span></code></pre></div><p>Of course, I(you) need to use magicDNS. However, if you happen to live in China and rely on a network proxy, magicDNS may pose some issues.
+It will prioritize the use of DNS provided by <code>services.headscale.settings.dns_config.nameservers</code> for all access.
+Currently, I don&rsquo;t have a good solution, and I&rsquo;ve resolve this issue by using a system proxy instead of TUN.</p>
+<p><strong>All last, Why I must use proxy to see this world?</strong> &ndash; &ldquo;Maybe I fucked a dog in my past life.&rdquo;</p>
+<p>If there&rsquo;s anything I fucked up, please hit &lsquo;Suggest Changes&rsquo; at the top.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><small><a href="https://www.ctamericas.com/company/global-network/cn2/">AS4809 - a comprehensive range of high quality network services to customers around the world.</a></small>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><small><a href="https://github.com/nix-community/haumea">haumea - Filesystem-based module system for Nix</a></small>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ocfox.me/tags/tailscale/">tailscale</a></li>
+      <li><a href="https://ocfox.me/tags/network/">network</a></li>
+      <li><a href="https://ocfox.me/tags/nixos/">nixos</a></li>
+      <li><a href="https://ocfox.me/tags/headscale/">headscale</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://ocfox.me/posts/dual-boot-bluetooth/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Bluetooth Pairing on Dual Boot</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

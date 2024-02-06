@@ -2,14 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ocfox.me/tags/bluetooth/</loc>
-    <lastmod>2022-11-23T00:00:00+00:00</lastmod>
+    <loc>https://ocfox.me/tags/headscale/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://ocfox.me/posts/dual-boot-bluetooth/</loc>
-    <lastmod>2022-11-23T00:00:00+00:00</lastmod>
+    <loc>https://ocfox.me/tags/network/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ocfox.me/tags/nixos/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ocfox.me/</loc>
-    <lastmod>2022-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-CN"
@@ -22,10 +25,10 @@
                 />
   </url><url>
     <loc>https://ocfox.me/posts/</loc>
-    <lastmod>2022-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ocfox.me/tags/</loc>
-    <lastmod>2022-11-23T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-CN"
@@ -36,6 +39,18 @@
                 hreflang="en-US"
                 href="https://ocfox.me/tags/"
                 />
+  </url><url>
+    <loc>https://ocfox.me/tags/tailscale/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ocfox.me/posts/headscale-setup/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ocfox.me/tags/bluetooth/</loc>
+    <lastmod>2022-11-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://ocfox.me/posts/dual-boot-bluetooth/</loc>
+    <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ocfox.me/archives/</loc>
   </url><url>

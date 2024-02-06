@@ -6,8 +6,17 @@
     <description>Recent content on ocfox&#39;s den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ocfox.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tailscale with Headscale?</title>
+      <link>https://ocfox.me/posts/headscale-setup/</link>
+      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://ocfox.me/posts/headscale-setup/</guid>
+      <description>Last month, I got a Dell R730xd. And pay many time on Fight with ChinaTelecom. Finally, I lost in this war. But fortunately, Tailscale can effectively(maybe) address my issue.
+I used Tailscale past, but stopped by Chinese &amp;lsquo;Premium&amp;rsquo; Network, high latency and loss make me crazy.
+And &amp;rsquo;they&amp;rsquo; provides services, just like Google. Haha, actually, I&amp;rsquo;m not sensitive to this at all. I&amp;rsquo;m not a privacy-paranoid person. &amp;ldquo;Why not selfhost it?</description>
+    </item>
     <item>
       <title>Bluetooth Pairing on Dual Boot</title>
       <link>https://ocfox.me/posts/dual-boot-bluetooth/</link>

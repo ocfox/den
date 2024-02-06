@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on ocfox&#39;s den</title>
-    <link>https://ocfox.me/posts/</link>
-    <description>Recent content in Posts on ocfox&#39;s den</description>
+    <title>tailscale on ocfox&#39;s den</title>
+    <link>https://ocfox.me/tags/tailscale/</link>
+    <description>Recent content in tailscale on ocfox&#39;s den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://ocfox.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ocfox.me/tags/tailscale/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tailscale with Headscale?</title>
       <link>https://ocfox.me/posts/headscale-setup/</link>
@@ -16,13 +16,6 @@
       <description>Last month, I got a Dell R730xd. And pay many time on Fight with ChinaTelecom. Finally, I lost in this war. But fortunately, Tailscale can effectively(maybe) address my issue.
 I used Tailscale past, but stopped by Chinese &amp;lsquo;Premium&amp;rsquo; Network, high latency and loss make me crazy.
 And &amp;rsquo;they&amp;rsquo; provides services, just like Google. Haha, actually, I&amp;rsquo;m not sensitive to this at all. I&amp;rsquo;m not a privacy-paranoid person. &amp;ldquo;Why not selfhost it?</description>
-    </item>
-    <item>
-      <title>Bluetooth Pairing on Dual Boot</title>
-      <link>https://ocfox.me/posts/dual-boot-bluetooth/</link>
-      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://ocfox.me/posts/dual-boot-bluetooth/</guid>
-      <description>Edit pairing keys on Windows and Linux, make they are consistent</description>
     </item>
   </channel>
 </rss>
