@@ -1,6 +1,7 @@
 { pkgs, username }:
 {
   openssh.enable = true;
+  tailscale.enable = true;
 
   atuin = {
     enable = true;
@@ -12,13 +13,13 @@
     enable = true;
   };
 
-  transfer-sh = {
-    enable = true;
-    settings = {
-      LISTENER = ":7777";
-      RANDOM_TOKEN_LENGTH = 2;
-    };
-  };
+  # transfer-sh = {
+  #   enable = true;
+  #   settings = {
+  #     LISTENER = ":7777";
+  #     RANDOM_TOKEN_LENGTH = 2;
+  #   };
+  # };
 
   uptime-kuma = {
     enable = true;
@@ -63,12 +64,12 @@
         '';
       };
 
-      "transfer" ={
-        hostName = "red.ocfox.me";
-        extraConfig = ''
-          reverse_proxy localhost:7777
-        '';
-      };
+      # "transfer" = {
+      #   hostName = "red.ocfox.me";
+      #   extraConfig = ''
+      #     reverse_proxy localhost:7777
+      #   '';
+      # };
 
       "bin" = {
         hostName = "pb.ocfox.me";
@@ -83,7 +84,6 @@
           reverse_proxy localhost:8000
         '';
       };
-
     };
   };
 }
