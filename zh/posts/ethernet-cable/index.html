@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>不要怀疑网线 | ocfox&#39;s den</title>
+<meta name="keywords" content="network, life">
+<meta name="description" content="什么? Gigabit网络接口只有300Mbps? 就因为装修工用了不存在的Cat 6e1网线, 1Gbps 的接口变成了甚至不到 300Mbps ? 这不可能（除非你离我家有几千公里你真的用了一整卷网线）。 虽然他是假的网线但应该也会有高于Cat5的水平吧 我猜。
+# 两个朋友通过墙里的线缆联系 [ ID] Interval Transfer Bitrate [ 7] 0.00-10.00 sec 364 MBytes 306 Mbits/sec sender [ 7] 0.00-10.01 sec 361 MBytes 303 Mbits/sec receiver 看起来他们的沟通出现了一些问题，好吧 让我把他们放在一起。
+# 两个朋友面对面联系 [ ID] Interval Transfer Bitrate [ 8] 0.00-10.00 sec 376 MBytes 310 Mbits/sec sender [ 8] 0.00-10.01 sec 383 MBytes 312 Mbits/sec receiver 还不如无线啊你们这个关系。难道是我mac有问题？怎么可能，估计是网卡有问题吧。
+(你可以嘲笑mac用户了，他们甚至没有RJ45) 那又怎么样，我还是很喜欢我的mac。在某种程度上 正好有另一个网卡，尝试！我去，居然完全正常！ 原因竟然是我那条cc数据线速度很慢。好了，这就是我做的蠢事。
+[ ID] Interval Transfer Bitrate [ 9] 0.">
+<meta name="author" content="ocfox">
+<link rel="canonical" href="https://ocfox.me/zh/posts/ethernet-cable/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ocfox.me/favicon.ico">
+<link rel="apple-touch-icon" href="https://ocfox.me/favicon.ico">
+<link rel="mask-icon" href="https://ocfox.me/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ocfox.me/zh/posts/ethernet-cable/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="不要怀疑网线" />
+<meta property="og:description" content="什么? Gigabit网络接口只有300Mbps? 就因为装修工用了不存在的Cat 6e1网线, 1Gbps 的接口变成了甚至不到 300Mbps ? 这不可能（除非你离我家有几千公里你真的用了一整卷网线）。 虽然他是假的网线但应该也会有高于Cat5的水平吧 我猜。
+# 两个朋友通过墙里的线缆联系 [ ID] Interval Transfer Bitrate [ 7] 0.00-10.00 sec 364 MBytes 306 Mbits/sec sender [ 7] 0.00-10.01 sec 361 MBytes 303 Mbits/sec receiver 看起来他们的沟通出现了一些问题，好吧 让我把他们放在一起。
+# 两个朋友面对面联系 [ ID] Interval Transfer Bitrate [ 8] 0.00-10.00 sec 376 MBytes 310 Mbits/sec sender [ 8] 0.00-10.01 sec 383 MBytes 312 Mbits/sec receiver 还不如无线啊你们这个关系。难道是我mac有问题？怎么可能，估计是网卡有问题吧。
+(你可以嘲笑mac用户了，他们甚至没有RJ45) 那又怎么样，我还是很喜欢我的mac。在某种程度上 正好有另一个网卡，尝试！我去，居然完全正常！ 原因竟然是我那条cc数据线速度很慢。好了，这就是我做的蠢事。
+[ ID] Interval Transfer Bitrate [ 9] 0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ocfox.me/zh/posts/ethernet-cable/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-07T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="不要怀疑网线"/>
+<meta name="twitter:description" content="什么? Gigabit网络接口只有300Mbps? 就因为装修工用了不存在的Cat 6e1网线, 1Gbps 的接口变成了甚至不到 300Mbps ? 这不可能（除非你离我家有几千公里你真的用了一整卷网线）。 虽然他是假的网线但应该也会有高于Cat5的水平吧 我猜。
+# 两个朋友通过墙里的线缆联系 [ ID] Interval Transfer Bitrate [ 7] 0.00-10.00 sec 364 MBytes 306 Mbits/sec sender [ 7] 0.00-10.01 sec 361 MBytes 303 Mbits/sec receiver 看起来他们的沟通出现了一些问题，好吧 让我把他们放在一起。
+# 两个朋友面对面联系 [ ID] Interval Transfer Bitrate [ 8] 0.00-10.00 sec 376 MBytes 310 Mbits/sec sender [ 8] 0.00-10.01 sec 383 MBytes 312 Mbits/sec receiver 还不如无线啊你们这个关系。难道是我mac有问题？怎么可能，估计是网卡有问题吧。
+(你可以嘲笑mac用户了，他们甚至没有RJ45) 那又怎么样，我还是很喜欢我的mac。在某种程度上 正好有另一个网卡，尝试！我去，居然完全正常！ 原因竟然是我那条cc数据线速度很慢。好了，这就是我做的蠢事。
+[ ID] Interval Transfer Bitrate [ 9] 0."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ocfox.me/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "不要怀疑网线",
+      "item": "https://ocfox.me/zh/posts/ethernet-cable/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "不要怀疑网线",
+  "name": "不要怀疑网线",
+  "description": "什么? Gigabit网络接口只有300Mbps? 就因为装修工用了不存在的Cat 6e1网线, 1Gbps 的接口变成了甚至不到 300Mbps ? 这不可能（除非你离我家有几千公里你真的用了一整卷网线）。 虽然他是假的网线但应该也会有高于Cat5的水平吧 我猜。\n# 两个朋友通过墙里的线缆联系 [ ID] Interval Transfer Bitrate [ 7] 0.00-10.00 sec 364 MBytes 306 Mbits/sec sender [ 7] 0.00-10.01 sec 361 MBytes 303 Mbits/sec receiver 看起来他们的沟通出现了一些问题，好吧 让我把他们放在一起。\n# 两个朋友面对面联系 [ ID] Interval Transfer Bitrate [ 8] 0.00-10.00 sec 376 MBytes 310 Mbits/sec sender [ 8] 0.00-10.01 sec 383 MBytes 312 Mbits/sec receiver 还不如无线啊你们这个关系。难道是我mac有问题？怎么可能，估计是网卡有问题吧。\n(你可以嘲笑mac用户了，他们甚至没有RJ45) 那又怎么样，我还是很喜欢我的mac。在某种程度上 正好有另一个网卡，尝试！我去，居然完全正常！ 原因竟然是我那条cc数据线速度很慢。好了，这就是我做的蠢事。\n[ ID] Interval Transfer Bitrate [ 9] 0.",
+  "keywords": [
+    "network", "life"
+  ],
+  "articleBody": "什么? Gigabit网络接口只有300Mbps? 就因为装修工用了不存在的Cat 6e1网线, 1Gbps 的接口变成了甚至不到 300Mbps ? 这不可能（除非你离我家有几千公里你真的用了一整卷网线）。 虽然他是假的网线但应该也会有高于Cat5的水平吧 我猜。\n# 两个朋友通过墙里的线缆联系 [ ID] Interval Transfer Bitrate [ 7] 0.00-10.00 sec 364 MBytes 306 Mbits/sec sender [ 7] 0.00-10.01 sec 361 MBytes 303 Mbits/sec receiver 看起来他们的沟通出现了一些问题，好吧 让我把他们放在一起。\n# 两个朋友面对面联系 [ ID] Interval Transfer Bitrate [ 8] 0.00-10.00 sec 376 MBytes 310 Mbits/sec sender [ 8] 0.00-10.01 sec 383 MBytes 312 Mbits/sec receiver 还不如无线啊你们这个关系。难道是我mac有问题？怎么可能，估计是网卡有问题吧。\n(你可以嘲笑mac用户了，他们甚至没有RJ45) 那又怎么样，我还是很喜欢我的mac。在某种程度上 正好有另一个网卡，尝试！我去，居然完全正常！ 原因竟然是我那条cc数据线速度很慢。好了，这就是我做的蠢事。\n[ ID] Interval Transfer Bitrate [ 9] 0.00-10.00 sec 982 MBytes 823 Mbits/sec sender [ 9] 0.00-10.01 sec 979 MBytes 821 Mbits/sec receiver 最后就是这个情况，好吧，线还是很烂。但至少我一周前接的没有问题。 (这是我上一周将家里装修工留下的线接了水晶头。一共三组 三个墙上插座，三个水晶头。 100%成功率。我应该也算是接线大师了？)\n如果你看到这句话，说明你赚到了1分钟！看到这么有趣的事情完全不算浪费时间对吧。\n这个世界上没有Cat6e这样的标准，如果你用的也是Cat6e，恭喜你中奖了。 ↩︎\n",
+  "wordCount" : "97",
+  "inLanguage": "zh",
+  "datePublished": "2024-02-07T00:00:00Z",
+  "dateModified": "2024-02-07T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "ocfox"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ocfox.me/zh/posts/ethernet-cable/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ocfox's den",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ocfox.me/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ocfox.me/zh/" accesskey="h" title="ocfox&#39;s den (Alt + H)">ocfox&#39;s den</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://ocfox.me/" title="English"
+                            aria-label="English">English</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ocfox.me/zh/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/zh/index.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/zh/search" title="Search">
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ocfox/den" title="Source">
+                    <span>Source</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/zh/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      不要怀疑网线
+    </h1>
+    <div class="post-meta"><span title='2024-02-07 00:00:00 +0000 UTC'>2024-02-07</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;ocfox&nbsp;|&nbsp;<a href="https://github.com/ocfox/den/tree/master/blog/content/posts/ethernet-cable.zh.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> 
+  <div class="post-content"><h3 id="什么-gigabit网络接口只有300mbps">什么? Gigabit网络接口只有300Mbps?<a hidden class="anchor" aria-hidden="true" href="#什么-gigabit网络接口只有300mbps">#</a></h3>
+<p>就因为装修工用了不存在的<code>Cat 6e</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>网线, 1Gbps 的接口变成了甚至不到 300Mbps ?
+这不可能（除非<del>你离我家有几千公里</del>你真的用了一整卷网线）。
+虽然他是假的网线但应该也会有高于Cat5的水平吧 我猜。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># 两个朋友通过墙里的线缆联系</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span> ID<span style="color:#56b6c2">]</span>   Interval          Transfer    Bitrate
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>  7<span style="color:#56b6c2">]</span>   0.00-10.00  sec   <span style="color:#d19a66">364</span> MBytes   <span style="color:#d19a66">306</span> Mbits/sec     sender
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>  7<span style="color:#56b6c2">]</span>   0.00-10.01  sec   <span style="color:#d19a66">361</span> MBytes   <span style="color:#d19a66">303</span> Mbits/sec     receiver
+</span></span></code></pre></div><p>看起来他们的沟通出现了一些问题，好吧 让我把他们放在一起。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#7f848e"># 两个朋友面对面联系</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span> ID<span style="color:#56b6c2">]</span>   Interval          Transfer    Bitrate
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>  8<span style="color:#56b6c2">]</span>   0.00-10.00  sec   <span style="color:#d19a66">376</span> MBytes   <span style="color:#d19a66">310</span> Mbits/sec     sender
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>  8<span style="color:#56b6c2">]</span>   0.00-10.01  sec   <span style="color:#d19a66">383</span> MBytes   <span style="color:#d19a66">312</span> Mbits/sec     receiver
+</span></span></code></pre></div><p>还不如无线啊你们这个关系。难道是我mac有问题？怎么可能，估计是网卡有问题吧。</p>
+<details>
+  <summary>(你可以嘲笑mac用户了，他们甚至没有RJ45)</summary>
+  那又怎么样，我还是很喜欢我的mac。在某种程度上
+</details>
+<p>正好有另一个网卡，尝试！<strong>我去，居然完全正常！</strong>
+<figure class="align-center ">
+    <img loading="lazy" src="https://cdn.firstcuriosity.com/wp-content/uploads/2022/11/07212640/Adobe_Express_20221107_2117220_1.jpg#center" width="300"/> 
+</figure>
+</p>
+<p>原因竟然是我那条cc数据线速度很慢。好了，这就是我做的蠢事。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#56b6c2">[</span> ID<span style="color:#56b6c2">]</span> Interval           Transfer     Bitrate
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>  9<span style="color:#56b6c2">]</span>   0.00-10.00  sec   <span style="color:#d19a66">982</span> MBytes   <span style="color:#d19a66">823</span> Mbits/sec                  sender
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>  9<span style="color:#56b6c2">]</span>   0.00-10.01  sec   <span style="color:#d19a66">979</span> MBytes   <span style="color:#d19a66">821</span> Mbits/sec                  receiver
+</span></span></code></pre></div><p>最后就是这个情况，好吧，线还是很烂。但至少我一周前接的没有问题。
+(这是我上一周将家里装修工留下的线接了水晶头。一共三组 三个墙上插座，三个水晶头。
+100%成功率。我应该也算是接线大师了？)</p>
+<p>如果你看到这句话，说明你赚到了1分钟！看到这么<del>有趣</del>的事情完全不算浪费时间对吧。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>这个世界上没有Cat6e这样的标准，如果你用的也是Cat6e，恭喜你中奖了。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ocfox.me/zh/tags/network/">network</a></li>
+      <li><a href="https://ocfox.me/zh/tags/life/">life</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

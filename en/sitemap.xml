@@ -7,6 +7,16 @@
   </url><url>
     <loc>https://ocfox.me/tags/network/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/tags/network/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/tags/network/"
+                />
   </url><url>
     <loc>https://ocfox.me/tags/nixos/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
@@ -26,6 +36,16 @@
   </url><url>
     <loc>https://ocfox.me/posts/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/posts/"
+                />
   </url><url>
     <loc>https://ocfox.me/tags/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
