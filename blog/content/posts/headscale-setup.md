@@ -26,13 +26,18 @@ Then quickly finish configure it about 10 minutes.
     port = 443; # Any port you like
     settings = {
       # use "http://weed.ocfox.me" if you don't need tls
-      serverUrl = "https://weed.ocfox.me";
+      server_url = "https://weed.ocfox.me";
       # Don't forget forwaring if you use other port
       tls_letsencrypt_hostname = "weed.ocfox.me";
       tls_letsencrypt_challenge_type = "TLS-ALPN-01";
       # Any base_domain you like, in this case
       # your nodes will named `<nodename>.<user>.sex.allnight`
       dns_config.base_domain = "sex.allnight";
+      # Add this to avoid noisy warning
+      ip_prefixes = [
+        "fd7a:115c:a1e0::/48"
+        "100.64.0.0/10"
+      ];
     };
   };
 ```
@@ -43,7 +48,7 @@ Then quickly finish configure it about 10 minutes.
     address = "0.0.0.0";
     port = 443;
     settings = {
-      serverUrl = "https://weed.ocfox.me";
+      server_url = "https://weed.ocfox.me";
       tls_letsencrypt_hostname = "weed.ocfox.me";
       tls_letsencrypt_challenge_type = "TLS-ALPN-01";
       dns_config.base_domain = "sex.allnight";
