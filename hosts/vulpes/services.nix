@@ -2,11 +2,14 @@
 {
   openssh.enable = true;
 
+  tailscale.enable = true;
+
   headscale = {
     enable = true;
     address = "0.0.0.0";
     port = 443;
     settings = {
+      randomize_client_port = true;
       ip_prefixes = [
         "fd7a:115c:a1e0::/48"
         "100.64.0.0/10"
@@ -20,4 +23,5 @@
       };
     };
   };
+
 }
