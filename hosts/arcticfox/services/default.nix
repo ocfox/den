@@ -17,7 +17,10 @@
     webHome = pkgs.flood-for-transmission;
     settings = {
       rpc-bind-address = "0.0.0.0";
-      rpc-whitelist = "127.0.0.1,192.168.*.*";
+      rpc-whitelist = "100.64.0.*, 192.168.*.*";
+      rpc-host-whitelist-enabled = false;
     };
   };
+
+  tailscale.enable = true;
 }
