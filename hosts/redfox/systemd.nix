@@ -1,4 +1,6 @@
 {
+  services.caddy.serviceConfig.SupplementaryGroups = [ "mastodon" ];
+
   network = {
     enable = true;
     wait-online.anyInterface = true;
