@@ -43,6 +43,7 @@ socialIcons = [
     { name = "github", url = "https://github.com/ocfox" },
     { name = "telegram", url = "https://t.me/ocfox" },
     { name = "matrix", url = "https://matrix.to/#/@ocfox:matrix.org" },
+    { name = "mastodon", url = "https://mastodon.ocfox.me/@ocfox" },
     { name = "rss", url = "index.xml" },
 ]
 
