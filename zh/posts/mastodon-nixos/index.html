@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>终于, 我也有了自己的Mastodon服务器 | ocfox&#39;s den</title>
+<meta name="keywords" content="nixos, nix, mastodon, caddy">
+<meta name="description" content="在NixOS上搭建自己的Mastodon服务器，并使用Caddy作为反向代理。">
+<meta name="author" content="ocfox">
+<link rel="canonical" href="https://ocfox.me/zh/posts/mastodon-nixos/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ocfox.me/favicon.ico">
+<link rel="apple-touch-icon" href="https://ocfox.me/favicon.ico">
+<link rel="mask-icon" href="https://ocfox.me/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ocfox.me/zh/posts/mastodon-nixos/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="终于, 我也有了自己的Mastodon服务器" />
+<meta property="og:description" content="在NixOS上搭建自己的Mastodon服务器，并使用Caddy作为反向代理。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ocfox.me/zh/posts/mastodon-nixos/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-02-15T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="终于, 我也有了自己的Mastodon服务器"/>
+<meta name="twitter:description" content="在NixOS上搭建自己的Mastodon服务器，并使用Caddy作为反向代理。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ocfox.me/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "终于, 我也有了自己的Mastodon服务器",
+      "item": "https://ocfox.me/zh/posts/mastodon-nixos/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "终于, 我也有了自己的Mastodon服务器",
+  "name": "终于, 我也有了自己的Mastodon服务器",
+  "description": "在NixOS上搭建自己的Mastodon服务器，并使用Caddy作为反向代理。",
+  "keywords": [
+    "nixos", "nix", "mastodon", "caddy"
+  ],
+  "articleBody": "Why? 我一直没有使用社交媒体的习惯，像是Twitter, Weibo之类。但是经常看到大家在聊天里分享链接，难免会想尝试一下。 我很喜欢Misskey的UI，好看。但是移动客户端很重要，如果没有的话就基本等于不会习惯性的访问。 简单的尝试之后 Mastodon 满足了大多数我的要求。\nNixOS configuration 在NixOS上部署很简单，只需要将DNS解析到相应的机器并填好设置，没有其他的步骤。 需要做的域名只有 WEB_DOMAIN。\nservices.mastodon = { enable = true; streamingProcesses = 1; # 推荐处理器核心-1 localDomain = \"ocfox.me\"; smtp.fromAddress = \"server@mastodon.ocfox.me\"; extraConfig = { WEB_DOMAIN = \"mastodon.ocfox.me\"; SINGLE_USER_MODE = \"true\"; }; }; 在最好的情况下，localDomain应该和WEB_DOMAIN保持一致，也就是并不需要单独设置WEB_DOMAIN。 但是我相信，你应该已经在它上面提供了别的内容吧，比如homepage之类的，不过mastodon允许我们这么做1。 只需要在localDomain上提供webfinger就好。\n接下来是Caddy的配置，记得替换email and WEB_DOMAIN。\n# 保证caddy具有mastodon web socket的读写权限 systemd.services.caddy.serviceConfig.SupplementaryGroups = [ \"mastodon\" ]; services.caddy = { enable = true; email = \"\"; virtualHosts = { \"\" = { extraConfig = '' handle_path /system/* { file_server * { root /var/lib/mastodon/public-system } } handle /api/v1/streaming/* { reverse_proxy unix//run/mastodon-streaming/streaming-1.socket } route * { file_server * { root ${pkgs.mastodon}/public pass_thru } reverse_proxy * unix//run/mastodon-web/web.socket } handle_errors { root * ${pkgs.mastodon}/public rewrite 500.html file_server } encode gzip header /* { Strict-Transport-Security \"max-age=31536000;\" } ''; }; }; nixos-rebuild之后，你就可以通过域名访问你的mastodon server啦。 接下来需要为自己创建一个用户。\nmastodon-tootctl accounts create USERNAME --email=YOUR_EMAIL --confirmed --role=Owner 你将会看到生成的密码打印在下面。\nSomething needed 如果使用了不同的localDomain，那么还需要在 localDomain 上提供webfinger。(只是单用户或者几个用户的话可以这么做), 不然请参考manual1。\nhttps:///.well-known/webfinger?resource=acct:@ 提供的json 复制到下面的路径就好。\nhttps:///.well-known/webfinger 如果是github pages并且部署后无法访问这个路径，可以在根目录添加空白文件.nojekyll解决。\n如果你之前在其他mastodon兼容的服务器注册过账户，那么也可以简单的迁移到新的账户。 在设置里找到 账户-\u003e从其它账号迁入。接下来按照说明做就好，迁移完成后旧账户就不能正常使用了(大概)。\nUsing a different domain name for Mastodon and the users it serves ↩︎ ↩︎\n",
+  "wordCount" : "163",
+  "inLanguage": "zh",
+  "datePublished": "2024-02-15T00:00:00Z",
+  "dateModified": "2024-02-15T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "ocfox"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ocfox.me/zh/posts/mastodon-nixos/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ocfox's den",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ocfox.me/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ocfox.me/zh/" accesskey="h" title="ocfox&#39;s den (Alt + H)">ocfox&#39;s den</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://ocfox.me/" title="English"
+                            aria-label="English">English</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ocfox.me/zh/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/zh/index.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/zh/search" title="Search">
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ocfox/den" title="Source">
+                    <span>Source</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/zh/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      终于, 我也有了自己的Mastodon服务器
+    </h1>
+    <div class="post-meta"><span title='2024-02-15 00:00:00 +0000 UTC'>2024-02-15</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;ocfox&nbsp;|&nbsp;<a href="https://github.com/ocfox/den/tree/master/blog/content/posts/mastodon-nixos.zh.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> 
+  <div class="post-content"><h3 id="why">Why?<a hidden class="anchor" aria-hidden="true" href="#why">#</a></h3>
+<p>我一直没有使用社交媒体的习惯，像是Twitter, Weibo之类。但是经常看到大家在聊天里分享链接，难免会想尝试一下。
+我很喜欢Misskey的UI，好看。但是移动客户端很重要，如果没有的话就基本等于不会习惯性的访问。
+简单的尝试之后 Mastodon 满足了大多数我的要求。</p>
+<h3 id="nixos-configuration">NixOS configuration<a hidden class="anchor" aria-hidden="true" href="#nixos-configuration">#</a></h3>
+<p>在NixOS上部署很简单，只需要将DNS解析到相应的机器并填好设置，没有其他的步骤。
+需要做的域名只有 <code>WEB_DOMAIN</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">services</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">mastodon</span> = {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">enable</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">streamingProcesses</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#7f848e"># 推荐处理器核心-1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">localDomain</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;ocfox.me&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">smtp</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">fromAddress</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;server@mastodon.ocfox.me&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">extraConfig</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">WEB_DOMAIN</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;mastodon.ocfox.me&#34;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">SINGLE_USER_MODE</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;true&#34;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>在最好的情况下，localDomain应该和WEB_DOMAIN保持一致，也就是并不需要单独设置WEB_DOMAIN。
+但是我相信，你应该已经在它上面提供了别的内容吧，比如homepage之类的，不过mastodon允许我们这么做<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。
+只需要在localDomain上提供webfinger就好。</p>
+<p>接下来是Caddy的配置，记得替换email and WEB_DOMAIN。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#7f848e"># 保证caddy具有mastodon web socket的读写权限</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">systemd</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">services</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">caddy</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">serviceConfig</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">SupplementaryGroups</span> = [ <span style="color:#98c379">&#34;mastodon&#34;</span> ];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">services</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">caddy</span> = {
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">enable</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">email</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;&lt;email for acme&gt;&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">virtualHosts</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#98c379">&#34;&lt;WEB_DOMAIN&gt;&#34;</span> <span style="color:#56b6c2">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">extraConfig</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          handle_path /system/* {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              file_server * {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">                  root /var/lib/mastodon/public-system
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          handle /api/v1/streaming/* {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              reverse_proxy  unix//run/mastodon-streaming/streaming-1.socket
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          route * {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              file_server * {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              root </span><span style="color:#98c379">${</span><span style="color:#e06c75">pkgs</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">mastodon</span><span style="color:#98c379">}</span><span style="color:#98c379">/public
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              pass_thru
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              reverse_proxy * unix//run/mastodon-web/web.socket
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          handle_errors {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              root * </span><span style="color:#98c379">${</span><span style="color:#e06c75">pkgs</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">mastodon</span><span style="color:#98c379">}</span><span style="color:#98c379">/public
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              rewrite 500.html
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              file_server
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          encode gzip
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          header /* {
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">              Strict-Transport-Security &#34;max-age=31536000;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">          }
+</span></span></span><span style="display:flex;"><span><span style="color:#98c379">        &#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>nixos-rebuild之后，你就可以通过域名访问你的mastodon server啦。
+接下来需要为自己创建一个用户。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mastodon-tootctl accounts create USERNAME --email<span style="color:#56b6c2">=</span>YOUR_EMAIL --confirmed --role<span style="color:#56b6c2">=</span>Owner
+</span></span></code></pre></div><p>你将会看到生成的密码打印在下面。</p>
+<h3 id="something-needed">Something needed<a hidden class="anchor" aria-hidden="true" href="#something-needed">#</a></h3>
+<p>如果使用了不同的localDomain，那么还需要在 localDomain 上提供webfinger。(只是单用户或者几个用户的话可以这么做),
+不然请参考manual<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-path" data-lang="path"><span style="display:flex;"><span><span style="color:#e06c75">https://&lt;WEB_DOMAIN&gt;/.well-known/webfinger?resource</span><span style="color:#56b6c2">=</span><span style="color:#98c379">acct:&lt;USERNAME&gt;@&lt;localDomain&gt;</span>
+</span></span></code></pre></div><p>提供的json 复制到下面的路径就好。</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-path" data-lang="path"><span style="display:flex;"><span>https://&lt;localDomain&gt;/.well-known/webfinger
+</span></span></code></pre></div><p>如果是github pages并且部署后无法访问这个路径，可以在根目录添加空白文件<code>.nojekyll</code>解决。</p>
+<p>如果你之前在其他mastodon兼容的服务器注册过账户，那么也可以简单的迁移到新的账户。
+在设置里找到 账户-&gt;从其它账号迁入。接下来按照说明做就好，迁移完成后旧账户就不能正常使用了(大概)。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://github.com/felx/mastodon-documentation/blob/master/Running-Mastodon/Serving_a_different_domain.md">Using a different domain name for Mastodon and the users it serves</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ocfox.me/zh/tags/nixos/">nixos</a></li>
+      <li><a href="https://ocfox.me/zh/tags/nix/">nix</a></li>
+      <li><a href="https://ocfox.me/zh/tags/mastodon/">mastodon</a></li>
+      <li><a href="https://ocfox.me/zh/tags/caddy/">caddy</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://ocfox.me/zh/posts/ethernet-cable/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>不要怀疑网线</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

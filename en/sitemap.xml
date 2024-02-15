@@ -20,6 +20,16 @@
   </url><url>
     <loc>https://ocfox.me/tags/nixos/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/tags/nixos/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/tags/nixos/"
+                />
   </url><url>
     <loc>https://ocfox.me/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
