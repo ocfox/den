@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>nixos on ocfox&#39;s den</title>
+    <title>Nixos on ocfox&#39;s den</title>
     <link>https://ocfox.me/tags/nixos/</link>
-    <description>Recent content in nixos on ocfox&#39;s den</description>
+    <description>Recent content in Nixos on ocfox&#39;s den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
