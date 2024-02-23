@@ -10,6 +10,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    htop
+    helix
     curl
     wget
     git
