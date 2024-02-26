@@ -9,6 +9,11 @@
     efiInstallAsRemovable = true;
   };
 
+  boot.initrd = {
+    compressor = "zstd";
+    compressorArgs = [ "-19" "-T0" ];
+  };
+
   environment.systemPackages = with pkgs; [
     htop
     helix
