@@ -17,5 +17,4 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  yubikey-agent.enable = true;
 }
