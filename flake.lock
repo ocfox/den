@@ -179,16 +179,16 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1690284755,
-        "narHash": "sha256-BMdPJZbggIk4xQgTy7+0evaieVO0IdZ8CcowK5TNkLU=",
+        "lastModified": 1709302833,
+        "narHash": "sha256-dr0yGZ2yeuFc4cj67hqDOp0wqpBQbI+0kUmjSx+8Zm4=",
         "owner": "ocfox",
-        "repo": "minegrub-theme",
-        "rev": "efc451d540c93e13959ce5655900a072d23b574a",
+        "repo": "minegrub-world-sel-theme",
+        "rev": "fbb1a02e696d95b8f0b21a529ef89c26aa4c842d",
         "type": "github"
       },
       "original": {
         "owner": "ocfox",
-        "repo": "minegrub-theme",
+        "repo": "minegrub-world-sel-theme",
         "type": "github"
       }
     },
@@ -244,16 +244,16 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1689850295,
-        "narHash": "sha256-fUYf6WdQlhd2H+3aR8jST5dhFH1d0eE22aes8fNIfyk=",
+        "lastModified": 1709260429,
+        "narHash": "sha256-Fgso2L4vl5NDIWBjX03+P8580N1oGxic/iCd11GjfJU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5df4d78d54f7a34e9ea1f84a22b4fd9baebc68d0",
+        "rev": "244ee5631a7a39b0c6bd989cdf9a1326cd3c5819",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }

@@ -2,14 +2,11 @@
 {
   loader = {
     grub = {
-      minegrub-theme = {
-        enable = true;
-        splash = "Infinite recursion";
-      };
       enable = true;
       device = "nodev";
       useOSProber = true;
       efiSupport = true;
+      minegrub-world-sel-theme.enable = true;
     };
     efi.canTouchEfiVariables = true;
   };

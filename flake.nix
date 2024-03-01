@@ -53,8 +53,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    # nixpkgs.url = "git+file:///home/ocfox/dev/nixpkgs";
-    minegrub.url = "github:ocfox/minegrub-theme";
+    minegrub.url = "github:ocfox/minegrub-world-sel-theme";
     agenix.url = "github:ryantm/agenix";
     factorio-versions.url = "github:ocfox/factorio-versions";
     bin.url = "github:ocfox/bin";
