@@ -4,7 +4,7 @@
 , pkgs
 }: {
   enable = true;
-  package = root.pkgs.sway-im;
+  # package = root.pkgs.sway-im;
 
   wrapperFeatures.gtk = true;
   config = {
@@ -25,19 +25,14 @@
     };
 
     output =
-      # let
-        # inherit (root.pkgs.wallpapers.cowboyBebop) bebop op;
-      # in
       {
         DP-1 = {
-          # bg = "${op} fill";
           mode = "3840x2160";
           position = "360 0";
           scale = "3";
         };
 
         DP-3 = {
-          # bg = "${bebop} fill";
           mode = "1920x1080";
           position = "0 0";
           transform = "90";
