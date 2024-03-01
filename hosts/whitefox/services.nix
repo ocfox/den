@@ -3,7 +3,8 @@
   pcscd.enable = true;
   getty.autologinUser = username;
   devmon.enable = true;
-  printing.enable = true;
+
+  tailscale.enable = true;
   blueman.enable = true;
   openssh.enable = true;
   udev.extraRules = ''
