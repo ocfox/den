@@ -4,6 +4,7 @@
 , pkgs
 }: {
   enable = true;
+  xwayland = false;
   # package = root.pkgs.sway-im;
 
   wrapperFeatures.gtk = true;
