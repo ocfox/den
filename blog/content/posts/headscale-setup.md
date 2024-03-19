@@ -4,10 +4,10 @@ date: "2024-02-06"
 tags: ["tailscale", "network", "nixos", "headscale"]
 ---
 
-Last month, I got a Dell R730xd. And pay many time on **Fight with ChinaTelecom**.
-Finally, I lost in this war. But fortunately, Tailscale can _effectively(maybe)_ address my issue.
+Last month, I got a Dell R730xd and paid much time on **Fighting with ChinaTelecom**.
+Finally, I lost the war. However, fortunately, Tailscale can _effectively(maybe)_ address my issue.
 
-I used Tailscale past, but stopped by **Chinese 'Premium' Network**, high latency and loss make me crazy.
+I used Tailscale in the past, but was stopped by **Chinese 'Premium' Network**. High latency and packet loss rate make me crazy.
 
 {{< collapse summary="And 'they' provides services, just like Google." >}}
 <u>Haha, actually, I'm not sensitive to this at all. I'm not a privacy-paranoid person.</u>
