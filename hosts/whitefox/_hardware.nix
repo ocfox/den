@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" "amdgpu" ];
+  boot.kernelModules = [ "kvm-amd" "i915.force_probe=56a1" ];
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -29,9 +29,11 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.opengl = {
     enable = true;
-    extraPackages = [
-      pkgs.rocm-opencl-icd
-      pkgs.libva
+    extraPackages = with pkgs; [
+      intel-media-driver
+      libva
+      intel-ocl
+      intel-vaapi-driver
     ];
   };
   hardware.keyboard.qmk.enable = true;
