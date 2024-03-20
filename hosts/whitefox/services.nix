@@ -1,4 +1,4 @@
-{ username }:
+{ username, pkgs }:
 {
   pcscd.enable = true;
   getty.autologinUser = username;
@@ -7,6 +7,9 @@
   tailscale.enable = true;
   blueman.enable = true;
   openssh.enable = true;
+  udev.packages = [
+    pkgs.android-udev-rules
+  ];
   udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666", TAG+="uaccess", TAG+="udev-acl"
     
