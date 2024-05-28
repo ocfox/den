@@ -4,7 +4,6 @@
 , pkgs
 }: {
   enable = true;
-  xwayland = false;
   # package = root.pkgs.sway-im;
 
   wrapperFeatures.gtk = true;
@@ -29,14 +28,13 @@
       {
         DP-1 = {
           mode = "3840x2160";
-          position = "360 0";
+          position = "640 0";
           scale = "3";
         };
 
-        DP-3 = {
+        HDMI-A-3 = {
           mode = "1920x1080";
           position = "0 0";
-          transform = "90";
           scale = "3";
         };
       };
@@ -49,7 +47,7 @@
     };
 
     workspaceOutputAssign = [{
-      output = "DP-3";
+      output = "HDMI-A-3";
       workspace = "9";
     }];
 
