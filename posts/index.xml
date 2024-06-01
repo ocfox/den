@@ -6,8 +6,18 @@
     <description>Recent content in Posts on ocfox&#39;s den</description>
     <generator>Hugo -- 0.126.1</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ocfox.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSS Learning Notes Chapter I</title>
+      <link>https://ocfox.me/posts/css-learn-1/</link>
+      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://ocfox.me/posts/css-learn-1/</guid>
+      <description>Try to make a nixos boot animation. (log scroll on screen.)
+The repo link: https://github.com/ocfox/booti . This site has none imported js or css library.
+First need make a animation let text display line by line. So I tried to set a delay for every line, when open page hide (don&amp;rsquo;t display) every paragraph in css.
+p { display: none; /* Initially hide all paragraphs */ margin: 1px 0 0 1px; } Then set a delay increase by degrees for every single line with js.</description>
+    </item>
     <item>
       <title>Tailscale with Headscale?</title>
       <link>https://ocfox.me/posts/headscale-setup/</link>
