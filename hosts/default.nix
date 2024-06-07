@@ -55,6 +55,7 @@ in
       inputs.home-manager.nixosModules.home-manager
       inputs.minegrub.nixosModules.default
       inputs.agenix.nixosModules.default
+      inputs.chaotic.homeManagerModules.default
       {
         nix.registry.self.flake = self;
       }

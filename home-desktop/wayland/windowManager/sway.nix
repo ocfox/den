@@ -4,7 +4,7 @@
 , pkgs
 }: {
   enable = true;
-  # package = root.pkgs.sway-im;
+  package = pkgs.sway_git;
 
   wrapperFeatures.gtk = true;
   config = {

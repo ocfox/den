@@ -54,6 +54,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     minegrub.url = "github:ocfox/minegrub-world-sel-theme";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     agenix.url = "github:ryantm/agenix";
     factorio-versions.url = "github:ocfox/factorio-versions";
     bin.url = "github:ocfox/bin";
