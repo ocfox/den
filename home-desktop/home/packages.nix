@@ -3,19 +3,9 @@
 }:
 with pkgs;
 [
-  bitwarden
   wl-clipboard
   swayidle
-  qbittorrent
   tdesktop
   firefox-wayland
   vscode-fhs
-
-  ncspot
-  sptlrx
-  playerctl
-  cava
-  vlc
-  wf-recorder
-  blender-hip
 ]
