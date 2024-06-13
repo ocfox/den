@@ -68,7 +68,7 @@
         "${modifier}+Shift+u" = "exec pamixer -i 10";
         "${modifier}+Shift+d" = "exec pamixer -d 10";
         "${modifier}+Shift+e" = "exec ${lib.getExe powermenu}";
-        "${modifier}+Return" = "exec ${lib.getExe' pkgs.alacritty "alacritty"}";
+        "${modifier}+Return" = "exec ${lib.getExe pkgs.alacritty_git}";
         "${modifier}+o" = "exec ${lib.getExe' pkgs.kickoff "kickoff"}";
         "${modifier}+space" = "floating toggle";
         "${modifier}+Shift+space" = null;
