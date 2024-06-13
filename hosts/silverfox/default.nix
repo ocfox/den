@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, pkgs, ... }:
+{ inputs, username, pkgs, ... }:
 
 {
   boot.loader.systemd-boot = {
@@ -25,6 +21,12 @@
   systemd.oomd.enableRootSlice = true;
   systemd.oomd.enableUserSlices = true;
 
+  users.users.${username} = {
+    isNormalUser = true;
+    shell = pkgs.fish;
+    hashedPassword = "$6$jVI2tdENaEqUyZGh$rni.joO5US9t9RYM9wlIvia4L1YOObs44Kt3gBcooBJTeSFGyEorciM2CrKMEnzbojpi1KgPPe256i5Q46N1d0";
+  };
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     inputMethod = {
@@ -43,14 +45,6 @@
   networking.firewall.enable = false;
 
   system.stateVersion = "24.05";
-
-  environment.systemPackages = with pkgs; [
-    file
-    patchelf
-    btop
-
-    firefox
-  ];
 
   hardware.bluetooth.enable = true;
   virtualisation.podman.enable = true;

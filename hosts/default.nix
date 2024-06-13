@@ -74,10 +74,11 @@ in
   silverfox = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      ./silver/_hardware.nix
+      ./silverfox/_hardware.nix
       silverfox-module
       inputs.home-manager.nixosModules.home-manager
       inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
+      inputs.chaotic.homeManagerModules.default
       {
         nix.registry.self.flake = self;
       }

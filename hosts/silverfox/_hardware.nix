@@ -30,6 +30,6 @@
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
-  hardware.asahi.peripheralFirmwareDirectory = /boot/asahi;
+  hardware.asahi.peripheralFirmwareDirectory = /mnt/boot/asahi;
   hardware.asahi.useExperimentalGPUDriver = true;
 }
