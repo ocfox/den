@@ -14,6 +14,14 @@ let
     transformer = inputs.haumea.lib.transformers.liftDefault;
   };
 
+  silverfox-module = { pkgs, username, ... }@args: inputs.haumea.lib.load {
+    src = ./silverfox;
+    inputs = args // {
+      inherit inputs;
+    };
+    transformer = inputs.haumea.lib.transformers.liftDefault;
+  };
+
   arcticfox-module = { pkgs, username, ... }@args: inputs.haumea.lib.load {
     src = ./arcticfox;
     inputs = args // {
@@ -56,6 +64,20 @@ in
       inputs.minegrub.nixosModules.default
       inputs.agenix.nixosModules.default
       inputs.chaotic.homeManagerModules.default
+      {
+        nix.registry.self.flake = self;
+      }
+    ];
+    specialArgs = { inherit inputs username home; };
+  };
+
+  silverfox = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      ./silver/_hardware.nix
+      silverfox-module
+      inputs.home-manager.nixosModules.home-manager
+      inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
       {
         nix.registry.self.flake = self;
       }
