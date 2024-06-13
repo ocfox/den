@@ -9,6 +9,7 @@ with pkgs;
   qbittorrent
   tdesktop
   firefox-wayland
+  vscode-fhs
 
   ncspot
   sptlrx
