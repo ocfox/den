@@ -11,8 +11,8 @@
         "2602:ff75:7:4724::1/48"
       ];
       routes = [
-        { routeConfig.Gateway = "2602:ff75:7::1"; }
-        { routeConfig.Gateway = "104.200.67.1"; }
+        { Gateway = "2602:ff75:7::1"; }
+        { Gateway = "104.200.67.1"; }
       ];
     };
   };
