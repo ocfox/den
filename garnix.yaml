@@ -1,4 +1,6 @@
 builds:
-  exclude: []
   include:
-  - nixosConfigurations.silverfox.*
+  - nixosConfigurations.*
+  exclude:
+  - nixosConfigurations.arcticfox.*
+  - nixosConfigurations.sakhalin.*
