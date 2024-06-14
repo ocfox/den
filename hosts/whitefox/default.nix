@@ -1,10 +1,35 @@
 { pkgs
 , username
+, lib
 , ...
 }: {
   time.timeZone = "Asia/Shanghai";
 
   hardware.bluetooth.enable = true;
+
+  xdg = {
+    mime = {
+      enable = true;
+      defaultApplications =
+        {
+          "application/x-xdg-protocol-tg" = [ "org.telegram.desktop.desktop" ];
+          "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+          "application/pdf" = [ "sioyek.desktop" ];
+        }
+        // lib.genAttrs
+          [
+            "x-scheme-handler/unknown"
+            "x-scheme-handler/about"
+            "x-scheme-handler/http"
+            "x-scheme-handler/https"
+            "x-scheme-handler/mailto"
+            "text/html"
+          ]
+          (_: "firefox.desktop");
+    };
+    portal.wlr.enable = true;
+    portal.enable = true;
+  };
 
   users.users.${username} = {
     isNormalUser = true;
