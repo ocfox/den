@@ -33,7 +33,7 @@
       intel-media-driver
       libva
       intel-ocl
-      intel-vaapi-driver
+      vaapiIntel
     ];
   };
   hardware.keyboard.qmk.enable = true;
