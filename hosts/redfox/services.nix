@@ -3,6 +3,14 @@
   openssh.enable = true;
   tailscale.enable = true;
 
+  transfer-sh = {
+    enable = true;
+    settings = {
+      LISTENER = ":7777";
+      RANDOM_TOKEN_LENGTH = 2;
+    };
+  };
+
   atuin = {
     enable = true;
     openFirewall = true;
@@ -85,7 +93,7 @@
           header /system/accounts/avatars/* Cache-Control "public, max-age=31536000, immutable"
           header /system/media_attachments/files/* Cache-Control "public, max-age=31536000, immutable"
         '';
-    };
+      };
 
       "atuin" = {
         hostName = "atuin.ocfox.me";
@@ -106,6 +114,12 @@
         extraConfig = ''
           reverse_proxy localhost:9000
           redir / /status/all
+        '';
+      };
+
+      "transfer.ocfox.me" = {
+        extraConfig = ''
+          reverse_proxy localhost:7777
         '';
       };
 
