@@ -4,6 +4,7 @@
 }:
 let
   inherit (root.pkgs) player-metadata;
+  brightnessctl = lib.getExe pkgs.brightnessctl;
 in
 [
   {
@@ -11,7 +12,6 @@ in
     "position" = "top";
     "modules-left" = [
       "sway/workspaces"
-      "temperature"
       "custom/music"
     ];
     "modules-center" = [
@@ -22,9 +22,9 @@ in
       "idle_inhibitor"
       "pulseaudio"
       "backlight"
-      "memory"
       "cpu"
       "network"
+      "battery"
       "clock"
     ];
     "sway/workspaces" = {
@@ -41,8 +41,6 @@ in
         "7" = "<span color=\"#019733\">7</span>";
         "8" = "<span color=\"#757575\">8</span>";
         "9" = "<span color=\"#26A5E4\">9</span>";
-        "focused" = "";
-        "default" = "";
       };
     };
     "idle_inhibitor" = {
@@ -53,13 +51,13 @@ in
       };
       "tooltip" = false;
     };
-    # "backlight" = {
-    #   "device" = "intel_backlight";
-    #   "on-scroll-up" = "light -A 5";
-    #   "on-scroll-down" = "light -U 5";
-    #   "format" = "{icon} {percent}%";
-    #   "format-icons" = [ "" "" "" "" ];
-    # };
+    "backlight" = {
+      "device" = "apple-panel-bl";
+      "on-scroll-up" = "${brightnessctl} s 1%-";
+      "on-scroll-down" = "${brightnessctl} s +1%";
+      "format" = "{icon} {percent}%";
+      "format-icons" = [ "" "" "" "" "" "" "" "" "" ];
+    };
     "pulseaudio" = {
       "format" = "{icon} {volume}%";
       "format-muted" = "󰝟 Muted";
@@ -81,12 +79,17 @@ in
       "today-format" = "<span color='#ff6699'><b>{}</b></span>";
       "tooltip-format" = "{:%A %B %Y}\n<tt>{calendar}</tt>";
     };
-    "memory" = {
-      "interval" = 1;
-      "format" = "󰍛 {percentage}%";
+    "battery" = {
       "states" = {
-        "warning" = 85;
+        "warning" = 30;
+        "critical" = 15;
       };
+      "format" = "{icon} {capacity}%";
+      "format-full" = "{icon} {capacity}%";
+      "format-charging" = "󰂄 {capacity}%";
+      "format-plugged" = " {capacity}%";
+      "format-alt" = "{icon} {time}";
+      "format-icons" = [ "" "" "" "" "" ];
     };
     "cpu" = {
       "interval" = 1;
@@ -105,11 +108,6 @@ in
       "format-linked" = "󰖩 {essid}";
       "format-disconnected" = "󰖩 Disconnected";
       "tooltip" = false;
-    };
-    "temperature" = {
-      "hwmon-path" = "/sys/class/hwmon/hwmon6/temp2_input";
-      "tooltip" = false;
-      "format" = " {temperatureC}°C";
     };
     "tray" = {
       "icon-size" = 14;
