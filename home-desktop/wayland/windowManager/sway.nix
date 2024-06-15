@@ -65,8 +65,8 @@
         "${modifier}+d" = "move scratchpad";
         "${modifier}+i" = "scratchpad show";
         "${modifier}+Shift+a" = "exec ${lib.getExe macshot}";
-        "${modifier}+Shift+u" = "exec pamixer -i 10";
-        "${modifier}+Shift+d" = "exec pamixer -d 10";
+        "${modifier}+Shift+u" = "exec ${lib.getExe pkgs.pamixer} -i 5";
+        "${modifier}+Shift+d" = "exec ${lib.getExe pkgs.pamixer} -d 5";
         "${modifier}+Shift+e" = "exec ${lib.getExe powermenu}";
         "${modifier}+Return" = "exec ${lib.getExe pkgs.alacritty_git}";
         "${modifier}+o" = "exec ${lib.getExe' pkgs.kickoff "kickoff"}";
