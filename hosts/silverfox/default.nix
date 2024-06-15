@@ -1,4 +1,4 @@
-{ inputs, username, pkgs, ... }:
+{ lib, username, pkgs, ... }:
 
 {
   boot.loader.systemd-boot = {
@@ -8,11 +8,36 @@
 
   boot.loader.efi.canTouchEfiVariables = false;
 
+  services.getty.autologinUser = username;
 
   networking.hostName = "silverfox";
   networking.networkmanager.enable = true;
 
-  services.resolved.enable = true;
+  xdg = {
+    mime = {
+      enable = true;
+      defaultApplications =
+        {
+          "application/x-xdg-protocol-tg" = [ "org.telegram.desktop.desktop" ];
+          "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+          "application/pdf" = [ "sioyek.desktop" ];
+        }
+        // lib.genAttrs
+          [
+            "x-scheme-handler/unknown"
+            "x-scheme-handler/about"
+            "x-scheme-handler/http"
+            "x-scheme-handler/https"
+            "x-scheme-handler/mailto"
+            "text/html"
+          ]
+          (_: "firefox.desktop");
+    };
+    portal.wlr.enable = true;
+    portal.enable = true;
+  };
+
+  sound.enable = true;
 
   time.timeZone = "Asia/Shanghai";
 
@@ -25,6 +50,9 @@
     isNormalUser = true;
     shell = pkgs.fish;
     hashedPassword = "$6$jVI2tdENaEqUyZGh$rni.joO5US9t9RYM9wlIvia4L1YOObs44Kt3gBcooBJTeSFGyEorciM2CrKMEnzbojpi1KgPPe256i5Q46N1d0";
+    extraGroups = [
+      "wheel"
+    ];
   };
 
   i18n = {
