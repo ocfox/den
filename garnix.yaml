@@ -2,5 +2,5 @@ builds:
   include:
   - nixosConfigurations.*
   exclude:
-  - nixosConfigurations.arcticfox.*
-  - nixosConfigurations.sakhalin.*
+  - nixosConfigurations.arcticfox
+  - nixosConfigurations.sakhalin
