@@ -7,16 +7,16 @@
   };
 
   cowboyBebop = {
+    default = pkgs.fetchurl {
+      url = "https://transfer.ocfox.me/A5/cowboy_bebop.jpg";
+      name = "cowboyBebop.jpg";
+      hash = "sha256-5ECftbBSl2lG5FWLs9+2QTL3T0a3xY+y4ufnh9ceHl4=";
+    };
+
     op = pkgs.fetchurl {
       url = "https://pastb.in/cowboybebop-op.jpg";
       name = "cowboybebop-op.jpg";
       hash = "sha256-Re6bEdMwQae+E2JNq/5Ah+9iuaJIgFHxg8UqJ36itA8=";
-    };
-
-    sky = pkgs.fetchurl {
-      url = "https://pastb.in/cowboybebop-sky.jpg";
-      name = "cowboybebop-sky.jpg";
-      hash = "sha256-2fhkMXkNCvkmuA7yTOzTa/3AQxgu2QsSKGqHAxOB7K4=";
     };
 
     bebop = pkgs.fetchurl {
