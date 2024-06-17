@@ -15,7 +15,7 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@main
       - name: Build docs
         run: |
-          nix build
+          nix build .#blog
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
