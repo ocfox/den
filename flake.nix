@@ -36,7 +36,7 @@
 
       imports = [
         ./blog
-        ./lib
+        # ./lib
         ./pkgs
       ];
 
