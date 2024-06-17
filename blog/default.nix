@@ -14,7 +14,7 @@
         };
       };
 
-      packages.default = stdenv.mkDerivation {
+      packages.blog = stdenv.mkDerivation {
         pname = "blog";
         version = lib.substring 0 8 self.lastModifiedDate;
 
