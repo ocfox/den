@@ -33,7 +33,6 @@
 
   # set to false, or use with impure :(
   hardware.asahi.extractPeripheralFirmware = false;
-  hardware.asahi.peripheralFirmwareDirectory = /boot;
-
-  hardware.asahi.useExperimentalGPUDriver = true;
+  # hardware.asahi.peripheralFirmwareDirectory = /boot/asahi;
+  # hardware.asahi.useExperimentalGPUDriver = true;
 }
