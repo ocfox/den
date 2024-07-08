@@ -78,7 +78,6 @@ in
       silverfox-module
       inputs.home-manager.nixosModules.home-manager
       inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
-      inputs.chaotic.homeManagerModules.default
       {
         nix.registry.self.flake = self;
       }
