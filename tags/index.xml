@@ -6,8 +6,36 @@
     <description>Recent content in Tags on ocfox&#39;s den</description>
     <generator>Hugo -- 0.128.1</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ocfox.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Email</title>
+      <link>https://ocfox.me/tags/email/</link>
+      <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://ocfox.me/tags/email/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MIME</title>
+      <link>https://ocfox.me/tags/mime/</link>
+      <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://ocfox.me/tags/mime/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network</title>
+      <link>https://ocfox.me/tags/network/</link>
+      <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://ocfox.me/tags/network/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SMTP</title>
+      <link>https://ocfox.me/tags/smtp/</link>
+      <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://ocfox.me/tags/smtp/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Html</title>
       <link>https://ocfox.me/tags/html/</link>
@@ -34,13 +62,6 @@
       <link>https://ocfox.me/tags/headscale/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://ocfox.me/tags/headscale/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Network</title>
-      <link>https://ocfox.me/tags/network/</link>
-      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://ocfox.me/tags/network/</guid>
       <description></description>
     </item>
     <item>

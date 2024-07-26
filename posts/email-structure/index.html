@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Email Structure -- Building an Email Sender with SMTP | ocfox&#39;s den</title>
+<meta name="keywords" content="email, network, SMTP, MIME">
+<meta name="description" content="A guide to creating a tool for sending emails">
+<meta name="author" content="ocfox">
+<link rel="canonical" href="https://ocfox.me/posts/email-structure/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ocfox.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ocfox.me/favicon.ico">
+<link rel="apple-touch-icon" href="https://ocfox.me/favicon.ico">
+<link rel="mask-icon" href="https://ocfox.me/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://ocfox.me/posts/email-structure/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+  
+
+<meta property="og:title" content="Email Structure -- Building an Email Sender with SMTP" />
+<meta property="og:description" content="A guide to creating a tool for sending emails" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ocfox.me/posts/email-structure/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-07-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-07-26T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Email Structure -- Building an Email Sender with SMTP"/>
+<meta name="twitter:description" content="A guide to creating a tool for sending emails"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://ocfox.me/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Email Structure -- Building an Email Sender with SMTP",
+      "item": "https://ocfox.me/posts/email-structure/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Email Structure -- Building an Email Sender with SMTP",
+  "name": "Email Structure -- Building an Email Sender with SMTP",
+  "description": "A guide to creating a tool for sending emails",
+  "keywords": [
+    "email", "network", "SMTP", "MIME"
+  ],
+  "articleBody": "Using an SMTP library, you can build an app to send emails. However, it typically doesn’t support a function to simply pass the subject, content, and attachment as parameters.\nFormat of Internet Message Bodies According to RFC2045, the MIME (Multipurpose Internet Mail Extensions) format is used.\nFrom: ocfox To: Test Subject: Test Email MIME-Version: 1.0 Content-Type: multipart/mixed; boundary=_kuroneko_ This is a simple email header where I use a custom boundary _kuroneko_. The boundary is used to separate different parts of the email.\nHeader ... --_kuroneko_ Content-Type: text/plain; charset=utf-8 Content-Transfer-Encoding: 7bit Hello, this is the text part. --_kuroneko_ Attachment An attachment is a part of the email and can be a file, an image, or anything else you want to send.\nIf you want to send an EPUB file, you need to add a part to the email like this:\nHeader ... --_kuroneko_ Content-Type: application/epub+zip; name=\"example.epub\" Content-Transfer-Encoding: base64 Content-Disposition: attachment; filename=\"example.epub\" UEsDBAoAAA... --_kuroneko_-- Use any Base64 encoding library to encode the file, combining the pieces together. Then, send them using SMTP.\nIt’s quite simple, right?\n",
+  "wordCount" : "176",
+  "inLanguage": "en",
+  "datePublished": "2024-07-26T00:00:00Z",
+  "dateModified": "2024-07-26T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "ocfox"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ocfox.me/posts/email-structure/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ocfox's den",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ocfox.me/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ocfox.me/" accesskey="h" title="ocfox&#39;s den (Alt + H)">ocfox&#39;s den</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://ocfox.me/zh/" title="中文"
+                            aria-label="中文">中文</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ocfox.me/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/index.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/ocfox/den" title="Source">
+                    <span>Source</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://ocfox.me/tags" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Email Structure -- Building an Email Sender with SMTP
+    </h1>
+    <div class="post-description">
+      A guide to creating a tool for sending emails
+    </div>
+    <div class="post-meta"><span title='2024-07-26 00:00:00 +0000 UTC'>2024-07-26</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ocfox&nbsp;|&nbsp;<a href="https://github.com/ocfox/den/tree/master/blog/content/posts/email-structure.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Using an SMTP library, you can build an app to send emails. However,
+it typically doesn&rsquo;t support a function to simply pass the subject,
+content, and attachment as parameters.</p>
+<h3 id="format-of-internet-message-bodies">Format of Internet Message Bodies<a hidden class="anchor" aria-hidden="true" href="#format-of-internet-message-bodies">#</a></h3>
+<p>According to <a href="https://datatracker.ietf.org/doc/html/rfc2045">RFC2045</a>,
+the MIME (Multipurpose Internet Mail Extensions) format is used.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>From: ocfox &lt;i@ocfox.me&gt;
+</span></span><span style="display:flex;"><span>To: Test &lt;test@cyans.dev&gt;
+</span></span><span style="display:flex;"><span>Subject: Test Email
+</span></span><span style="display:flex;"><span>MIME-Version: 1.0
+</span></span><span style="display:flex;"><span>Content-Type: multipart/mixed;
+</span></span><span style="display:flex;"><span> boundary=_kuroneko_
+</span></span></code></pre></div><p>This is a simple email header where I use a custom boundary <code>_kuroneko_</code>.
+The boundary is used to separate different parts of the email.</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Header ...
+</span></span><span style="display:flex;"><span>--_kuroneko_
+</span></span><span style="display:flex;"><span>Content-Type: text/plain; charset=utf-8
+</span></span><span style="display:flex;"><span>Content-Transfer-Encoding: 7bit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Hello, this is the text part.
+</span></span><span style="display:flex;"><span>--_kuroneko_
+</span></span></code></pre></div><h3 id="attachment">Attachment<a hidden class="anchor" aria-hidden="true" href="#attachment">#</a></h3>
+<p>An attachment is a part of the email and can be a file,
+an image, or anything else you want to send.</p>
+<p>If you want to send an EPUB file, you need to add a part to the email like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Header ...
+</span></span><span style="display:flex;"><span>--_kuroneko_
+</span></span><span style="display:flex;"><span>Content-Type: application/epub+zip; name=&#34;example.epub&#34;
+</span></span><span style="display:flex;"><span>Content-Transfer-Encoding: base64
+</span></span><span style="display:flex;"><span>Content-Disposition: attachment; filename=&#34;example.epub&#34;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>UEsDBAoAAA...
+</span></span><span style="display:flex;"><span>--_kuroneko_--
+</span></span></code></pre></div><p>Use any Base64 encoding library to encode the file,
+combining the pieces together. Then, send them using SMTP.</p>
+<p>It&rsquo;s quite simple, right?</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ocfox.me/tags/email/">Email</a></li>
+      <li><a href="https://ocfox.me/tags/network/">Network</a></li>
+      <li><a href="https://ocfox.me/tags/smtp/">SMTP</a></li>
+      <li><a href="https://ocfox.me/tags/mime/">MIME</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://ocfox.me/posts/css-learn-1/">
+    <span class="title">Next »</span>
+    <br>
+    <span>CSS Learning Notes Chapter I</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

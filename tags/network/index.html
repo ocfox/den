@@ -19,8 +19,8 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="https://ocfox.me/tags/network/index.xml">
-<link rel="alternate" hreflang="zh" href="https://ocfox.me/zh/tags/network/">
 <link rel="alternate" hreflang="en" href="https://ocfox.me/tags/network/">
+<link rel="alternate" hreflang="zh" href="https://ocfox.me/zh/tags/network/">
 <noscript>
     <style>
         #theme-toggle,
@@ -165,6 +165,20 @@
     </a>
   </h1>
 </header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Email Structure -- Building an Email Sender with SMTP
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Using an SMTP library, you can build an app to send emails. However, it typically doesn’t support a function to simply pass the subject, content, and attachment as parameters.
+Format of Internet Message Bodies According to RFC2045, the MIME (Multipurpose Internet Mail Extensions) format is used.
+From: ocfox &lt;i@ocfox.me&gt; To: Test &lt;test@cyans.dev&gt; Subject: Test Email MIME-Version: 1.0 Content-Type: multipart/mixed; boundary=_kuroneko_ This is a simple email header where I use a custom boundary _kuroneko_....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-07-26 00:00:00 +0000 UTC'>2024-07-26</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;ocfox</footer>
+  <a class="entry-link" aria-label="post link to Email Structure -- Building an Email Sender with SMTP" href="https://ocfox.me/posts/email-structure/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">

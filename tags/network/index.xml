@@ -6,8 +6,15 @@
     <description>Recent content in Network on ocfox&#39;s den</description>
     <generator>Hugo -- 0.128.1</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ocfox.me/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Email Structure -- Building an Email Sender with SMTP</title>
+      <link>https://ocfox.me/posts/email-structure/</link>
+      <pubDate>Fri, 26 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://ocfox.me/posts/email-structure/</guid>
+      <description>A guide to creating a tool for sending emails</description>
+    </item>
     <item>
       <title>Tailscale with Headscale?</title>
       <link>https://ocfox.me/posts/headscale-setup/</link>
