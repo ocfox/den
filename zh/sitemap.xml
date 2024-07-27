@@ -85,6 +85,18 @@
     <loc>https://ocfox.me/zh/posts/ethernet-cable/</loc>
     <lastmod>2024-02-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://ocfox.me/zh/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/archives/"
+                />
+  </url><url>
     <loc>https://ocfox.me/zh/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -95,6 +107,18 @@
                 rel="alternate"
                 hreflang="zh-CN"
                 href="https://ocfox.me/zh/categories/"
+                />
+  </url><url>
+    <loc>https://ocfox.me/zh/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/search/"
                 />
   </url>
 </urlset>

@@ -107,6 +107,16 @@
     <lastmod>2022-11-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://ocfox.me/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/archives/"
+                />
   </url><url>
     <loc>https://ocfox.me/categories/</loc>
     <xhtml:link
@@ -121,5 +131,15 @@
                 />
   </url><url>
     <loc>https://ocfox.me/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/search/"
+                />
   </url>
 </urlset>
