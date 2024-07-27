@@ -13,10 +13,10 @@ style = "onedark"
 [languages.zh]
 languageCode = 'zh-CN'
 languageName = '中文'
+
 [languages.en]
 languageCode = 'en-US'
 languageName = 'English'
-
 
 [menu]
 main = [
@@ -48,9 +48,9 @@ socialIcons = [
 ]
 
 [params.editPost]
-URL= "https://github.com/ocfox/den/tree/master/blog/content"
-Text= "Suggest Changes"
-appendFilePath= true
+URL = "https://github.com/ocfox/den/tree/master/blog/content"
+Text = "Suggest Changes"
+appendFilePath = true
 
 
 [params.assets]
