@@ -62,5 +62,5 @@ apple_touch_icon = "favicon.ico"
 [params.homeInfoParams]
 Title = "ocfox's den"
 Content = """
-Alea iacta est.
+Scio me nihil scire.
 """
