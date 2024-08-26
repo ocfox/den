@@ -28,10 +28,6 @@
     };
   };
 
-  shiori = {
-    enable = true;
-  };
-
   uptime-kuma = {
     enable = true;
     settings = {
@@ -39,24 +35,10 @@
     };
   };
 
-  bin-paste = {
-    enable = true;
-    maxPasteSize = 1048576;
-    bufferSize = 2000;
-  };
-
   caddy = {
     enable = true;
     email = "i@ocfox.me";
     virtualHosts = {
-
-      "shiori" = {
-        hostName = "shiori.ocfox.me";
-        extraConfig = ''
-          reverse_proxy localhost:8080
-        '';
-      };
-
       "mastodon.ocfox.me" = {
         extraConfig = ''
           handle_path /system/* {
@@ -120,20 +102,6 @@
       "transfer.ocfox.me" = {
         extraConfig = ''
           reverse_proxy localhost:7777
-        '';
-      };
-
-      "bin" = {
-        hostName = "pb.ocfox.me";
-        extraConfig = ''
-          reverse_proxy localhost:8000
-        '';
-      };
-
-      "bin2" = {
-        hostName = "pastb.in";
-        extraConfig = ''
-          reverse_proxy localhost:8000
         '';
       };
     };

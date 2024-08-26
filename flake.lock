@@ -21,24 +21,6 @@
         "type": "github"
       }
     },
-    "bin": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1705745435,
-        "narHash": "sha256-b+OYT7AJGCo2a3UIbDbqwjAYm/G3JfUUcXZ89pParBw=",
-        "owner": "ocfox",
-        "repo": "bin",
-        "rev": "70748041cf714c215abe5ed0f8f600fa8cefc45f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ocfox",
-        "repo": "bin",
-        "type": "github"
-      }
-    },
     "chaotic": {
       "inputs": {
         "compare-to": "compare-to",
@@ -46,7 +28,7 @@
         "flake-schemas": "flake-schemas",
         "home-manager": "home-manager_2",
         "jovian": "jovian",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "systems": "systems_2",
         "yafas": "yafas"
       },
@@ -310,7 +292,7 @@
     },
     "minegrub": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1709346676,
@@ -401,22 +383,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1705666311,
-        "narHash": "sha256-VYdSQm7zq3AStyHhRr3SBCTA8fVzrl6WtIlXTs2Wlts=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "a455c5fb3ee513e2f443838a0e84d52b035adb67",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1724224976,
         "narHash": "sha256-Z/ELQhrSd7bMzTO8r7NZgi9g5emh+aRKoCdaAv5fiO0=",
         "owner": "NixOS",
@@ -431,7 +397,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1709260429,
         "narHash": "sha256-Fgso2L4vl5NDIWBjX03+P8580N1oGxic/iCd11GjfJU=",
@@ -447,7 +413,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1724395761,
         "narHash": "sha256-zRkDV/nbrnp3Y8oCADf5ETl1sDrdmAW6/bBVJ8EbIdQ=",
@@ -482,7 +448,6 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "bin": "bin",
         "chaotic": "chaotic",
         "disko": "disko",
         "factorio-versions": "factorio-versions",
@@ -491,7 +456,7 @@
         "home-manager": "home-manager_3",
         "minegrub": "minegrub",
         "nixos-apple-silicon": "nixos-apple-silicon",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_4",
         "papermod": "papermod"
       }
     },

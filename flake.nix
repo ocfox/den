@@ -58,7 +58,6 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     agenix.url = "github:ryantm/agenix";
     factorio-versions.url = "github:ocfox/factorio-versions";
-    bin.url = "github:ocfox/bin";
     papermod = {
       url = "github:adityatelange/hugo-papermod";
       flake = false;

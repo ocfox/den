@@ -104,7 +104,6 @@ in
     modules = [
       ./redfox/_hardware.nix
       inputs.disko.nixosModules.disko
-      inputs.bin.nixosModules.default
       redfox-module
     ];
     specialArgs = { inherit inputs; };
