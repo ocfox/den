@@ -1,9 +1,10 @@
 {
   "image":"mcr.microsoft.com/devcontainers/base:alpine",
   "features": {
-    "ghcr.io/devcontainers/features/nix:1": {
+    "ghcr.io/devcontainers/features/nix:1.2.0": {
       "multiUser": true,
-      "version": "latest"
+      "version": "latest",
+      "extraNixConfig": "extra-experimental-features = flakes nix-command"
     }
   }
 }
