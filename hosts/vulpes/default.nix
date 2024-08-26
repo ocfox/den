@@ -4,8 +4,10 @@
   environment.systemPackages = with pkgs; [
     curl
     htop
+    tmux
     wget
     git
+    hysteria
     helix
   ];
 
