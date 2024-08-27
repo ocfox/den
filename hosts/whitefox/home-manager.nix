@@ -1,6 +1,7 @@
-{ username
-, home
-, inputs
+{
+  username,
+  home,
+  inputs,
 }:
 {
   useGlobalPkgs = true;
@@ -11,5 +12,7 @@
       home.desktop
     ];
   };
-  extraSpecialArgs = { inherit username; };
+  extraSpecialArgs = {
+    inherit username;
+  };
 }

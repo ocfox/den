@@ -1,4 +1,8 @@
-{ lib, pkgs, root }:
+{
+  lib,
+  pkgs,
+  root,
+}:
 let
   inherit (root.pkgs) swaylock;
 in

@@ -1,6 +1,7 @@
-{ pkgs
-, root
-, lib
+{
+  pkgs,
+  root,
+  lib,
 }:
 let
   inherit (root.pkgs) player-metadata;
@@ -14,9 +15,7 @@ in
       "sway/workspaces"
       "custom/music"
     ];
-    "modules-center" = [
-      "sway/window"
-    ];
+    "modules-center" = [ "sway/window" ];
     "modules-right" = [
       "tray"
       "idle_inhibitor"
@@ -32,15 +31,15 @@ in
       "format" = "{icon}";
       "all-outputs" = true;
       "format-icons" = {
-        "1" = "<span color=\"#FF7139\"></span>";
-        "2" = "<span color=\"#019733\"></span>";
-        "3" = "<span color=\"#757575\"></span>";
-        "4" = "<span color=\"#26A5E4\"></span>";
-        "5" = "<span color=\"#0A84FF\"></span>";
-        "6" = "<span color=\"#a738fd\"></span>";
-        "7" = "<span color=\"#019733\">7</span>";
-        "8" = "<span color=\"#757575\">8</span>";
-        "9" = "<span color=\"#26A5E4\">9</span>";
+        "1" = ''<span color="#FF7139"></span>'';
+        "2" = ''<span color="#019733"></span>'';
+        "3" = ''<span color="#757575"></span>'';
+        "4" = ''<span color="#26A5E4"></span>'';
+        "5" = ''<span color="#0A84FF"></span>'';
+        "6" = ''<span color="#a738fd"></span>'';
+        "7" = ''<span color="#019733">7</span>'';
+        "8" = ''<span color="#757575">8</span>'';
+        "9" = ''<span color="#26A5E4">9</span>'';
       };
     };
     "idle_inhibitor" = {
@@ -56,14 +55,28 @@ in
       "on-scroll-up" = "${brightnessctl} s 1%-";
       "on-scroll-down" = "${brightnessctl} s +1%";
       "format" = "{icon} {percent}%";
-      "format-icons" = [ "" "" "" "" "" "" "" "" "" ];
+      "format-icons" = [
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""
+        ""
+      ];
     };
     "pulseaudio" = {
       "format" = "{icon} {volume}%";
       "format-muted" = "󰝟 Muted";
       "max-volume" = 200;
       "format-icons" = {
-        "default" = [ "" "" "" ];
+        "default" = [
+          ""
+          ""
+          ""
+        ];
       };
       "states" = {
         "warning" = 85;
@@ -77,7 +90,9 @@ in
       "format" = "{:%H:%M %b %d}";
       "tooltip" = true;
       "today-format" = "<span color='#ff6699'><b>{}</b></span>";
-      "tooltip-format" = "{:%A %B %Y}\n<tt>{calendar}</tt>";
+      "tooltip-format" = ''
+        {:%A %B %Y}
+        <tt>{calendar}</tt>'';
     };
     "battery" = {
       "states" = {
@@ -89,7 +104,13 @@ in
       "format-charging" = "󰂄 {capacity}%";
       "format-plugged" = " {capacity}%";
       "format-alt" = "{icon} {time}";
-      "format-icons" = [ "" "" "" "" "" ];
+      "format-icons" = [
+        ""
+        ""
+        ""
+        ""
+        ""
+      ];
     };
     "cpu" = {
       "interval" = 1;

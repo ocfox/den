@@ -1,3 +1,1 @@
-{
-  font.size = 10;
-}
+{ font.size = 10; }

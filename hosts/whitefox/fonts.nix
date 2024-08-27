@@ -1,6 +1,5 @@
-{ pkgs
-, ...
-}: {
+{ pkgs, ... }:
+{
   fontconfig = {
     enable = true;
     antialias = true;

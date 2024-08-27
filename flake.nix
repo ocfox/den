@@ -2,30 +2,34 @@
   description = "ocfox's flake";
 
   outputs =
-    inputs@
-    { self
-    , nixpkgs
-    , haumea
-    , flake-parts
-    , ...
+    inputs@{
+      self,
+      nixpkgs,
+      haumea,
+      flake-parts,
+      ...
     }:
     let
       username = "ocfox";
       home = {
-        default = { pkgs, ... }@args: haumea.lib.load {
-          src = ./home;
-          inputs = args // {
-            inherit inputs;
+        default =
+          { pkgs, ... }@args:
+          haumea.lib.load {
+            src = ./home;
+            inputs = args // {
+              inherit inputs;
+            };
+            transformer = haumea.lib.transformers.liftDefault;
           };
-          transformer = haumea.lib.transformers.liftDefault;
-        };
-        desktop = { pkgs, ... }@args: haumea.lib.load {
-          src = ./home-desktop;
-          inputs = args // {
-            inherit inputs;
+        desktop =
+          { pkgs, ... }@args:
+          haumea.lib.load {
+            src = ./home-desktop;
+            inputs = args // {
+              inherit inputs;
+            };
+            transformer = haumea.lib.transformers.liftDefault;
           };
-          transformer = haumea.lib.transformers.liftDefault;
-        };
       };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -43,11 +47,22 @@
 
       flake = {
         nixosConfigurations = import ./hosts {
-          inherit self nixpkgs inputs username home;
+          inherit
+            self
+            nixpkgs
+            inputs
+            username
+            home
+            ;
         };
 
         ferrucyon = import ./iso {
-          inherit self nixpkgs inputs username;
+          inherit
+            self
+            nixpkgs
+            inputs
+            username
+            ;
         };
       };
     };

@@ -39,22 +39,16 @@ in
     ];
     rules = [
       {
-        outbound = [
-          "any"
-        ];
+        outbound = [ "any" ];
         server = "dns_resolver";
       }
       {
-        geosite = [
-          "category-ads-all"
-        ];
+        geosite = [ "category-ads-all" ];
         server = "dns_block";
         "disable_cache" = true;
       }
       {
-        geosite = [
-          "geolocation-!cn"
-        ];
+        geosite = [ "geolocation-!cn" ];
         "query_type" = [
           "A"
           "AAAA"
@@ -62,9 +56,7 @@ in
         server = "dns_fakeip";
       }
       {
-        geosite = [
-          "geolocation-!cn"
-        ];
+        geosite = [ "geolocation-!cn" ];
         server = "dns_proxy";
       }
     ];
@@ -169,9 +161,7 @@ in
         outbound = "DIRECT";
       }
       {
-        "domain_keyword" = [
-          "github"
-        ];
+        "domain_keyword" = [ "github" ];
         "domain_suffix" = [
           "github.com"
           "github.io"

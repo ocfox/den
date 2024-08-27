@@ -1,8 +1,9 @@
-{ self
-, username
-, nixpkgs
-, inputs
-, ...
+{
+  self,
+  username,
+  nixpkgs,
+  inputs,
+  ...
 }:
 let
   ferrucyon = nixpkgs.lib.nixosSystem {
@@ -19,7 +20,9 @@ let
             inputs.hyprland.homeManagerModules.default
           ];
         };
-        home-manager.extraSpecialArgs = { inherit username; };
+        home-manager.extraSpecialArgs = {
+          inherit username;
+        };
       }
       {
         nix.settings.nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
@@ -29,7 +32,9 @@ let
         };
       }
     ];
-    specialArgs = { inherit inputs username; };
+    specialArgs = {
+      inherit inputs username;
+    };
   };
 in
 ferrucyon.config.system.build.isoImage

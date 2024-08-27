@@ -1,14 +1,15 @@
-{ username
-, home
-, inputs
+{
+  username,
+  home,
+  inputs,
 }:
 {
   useGlobalPkgs = true;
   useUserPackages = true;
   users.${username} = {
-    imports = [
-      home.default
-    ];
+    imports = [ home.default ];
   };
-  extraSpecialArgs = { inherit username; };
+  extraSpecialArgs = {
+    inherit username;
+  };
 }

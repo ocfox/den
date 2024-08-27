@@ -1,6 +1,8 @@
-{ self, inputs, ... }: {
+{ self, inputs, ... }:
+{
 
-  perSystem = { pkgs, lib, ... }:
+  perSystem =
+    { pkgs, lib, ... }:
     let
       inherit (pkgs) hugo mkShell stdenv;
       inherit (inputs) papermod;

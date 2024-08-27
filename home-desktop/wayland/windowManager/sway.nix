@@ -1,8 +1,10 @@
-{ config
-, lib
-, root
-, pkgs
-}: {
+{
+  config,
+  lib,
+  root,
+  pkgs,
+}:
+{
   enable = true;
   # package = pkgs.sway_git;
 
@@ -19,9 +21,9 @@
     bars = [ ];
 
     assigns = {
-      "1" = [{ app_id = "firefox"; }];
-      "4" = [{ app_id = "org.telegram.desktop"; }];
-      "5" = [{ app_id = "thunderbird"; }];
+      "1" = [ { app_id = "firefox"; } ];
+      "4" = [ { app_id = "org.telegram.desktop"; } ];
+      "5" = [ { app_id = "thunderbird"; } ];
     };
 
     output =
@@ -52,15 +54,22 @@
       hideEdgeBorders = "smart";
     };
 
-    workspaceOutputAssign = [{
-      output = "HDMI-A-3";
-      workspace = "9";
-    }];
+    workspaceOutputAssign = [
+      {
+        output = "HDMI-A-3";
+        workspace = "9";
+      }
+    ];
 
     keybindings =
       let
         modifier = config.wayland.windowManager.sway.config.modifier;
-        inherit (root.pkgs) macshot powermenu recorder-toggle swaylock;
+        inherit (root.pkgs)
+          macshot
+          powermenu
+          recorder-toggle
+          swaylock
+          ;
       in
       pkgs.lib.mkOptionDefault {
         "${modifier}+h" = "focus left";

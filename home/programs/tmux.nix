@@ -1,7 +1,4 @@
-{ pkgs
-, lib
-, ...
-}:
+{ pkgs, lib, ... }:
 {
   enable = true;
   shell = "${lib.getExe pkgs.fish}";

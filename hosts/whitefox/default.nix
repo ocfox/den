@@ -1,8 +1,10 @@
-{ pkgs
-, username
-, lib
-, ...
-}: {
+{
+  pkgs,
+  username,
+  lib,
+  ...
+}:
+{
   time.timeZone = "Asia/Shanghai";
 
   hardware.bluetooth.enable = true;
@@ -16,16 +18,14 @@
           "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
           "application/pdf" = [ "sioyek.desktop" ];
         }
-        // lib.genAttrs
-          [
-            "x-scheme-handler/unknown"
-            "x-scheme-handler/about"
-            "x-scheme-handler/http"
-            "x-scheme-handler/https"
-            "x-scheme-handler/mailto"
-            "text/html"
-          ]
-          (_: "firefox.desktop");
+        // lib.genAttrs [
+          "x-scheme-handler/unknown"
+          "x-scheme-handler/about"
+          "x-scheme-handler/http"
+          "x-scheme-handler/https"
+          "x-scheme-handler/mailto"
+          "text/html"
+        ] (_: "firefox.desktop");
     };
     portal.wlr.enable = true;
     portal.enable = true;

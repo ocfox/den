@@ -15,11 +15,11 @@
   functions = {
     fish_greeting = "uname -a; w";
 
-    post = ''curl -X PUT --data-binary @$argv https://pastb.in'';
+    post = "curl -X PUT --data-binary @$argv https://pastb.in";
 
     poststd = ''curl -X PUT --data-binary "@-" https://pastb.in'';
 
-    ns = ''nix shell nixpkgs#{ $argv }'';
+    ns = "nix shell nixpkgs#{ $argv }";
 
     # fix ssh-agent forwarding when attach to tmux
     refresh_tmux_vars = ''

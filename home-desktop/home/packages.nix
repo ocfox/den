@@ -1,6 +1,4 @@
-{ lib
-, pkgs
-}:
+{ lib, pkgs }:
 with pkgs;
 [
   wl-clipboard

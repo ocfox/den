@@ -1,6 +1,4 @@
-{ lib
-, pkgs
-}:
+{ lib, pkgs }:
 pkgs.writeShellScriptBin "screen-recorder-toggle" ''
   pid=`${pkgs.procps}/bin/pgrep wf-recorder`
   status=$?

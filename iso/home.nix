@@ -1,9 +1,6 @@
-{ pkgs
-, ...
-}: {
-  imports = [
-    ../programs
-  ];
+{ pkgs, ... }:
+{
+  imports = [ ../programs ];
 
   gtk = {
     enable = true;

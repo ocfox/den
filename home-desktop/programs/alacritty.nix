@@ -1,3 +1,1 @@
-{
-  settings.font.size = 10;
-}
+{ settings.font.size = 10; }

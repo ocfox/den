@@ -1,8 +1,10 @@
-{ pkgs
-, username
-, modulesPath
-, ...
-}: {
+{
+  pkgs,
+  username,
+  modulesPath,
+  ...
+}:
+{
   imports = [
     (modulesPath + "/installer/cd-dvd/iso-image.nix")
     (modulesPath + "/profiles/all-hardware.nix")
@@ -49,9 +51,7 @@
   users.users.${username} = {
     isNormalUser = true;
     initialPassword = "0000";
-    extraGroups = [
-      "wheel"
-    ];
+    extraGroups = [ "wheel" ];
   };
 
   security.sudo.wheelNeedsPassword = false;

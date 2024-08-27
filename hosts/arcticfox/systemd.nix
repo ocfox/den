@@ -12,12 +12,8 @@
     # interface: iDrac <-> eno4
     networks."eno4" = {
       name = "eno4";
-      address = [
-        "192.168.109.2/24"
-      ];
-      routes = [
-        { routeConfig.Gateway = "192.168.109.190"; }
-      ];
+      address = [ "192.168.109.2/24" ];
+      routes = [ { routeConfig.Gateway = "192.168.109.190"; } ];
       networkConfig = { };
     };
   };
