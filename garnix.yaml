@@ -1,8 +1,8 @@
 builds:
-  include:
-  - nixosConfigurations.*
-  - nixosConfigurations.silverfox.pkgs.telegram-desktop
-  - nixosConfigurations.silverfox.pkgs.linux-asahi
-  exclude:
-  - nixosConfigurations.arcticfox
-  - nixosConfigurations.sakhalin
+ exclude:
+   - 'nixosConfigurations.silverfox'
+ include:
+   - 'packages.x86_64-linux.*'
+   - 'nixosConfigurations.redfox'
+   - 'nixosConfigurations.vulpes'
+   - 'nixosConfigurations.whitefox'
