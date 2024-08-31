@@ -6,7 +6,7 @@
 }:
 {
   enable = true;
-  # package = pkgs.sway_git;
+  package = pkgs.sway_git;
 
   wrapperFeatures.gtk = true;
   config = {
