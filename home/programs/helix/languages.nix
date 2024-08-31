@@ -1,10 +1,10 @@
-{ pkgs }:
+{ lib, pkgs }:
 {
   language = [
     {
       name = "nix";
       formatter = {
-        command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+        command = "${lib.getExe pkgs.nixfmt-rfc-style}";
       };
     }
   ];

@@ -2,7 +2,7 @@
 with pkgs;
 [
   nil
-  nixpkgs-fmt
+  nixfmt-rfc-style
   gh
   nixpkgs-review
 ]
