@@ -22,7 +22,7 @@
     "i915.force_probe=56a1"
   ];
   boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "ntfs" ];
+  # boot.supportedFilesystems = [ "ntfs" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/fe0ecfb9-db21-43f0-915a-70c37765f181";
@@ -37,10 +37,11 @@
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-media-driver
+
+      vpl-gpu-rt
       libva
       intel-ocl
       vaapiIntel
