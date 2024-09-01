@@ -4,7 +4,7 @@
   getty.autologinUser = username;
   devmon.enable = true;
 
-  cloudflare-warp.enable = true;
+  tailscale.enable = true;
 
   blueman.enable = true;
   openssh.enable = true;

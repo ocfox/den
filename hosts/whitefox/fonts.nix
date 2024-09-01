@@ -5,8 +5,14 @@
     antialias = true;
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      sansSerif = [ "Inter" ];
-      serif = [ "Roboto Serif" ];
+      sansSerif = [
+        "Inter"
+        "Microsoft YaHei"
+      ];
+      serif = [
+        "Roboto Serif"
+        "Microsoft YaHei"
+      ];
       monospace = [ "JetBrainsMono Nerd Font" ];
     };
   };
@@ -16,6 +22,7 @@
 
   enableDefaultPackages = true;
   packages = with pkgs; [
+    vistafonts-chs
     inter
     roboto
     roboto-serif
