@@ -5,8 +5,9 @@
     antialias = true;
     defaultFonts = {
       emoji = [ "Noto Color Emoji" ];
-      sansSerif = [ "DejaVu Sans" ];
-      serif = [ "DejaVu Serif" ];
+      sansSerif = [ "Inter" ];
+      serif = [ "Roboto Serif" ];
+      monospace = [ "JetBrainsMono Nerd Font" ];
     };
   };
 
@@ -15,12 +16,12 @@
 
   enableDefaultPackages = true;
   packages = with pkgs; [
-    sarasa-gothic
+    inter
+    roboto
+    roboto-serif
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    fira-code
-    symbola
     (nerdfonts.override {
       fonts = [
         "FiraCode"
