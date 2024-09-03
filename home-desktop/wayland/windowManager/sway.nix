@@ -29,21 +29,21 @@
     output =
 
       let
-        inherit (root.pkgs.wallpapers.cowboyBebop) default;
+        inherit (root.pkgs.wallpapers) takamaki;
       in
       {
         DP-1 = {
           mode = "3840x2160";
           position = "640 0";
           scale = "3";
-          bg = "${default} fill";
+          bg = "${takamaki} fill";
         };
 
         HDMI-A-3 = {
           mode = "1920x1080";
           position = "0 0";
           scale = "3";
-          bg = "${default} fill";
+          bg = "${takamaki} fill";
         };
       };
 

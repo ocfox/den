@@ -25,4 +25,10 @@
       hash = "sha256-nWw1gnXq526ykBl31or5DBYUVDmEshqs5Jz2mQlKSMQ=";
     };
   };
+
+  takamaki = pkgs.fetchurl {
+    url = "https://pastb.in/takamaki";
+    name = "takamaki.png";
+    hash = "sha256-Vu6q5PTHCbiSKGXRi2oGn7ooSVg1QJ4AycUsjIZP1yw=";
+  };
 }
