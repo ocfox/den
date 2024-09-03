@@ -42,6 +42,7 @@
       "adbusers"
       "wheel"
       "docker"
+      "dialout"
       "libvirtd"
     ];
   };
