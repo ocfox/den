@@ -25,6 +25,7 @@ with pkgs;
   xwinwrap
   polkit_gnome
   thunderbird
+  mpv-handler
   rpiplay
   tree-sitter
   yarn

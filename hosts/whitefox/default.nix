@@ -16,6 +16,7 @@
         {
           "application/x-xdg-protocol-tg" = [ "org.telegram.desktop.desktop" ];
           "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+          "x-scheme-handler/mpv" = [ "mpv-handler.desktop" ];
           "application/pdf" = [ "sioyek.desktop" ];
         }
         // lib.genAttrs [
