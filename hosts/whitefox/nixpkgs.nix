@@ -5,6 +5,7 @@
     allowBroken = true;
   };
   overlays = [
+    inputs.self.overlays.default
     (self: super: {
       factorio = super.factorio.override {
         username = "ocfox";

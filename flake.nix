@@ -31,6 +31,7 @@
             transformer = haumea.lib.transformers.liftDefault;
           };
       };
+
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -41,11 +42,32 @@
 
       imports = [
         ./blog
-        ./lib
-        ./pkgs
       ];
 
+      perSystem =
+        {
+          lib,
+          system,
+          pkgs,
+          ...
+        }:
+        {
+          _module.args.pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [
+              self.overlays.default
+            ];
+          };
+        };
+
       flake = {
+        overlays.default =
+          final: prev:
+          prev.lib.packagesFromDirectoryRecursive {
+            inherit (prev) callPackage;
+            directory = ./pkgs;
+          };
+
         nixosConfigurations = import ./hosts {
           inherit
             self
