@@ -29,14 +29,6 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "Hack"
-        "DroidSansMono"
-        "JetBrainsMono"
-        "FantasqueSansMono"
-      ];
-    })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 }
