@@ -52,11 +52,9 @@
           ...
         }:
         {
-          _module.args.pkgs = import inputs.nixpkgs {
-            inherit system;
-            overlays = [
-              self.overlays.default
-            ];
+          packages = lib.packagesFromDirectoryRecursive {
+            callPackage = lib.callPackageWith pkgs;
+            directory = ./pkgs;
           };
         };
 
