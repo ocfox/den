@@ -37,15 +37,15 @@
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-
       vpl-gpu-rt
-      libva
       intel-ocl
-      vaapiIntel
+      intel-media-driver
     ];
   };
+
   hardware.keyboard.qmk.enable = true;
 }

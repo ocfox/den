@@ -3,9 +3,9 @@
   enable = true;
   scripts = [ pkgs.mpvScripts.uosc ];
   config = {
-    gpu-context = "wayland";
-    hwdec = "auto-safe";
-    profile = "gpu-hq";
-    vo = "gpu";
+    vo = "gpu-next";
+    gpu-api = "vulkan";
+    hwdec = "vaapi";
+    gpu-context = "waylandvk";
   };
 }
