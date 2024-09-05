@@ -60,9 +60,8 @@ rustPlatform.buildRustPackage rec {
   doCheck = false;
 
   postInstall = ''
-    # mkdir -p $out/share/glib-2.0/schemas
-    # install -Dm 644 moe.tsuna.tsukimi.gschema.xml -t $out/share/glib-2.0/schemas/
     mkdir -p $out/share/glib-2.0/schemas
+
     cp moe.tsuna.tsukimi.gschema.xml $out/share/glib-2.0/schemas/moe.tsuna.tsukimi.gschema.xml    
     glib-compile-schemas $out/share/glib-2.0/schemas/
   '';
@@ -71,7 +70,6 @@ rustPlatform.buildRustPackage rec {
     description = "A simple third-party Emby client";
     homepage = "https://github.com/tsukinaha/tsukimi";
     license = lib.licenses.gpl3Only;
-    maintainers = with lib.maintainers; [ ];
     mainProgram = "tsukimi";
   };
 }

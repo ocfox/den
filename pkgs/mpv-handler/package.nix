@@ -25,7 +25,6 @@ rustPlatform.buildRustPackage rec {
     description = "A protocol handler for mpv. Use mpv and yt-dlp to play video and music from the websites";
     homepage = "https://github.com/akiirui/mpv-handler";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ ];
     mainProgram = "mpv-handler";
   };
 }
