@@ -4,7 +4,7 @@
     <title>Nixos on ocfox&#39;s den</title>
     <link>https://ocfox.me/tags/nixos/</link>
     <description>Recent content in Nixos on ocfox&#39;s den</description>
-    <generator>Hugo -- 0.132.1</generator>
+    <generator>Hugo -- 0.134.0</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ocfox.me/tags/nixos/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,15 @@
       <link>https://ocfox.me/posts/headscale-setup/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://ocfox.me/posts/headscale-setup/</guid>
-      <description>Last month, I got a Dell R730xd. And pay many time on Fight with ChinaTelecom. Finally, I lost in this war. But fortunately, Tailscale can effectively(maybe) address my issue.
-I used Tailscale past, but stopped by Chinese &amp;lsquo;Premium&amp;rsquo; Network, high latency and loss make me crazy.
-And &amp;rsquo;they&amp;rsquo; provides services, just like Google. Haha, actually, I&amp;rsquo;m not sensitive to this at all. I&amp;rsquo;m not a privacy-paranoid person. &amp;ldquo;Why not selfhost it?</description>
+      <description>&lt;p&gt;Last month, I got a Dell R730xd. And pay many time on &lt;strong&gt;Fight with ChinaTelecom&lt;/strong&gt;.
+Finally, I lost in this war. But fortunately, Tailscale can &lt;em&gt;effectively(maybe)&lt;/em&gt; address my issue.&lt;/p&gt;
+&lt;p&gt;I used Tailscale past, but stopped by &lt;strong&gt;Chinese &amp;lsquo;Premium&amp;rsquo; Network&lt;/strong&gt;, high latency and loss make me crazy.&lt;/p&gt;
+&lt;p&gt;
+
+&lt;p&gt;&lt;details &gt;
+  &lt;summary markdown=&#34;span&#34;&gt;And &amp;rsquo;they&amp;rsquo; provides services, just like Google.&lt;/summary&gt;
+  &lt;u&gt;Haha, actually, I&amp;rsquo;m not sensitive to this at all. I&amp;rsquo;m not a privacy-paranoid person.&lt;/u&gt;
+&lt;/details&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

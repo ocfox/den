@@ -4,7 +4,7 @@
     <title>Javascript on ocfox&#39;s den</title>
     <link>https://ocfox.me/tags/javascript/</link>
     <description>Recent content in Javascript on ocfox&#39;s den</description>
-    <generator>Hugo -- 0.132.1</generator>
+    <generator>Hugo -- 0.134.0</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ocfox.me/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
@@ -13,10 +13,15 @@
       <link>https://ocfox.me/posts/css-learn-1/</link>
       <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
       <guid>https://ocfox.me/posts/css-learn-1/</guid>
-      <description>Try to make a nixos boot animation. (log scroll on screen.)
-The repo link: https://github.com/ocfox/booti . This site has none imported js or css library.
-First need make a animation let text display line by line. So I tried to set a delay for every line, when open page hide (don&amp;rsquo;t display) every paragraph in css.
-p { display: none; /* Initially hide all paragraphs */ margin: 1px 0 0 1px; } Then set a delay increase by degrees for every single line with js.</description>
+      <description>&lt;p&gt;Try to make a nixos boot animation. (log scroll on screen.)&lt;/p&gt;
+&lt;p&gt;The repo link: &lt;a href=&#34;https://github.com/ocfox/booti&#34;&gt;https://github.com/ocfox/booti&lt;/a&gt; . This site has none imported js or css library.&lt;/p&gt;
+&lt;p&gt;First need make a animation let text display line by line.
+So I tried to set a delay for every line, when open page hide (don&amp;rsquo;t display) every paragraph in css.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e06c75&#34;&gt;p&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#c678dd&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#e5c07b&#34;&gt;none&lt;/span&gt;; &lt;span style=&#34;color:#7f848e&#34;&gt;/* Initially hide all paragraphs */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#c678dd&#34;&gt;margin&lt;/span&gt;: &lt;span style=&#34;color:#d19a66&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#e5c07b&#34;&gt;px&lt;/span&gt; &lt;span style=&#34;color:#d19a66&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#d19a66&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#d19a66&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#e5c07b&#34;&gt;px&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
   </channel>
 </rss>

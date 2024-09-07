@@ -4,7 +4,7 @@
     <title>Posts on ocfox&#39;s den</title>
     <link>https://ocfox.me/zh/posts/</link>
     <description>Recent content in Posts on ocfox&#39;s den</description>
-    <generator>Hugo -- 0.132.1</generator>
+    <generator>Hugo -- 0.134.0</generator>
     <language>zh-CN</language>
     <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ocfox.me/zh/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -20,11 +20,15 @@
       <link>https://ocfox.me/zh/posts/ethernet-cable/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://ocfox.me/zh/posts/ethernet-cable/</guid>
-      <description>什么? Gigabit网络接口只有300Mbps? 就因为装修工用了不存在的Cat 6e1网线, 1Gbps 的接口变成了甚至不到 300Mbps ? 这不可能（除非你离我家有几千公里你真的用了一整卷网线）。 虽然他是假的网线但应该也会有高于Cat5的水平吧 我猜。
-# 两个朋友通过墙里的线缆联系 [ ID] Interval Transfer Bitrate [ 7] 0.00-10.00 sec 364 MBytes 306 Mbits/sec sender [ 7] 0.00-10.01 sec 361 MBytes 303 Mbits/sec receiver 看起来他们的沟通出现了一些问题，好吧 让我把他们放在一起。
-# 两个朋友面对面联系 [ ID] Interval Transfer Bitrate [ 8] 0.00-10.00 sec 376 MBytes 310 Mbits/sec sender [ 8] 0.00-10.01 sec 383 MBytes 312 Mbits/sec receiver 还不如无线啊你们这个关系。难道是我mac有问题？怎么可能，估计是网卡有问题吧。
-(你可以嘲笑mac用户了，他们甚至没有RJ45) 那又怎么样，我还是很喜欢我的mac。在某种程度上 正好有另一个网卡，尝试！我去，居然完全正常！ 原因竟然是我那条cc数据线速度很慢。好了，这就是我做的蠢事。
-[ ID] Interval Transfer Bitrate [ 9] 0.</description>
+      <description>&lt;h3 id=&#34;什么-gigabit网络接口只有300mbps&#34;&gt;什么? Gigabit网络接口只有300Mbps?&lt;/h3&gt;
+&lt;p&gt;就因为装修工用了不存在的&lt;code&gt;Cat 6e&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;网线, 1Gbps 的接口变成了甚至不到 300Mbps ?
+这不可能（除非&lt;del&gt;你离我家有几千公里&lt;/del&gt;你真的用了一整卷网线）。
+虽然他是假的网线但应该也会有高于Cat5的水平吧 我猜。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;# 两个朋友通过墙里的线缆联系&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt; ID&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   Interval          Transfer    Bitrate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt;  7&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   0.00-10.00  sec   &lt;span style=&#34;color:#d19a66&#34;&gt;364&lt;/span&gt; MBytes   &lt;span style=&#34;color:#d19a66&#34;&gt;306&lt;/span&gt; Mbits/sec     sender
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt;  7&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   0.00-10.01  sec   &lt;span style=&#34;color:#d19a66&#34;&gt;361&lt;/span&gt; MBytes   &lt;span style=&#34;color:#d19a66&#34;&gt;303&lt;/span&gt; Mbits/sec     receiver
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
   </channel>
 </rss>
