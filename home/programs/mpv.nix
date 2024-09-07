@@ -7,5 +7,7 @@
     gpu-api = "vulkan";
     hwdec = "vaapi";
     gpu-context = "waylandvk";
+    cache = "yes";
+    demuxer-max-back-bytes = "1G";
   };
 }
