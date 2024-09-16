@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 {
-  enable = true;
+  enable = false;
   font = {
     name = "JetBrainsMono Nerd Font";
   };
