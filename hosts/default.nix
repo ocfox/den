@@ -77,6 +77,7 @@ in
       inputs.minegrub.nixosModules.default
       inputs.agenix.nixosModules.default
       inputs.chaotic.homeManagerModules.default
+      inputs.niri.nixosModules.niri
       { nix.registry.self.flake = self; }
     ];
     specialArgs = {

@@ -6,6 +6,7 @@
   };
   overlays = [
     inputs.self.overlays.default
+    inputs.niri.overlays.niri
     (self: super: {
       factorio = super.factorio.override {
         username = "ocfox";
