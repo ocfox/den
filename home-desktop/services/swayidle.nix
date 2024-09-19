@@ -10,7 +10,7 @@ in
   enable = true;
   timeouts = [
     {
-      timeout = 300;
+      timeout = 600;
       command = "${lib.getExe swaylock}";
     }
   ];
