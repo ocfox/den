@@ -35,9 +35,11 @@
       { command = [ "firefox" ]; }
       { command = [ "telegram-desktop" ]; }
       { command = [ "thunderbird" ]; }
+      { command = [ "alacritty" ]; }
     ];
 
-    workspaces = lib.genAttrs (map toString (lib.range 1 9)) (n: { });
+    # create 1-4 for startup apps
+    workspaces = lib.genAttrs (map toString (lib.range 1 4)) (n: { });
 
     input.focus-follows-mouse.enable = true;
 
@@ -86,6 +88,9 @@
         "Mod+Shift+Q".action = close-window;
         "Mod+F".action = maximize-column;
         "Mod+Shift+F".action = fullscreen-window;
+
+        "Mod+Comma".action = consume-window-into-column;
+        "Mod+Period".action = expel-window-from-column;
 
         "Mod+Shift+A".action = spawn (lib.getExe macshot);
         "Mod+Shift+U".action = spawn (lib.getExe pkgs.pamixer) "-i" "5";
