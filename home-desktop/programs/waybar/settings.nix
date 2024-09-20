@@ -12,10 +12,10 @@ in
     "layer" = "top";
     "position" = "top";
     "modules-left" = [
-      "sway/workspaces"
+      "niri/workspaces"
       "custom/music"
     ];
-    "modules-center" = [ "sway/window" ];
+    "modules-center" = [ "niri/window" ];
     "modules-right" = [
       "tray"
       "idle_inhibitor"
@@ -26,20 +26,15 @@ in
       "battery"
       "clock"
     ];
-    "sway/workspaces" = {
+    "niri/workspaces" = {
       "disable-scroll" = true;
       "format" = "{icon}";
       "all-outputs" = true;
       "format-icons" = {
         "1" = ''<span color="#FF7139"></span>'';
-        "2" = ''<span color="#019733"></span>'';
-        "3" = ''<span color="#757575"></span>'';
-        "4" = ''<span color="#26A5E4"></span>'';
-        "5" = ''<span color="#0A84FF"></span>'';
-        "6" = ''<span color="#a738fd"></span>'';
-        "7" = ''<span color="#019733">7</span>'';
-        "8" = ''<span color="#757575">8</span>'';
-        "9" = ''<span color="#26A5E4">9</span>'';
+        "2" = ''<span color="#757575"></span>'';
+        "3" = ''<span color="#26A5E4"></span>'';
+        "4" = ''<span color="#0A84FF"></span>'';
       };
     };
     "idle_inhibitor" = {
