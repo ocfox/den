@@ -76,7 +76,6 @@ in
       inputs.home-manager.nixosModules.home-manager
       inputs.minegrub.nixosModules.default
       inputs.agenix.nixosModules.default
-      inputs.chaotic.homeManagerModules.default
       inputs.niri.nixosModules.niri
       { nix.registry.self.flake = self; }
     ];

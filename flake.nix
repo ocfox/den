@@ -90,12 +90,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     minegrub.url = "github:ocfox/minegrub-world-sel-theme";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     agenix.url = "github:ryantm/agenix";
     factorio-versions.url = "github:ocfox/factorio-versions";
     niri.url = "github:sodiboo/niri-flake";
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
+    jovian-nixos = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     papermod = {

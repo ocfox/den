@@ -6,7 +6,6 @@
 }:
 {
   enable = true;
-  package = pkgs.sway_git;
 
   wrapperFeatures.gtk = true;
   config = {
@@ -83,7 +82,7 @@
         "${modifier}+Shift+u" = "exec ${lib.getExe pkgs.pamixer} -i 5";
         "${modifier}+Shift+d" = "exec ${lib.getExe pkgs.pamixer} -d 5";
         "${modifier}+Shift+e" = "exec ${lib.getExe powermenu}";
-        "${modifier}+Return" = "exec ${lib.getExe pkgs.alacritty_git}";
+        "${modifier}+Return" = "exec ${lib.getExe pkgs.alacritty}";
         "${modifier}+o" = "exec ${lib.getExe' pkgs.kickoff "kickoff"}";
         "${modifier}+space" = "floating toggle";
         "${modifier}+Shift+space" = null;
