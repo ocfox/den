@@ -41,7 +41,7 @@
     # create 1-4 for startup apps
     workspaces = lib.genAttrs (map toString (lib.range 1 4)) (n: { });
 
-    input.focus-follows-mouse.enable = true;
+    # input.focus-follows-mouse.enable = true;
 
     window-rules =
       let
