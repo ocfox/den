@@ -4,7 +4,7 @@
     <title>Notes on ocfox&#39;s den</title>
     <link>https://ocfox.me/tags/notes/</link>
     <description>Recent content in Notes on ocfox&#39;s den</description>
-    <generator>Hugo -- 0.134.0</generator>
+    <generator>Hugo -- 0.134.3</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ocfox.me/tags/notes/index.xml" rel="self" type="application/rss+xml" />
@@ -21,7 +21,9 @@ So I tried to set a delay for every line, when open page hide (don&amp;rsquo;t d
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#c678dd&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#e5c07b&#34;&gt;none&lt;/span&gt;; &lt;span style=&#34;color:#7f848e&#34;&gt;/* Initially hide all paragraphs */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#c678dd&#34;&gt;margin&lt;/span&gt;: &lt;span style=&#34;color:#d19a66&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#e5c07b&#34;&gt;px&lt;/span&gt; &lt;span style=&#34;color:#d19a66&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#d19a66&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#d19a66&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#e5c07b&#34;&gt;px&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then set a delay increase by degrees for every single line with js. Use &lt;code&gt;EventListener&lt;/code&gt; get every
+paragraph element, and set 500ms * (current lines) delay make it &lt;code&gt;display&lt;/code&gt; &lt;code&gt;none&lt;/code&gt; -&amp;gt; &lt;code&gt;block&lt;/code&gt;.
+So them will display right.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

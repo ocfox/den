@@ -4,7 +4,7 @@
     <title>Posts on ocfox&#39;s den</title>
     <link>https://ocfox.me/zh/posts/</link>
     <description>Recent content in Posts on ocfox&#39;s den</description>
-    <generator>Hugo -- 0.134.0</generator>
+    <generator>Hugo -- 0.134.3</generator>
     <language>zh-CN</language>
     <lastBuildDate>Thu, 15 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ocfox.me/zh/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -28,7 +28,28 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt; ID&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   Interval          Transfer    Bitrate
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt;  7&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   0.00-10.00  sec   &lt;span style=&#34;color:#d19a66&#34;&gt;364&lt;/span&gt; MBytes   &lt;span style=&#34;color:#d19a66&#34;&gt;306&lt;/span&gt; Mbits/sec     sender
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt;  7&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   0.00-10.01  sec   &lt;span style=&#34;color:#d19a66&#34;&gt;361&lt;/span&gt; MBytes   &lt;span style=&#34;color:#d19a66&#34;&gt;303&lt;/span&gt; Mbits/sec     receiver
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;看起来他们的沟通出现了一些问题，好吧 让我把他们放在一起。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#7f848e&#34;&gt;# 两个朋友面对面联系&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt; ID&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   Interval          Transfer    Bitrate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt;  8&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   0.00-10.00  sec   &lt;span style=&#34;color:#d19a66&#34;&gt;376&lt;/span&gt; MBytes   &lt;span style=&#34;color:#d19a66&#34;&gt;310&lt;/span&gt; Mbits/sec     sender
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt;  8&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   0.00-10.01  sec   &lt;span style=&#34;color:#d19a66&#34;&gt;383&lt;/span&gt; MBytes   &lt;span style=&#34;color:#d19a66&#34;&gt;312&lt;/span&gt; Mbits/sec     receiver
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;还不如无线啊你们这个关系。难道是我mac有问题？怎么可能，估计是网卡有问题吧。&lt;/p&gt;
+&lt;details&gt;
+  &lt;summary&gt;(你可以嘲笑mac用户了，他们甚至没有RJ45)&lt;/summary&gt;
+  那又怎么样，我还是很喜欢我的mac。在某种程度上
+&lt;/details&gt;
+&lt;p&gt;正好有另一个网卡，尝试！&lt;strong&gt;我去，居然完全正常！&lt;/strong&gt;
+&lt;figure class=&#34;align-center &#34;&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;https://cdn.firstcuriosity.com/wp-content/uploads/2022/11/07212640/Adobe_Express_20221107_2117220_1.jpg#center&#34; width=&#34;300&#34;/&gt; 
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;原因竟然是我那条cc数据线速度很慢。好了，这就是我做的蠢事。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt; ID&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt; Interval           Transfer     Bitrate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt;  9&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   0.00-10.00  sec   &lt;span style=&#34;color:#d19a66&#34;&gt;982&lt;/span&gt; MBytes   &lt;span style=&#34;color:#d19a66&#34;&gt;823&lt;/span&gt; Mbits/sec                  sender
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#56b6c2&#34;&gt;[&lt;/span&gt;  9&lt;span style=&#34;color:#56b6c2&#34;&gt;]&lt;/span&gt;   0.00-10.01  sec   &lt;span style=&#34;color:#d19a66&#34;&gt;979&lt;/span&gt; MBytes   &lt;span style=&#34;color:#d19a66&#34;&gt;821&lt;/span&gt; Mbits/sec                  receiver
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最后就是这个情况，好吧，线还是很烂。但至少我一周前接的没有问题。
+(这是我上一周将家里装修工留下的线接了水晶头。一共三组 三个墙上插座，三个水晶头。
+100%成功率。我应该也算是接线大师了？)&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
