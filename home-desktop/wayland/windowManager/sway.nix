@@ -5,7 +5,7 @@
   pkgs,
 }:
 {
-  enable = true;
+  enable = false;
 
   wrapperFeatures.gtk = true;
   config = {
