@@ -20,9 +20,10 @@
   boot.kernelModules = [
     "kvm-amd"
     "i915.force_probe=56a1"
+    "v4l2loopback"
   ];
-  boot.extraModulePackages = [ ];
-  # boot.supportedFilesystems = [ "ntfs" ];
+
+  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/fe0ecfb9-db21-43f0-915a-70c37765f181";
