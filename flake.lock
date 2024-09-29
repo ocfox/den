@@ -292,6 +292,21 @@
         "type": "github"
       }
     },
+    "nixos-facter": {
+      "locked": {
+        "lastModified": 1727443763,
+        "narHash": "sha256-o6r4qBZXp+Z+myvRFNxt2s8qQRtKSfRHeAd5yubp7pU=",
+        "owner": "numtide",
+        "repo": "nixos-facter-modules",
+        "rev": "0bea32ea5404d4c10d0e38bd3e17de3caf83f59c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nixos-facter-modules",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1703013332,
@@ -423,6 +438,7 @@
         "jovian-nixos": "jovian-nixos",
         "minegrub": "minegrub",
         "niri": "niri",
+        "nixos-facter": "nixos-facter",
         "nixpkgs": "nixpkgs_4",
         "papermod": "papermod"
       }

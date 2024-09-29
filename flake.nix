@@ -84,6 +84,7 @@
             username
             ;
         };
+
       };
     };
 
@@ -93,6 +94,7 @@
     agenix.url = "github:ryantm/agenix";
     factorio-versions.url = "github:ocfox/factorio-versions";
     niri.url = "github:sodiboo/niri-flake";
+    nixos-facter.url = "github:numtide/nixos-facter-modules";
     jovian-nixos = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -17,7 +17,6 @@
         name = "enp14s0";
         networkConfig.DHCP = "yes";
       };
-
     };
   };
 }

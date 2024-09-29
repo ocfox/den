@@ -47,6 +47,16 @@ let
       transformer = inputs.haumea.lib.transformers.liftDefault;
     };
 
+  civet-module =
+    { pkgs, ... }@args:
+    inputs.haumea.lib.load {
+      src = ./civet;
+      inputs = args // {
+        inherit inputs;
+      };
+      transformer = inputs.haumea.lib.transformers.liftDefault;
+    };
+
   sakhalin-module =
     { pkgs, ... }@args:
     inputs.haumea.lib.load {
@@ -77,6 +87,7 @@ in
       inputs.minegrub.nixosModules.default
       inputs.agenix.nixosModules.default
       inputs.niri.nixosModules.niri
+      inputs.self.nixosModules.default
       { nix.registry.self.flake = self; }
     ];
     specialArgs = {
@@ -84,19 +95,17 @@ in
     };
   };
 
-  # silverfox = nixpkgs.lib.nixosSystem {
-  #   system = "x86_64-linux";
-  #   modules = [
-  #     ./silverfox/_hardware.nix
-  #     silverfox-module
-  #     inputs.home-manager.nixosModules.home-manager
-  #     inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
-  #     { nix.registry.self.flake = self; }
-  #   ];
-  #   specialArgs = {
-  #     inherit inputs username home;
-  #   };
-  # };
+  civet = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      inputs.disko.nixosModules.disko
+      inputs.nixos-facter.nixosModules.facter
+      civet-module
+    ];
+    specialArgs = {
+      inherit inputs;
+    };
+  };
 
   arcticfox = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
