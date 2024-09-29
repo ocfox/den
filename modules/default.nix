@@ -3,6 +3,7 @@
     { ... }:
     {
       imports = [
+        (import ./shadowsocks.nix)
       ];
     };
 }
