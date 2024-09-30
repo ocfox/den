@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  buildGoModule,
+  buildGo123Module,
   fetchFromGitHub,
   fetchpatch,
   makeWrapper,
@@ -18,7 +18,7 @@
 let
   version = "1.74.1";
 in
-buildGoModule {
+buildGo123Module {
   pname = "tailscale";
   inherit version;
 
