@@ -3,6 +3,8 @@
   firewall.allowedTCPPorts = [
     80
     443
+    7096
+    11283
   ];
 
   firewall.allowedUDPPorts = [
