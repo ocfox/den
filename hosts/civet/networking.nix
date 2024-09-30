@@ -14,6 +14,8 @@
     11283
   ];
 
+  nameservers = [ "1.1.1.1" ];
+
   useDHCP = true;
   useNetworkd = true;
 }
