@@ -7,6 +7,9 @@
 
   facter.reportPath = ./facter.json;
 
+  security.acme.defaults.email = "civet@ocfox.me";
+  security.acme.acceptTerms = true;
+
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;

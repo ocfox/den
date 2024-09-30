@@ -23,6 +23,7 @@ let
       inherit system;
       modules = [
         (genConf "${host}")
+        inputs.self.nixosModules.default
       ] ++ modules;
       specialArgs = {
         inherit inputs username home;
@@ -38,7 +39,6 @@ mkMerge [
     inputs.minegrub.nixosModules.default
     inputs.agenix.nixosModules.default
     inputs.niri.nixosModules.niri
-    inputs.self.nixosModules.default
     { nix.registry.self.flake = self; }
   ])
 
