@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  inputs,
   lib,
   ...
 }:
@@ -8,6 +9,10 @@
   time.timeZone = "Asia/Shanghai";
 
   hardware.bluetooth.enable = true;
+
+  nixpkgs.overlays = [
+    inputs.niri.overlays.niri
+  ];
 
   xdg = {
     mime = {

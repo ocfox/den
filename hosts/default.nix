@@ -23,6 +23,7 @@ let
       inherit system;
       modules = [
         (genConf "${host}")
+        (genConf "general")
         inputs.self.nixosModules.default
       ] ++ modules;
       specialArgs = {
