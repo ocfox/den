@@ -14,6 +14,8 @@
     inputs.niri.overlays.niri
   ];
 
+  chaotic.scx.enable = true;
+
   xdg = {
     mime = {
       enable = true;

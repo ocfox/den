@@ -1,5 +1,6 @@
 { pkgs }:
 {
+  kernelPackages = pkgs.linuxPackages_cachyos;
   loader = {
     grub = {
       enable = true;

@@ -40,6 +40,7 @@ mkMerge [
     inputs.minegrub.nixosModules.default
     inputs.agenix.nixosModules.default
     inputs.niri.nixosModules.niri
+    inputs.chaotic.nixosModules.default
     { nix.registry.self.flake = self; }
   ])
 
