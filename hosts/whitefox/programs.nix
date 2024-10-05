@@ -5,6 +5,8 @@
   nm-applet.enable = true;
   dconf.enable = true;
 
+  steam.enable = true;
+
   niri = {
     enable = true;
     package = pkgs.niri-unstable;
