@@ -19,8 +19,13 @@
       };
     };
 
-    # Hide QT's(telegram) title bar.
-    environment.QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    environment = {
+      # Hide QT's(telegram) title bar.
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+      # xwayland-satellite
+      DISPLAY = ":0";
+    };
 
     prefer-no-csd = true;
 
@@ -36,6 +41,7 @@
       { command = [ "telegram-desktop" ]; }
       { command = [ "thunderbird" ]; }
       { command = [ "alacritty" ]; }
+      { command = [ (lib.getExe pkgs.xwayland-satellite-unstable) ]; }
     ];
 
     # create 1-4 for startup apps
@@ -74,7 +80,7 @@
       with config.lib.niri.actions;
       {
         "Mod+Return".action = spawn (lib.getExe pkgs.alacritty);
-        "Mod+O".action = spawn (lib.getExe pkgs.kickoff);
+        "Mod+O".action = spawn (lib.getExe pkgs.fuzzel);
         "Mod+H".action = focus-column-left-or-last;
         "Mod+J".action = focus-window-down;
         "Mod+K".action = focus-window-up;
