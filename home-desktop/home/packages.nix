@@ -5,7 +5,5 @@ with pkgs;
   swayidle
   tdesktop
   firefox-wayland
-  gamescope
-  mangohud
   vscode-fhs
 ]

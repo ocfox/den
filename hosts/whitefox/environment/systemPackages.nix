@@ -26,4 +26,6 @@ with pkgs;
   polkit_gnome
   thunderbird
   mpv-handler
+
+  gamescope_git
 ]
