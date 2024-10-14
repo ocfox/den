@@ -12,6 +12,10 @@
     package = pkgs.niri-unstable;
   };
 
+  obs-studio = {
+    enable = true;
+  };
+
   ssh.startAgent = true;
   sway.enable = true;
   fish = {

@@ -15,7 +15,6 @@
   ];
 
   chaotic.scx.enable = true;
-  chaotic.mesa-git.enable = true;
 
   xdg = {
     mime = {
