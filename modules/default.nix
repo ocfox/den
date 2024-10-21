@@ -4,7 +4,7 @@
     {
       imports = [
         (import ./shadowsocks.nix)
-        (import ./tailscale-derp.nix)
+        # (import ./tailscale-derp.nix)
       ];
     };
 }
