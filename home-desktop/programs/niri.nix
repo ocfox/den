@@ -8,7 +8,7 @@
   settings = {
 
     outputs = {
-      "DP-1".scale = 3;
+      "DP-1".scale = 3.0;
     };
 
     layout = {
@@ -105,6 +105,23 @@
         "Mod+Shift+S".action = spawn (lib.getExe pkgs.sway-contrib.grimshot) "copy" "area";
         "Mod+Shift+R".action = spawn (lib.getExe recorder-toggle);
         "Mod+Apostrophe".action = spawn (lib.getExe swaylock);
+        "Mod+Shift+M".action =
+          let
+            jq = lib.getExe pkgs.jq;
+            niri = lib.getExe pkgs.niri-unstable;
+          in
+          spawn (
+            lib.getExe (
+              pkgs.writeShellScriptBin "scale-switcher" ''
+                current_scale=$(${niri} msg -j outputs | ${jq} -r '."DP-1"."logical"."scale"')
+                if test "$current_scale" = "1.0"; then
+                  niri msg output DP-1 scale 3.0
+                else
+                  niri msg output DP-1 scale 1.0
+                fi
+              ''
+            )
+          );
       }
       // lib.foldl' (
         attr: i:
