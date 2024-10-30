@@ -39,6 +39,7 @@ ShowRssButtonInSectionTermList = true
 ShowAllPagesInArchive = true
 displayFullLangName = true
 keywords = ["blog", "nix", "nixos", "tech"]
+social = true
 socialIcons = [
     { name = "github", url = "https://github.com/ocfox" },
     { name = "telegram", url = "https://t.me/ocfox" },
