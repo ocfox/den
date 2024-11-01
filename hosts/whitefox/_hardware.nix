@@ -2,12 +2,9 @@
   config,
   lib,
   pkgs,
-  modulesPath,
   ...
 }:
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
@@ -38,6 +35,7 @@
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.enableRedistributableFirmware = true;
 
   hardware.graphics = {
     enable = true;

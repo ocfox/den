@@ -44,6 +44,11 @@ mkMerge [
     { nix.registry.self.flake = self; }
   ])
 
+  (genNixosSystem "bebop" "x86_64-linux" [
+    inputs.disko.nixosModules.disko
+    inputs.nixos-facter.nixosModules.facter
+  ])
+
   (genNixosSystem "civet" "x86_64-linux" [
     inputs.disko.nixosModules.disko
     inputs.nixos-facter.nixosModules.facter
