@@ -102,7 +102,7 @@
         "Mod+Shift+U".action = spawn (lib.getExe pkgs.pamixer) "-i" "5";
         "Mod+Shift+D".action = spawn (lib.getExe pkgs.pamixer) "-d" "5";
         "Mod+Shift+E".action = spawn (lib.getExe powermenu);
-        "Mod+Shift+S".action = spawn (lib.getExe pkgs.sway-contrib.grimshot) "copy" "area";
+        "Mod+Shift+S".action = screenshot;
         "Mod+Shift+R".action = spawn (lib.getExe recorder-toggle);
         "Mod+Apostrophe".action = spawn (lib.getExe swaylock);
         "Mod+Shift+M".action =
