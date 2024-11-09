@@ -38,7 +38,6 @@ mkMerge [
     ./whitefox/_hardware.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.minegrub.nixosModules.default
-    inputs.agenix.nixosModules.default
     inputs.niri.nixosModules.niri
     inputs.chaotic.nixosModules.default
     { nix.registry.self.flake = self; }
@@ -46,6 +45,7 @@ mkMerge [
 
   (genNixosSystem "bebop" "x86_64-linux" [
     inputs.disko.nixosModules.disko
+    inputs.rotix.nixosModules.default
     inputs.nixos-facter.nixosModules.facter
   ])
 
@@ -62,7 +62,6 @@ mkMerge [
   (genNixosSystem "arcticfox" "x86_64-linux" [
     ./arcticfox/_hardware.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.agenix.nixosModules.default
     { nix.registry.self.flake = self; }
   ])
 
