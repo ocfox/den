@@ -4,6 +4,16 @@
   <url>
     <loc>https://ocfox.me/zh/tags/life/</loc>
     <lastmod>2024-10-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/tags/life/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/tags/life/"
+                />
   </url><url>
     <loc>https://ocfox.me/zh/</loc>
     <lastmod>2024-10-10T00:00:00+00:00</lastmod>

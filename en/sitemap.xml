@@ -2,6 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ocfox.me/tags/life/</loc>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/tags/life/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/tags/life/"
+                />
+  </url><url>
+    <loc>https://ocfox.me/</loc>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/"
+                />
+  </url><url>
+    <loc>https://ocfox.me/posts/</loc>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/posts/"
+                />
+  </url><url>
+    <loc>https://ocfox.me/tags/</loc>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://ocfox.me/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-US"
+                href="https://ocfox.me/tags/"
+                />
+  </url><url>
+    <loc>https://ocfox.me/posts/the-time/</loc>
+    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ocfox.me/tags/email/</loc>
     <lastmod>2024-07-26T00:00:00+00:00</lastmod>
   </url><url>
@@ -24,47 +79,8 @@
                 href="https://ocfox.me/tags/network/"
                 />
   </url><url>
-    <loc>https://ocfox.me/</loc>
-    <lastmod>2024-07-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://ocfox.me/zh/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://ocfox.me/"
-                />
-  </url><url>
-    <loc>https://ocfox.me/posts/</loc>
-    <lastmod>2024-07-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://ocfox.me/zh/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://ocfox.me/posts/"
-                />
-  </url><url>
     <loc>https://ocfox.me/tags/smtp/</loc>
     <lastmod>2024-07-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://ocfox.me/tags/</loc>
-    <lastmod>2024-07-26T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://ocfox.me/zh/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-US"
-                href="https://ocfox.me/tags/"
-                />
   </url><url>
     <loc>https://ocfox.me/posts/css-learn-1/</loc>
     <lastmod>2024-06-01T00:00:00+00:00</lastmod>
