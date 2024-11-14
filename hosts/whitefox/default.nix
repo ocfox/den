@@ -55,7 +55,5 @@
     ];
   };
 
-  age.secrets.factorio.file = ../../secrets/factorio.age;
-
   system.stateVersion = "23.05";
 }
