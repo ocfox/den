@@ -9,5 +9,6 @@
     gpu-context = "waylandvk";
     cache = "yes";
     demuxer-max-back-bytes = "1G";
+    demuxer-max-bytes = "2G";
   };
 }
