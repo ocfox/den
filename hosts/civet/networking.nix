@@ -1,20 +1,40 @@
 {
   hostName = "civet";
-  firewall.allowedTCPPorts = [
-    80
-    443
-    7096
-    11283
-  ];
+  firewall = {
+    enable = false;
+    allowedTCPPorts = [
+      80
+      443
+      11283
+    ];
 
-  firewall.allowedUDPPorts = [
-    80
-    443
-    7096
-    11283
-  ];
+    allowedUDPPorts = [
+      80
+      53
+      4000
+      443
+      11283
+    ];
 
-  nameservers = [ "1.1.1.1" ];
+    allowedUDPPortRanges = [
+      {
+        from = 40000;
+        to = 50000;
+      }
+    ];
+  };
+
+  nftables = {
+    enable = true;
+    ruleset = ''
+      table ip nat {
+      	chain prerouting {
+      		type nat hook prerouting priority filter; policy accept;
+      		iifname "ens5" udp dport 40000-50000 counter packets 0 bytes 0 dnat to :4000
+      	}
+      }
+    '';
+  };
 
   useDHCP = true;
   useNetworkd = true;
