@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
 
   facter.reportPath = ./facter.json;
@@ -12,6 +12,10 @@
   };
 
   hardware.enableRedistributableFirmware = true;
+
+  nixpkgs.overlays = [
+    inputs.proxmox-nixos.overlays.x86_64-linux
+  ];
 
   environment.systemPackages = with pkgs; [
     tmux

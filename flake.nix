@@ -96,6 +96,7 @@
     niri.url = "github:sodiboo/niri-flake";
     nixos-facter.url = "github:numtide/nixos-facter-modules";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    proxmox-nixos.url = "github:SaumonNet/proxmox-nixos";
     jovian-nixos = {
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -45,6 +45,7 @@ mkMerge [
 
   (genNixosSystem "bebop" "x86_64-linux" [
     inputs.disko.nixosModules.disko
+    inputs.proxmox-nixos.nixosModules.proxmox-ve
     inputs.nixos-facter.nixosModules.facter
   ])
 
