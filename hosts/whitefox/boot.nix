@@ -1,7 +1,8 @@
 { pkgs }:
 {
-  kernelPackages = pkgs.linuxPackages_cachyos;
+  # kernelPackages = pkgs.linuxPackages_cachyos;
   loader = {
+    timeout = 30;
     grub = {
       enable = true;
       device = "nodev";
