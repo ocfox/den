@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ocfox.me/posts/dont-care-future/</loc>
+    <lastmod>2024-12-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ocfox.me/tags/life/</loc>
-    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-CN"
@@ -16,7 +19,7 @@
                 />
   </url><url>
     <loc>https://ocfox.me/</loc>
-    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-CN"
@@ -29,7 +32,7 @@
                 />
   </url><url>
     <loc>https://ocfox.me/posts/</loc>
-    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-CN"
@@ -42,7 +45,7 @@
                 />
   </url><url>
     <loc>https://ocfox.me/tags/</loc>
-    <lastmod>2024-11-14T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-CN"
