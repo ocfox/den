@@ -77,7 +77,7 @@ in
         "warning" = 85;
       };
       "scroll-step" = 1;
-      "on-click" = "${lib.getExe pkgs.pavucontrol}";
+      "on-click" = "${lib.getExe pkgs.pwvucontrol}";
       "tooltip" = false;
     };
     "clock" = {
