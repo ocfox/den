@@ -50,6 +50,7 @@
       "adbusers"
       "wheel"
       "docker"
+      "realtime"
       "dialout"
       "libvirtd"
     ];
