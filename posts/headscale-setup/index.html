@@ -20,7 +20,7 @@ I used Tailscale past, but stopped by Chinese &lsquo;Premium&rsquo; Network, hig
 &ldquo;Why not selfhost it?&rdquo;, a real man(character I made up) said. So I host it on a server with CN21 network.">
 <meta name="author" content="ocfox">
 <link rel="canonical" href="https://ocfox.me/posts/headscale-setup/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d6fcd20a4fb86efa4dfac8ec95da60244cc8871042183da1ef28e3a762ad79c8.css" integrity="sha256-1vzSCk&#43;4bvpN&#43;sjsldpgJEzIhxBCGD2h7yjjp2Ktecg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://ocfox.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://ocfox.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="https://ocfox.me/favicon.ico">
@@ -256,7 +256,7 @@ Finally, I lost in this war. But fortunately, Tailscale can <em>effectively(mayb
 <p>Got to admit, Tailscale&rsquo;s <em>Hole Punching</em> works seamlessly without any configuration needed – it&rsquo;s fantastic!</p>
 <p>So, log into NixOS first(<em>If you&rsquo;re not using NixOS, I recommend giving it a try. It&rsquo;s a must-try!</em>).
 Then quickly finish configure it about 10 minutes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">headscale</span> = {
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">headscale</span> <span style="color:#56b6c2">=</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">enable</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">true</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#7f848e"># Specify listening on all available interfaces with 0.0.0.0</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">address</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;0.0.0.0&#34;</span>;
@@ -281,7 +281,7 @@ Then quickly finish configure it about 10 minutes.</p>
 
 <p><details >
   <summary markdown="span">Copy this without commnets</summary>
-  <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">headscale</span> = {
+  <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">headscale</span> <span style="color:#56b6c2">=</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">enable</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">true</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">address</span> <span style="color:#56b6c2">=</span> <span style="color:#98c379">&#34;0.0.0.0&#34;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#e06c75">port</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">443</span>;
@@ -299,7 +299,7 @@ Then quickly finish configure it about 10 minutes.</p>
 Login headscale server to create a user</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span>  <span style="color:#61afef;font-weight:bold">headscale</span> namespaces create ocfox
 </span></span></code></pre></div><p>Now enable tailscale on your <em>nodes</em> in one line.</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">services</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">tailscale</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">enable</span> = <span style="color:#e06c75">true</span>;
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>  <span style="color:#e06c75">services</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">tailscale</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">enable</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">true</span>;
 </span></span></code></pre></div><p>After rebuild, log into headscale.</p>
 <div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fish" data-lang="fish"><span style="display:flex;"><span><span style="color:#56b6c2">[</span>ocfox@bed<span style="color:#56b6c2">]</span><span style="color:#e06c75">$ </span>sudo <span style="color:#61afef;font-weight:bold">tailscale</span> up <span style="color:#e06c75">--login-server</span> https://weed.ocfox.me
 </span></span><span style="display:flex;"><span><span style="color:#61afef;font-weight:bold">To</span> authenticate, visit:

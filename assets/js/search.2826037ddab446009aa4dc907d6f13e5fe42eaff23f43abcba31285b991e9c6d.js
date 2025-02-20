@@ -12,7 +12,7 @@ var e,t;e=this,t=function(){"use strict";function e(e,t){var n=Object.keys(e);if
   PaperMod v8+
   License: MIT https://github.com/adityatelange/hugo-PaperMod/blob/master/LICENSE
   Copyright (c) 2020 nanxiaobei and adityatelange
-  Copyright (c) 2021-2024 adityatelange
+  Copyright (c) 2021-2025 adityatelange
 */
 
 ;
