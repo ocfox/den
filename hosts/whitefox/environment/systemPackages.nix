@@ -26,5 +26,6 @@ with pkgs;
   thunderbird
   mpv-handler
 
+  # factorio-space
   gamescope_git
 ]

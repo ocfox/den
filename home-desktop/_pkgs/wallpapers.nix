@@ -26,6 +26,12 @@
     };
   };
 
+  metallica = pkgs.fetchurl {
+    url = "https://pastb.in/metallica.jpg";
+    name = "metallica.jpg";
+    hash = "sha256-W2zCjwU6DQR4rYKVwN1OKV54VUW58+awwemz4JAlCgQ=";
+  };
+
   takamaki = pkgs.fetchurl {
     url = "https://pastb.in/takamaki";
     name = "takamaki.png";
