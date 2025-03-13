@@ -35,7 +35,7 @@
         command = [
           (lib.getExe pkgs.swaybg)
           "-i"
-          "${root.pkgs.wallpapers.metallica}"
+          "${root.pkgs.wallpapers.metallica.and-justice-for-all}"
         ];
       }
       { command = [ "firefox" ]; }

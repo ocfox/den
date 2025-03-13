@@ -26,15 +26,16 @@
     };
   };
 
-  metallica = pkgs.fetchurl {
-    url = "https://pastb.in/metallica.jpg";
-    name = "metallica.jpg";
-    hash = "sha256-W2zCjwU6DQR4rYKVwN1OKV54VUW58+awwemz4JAlCgQ=";
-  };
-
-  takamaki = pkgs.fetchurl {
-    url = "https://pastb.in/takamaki";
-    name = "takamaki.png";
-    hash = "sha256-Vu6q5PTHCbiSKGXRi2oGn7ooSVg1QJ4AycUsjIZP1yw=";
+  metallica = {
+    default = pkgs.fetchurl {
+      url = "https://pastb.in/metallica.jpg";
+      name = "metallica.jpg";
+      hash = "sha256-W2zCjwU6DQR4rYKVwN1OKV54VUW58+awwemz4JAlCgQ=";
+    };
+    and-justice-for-all = pkgs.fetchurl {
+      url = "https://pastb.in/and-justice-for-all.jpg";
+      name = "and-justice-for-all.jpg";
+      hash = "sha256-lkst81OfaYHnvfY/KRRZpqC0mjTGRdk0WBdkeDqI9JM=";
+    };
   };
 }
