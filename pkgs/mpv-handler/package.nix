@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-K+1yF3QrItn2HEnQYayAc48Qp2lPSKzwqCKX1MiSvnk=";
   };
 
-  cargoHash = "sha256-BqE1c9vLf9Oi1Htq2tVp8pLeSFEkYkMRw4P8/6elv8k=";
+  cargoHash = "sha256-pYM7wrDDeT++NOl08zKuD0aUUbTiWJfGh9/dbdv69pk=";
 
   postInstall = ''
     install -Dm444 -t $out/share/applications share/linux/mpv-handler.desktop
