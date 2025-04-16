@@ -46,7 +46,9 @@
     ];
 
     # create 1-4 for startup apps
-    workspaces = lib.genAttrs (map toString (lib.range 1 4)) (n: { });
+    workspaces = lib.genAttrs (map toString (lib.range 1 4)) (n: {
+      open-on-output = "DP-1";
+    });
 
     # input.focus-follows-mouse.enable = true;
 
