@@ -21,6 +21,8 @@
 
     ns = "nix shell nixpkgs#{ $argv }";
 
+    nxr = ''nix run nixpkgs#$argv[1] -- $argv[2..-1]'';
+
     evs = "nix eval self#nixosConfigurations.$hostname.pkgs.$argv.version";
 
     # fix ssh-agent forwarding when attach to tmux
