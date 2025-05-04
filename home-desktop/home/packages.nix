@@ -5,5 +5,6 @@ with pkgs;
   swayidle
   tdesktop
   firefox-wayland
+  animeko
   vscode-fhs
 ]
