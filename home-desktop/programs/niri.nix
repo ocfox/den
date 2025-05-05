@@ -22,8 +22,10 @@
     environment = {
       # Hide QT's(telegram) title bar.
       QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-      # xwayland-satellite
-      DISPLAY = ":0";
+
+      QT_QPA_PLATFORMTHEME = "gtk3";
+
+      DISPLAY = ":0"; # xwayland-satellite
 
       SDL_VIDEODRIVER = "wayland";
     };
