@@ -49,7 +49,7 @@ mkMerge [
     inputs.nixos-facter.nixosModules.facter
   ])
 
-  (genNixosSystem "civet" "x86_64-linux" [
+  (genNixosSystem "chi" "aarch64-linux" [
     inputs.disko.nixosModules.disko
     inputs.nixos-facter.nixosModules.facter
   ])

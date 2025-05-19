@@ -1,7 +1,7 @@
 {
   devices = {
     disk.disk1 = {
-      device = "/dev/vda";
+      device = "/dev/sda";
       type = "disk";
       content = {
         type = "gpt";
