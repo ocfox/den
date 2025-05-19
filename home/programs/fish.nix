@@ -35,5 +35,15 @@
     haskellEnv = ''
       nix-shell -p haskell-language-server "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
     '';
+
+    # TODO: should return 0 but this a fish kick
+    # https://github.com/fish-shell/fish-shell/issues/7902
+    fish_command_not_found = ''
+      if test -n $argv[2..-1]
+          command nix run nixpkgs#$argv[1] -- $argv[2..-1]
+      else
+          command nix run nixpkgs#$argv[1]
+      end
+    '';
   };
 }
