@@ -5,5 +5,5 @@
   };
 
   useDHCP = true;
-  useNetworkd = true;
+  # useNetworkd = true;
 }
