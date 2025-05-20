@@ -25,7 +25,4 @@ with pkgs;
   polkit_gnome
   thunderbird
   mpv-handler
-
-  # factorio-space
-  gamescope_git
 ]

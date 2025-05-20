@@ -1,3 +1,0 @@
-{
-  sysusers.enable = true;
-}

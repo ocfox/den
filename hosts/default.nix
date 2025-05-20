@@ -38,7 +38,7 @@ mkMerge [
     ./whitefox/_hardware.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.minegrub.nixosModules.default
-    inputs.vaultix.nixosModules.default
+    # inputs.vaultix.nixosModules.default
     inputs.niri.nixosModules.niri
     { nix.registry.self.flake = self; }
   ])
