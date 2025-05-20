@@ -38,18 +38,18 @@ mkMerge [
     ./whitefox/_hardware.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.minegrub.nixosModules.default
+    inputs.vaultix.nixosModules.default
     inputs.niri.nixosModules.niri
-    inputs.chaotic.nixosModules.default
     { nix.registry.self.flake = self; }
   ])
 
-  (genNixosSystem "bebop" "x86_64-linux" [
-    inputs.disko.nixosModules.disko
-    inputs.proxmox-nixos.nixosModules.proxmox-ve
-    inputs.nixos-facter.nixosModules.facter
-  ])
+  # (genNixosSystem "bebop" "x86_64-linux" [
+  #   inputs.disko.nixosModules.disko
+  #   inputs.nixos-facter.nixosModules.facter
+  # ])
 
   (genNixosSystem "chi" "aarch64-linux" [
+    inputs.vaultix.nixosModules.default
     inputs.disko.nixosModules.disko
     inputs.nixos-facter.nixosModules.facter
   ])
@@ -59,11 +59,11 @@ mkMerge [
     inputs.disko.nixosModules.disko
   ])
 
-  (genNixosSystem "arcticfox" "x86_64-linux" [
-    ./arcticfox/_hardware.nix
-    inputs.home-manager.nixosModules.home-manager
-    { nix.registry.self.flake = self; }
-  ])
+  # (genNixosSystem "arcticfox" "x86_64-linux" [
+  #   ./arcticfox/_hardware.nix
+  #   inputs.home-manager.nixosModules.home-manager
+  #   { nix.registry.self.flake = self; }
+  # ])
 
   (genNixosSystem "vulpes" "x86_64-linux" [
     ./vulpes/_hardware.nix

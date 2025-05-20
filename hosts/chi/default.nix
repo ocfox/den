@@ -1,4 +1,10 @@
-{ modulesPath, pkgs, ... }:
+{
+  modulesPath,
+  config,
+  pkgs,
+  self,
+  ...
+}:
 {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
@@ -23,7 +29,33 @@
     systemd.enable = true;
   };
 
+  vaultix = {
+    settings.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID8IVBgnE6cfei0k4va0fyzyoh9o62f9yM3FwGhnPJON root@chi";
+    secrets.drive = {
+      file = ../../secrets/drive.age;
+      mode = "640";
+    };
+  };
+
+  fileSystems."/var/lib/immich/library" = {
+    device = "immich:immich";
+    fsType = "rclone";
+    options =
+      let
+        configPath = config.vaultix.secrets.drive.path;
+      in
+      [
+        "nodev"
+        "nofail"
+        "allow_other"
+        "args2env"
+        "vfs-cache-mode=writes"
+        "config=${configPath}"
+      ];
+  };
+
   environment.systemPackages = with pkgs; [
+    rclone
     hysteria
     tmux
     htop

@@ -6,6 +6,7 @@
       self,
       nixpkgs,
       haumea,
+      vaultix,
       flake-parts,
       ...
     }:
@@ -42,6 +43,7 @@
 
       imports = [
         ./blog
+        inputs.vaultix.flakeModules.default
       ];
 
       perSystem =
@@ -85,6 +87,23 @@
             ;
         };
 
+        vaultix = {
+          identity = self + "/secrets/age-yubikey-identity-de5ab175.txt";
+          nodes =
+            let
+              inherit (inputs.nixpkgs.lib) filterAttrs elem;
+            in
+            filterAttrs (
+              n: _:
+              !elem n [
+                # "chi"
+                "whitefox"
+                "redfox"
+                "vulpes"
+              ]
+            ) self.nixosConfigurations;
+        };
+
         nixosModules = import ./modules;
       };
     };
@@ -92,15 +111,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     minegrub.url = "github:ocfox/minegrub-world-sel-theme";
-    factorio-versions.url = "github:ocfox/factorio-versions";
     niri.url = "github:sodiboo/niri-flake";
     nixos-facter.url = "github:numtide/nixos-facter-modules";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    proxmox-nixos.url = "github:SaumonNet/proxmox-nixos";
-    jovian-nixos = {
-      url = "github:Jovian-Experiments/Jovian-NixOS";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    vaultix.url = "github:milieuim/vaultix";
     papermod = {
       url = "github:adityatelange/hugo-papermod";
       flake = false;
