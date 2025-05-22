@@ -25,6 +25,7 @@ let
         (genConf "${host}")
         (genConf "general")
         inputs.self.nixosModules.default
+        inputs.determinate.nixosModules.default
       ] ++ modules;
       specialArgs = {
         inherit inputs username home;
