@@ -4,5 +4,4 @@ builds:
  include:
    - 'packages.x86_64-linux.*'
    - 'nixosConfigurations.redfox'
-   - 'nixosConfigurations.vulpes'
    - 'nixosConfigurations.whitefox'

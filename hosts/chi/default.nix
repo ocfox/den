@@ -34,6 +34,10 @@
       file = ../../secrets/drive.age;
       mode = "640";
     };
+    secrets.vault = {
+      file = ../../secrets/vault.age;
+      mode = "640";
+    };
   };
 
   fileSystems."/var/lib/immich/library" = {
