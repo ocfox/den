@@ -28,7 +28,9 @@
       "vault" = {
         hostName = "vault.cyans.dev";
         extraConfig = ''
-          reverse_proxy localhost:8000
+          reverse_proxy localhost:8000 {
+            header_up X-Real-IP {remote_host}
+          }
         '';
       };
 
