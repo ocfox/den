@@ -1,6 +1,9 @@
 { pkgs, inputs, ... }:
 with pkgs;
 [
+
+  nautilus
+
   wget
   bat
   fzf

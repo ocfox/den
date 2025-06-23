@@ -3,5 +3,6 @@
   hostName = "whitefox";
   useDHCP = false;
 
-  useNetworkd = true;
+  networkmanager.enable = true;
+  # useNetworkd = true;
 }

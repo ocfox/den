@@ -50,6 +50,7 @@
       "adbusers"
       "wheel"
       "docker"
+      "networkmanager"
       "realtime"
       "dialout"
       "libvirtd"
