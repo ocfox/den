@@ -78,6 +78,18 @@
             ;
         };
 
+        darwinConfigurations.katana = inputs.nix-darwin.lib.darwinSystem {
+          modules = [
+            {
+              home-manager.users.ed = {
+                imports = [ home.default ];
+              };
+            }
+            ./katana
+            inputs.home-manager.darwinModules.home-manager
+          ];
+        };
+
         ferrucyon = import ./iso {
           inherit
             self
