@@ -60,11 +60,10 @@ mkMerge [
     inputs.disko.nixosModules.disko
   ])
 
-  # (genNixosSystem "arcticfox" "x86_64-linux" [
-  #   ./arcticfox/_hardware.nix
-  #   inputs.home-manager.nixosModules.home-manager
-  #   { nix.registry.self.flake = self; }
-  # ])
+  (genNixosSystem "katana" "aarch64-darwin" [
+    inputs.nix-darwin.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
+  ])
 
   (genNixosSystem "vulpes" "x86_64-linux" [
     ./vulpes/_hardware.nix

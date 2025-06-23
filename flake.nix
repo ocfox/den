@@ -115,6 +115,10 @@
     niri.url = "github:sodiboo/niri-flake";
     nixos-facter.url = "github:numtide/nixos-facter-modules";
     vaultix.url = "github:milieuim/vaultix";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     papermod = {
       url = "github:adityatelange/hugo-papermod";
       flake = false;
