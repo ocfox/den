@@ -25,6 +25,35 @@
   environment.variables.EDITOR = "hx";
 
   services.openssh.enable = true;
+  services.skhd = {
+    skhdConfig = ''
+      cmd - h : yabai -m window --focus west
+      cmd - j : yabai -m window --focus south
+      cmd - k : yabai -m window --focus north
+      cmd - l : yabai -m window --focus east
+      cmd - f : yabai -m window --toggle zoom-fullscreen
+      cmd + shift - h : yabai -m window --warp west
+      cmd + shift - l : yabai -m window --warp east
+
+      cmd - return : open -n -a "Alacritty"
+
+      cmd + shift - q : yabai -m window --close
+
+      cmd - 1 : yabai -m space --focus 1
+      cmd - 2 : yabai -m space --focus 2
+      cmd - 3 : yabai -m space --focus 3
+      cmd - 4 : yabai -m space --focus 4
+      cmd - 5 : yabai -m space --focus 5
+      cmd - 6 : yabai -m space --focus 6
+
+      cmd + shift - 1 : yabai -m window --space 1
+      cmd + shift - 2 : yabai -m window --space 2
+      cmd + shift - 3 : yabai -m window --space 3
+      cmd + shift - 4 : yabai -m window --space 4
+      cmd + shift - 5 : yabai -m window --space 5
+    '';
+    enable = true;
+  };
   home-manager.users.ed.programs.keychain.enable = true;
 
   home-manager.users.ed.programs.alacritty.settings.font.size = 16;
@@ -36,6 +65,23 @@
     ripgrep
     git
   ];
+
+  services.yabai = {
+    enableScriptingAddition = true;
+    config = {
+      focus_follows_mouse = "autoraise";
+      layout = "bsp";
+      mouse_follows_focus = "on";
+      window_placement = "second_child";
+      window_opacity = "off";
+      top_padding = 5;
+      bottom_padding = 5;
+      left_padding = 5;
+      right_padding = 5;
+      window_gap = 5;
+    };
+    enable = true;
+  };
 
   homebrew = {
     enable = true;
@@ -74,6 +120,7 @@
       # "curl" # no not install curl via nixpkgs, it's not working well on macOS!
       # "aria2" # download tool
       # "httpie" # http client
+      "node"
     ];
 
     casks = [
@@ -85,6 +132,7 @@
       "telegram"
 
       "iina" # video player
+      "zed"
       # "stats" # beautiful system monitor
     ];
   };
