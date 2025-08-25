@@ -44,6 +44,15 @@ mkMerge [
     { nix.registry.self.flake = self; }
   ])
 
+  (genNixosSystem "brick" "x86_64-linux" [
+    ./brick/_hardware.nix
+    inputs.home-manager.nixosModules.home-manager
+    inputs.minegrub.nixosModules.default
+    inputs.disko.nixosModules.disko
+    # inputs.niri.nixosModules.niri
+    { nix.registry.self.flake = self; }
+  ])
+
   # (genNixosSystem "bebop" "x86_64-linux" [
   #   inputs.disko.nixosModules.disko
   #   inputs.nixos-facter.nixosModules.facter

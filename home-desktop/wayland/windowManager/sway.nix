@@ -5,7 +5,7 @@
   pkgs,
 }:
 {
-  enable = false;
+  enable = true;
 
   wrapperFeatures.gtk = true;
   config = {
@@ -28,21 +28,21 @@
     output =
 
       let
-        inherit (root.pkgs.wallpapers) takamaki;
+        inherit (root.pkgs.wallpapers.metallica) and-justice-for-all;
       in
       {
         DP-1 = {
           mode = "3840x2160";
-          position = "640 0";
-          scale = "3";
-          bg = "${takamaki} fill";
-        };
-
-        HDMI-A-3 = {
-          mode = "1920x1080";
           position = "0 0";
           scale = "3";
-          bg = "${takamaki} fill";
+          bg = "${and-justice-for-all} fill";
+        };
+
+        HDMI-A-1 = {
+          mode = "3840x2160";
+          # position = "1240 0";
+          scale = "3";
+          bg = "${and-justice-for-all} fill";
         };
       };
 

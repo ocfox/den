@@ -1,7 +1,7 @@
 {
   interactiveShellInit = ''
     if test (id --user $USER) = 1000 && test (tty) = "/dev/tty1"
-      exec niri-session
+      exec sway
     end
   '';
 

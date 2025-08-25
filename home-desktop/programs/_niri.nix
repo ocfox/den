@@ -9,6 +9,7 @@
 
     outputs = {
       "DP-1".scale = 3.0;
+      "HDMI-A-1".scale = 3.0;
     };
 
     layout = {
