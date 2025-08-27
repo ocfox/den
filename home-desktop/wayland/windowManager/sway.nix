@@ -56,7 +56,7 @@
 
     workspaceOutputAssign = [
       {
-        output = "HDMI-A-3";
+        output = "HDMI-A-1";
         workspace = "9";
       }
     ];
