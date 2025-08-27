@@ -7,13 +7,15 @@
 {
   enable = true;
 
+  # package = pkgs.sway_git;
+
   wrapperFeatures.gtk = true;
   config = {
     modifier = "Mod4";
     startup = [
       { command = "fcitx5 -d"; }
       { command = "firefox"; }
-      { command = "telegram-desktop"; }
+      { command = "Telegram"; }
       { command = "thunderbird"; }
     ];
 
@@ -21,12 +23,11 @@
 
     assigns = {
       "1" = [ { app_id = "firefox"; } ];
-      "4" = [ { app_id = "org.telegram.desktop"; } ];
-      "5" = [ { app_id = "thunderbird"; } ];
+      "3" = [ { app_id = "org.telegram.desktop"; } ];
+      "4" = [ { app_id = "thunderbird"; } ];
     };
 
     output =
-
       let
         inherit (root.pkgs.wallpapers.metallica) and-justice-for-all;
       in

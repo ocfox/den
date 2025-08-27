@@ -1,3 +1,4 @@
+{ pkgs }:
 {
   # docker = {
   #   enable = true;
@@ -7,5 +8,6 @@
   #   };
   # };
   podman.enable = true;
+  containers.enable = true;
   libvirtd.enable = true;
 }

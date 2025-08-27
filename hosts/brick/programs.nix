@@ -19,6 +19,8 @@
   };
 
   sway.enable = true;
+  sway.package = pkgs.sway_git;
+
   fish = {
     useBabelfish = true;
     enable = true;

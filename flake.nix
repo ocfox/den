@@ -127,6 +127,7 @@
     minegrub.url = "github:ocfox/minegrub-world-sel-theme";
     niri.url = "github:sodiboo/niri-flake";
     nixos-facter.url = "github:numtide/nixos-facter-modules";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     vaultix.url = "github:milieuim/vaultix";
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";

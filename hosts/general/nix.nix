@@ -6,6 +6,7 @@
 
   extraOptions = ''
     experimental-features = nix-command flakes
+    lazy-trees = true
     keep-outputs = true
     keep-derivations = true
   '';
