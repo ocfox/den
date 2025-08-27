@@ -2,12 +2,12 @@
 {
   enable = true;
   theme = {
-    package = pkgs.numix-gtk-theme;
-    name = "Numix";
+    name = "Adwaita-dark";
+    package = pkgs.gnome-themes-extra;
   };
   iconTheme = {
-    package = pkgs.papirus-icon-theme;
-    name = "Papirus-Dark";
+    name = "Numix-Circle";
+    package = pkgs.numix-icon-theme-circle;
   };
   gtk3.extraConfig = {
     gtk-xft-hinting = 1;

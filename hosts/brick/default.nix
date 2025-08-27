@@ -36,8 +36,8 @@
         "text/html"
       ] (_: "firefox.desktop");
     };
-    # portal.wlr.enable = true;
-    # portal.enable = true;
+    portal.wlr.enable = true;
+    portal.enable = true;
   };
 
   users.users.${username} = {
