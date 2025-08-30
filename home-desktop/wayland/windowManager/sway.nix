@@ -91,7 +91,7 @@
         "${modifier}+Shift+d" = "exec ${lib.getExe pkgs.pamixer} -d 5";
         "${modifier}+Shift+e" = "exec ${lib.getExe powermenu}";
         "${modifier}+Return" = "exec ${lib.getExe pkgs.alacritty}";
-        "${modifier}+o" = "exec ${lib.getExe' pkgs.kickoff "kickoff"}";
+        "${modifier}+o" = "exec ${lib.getExe pkgs.fuzzel}";
         "${modifier}+space" = "floating toggle";
         "${modifier}+Shift+space" = null;
         "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
