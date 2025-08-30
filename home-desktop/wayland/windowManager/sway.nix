@@ -20,6 +20,12 @@
       { command = "thunderbird"; }
     ];
 
+    floating.criteria = [
+      {
+        title = "Feishu Meetings";
+      }
+    ];
+
     bars = [ ];
 
     assigns = {
@@ -33,7 +39,7 @@
         inherit (root.pkgs.wallpapers.metallica) and-justice-for-all;
       in
       {
-        DP-1 = {
+        HDMI-A-2 = {
           mode = "3840x2160";
           position = "0 0";
           scale = "3";
