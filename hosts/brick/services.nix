@@ -6,6 +6,8 @@
   printing.enable = true;
   printing.drivers = [ pkgs.hplip ];
 
+  blueman.enable = true;
+
   tailscale.enable = true;
 
   openssh.enable = true;
