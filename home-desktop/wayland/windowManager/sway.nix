@@ -8,6 +8,7 @@
   enable = true;
 
   # package = pkgs.sway_git;
+  systemd.enable = true;
 
   wrapperFeatures.gtk = true;
   config = {
