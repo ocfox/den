@@ -36,21 +36,21 @@
 
     output =
       let
-        inherit (root.pkgs.wallpapers.metallica) and-justice-for-all;
+        inherit (root.pkgs.wallpapers) oshino;
       in
       {
         HDMI-A-2 = {
           mode = "3840x2160";
           position = "0 0";
           scale = "3";
-          bg = "${and-justice-for-all} fill";
+          bg = "${oshino} fill";
         };
 
         HDMI-A-1 = {
           mode = "3840x2160";
           # position = "1240 0";
           scale = "3";
-          bg = "${and-justice-for-all} fill";
+          bg = "${oshino} fill";
         };
       };
 

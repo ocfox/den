@@ -6,6 +6,12 @@
     hash = "sha256-4Gf2IvehQ9JXD1kzgYRNFZZi17UWx++09tU05U7Q7To=";
   };
 
+  oshino = pkgs.fetchurl {
+    url = "https://pb.ocfox.me/oshino";
+    name = "oshino.jpg";
+    hash = "sha256-gy+LJsN0tulKG8iKsbrRAU2SAeb2VgRkQ3A/JPyigsg=";
+  };
+
   cowboyBebop = {
     default = pkgs.fetchurl {
       url = "https://transfer.ocfox.me/A5/cowboy_bebop.jpg";
