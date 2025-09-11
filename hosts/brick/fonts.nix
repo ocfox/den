@@ -8,12 +8,17 @@
       sansSerif = [
         "Inter"
         "Microsoft YaHei"
+        "IPAPGothic"
       ];
       serif = [
         "Roboto Serif"
         "Microsoft YaHei"
+        "IPAPMincho"
       ];
-      monospace = [ "JetBrainsMono Nerd Font" ];
+      monospace = [
+        "JetBrainsMono Nerd Font"
+        "Sarasa Mono J"
+      ];
     };
   };
 
@@ -24,10 +29,8 @@
   packages = with pkgs; [
     vistafonts-chs
     inter
-    roboto
-    roboto-serif
-    noto-fonts
-    noto-fonts-cjk-sans
+    ipafont
+    sarasa-gothic
     noto-fonts-emoji
     nerd-fonts.jetbrains-mono
   ];

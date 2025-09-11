@@ -1,6 +1,7 @@
 { pkgs }:
 {
   defaultLocale = "en_US.UTF-8";
+  extraLocales = "all";
   inputMethod = {
     enable = true;
     type = "fcitx5";

@@ -1,5 +1,5 @@
 * {
-  font-family: "JetBrainsMono Nerd Font";
+  font-family: "Sarasa Mono J";
   font-size: 8pt;
   font-weight: bold;
   border-radius: 0px;
@@ -11,7 +11,8 @@ window#waybar {
 }
 window > box {
   margin: 0 0px;
-  background-color: rgba(43, 51, 57, 0.9);
+  /* background-color: rgba(43, 51, 57, 0.9); */
+  background-color: rgba(43, 51, 57, 1.0);
 }
 #workspaces {
   margin: 0 0px;

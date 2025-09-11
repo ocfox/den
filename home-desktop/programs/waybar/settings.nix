@@ -13,9 +13,12 @@ in
     "position" = "top";
     "modules-left" = [
       "sway/workspaces"
-      "custom/music"
+      # "custom/music"
     ];
-    "modules-center" = [ "sway/window" ];
+    "modules-center" = [
+      "clock"
+      # "sway/window"
+    ];
     "modules-right" = [
       "tray"
       "idle_inhibitor"
@@ -24,24 +27,28 @@ in
       "cpu"
       "network"
       "battery"
-      "clock"
     ];
     "sway/workspaces" = {
       "disable-scroll" = true;
       "format" = "{icon}";
       "all-outputs" = true;
       "format-icons" = {
-        "1" = ''<span color="#FF7139"></span>'';
-        "2" = ''<span color="#757575"></span>'';
-        "3" = ''<span color="#26A5E4"></span>'';
-        "4" = ''<span color="#0A84FF"></span>'';
+        "1" = "一";
+        "2" = "二";
+        "3" = "三";
+        "4" = "四";
+        "5" = "五";
+        "6" = "六";
+        "7" = "七";
+        "8" = "八";
+        "9" = "九";
       };
     };
     "idle_inhibitor" = {
       "format" = "{icon}";
       "format-icons" = {
-        "activated" = "󰈈";
-        "deactivated" = "󰈉";
+        "activated" = "IDLE";
+        "deactivated" = "<s>IDLE</s>";
       };
       "tooltip" = false;
     };
@@ -63,7 +70,7 @@ in
       ];
     };
     "pulseaudio" = {
-      "format" = "{icon} {volume}%";
+      "format" = "Vol {volume}%";
       "format-muted" = "󰝟 Muted";
       "max-volume" = 200;
       "format-icons" = {
@@ -82,12 +89,15 @@ in
     };
     "clock" = {
       "interval" = 1;
-      "format" = "{:%H:%M %b %d}";
+      "format" = "{:L%Om月%Od日(%a)%H時%M分}";
       "tooltip" = true;
-      "today-format" = "<span color='#ff6699'><b>{}</b></span>";
-      "tooltip-format" = ''
-        {:%A %B %Y}
-        <tt>{calendar}</tt>'';
+      "locale" = "ja_JP.UTF-8";
+      "calendar" = {
+        "format" = {
+          "today" = "<span color='#ff6699'><b>{}</b></span>";
+        };
+      };
+      "tooltip-format" = ''<span>{calendar}</span>'';
     };
     "battery" = {
       "states" = {
@@ -109,7 +119,7 @@ in
     };
     "cpu" = {
       "interval" = 1;
-      "format" = "󰘚 {usage}%";
+      "format" = "CPU {usage}%";
     };
     "custom/music" = {
       "format" = "{}";
@@ -120,7 +130,7 @@ in
     "network" = {
       "interval" = 1;
       "format-wifi" = "󰖩 {essid}";
-      "format-ethernet" = "󰈀 {ipaddr}";
+      "format-ethernet" = "{ipaddr}";
       "format-linked" = "󰖩 {essid}";
       "format-disconnected" = "󰖩 Disconnected";
       "tooltip" = false;

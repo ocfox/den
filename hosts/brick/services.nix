@@ -8,6 +8,8 @@
 
   blueman.enable = true;
 
+  postgresql.enable = true;
+
   tailscale.enable = true;
 
   xwayland-satellite.enable = true;

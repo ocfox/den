@@ -90,7 +90,7 @@
         "${modifier}+Shift+u" = "exec ${lib.getExe pkgs.pamixer} -i 5";
         "${modifier}+Shift+d" = "exec ${lib.getExe pkgs.pamixer} -d 5";
         "${modifier}+Shift+e" = "exec ${lib.getExe powermenu}";
-        "${modifier}+Return" = "exec ${lib.getExe pkgs.alacritty}";
+        "${modifier}+Return" = "exec ${lib.getExe pkgs.foot}";
         "${modifier}+o" = "exec ${lib.getExe pkgs.fuzzel}";
         "${modifier}+space" = "floating toggle";
         "${modifier}+Shift+space" = null;
