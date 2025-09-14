@@ -23,10 +23,11 @@ in
       "tray"
       "idle_inhibitor"
       "pulseaudio"
-      "backlight"
+      "memory"
+      # "backlight"
       "cpu"
       "network"
-      "battery"
+      # "battery"
     ];
     "sway/workspaces" = {
       "disable-scroll" = true;
@@ -89,7 +90,7 @@ in
     };
     "clock" = {
       "interval" = 1;
-      "format" = "{:L%Om月%Od日(%a)%H時%M分}";
+      "format" = "{:L%m月%d日(%a) %H時%M分}";
       "tooltip" = true;
       "locale" = "ja_JP.UTF-8";
       "calendar" = {
@@ -121,6 +122,10 @@ in
       "interval" = 1;
       "format" = "CPU {usage}%";
     };
+    "memory" = {
+      "interval" = 5;
+      "format" = "{used}/{total}";
+    };
     "custom/music" = {
       "format" = "{}";
       "interval" = 1;
@@ -133,7 +138,7 @@ in
       "format-ethernet" = "{ipaddr}";
       "format-linked" = "󰖩 {essid}";
       "format-disconnected" = "󰖩 Disconnected";
-      "tooltip" = false;
+      "tooltip" = true;
     };
     "tray" = {
       "icon-size" = 14;
