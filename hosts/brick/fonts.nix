@@ -7,13 +7,10 @@
       emoji = [ "Noto Color Emoji" ];
       sansSerif = [
         "Inter"
-        "Microsoft YaHei"
-        "IPAPGothic"
+        "Sarasa Gothic J"
       ];
       serif = [
-        "Roboto Serif"
-        "Microsoft YaHei"
-        "IPAPMincho"
+        "Sarasa Gothic J"
       ];
       monospace = [
         "JetBrainsMono Nerd Font"
@@ -27,9 +24,8 @@
 
   enableDefaultPackages = true;
   packages = with pkgs; [
-    vistafonts-chs
+    # vistafonts-chs
     inter
-    ipafont
     sarasa-gothic
     noto-fonts-emoji
     nerd-fonts.jetbrains-mono
