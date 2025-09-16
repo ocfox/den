@@ -14,7 +14,7 @@ with pkgs;
   bottom
 
   sing-box
-  
+
   screen
   ripgrep
   pinentry
@@ -31,4 +31,6 @@ with pkgs;
   mpv-handler
 
   nix-heuristic-gc
+
+  foliate # epub reader
 ]
