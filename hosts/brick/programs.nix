@@ -14,6 +14,11 @@
   #   package = pkgs.niri-unstable;
   # };
 
+  nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "foot";
+  };
+
   obs-studio = {
     enable = true;
   };

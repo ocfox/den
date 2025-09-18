@@ -29,6 +29,7 @@ with pkgs;
   polkit_gnome
   thunderbird
   mpv-handler
+  sioyek
 
   nix-heuristic-gc
 

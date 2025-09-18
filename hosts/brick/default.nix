@@ -1,7 +1,6 @@
 {
   pkgs,
   username,
-  inputs,
   lib,
   config,
   ...
@@ -25,6 +24,7 @@
         "application/x-xdg-protocol-tg" = [ "org.telegram.desktop.desktop" ];
         "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
         "x-scheme-handler/mpv" = [ "mpv-handler.desktop" ];
+        "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
         "application/pdf" = [ "sioyek.desktop" ];
       }
       // lib.genAttrs [

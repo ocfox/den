@@ -95,6 +95,7 @@
         "${modifier}+space" = "floating toggle";
         "${modifier}+Shift+space" = null;
         "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
+        "${modifier}+Shift+p" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy output";
         "${modifier}+Shift+r" = "exec ${lib.getExe recorder-toggle}";
       };
     colors = {
