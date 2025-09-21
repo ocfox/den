@@ -75,6 +75,7 @@
           macshot
           powermenu
           recorder-toggle
+          monitor-toggle
           swaylock
           ;
       in
@@ -97,6 +98,7 @@
         "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
         "${modifier}+Shift+p" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy output";
         "${modifier}+Shift+r" = "exec ${lib.getExe recorder-toggle}";
+        "${modifier}+Shift+m" = "exec ${lib.getExe monitor-toggle}";
       };
     colors = {
       focused = {

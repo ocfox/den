@@ -27,6 +27,8 @@
     # vistafonts-chs
     inter
     sarasa-gothic
+    lxgw-wenkai
+    source-han-serif
     noto-fonts-emoji
     nerd-fonts.jetbrains-mono
   ];
