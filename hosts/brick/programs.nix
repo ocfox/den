@@ -14,6 +14,10 @@
   #   package = pkgs.niri-unstable;
   # };
 
+  fzf = {
+    keybindings = true;
+    fuzzyCompletion = true;
+  };
   nautilus-open-any-terminal = {
     enable = true;
     terminal = "foot";
