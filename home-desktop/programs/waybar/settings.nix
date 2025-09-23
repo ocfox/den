@@ -10,7 +10,7 @@ in
 [
   {
     "layer" = "top";
-    "position" = "top";
+    "position" = "bottom";
     "modules-left" = [
       "sway/workspaces"
       # "custom/music"
