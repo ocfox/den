@@ -9,7 +9,7 @@ When I moved to the next station, these emotions stuck in my feet like a quagmir
 
 ### Don't Worry
 
-There's no need to worry about what you will fucked up.
+There's no need to worry about what you will fuck up.
 Even if it happens, look forward, nothing will change if you pay for that.
 
 The Forest, where I am. I want to follow pure instinct like a tiger, a dog, or even an ant.
