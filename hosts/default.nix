@@ -38,7 +38,6 @@ mkMerge [
   (genNixosSystem "whitefox" "x86_64-linux" [
     ./whitefox/_hardware.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.minegrub.nixosModules.default
     # inputs.vaultix.nixosModules.default
     inputs.niri.nixosModules.niri
     { nix.registry.self.flake = self; }
@@ -47,7 +46,6 @@ mkMerge [
   (genNixosSystem "brick" "x86_64-linux" [
     ./brick/_hardware.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.minegrub.nixosModules.default
     inputs.disko.nixosModules.disko
     inputs.chaotic.nixosModules.default
     { nix.registry.self.flake = self; }

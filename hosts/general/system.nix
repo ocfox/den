@@ -1,0 +1,3 @@
+{
+  nixos-init.enable = true;
+}
