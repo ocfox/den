@@ -9,10 +9,34 @@
     }
     {
       name = "typescript";
+      language-id = "typescript";
+      scope = "source.ts";
+      injection-regex = "^(ts|typescript)$";
+      file-types = [ "ts" ];
+      shebangs = [
+        "deno"
+        "node"
+      ];
+      roots = [
+        "deno.json"
+        "deno.jsonc"
+        "package.json"
+        "tsconfig.json"
+      ];
       auto-format = true;
       language-servers = [
-        # "dprint"
-        "typescript-language-server"
+        {
+          name = "deno-lsp";
+          except-features = [
+            "format"
+          ];
+        }
+        {
+          name = "typescript-language-server";
+          except-features = [
+            "format"
+          ];
+        }
       ];
     }
   ];
@@ -21,24 +45,16 @@
     deno-lsp = {
       command = lib.getExe pkgs.deno;
       args = [ "lsp" ];
-      environment.NO_COLOR = "1";
+      required-root-patterns = [ "deno.*" ];
       config.deno = {
         enable = true;
-        lint = true;
-        unstable = true;
         suggest = {
           completeFunctionCalls = false;
           imports = {
-            hosts."https://deno.land" = true;
+            hosts = {
+              "https://deno.land" = true;
+            };
           };
-        };
-        inlayHints = {
-          enumMemberValues.enabled = true;
-          functionLikeReturnTypes.enabled = true;
-          parameterNames.enabled = "all";
-          parameterTypes.enabled = true;
-          propertyDeclarationTypes.enabled = true;
-          variableTypes.enabled = true;
         };
       };
     };
@@ -46,15 +62,10 @@
     typescript-language-server = {
       command = lib.getExe pkgs.nodePackages.typescript-language-server;
       args = [ "--stdio" ];
-      # config = {
-      #   typescript-language-server.source = {
-      #     addMissingImports.ts = true;
-      #     fixAll.ts = true;
-      #     organizeImports.ts = true;
-      #     removeUnusedImports.ts = true;
-      #     sortImports.ts = true;
-      #   };
-      # };
+      required-root-patterns = [
+        "package.json"
+        "tsconfig.json"
+      ];
     };
 
     vscode-css-language-server = {
