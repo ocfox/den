@@ -2,8 +2,6 @@
 {
   openssh.enable = true;
 
-  tailscale.enable = true;
-
   resolved.enable = false;
   dnsproxy = {
     enable = true;

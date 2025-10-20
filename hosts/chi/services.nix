@@ -2,12 +2,12 @@
 {
   openssh.enable = true;
 
-  tailscale.enable = true;
-
   immich.enable = true;
 
+  netbird.enable = true;
+
   mastodon = {
-    enable = true;
+    # enable = true;
     streamingProcesses = 1;
     localDomain = "ocfox.me";
     smtp.fromAddress = "server@mastodon.ocfox.me";
@@ -36,43 +36,43 @@
 
     virtualHosts = {
 
-      "mastodon.ocfox.me" = {
-        extraConfig = ''
-          handle_path /system/* {
-              file_server * {
-                  root /var/lib/mastodon/public-system
-              }
-          }
+      # "mastodon.ocfox.me" = {
+      #   extraConfig = ''
+      #     handle_path /system/* {
+      #         file_server * {
+      #             root /var/lib/mastodon/public-system
+      #         }
+      #     }
 
-          handle /api/v1/streaming/* {
-              reverse_proxy  unix//run/mastodon-streaming/streaming-1.socket
-          }
+      #     handle /api/v1/streaming/* {
+      #         reverse_proxy  unix//run/mastodon-streaming/streaming-1.socket
+      #     }
 
-          route * {
-              file_server * {
-              root ${pkgs.mastodon}/public
-              pass_thru
-              }
-              reverse_proxy * unix//run/mastodon-web/web.socket
-          }
+      #     route * {
+      #         file_server * {
+      #         root ${pkgs.mastodon}/public
+      #         pass_thru
+      #         }
+      #         reverse_proxy * unix//run/mastodon-web/web.socket
+      #     }
 
-          handle_errors {
-              root * ${pkgs.mastodon}/public
-              rewrite 500.html
-              file_server
-          }
+      #     handle_errors {
+      #         root * ${pkgs.mastodon}/public
+      #         rewrite 500.html
+      #         file_server
+      #     }
 
-          encode gzip
+      #     encode gzip
 
-          header /* {
-              Strict-Transport-Security "max-age=31536000;"
-          }
-          header /emoji/* Cache-Control "public, max-age=31536000, immutable"
-          header /packs/* Cache-Control "public, max-age=31536000, immutable"
-          header /system/accounts/avatars/* Cache-Control "public, max-age=31536000, immutable"
-          header /system/media_attachments/files/* Cache-Control "public, max-age=31536000, immutable"
-        '';
-      };
+      #     header /* {
+      #         Strict-Transport-Security "max-age=31536000;"
+      #     }
+      #     header /emoji/* Cache-Control "public, max-age=31536000, immutable"
+      #     header /packs/* Cache-Control "public, max-age=31536000, immutable"
+      #     header /system/accounts/avatars/* Cache-Control "public, max-age=31536000, immutable"
+      #     header /system/media_attachments/files/* Cache-Control "public, max-age=31536000, immutable"
+      #   '';
+      # };
 
       "vault" = {
         hostName = "vault.cyans.dev";

@@ -21,6 +21,4 @@
       rpc-host-whitelist-enabled = false;
     };
   };
-
-  tailscale.enable = true;
 }

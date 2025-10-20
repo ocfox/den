@@ -4,8 +4,6 @@
   getty.autologinUser = username;
   devmon.enable = true;
 
-  tailscale.enable = true;
-
   openssh.enable = true;
   udev.packages = [ pkgs.android-udev-rules ];
 

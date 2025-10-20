@@ -9,8 +9,7 @@
   blueman.enable = true;
 
   postgresql.enable = true;
-
-  tailscale.enable = true;
+  netbird.enable = true;
 
   udisks2.enable = true;
 

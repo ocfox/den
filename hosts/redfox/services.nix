@@ -1,7 +1,6 @@
 { pkgs, username }:
 {
   openssh.enable = true;
-  tailscale.enable = true;
 
   transfer-sh = {
     enable = true;
