@@ -3,8 +3,9 @@ let
   base = with config.flake.modules.nixos; [
     users
     boot
-    facter
     nix
+    i18n
+    facter
   ];
 in
 {
