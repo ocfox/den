@@ -100,7 +100,7 @@ in
           workspaceOutputAssign = [
             {
               output = "HDMI-A-1";
-              workspace = "9";
+              workspace = "10";
             }
           ];
 
@@ -162,6 +162,11 @@ in
             };
           };
         };
+
+        extraConfig = ''
+          titlebar_border_thickness 0
+          titlebar_padding 1
+        '';
       };
     };
 }
