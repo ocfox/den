@@ -1,7 +1,10 @@
 { config, ... }:
 let
-  waybar = config.flake.modules.homeManager.waybar;
-  gtk = config.flake.modules.homeManager.gtk;
+  inherit (config.flake.modules.homeManager)
+    waybar
+    gtk
+    mako
+    ;
 in
 {
   flake.modules.homeManager.sway =
@@ -14,6 +17,7 @@ in
     {
       imports = [
         waybar
+        mako
         gtk
       ];
       home.packages = with pkgs; [
@@ -120,8 +124,10 @@ in
               "${modifier}+d" = "move scratchpad";
               "${modifier}+i" = "scratchpad show";
               "${modifier}+Shift+a" = "exec ${lib.getExe macshot}";
-              "${modifier}+Shift+u" = "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+";
-              "${modifier}+Shift+d" = "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+              "${modifier}+Shift+u" =
+                "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+              "${modifier}+Shift+d" =
+                "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%-";
               "${modifier}+Shift+e" = "exec ${lib.getExe powermenu}";
               "${modifier}+Return" = "exec ${lib.getExe pkgs.foot}";
               "${modifier}+o" = "exec ${lib.getExe pkgs.fuzzel}";
