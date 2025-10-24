@@ -5,7 +5,6 @@ let
     boot
     nix
     i18n
-    facter
   ];
 in
 {

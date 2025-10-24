@@ -6,6 +6,7 @@
       base
       disko
       shell
+      facter
       desktop
     ]
     ++ [
