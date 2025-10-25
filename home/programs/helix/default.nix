@@ -1,4 +1,0 @@
-{
-  enable = true;
-  defaultEditor = true;
-}

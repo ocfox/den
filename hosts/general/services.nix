@@ -1,3 +1,0 @@
-{
-  userborn.enable = true;
-}

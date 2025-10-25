@@ -1,8 +1,0 @@
-builds:
- exclude:
-   - 'nixosConfigurations.silverfox'
- include:
-   - 'packages.x86_64-linux.*'
-   - 'nixosConfigurations.redfox'
-   - 'nixosConfigurations.whitefox'
-   - 'nixosConfigurations.chi'
