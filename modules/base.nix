@@ -13,6 +13,7 @@ in
     {
       imports = base;
       services = {
+        pcscd.enable = true;
         netbird.enable = true;
         openssh.enable = true;
       };
@@ -22,6 +23,7 @@ in
         bind
         htop
         ripgrep
+        age-plugin-yubikey
       ];
     };
 }

@@ -1,18 +1,21 @@
 {
-  lib,
   inputs,
   config,
   withSystem,
   ...
 }:
+let
+  inherit (inputs.nixpkgs.lib) mapAttrs nixosSystem;
+in
 {
   flake.lib = {
     mkNixos =
       system: name:
       withSystem system (
         { pkgs, ... }:
-        inputs.nixpkgs.lib.nixosSystem {
+        nixosSystem {
           inherit system pkgs;
+          specialArgs = { inherit inputs; };
           modules = [
             config.flake.modules.nixos.${name}
             {
@@ -23,6 +26,6 @@
         }
       );
 
-    mkNixosFromAttrs = hosts: lib.mapAttrs (name: system: config.flake.lib.mkNixos system name) hosts;
+    mkNixosFromAttrs = hosts: mapAttrs (name: system: config.flake.lib.mkNixos system name) hosts;
   };
 }
