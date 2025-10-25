@@ -3,7 +3,7 @@
   imports = [ inputs.vaultix.flakeModules.default ];
   flake = {
     vaultix = {
-      identity = inputs.self + "/modules/vaultix/secrets/age-yubikey-identity-de5ab175.txt";
+      identity = inputs.self + "/secrets/age-yubikey-identity-de5ab175.txt";
       nodes = inputs.self.nixosConfigurations;
     };
   };

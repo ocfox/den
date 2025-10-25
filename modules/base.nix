@@ -2,7 +2,6 @@
 let
   base = with config.flake.modules.nixos; [
     users
-    boot
     nix
     i18n
   ];

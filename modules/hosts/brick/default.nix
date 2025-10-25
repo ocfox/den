@@ -4,6 +4,7 @@
     with config.flake.modules.nixos;
     [
       base
+      boot
       disko
       shell
       facter
@@ -22,14 +23,11 @@
       }
 
       { services.blueman.enable = true; }
+      { boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; }
       {
         imports = [ inputs.vaultix.nixosModules.default ];
         vaultix = {
           settings.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII3bQFO5LoC420iUupO9kJBBLnujh/QCURi64LvT5mmT root@brick";
-          # secrets.drive = {
-          #   file = ../../secrets/drive.age;
-          #   mode = "640";
-          # };
           # secrets.vault = {
           #   file = ../../secrets/vault.age;
           #   mode = "640";
