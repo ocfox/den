@@ -4,6 +4,7 @@ let
     users
     nix
     i18n
+    shell
   ];
 in
 {

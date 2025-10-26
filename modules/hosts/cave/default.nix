@@ -8,10 +8,7 @@ in
     { config, pkgs, ... }:
     {
       imports = mkHostModule {
-        nixosModules = [
-          base
-          shell
-        ];
+        nixosModules = [ ];
         stateVersion = "25.11";
         hostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPsoj81WwIeKhmkl4V8qWEhQgRra1UW4u1TMWsaxQZD";
         extraModules = [

@@ -11,16 +11,17 @@ in
   flake.lib = {
     mkHostModule =
       {
-        nixosModules,
+        nixosModules ? [ ],
         homeModules ? [ ],
         stateVersion,
         hostKey,
         extraModules ? [ ],
       }:
       [
+        config.flake.modules.nixos.base
         config.flake.modules.nixos.home-manager
         {
-          home-manager.users.ocfox.imports = homeModules;
+          home-manager.users.ocfox.imports = [ config.flake.modules.homeManager.base ] ++ homeModules;
           system.stateVersion = stateVersion;
         }
         {
