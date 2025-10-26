@@ -17,7 +17,7 @@ in
         netbird.enable = true;
         openssh.enable = true;
       };
-
+      hardware.enableRedistributableFirmware = true;
       environment.systemPackages = with pkgs; [
         git
         curl
