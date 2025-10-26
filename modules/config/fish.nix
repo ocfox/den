@@ -12,7 +12,7 @@
     };
 
   flake.modules.homeManager.shell =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       programs = {
         atuin = {
@@ -65,5 +65,10 @@
           };
         };
       };
+
+      # tide
+      home.activation.configure-tide = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        ${pkgs.fish}/bin/fish -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='12-hour format' --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=No"
+      '';
     };
 }
