@@ -4,6 +4,7 @@ let
     users
     nix
     i18n
+    shell
   ];
 in
 {
@@ -18,6 +19,7 @@ in
       };
 
       environment.systemPackages = with pkgs; [
+        git
         curl
         bind
         htop
@@ -25,4 +27,12 @@ in
         age-plugin-yubikey
       ];
     };
+
+  flake.modules.homeManager.base = {
+    imports = with config.flake.modules.homeManager; [
+      git
+      shell
+      editor
+    ];
+  };
 }

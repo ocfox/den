@@ -414,15 +414,15 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1752329017,
-        "narHash": "sha256-BmhVctaWQ7/i3nAkw6vZ05d17WIO6Wsauaw8vxqL+RU=",
-        "owner": "milieuim",
+        "lastModified": 1761445131,
+        "narHash": "sha256-CtWTkwW0c5N+1AgCvA3ASD/dwzLbrdU+nRLr/A6fsgk=",
+        "owner": "ocfox",
         "repo": "vaultix",
-        "rev": "440498ee609a3b83659b62b924a3c39775aaeaf2",
+        "rev": "0f4b5dd72abf1d7b4e6e04a705bb978aa2ba663f",
         "type": "github"
       },
       "original": {
-        "owner": "milieuim",
+        "owner": "ocfox",
         "repo": "vaultix",
         "type": "github"
       }

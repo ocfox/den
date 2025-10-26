@@ -9,6 +9,36 @@ let
 in
 {
   flake.lib = {
+    mkHostModule =
+      {
+        nixosModules ? [ ],
+        homeModules ? [ ],
+        stateVersion,
+        hostKey ? "",
+        extraModules ? [ ],
+      }:
+      [
+        config.flake.modules.nixos.base
+        config.flake.modules.nixos.home-manager
+        {
+          home-manager.users.ocfox.imports = [ config.flake.modules.homeManager.base ] ++ homeModules;
+          system.stateVersion = stateVersion;
+        }
+      ]
+      ++ (
+        if hostKey != "" then
+          [
+            {
+              imports = [ inputs.vaultix.nixosModules.default ];
+              vaultix.settings.hostPubkey = hostKey;
+            }
+          ]
+        else
+          [ ]
+      )
+      ++ nixosModules
+      ++ extraModules;
+
     mkNixos =
       system: name:
       withSystem system (
