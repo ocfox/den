@@ -14,7 +14,7 @@ in
         nixosModules ? [ ],
         homeModules ? [ ],
         stateVersion,
-        hostKey,
+        hostKey ? "",
         extraModules ? [ ],
       }:
       [
@@ -24,11 +24,18 @@ in
           home-manager.users.ocfox.imports = [ config.flake.modules.homeManager.base ] ++ homeModules;
           system.stateVersion = stateVersion;
         }
-        {
-          imports = [ inputs.vaultix.nixosModules.default ];
-          vaultix.settings.hostPubkey = hostKey;
-        }
       ]
+      ++ (
+        if hostKey != "" then
+          [
+            {
+              imports = [ inputs.vaultix.nixosModules.default ];
+              vaultix.settings.hostPubkey = hostKey;
+            }
+          ]
+        else
+          [ ]
+      )
       ++ nixosModules
       ++ extraModules;
 
