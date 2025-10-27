@@ -21,7 +21,10 @@ in
         config.flake.modules.nixos.base
         config.flake.modules.nixos.home-manager
         {
-          home-manager.users.ocfox.imports = [ config.flake.modules.homeManager.base ] ++ homeModules;
+          home-manager.users.ocfox.imports = [
+            config.flake.modules.homeManager.base
+          ]
+          ++ homeModules;
           system.stateVersion = stateVersion;
         }
       ]

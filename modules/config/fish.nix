@@ -14,6 +14,7 @@
   flake.modules.homeManager.shell =
     { pkgs, lib, ... }:
     {
+      home.shell.enableShellIntegration = true;
       programs = {
         atuin = {
           enable = true;
@@ -59,6 +60,10 @@
               end
             '';
 
+            tideinit = ''
+              tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='12-hour format' --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=No
+            '';
+
             haskellEnv = ''
               nix-shell -p haskell-language-server "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
             '';
@@ -67,8 +72,8 @@
       };
 
       # tide
-      home.activation.configure-tide = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-        ${pkgs.fish}/bin/fish -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='12-hour format' --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=No"
-      '';
+      # home.activation.configure-tide = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      #   ${pkgs.fish}/bin/fish -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='12-hour format' --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=No"
+      # '';
     };
 }
