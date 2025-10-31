@@ -27,7 +27,6 @@ in
               "console=ttyS0,115200n8"
               "console=tty0"
             ];
-            services.openssh.enable = true;
             networking = {
               firewall.enable = false;
               nftables = {
@@ -87,10 +86,6 @@ in
               device = "/dev/disk/by-uuid/abf81274-ce56-4d1e-a613-b41aecf48ac8";
               fsType = "ext4";
             };
-
-            networking.useDHCP = lib.mkDefault true;
-
-            nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
           }
         ];

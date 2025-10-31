@@ -14,8 +14,8 @@ in
       imports = base;
       services = {
         pcscd.enable = true;
-        netbird.enable = true;
         openssh.enable = true;
+        tailscale.enable = true;
       };
       hardware.enableRedistributableFirmware = true;
       environment.systemPackages = with pkgs; [
