@@ -22,7 +22,7 @@ window>box {
 
 #workspaces button {
   min-width: 25px;
-  min-height: 18px;
+  min-height: 0px;
   padding: 0 0px;
 }
 

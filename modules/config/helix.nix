@@ -2,7 +2,10 @@
   flake.modules.homeManager.editor =
     { lib, pkgs, ... }:
     {
-      home.packages = with pkgs; [ nil ];
+      home.packages = with pkgs; [
+        nil
+        biome
+      ];
       programs.helix = {
         enable = true;
         defaultEditor = true;
@@ -72,7 +75,16 @@
                     "format"
                   ];
                 }
+                "biome"
               ];
+              formatter = {
+                command = "biome";
+                args = [
+                  "format"
+                  "--stdin-file-path"
+                  "a.ts"
+                ];
+              };
             }
           ];
 
