@@ -23,7 +23,7 @@ in
       home.packages = with pkgs; [
         wl-clipboard
         firefox
-        tdesktop
+        telegram-desktop
         thunderbird
       ];
       programs.fuzzel = {
