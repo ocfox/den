@@ -7,6 +7,7 @@
         pkgs.nautilus
         pkgs.sioyek
       ];
+      services.gnome.sushi.enable = true;
       xdg = {
         mime = {
           enable = true;

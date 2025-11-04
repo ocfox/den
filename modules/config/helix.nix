@@ -75,14 +75,12 @@
                     "format"
                   ];
                 }
-                "biome"
               ];
               formatter = {
-                command = "biome";
+                command = "deno";
                 args = [
-                  "format"
-                  "--stdin-file-path"
-                  "a.ts"
+                  "fmt"
+                  "-"
                 ];
               };
             }
