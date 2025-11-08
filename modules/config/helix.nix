@@ -50,7 +50,10 @@
               language-id = "typescript";
               scope = "source.ts";
               injection-regex = "^(ts|typescript)$";
-              file-types = [ "ts" ];
+              file-types = [
+                "ts"
+                "tsx"
+              ];
               shebangs = [
                 "deno"
                 "node"
