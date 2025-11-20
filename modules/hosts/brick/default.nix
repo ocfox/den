@@ -11,6 +11,7 @@ in
       disko
       facter
       desktop
+      android
     ];
     homeModules = with homeModules; [
       desktop
@@ -20,6 +21,7 @@ in
     extraModules = [
       { facter.reportPath = ./facter.json; }
       { services.blueman.enable = true; }
+      { networking.firewall.enable = false; }
       { boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; }
       # {
       #   vaultix.secrets.vault = {
