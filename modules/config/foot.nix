@@ -1,24 +1,31 @@
 {
-  flake.modules.homeManager.terminal =
-    { pkgs, ... }:
+  flake.modules.nixos.foot =
     {
-      programs.foot = {
-        enable = true;
-        settings = {
-          main = {
-            term = "xterm-256color";
-            font = "JetBrainsMono Nerd Font:size=16";
-            dpi-aware = "yes";
-          };
-          mouse = {
-            hide-when-typing = "yes";
-          };
+      lib,
+      pkgs,
+      config,
+      ...
+    }:
+    {
+      my.packages = [ pkgs.foot ];
 
-          colors = {
-            background = "2b3339";
-            foreground = "d8caac";
-          };
-        };
+      my.config.foot = {
+        "foot.ini" = pkgs.writeText "foot.ini" (
+          lib.generators.toINI { } {
+            main = {
+              term = "xterm-256color";
+              font = "JetBrainsMono Nerd Font:size=16";
+              "dpi-aware" = "yes";
+            };
+            mouse = {
+              "hide-when-typing" = "yes";
+            };
+            colors = {
+              background = "2b3339";
+              foreground = "d8caac";
+            };
+          }
+        );
       };
     };
 }

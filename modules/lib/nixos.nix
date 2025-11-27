@@ -11,22 +11,13 @@ in
   flake.lib = {
     mkHostModule =
       {
-        nixosModules ? [ ],
-        homeModules ? [ ],
+        modules ? [ ],
         stateVersion,
         hostKey ? "",
-        extraModules ? [ ],
       }:
       [
         config.flake.modules.nixos.base
-        config.flake.modules.nixos.home-manager
-        {
-          home-manager.users.ocfox.imports = [
-            config.flake.modules.homeManager.base
-          ]
-          ++ homeModules;
-          system.stateVersion = stateVersion;
-        }
+        { system.stateVersion = stateVersion; }
       ]
       ++ (
         if hostKey != "" then
@@ -39,8 +30,7 @@ in
         else
           [ ]
       )
-      ++ nixosModules
-      ++ extraModules;
+      ++ modules;
 
     mkNixos =
       system: name:
