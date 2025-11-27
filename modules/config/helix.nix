@@ -109,18 +109,7 @@
     };
   in
   {
-    my.packages = with pkgs; [
-      helix
-      nil
-      biome
-      nixfmt-rfc-style
-      deno
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
-      ruff
-      dprint
-      vscode-json-languageserver
-    ];
+    my.packages = [ pkgs.helix ];
 
     environment.variables.EDITOR = "hx";
 

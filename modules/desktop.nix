@@ -18,6 +18,7 @@
       gtk
       mpv
       helix
+      shell
     ];
   };
 }
