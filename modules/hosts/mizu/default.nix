@@ -13,7 +13,7 @@ in
     {
       imports = mkHostModule {
         stateVersion = "25.11";
-        extraModules = [
+        modules = [
           {
             boot.initrd.availableKernelModules = [
               "ata_piix"

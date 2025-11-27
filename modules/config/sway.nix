@@ -76,7 +76,7 @@
         bindsym Mod4+Shift+u exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bindsym Mod4+Up focus up
         bindsym Mod4+a focus parent
-        bindsym Mod4+apostrophe exec ${lib.getExe pkgs.swaylock}
+        bindsym Mod4+apostrophe exec ${lib.getExe pkgs.local.swaylock}
         bindsym Mod4+b splith
         bindsym Mod4+d move scratchpad
         bindsym Mod4+e layout toggle split
@@ -139,27 +139,25 @@
     in
     {
       my.packages = with pkgs; [
-        sway
-        foot
-        local.macshot
         wireplumber
-        local.powermenu
-        local.monitor-toggle
         sway-contrib.grimshot
-        local.recorder-toggle
-        swaylock
-        fuzzel
-        fcitx5
-        dbus
         firefox
         telegram-desktop
         thunderbird
-        kitty
       ];
 
       programs.sway.enable = true;
       programs.sway.wrapperFeatures.gtk = true;
-      programs.uwsm.enable = true;
+      programs.uwsm = {
+        enable = true;
+        waylandCompositors = {
+          sway = {
+            prettyName = "Sway";
+            comment = "Sway compositor managed by UWSM";
+            binPath = "/run/current-system/sw/bin/sway";
+          };
+        };
+      };
 
       my.config.sway = {
         "config" = pkgs.writeText "sway-config" config;

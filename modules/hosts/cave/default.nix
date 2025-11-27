@@ -1,17 +1,15 @@
 { inputs, config, ... }:
 let
   inherit (config.flake.lib) mkHostModule;
-  inherit (config.flake.modules.nixos) base shell;
 in
 {
   flake.modules.nixos.cave =
     { config, pkgs, ... }:
     {
       imports = mkHostModule {
-        nixosModules = [ ];
         stateVersion = "25.11";
         hostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPsoj81WwIeKhmkl4V8qWEhQgRra1UW4u1TMWsaxQZD";
-        extraModules = [
+        modules = [
           {
             vaultix.secrets.mihomo = {
               file = inputs.self + "/secrets/mihomo.age";
