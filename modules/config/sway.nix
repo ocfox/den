@@ -120,6 +120,18 @@
           bindsym l resize grow width 10 px
         }
 
+
+        set $my_cursor macOS
+        set $my_cursor_size 24
+
+        seat seat0 xcursor_theme $my_cursor $my_cursor_size
+        exec_always {
+            gsettings set org.gnome.desktop.interface cursor-theme $my_cursor
+            gsettings set org.gnome.desktop.interface cursor-size $my_cursor_size
+        }
+
+        exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+
         assign [app_id="firefox"] 1
         assign [app_id="org.telegram.desktop"] 3
         assign [app_id="thunderbird"] 4
@@ -127,9 +139,8 @@
         exec ${lib.getExe pkgs.fcitx5} -d
 
         exec firefox
-
+        exec waybar
         exec Telegram
-
         exec thunderbird
 
         workspace "10" output "HDMI-A-1"
@@ -148,20 +159,10 @@
 
       programs.sway.enable = true;
       programs.sway.wrapperFeatures.gtk = true;
-      programs.uwsm = {
-        enable = true;
-        waylandCompositors = {
-          sway = {
-            prettyName = "Sway";
-            comment = "Sway compositor managed by UWSM";
-            binPath = "/run/current-system/sw/bin/sway";
-          };
-        };
-      };
+      services.gnome.gnome-keyring.enable = true;
 
       my.config.sway = {
         "config" = pkgs.writeText "sway-config" config;
       };
-
     };
 }

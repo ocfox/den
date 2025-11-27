@@ -4,6 +4,8 @@ let
     users
     nix
     i18n
+    git
+    helix
     shell
   ];
 in

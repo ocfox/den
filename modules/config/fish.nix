@@ -43,7 +43,7 @@
       '';
 
       fishPackages = with pkgs; [
-        fish
+        fishPlugins.tide
         eza
         atuin
         zoxide
@@ -61,10 +61,6 @@
         shellAliases = shellAliases;
         shellInit = shellInit;
         interactiveShellInit = interactiveShellInit;
-      };
-
-      programs.ssh = {
-        startAgent = true;
       };
 
       my.packages = fishPackages;
