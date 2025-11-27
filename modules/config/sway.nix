@@ -130,7 +130,7 @@
             gsettings set org.gnome.desktop.interface cursor-size $my_cursor_size
         }
 
-        exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+        exec "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE; systemctl --user start sway-session.target" 
 
         assign [app_id="firefox"] 1
         assign [app_id="org.telegram.desktop"] 3
@@ -159,6 +159,14 @@
 
       programs.sway.enable = true;
       programs.sway.wrapperFeatures.gtk = true;
+      programs.uwsm.enable = true;
+      programs.uwsm.waylandCompositors = {
+        sway = {
+          prettyName = "Sway";
+          comment = "Sway compositor managed by UWSM";
+          binPath = "/run/current-system/sw/bin/sway";
+        };
+      };
       services.gnome.gnome-keyring.enable = true;
 
       my.config.sway = {

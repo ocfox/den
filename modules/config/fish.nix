@@ -44,6 +44,7 @@
 
       fishPackages = with pkgs; [
         fishPlugins.tide
+        fzf
         eza
         atuin
         zoxide
