@@ -8,13 +8,13 @@
       fcitx
       audio
       networkmanager
-      home-manager
+
+      foot
+      mako
+      waybar
+      gtk
+      mpv
+      sway
     ];
   };
-
-  flake.modules.homeManager.desktop.imports = with config.flake.modules.homeManager; [
-    mpv
-    sway
-    terminal
-  ];
 }

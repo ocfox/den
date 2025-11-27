@@ -4,6 +4,8 @@ let
     users
     nix
     i18n
+    git
+    helix
     shell
   ];
 in
@@ -27,12 +29,4 @@ in
         age-plugin-yubikey
       ];
     };
-
-  flake.modules.homeManager.base = {
-    imports = with config.flake.modules.homeManager; [
-      git
-      shell
-      editor
-    ];
-  };
 }

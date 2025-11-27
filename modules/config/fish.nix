@@ -1,79 +1,69 @@
 {
   flake.modules.nixos.shell =
-    { pkgs, ... }:
     {
-      users.users.ocfox.shell = pkgs.fish;
-      programs.fish.enable = true;
-      programs.fzf = {
-        keybindings = true;
-        fuzzyCompletion = true;
-      };
-      programs.ssh.startAgent = true;
-    };
-
-  flake.modules.homeManager.shell =
-    { pkgs, lib, ... }:
-    {
-      home.shell.enableShellIntegration = true;
-      programs = {
-        atuin = {
-          enable = true;
-          settings = {
-            auto_sync = true;
-            sync_frequency = "5m";
-            sync_address = "https://atuin.ocfox.me";
-            search_mode = "fuzzy";
-          };
-        };
-        eza = {
-          enable = true;
-          enableFishIntegration = true;
-          icons = "auto";
-          git = true;
-        };
-        fish = {
-          enable = true;
-          plugins = [
-            {
-              name = "tide";
-              src = pkgs.fishPlugins.tide.src;
-            }
-            {
-              name = "forgit";
-              src = pkgs.fishPlugins.forgit.src;
-            }
-          ];
-
-          functions = {
-            fish_greeting = "uname -a; w";
-
-            ns = "nix shell nixpkgs#{ $argv }";
-
-            nxr = ''nix run nixpkgs#$argv[1] -- $argv[2..-1]'';
-
-            evs = "nix eval self#nixosConfigurations.$hostname.pkgs.$argv.version";
-
-            # fix ssh-agent forwarding when attach to tmux
-            refresh_tmux_vars = ''
-              if set -q TMUX
-                tmux showenv -s | string replace -rf '^((?:SSH).*?)=(".*?"); export.*' 'set -gx $1 $2' | source
-              end
-            '';
-
-            tideinit = ''
-              tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='12-hour format' --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=No
-            '';
-
-            haskellEnv = ''
-              nix-shell -p haskell-language-server "haskellPackages.ghcWithPackages (pkgs: with pkgs; [ $argv ])"
-            '';
-          };
-        };
+      pkgs,
+      lib,
+      config,
+      ...
+    }:
+    let
+      shellAliases = {
+        j = "just";
+        ls = "eza --icons=auto --hyperlink --color=always --color-scale=all --color-scale-mode=gradient --git --git-repos";
+        la = "eza --icons=auto --hyperlink --color=always --color-scale=all --color-scale-mode=gradient --git --git-repos -la";
+        l = "eza --icons=auto --hyperlink --color=always --color-scale=all --color-scale-mode=gradient --git --git-repos -lh";
+        swc = "sudo nixos-rebuild switch --flake /home/${config.my.name}/dev/den";
+        off = "poweroff";
+        g = "lazygit";
+        "cd.." = "cd ..";
+        fp = "fish --private";
+        e = "exit";
+        st = "sudo systemctl-tui";
+        y = "yazi";
+        sc = "systemctl";
+        scs = "systemctl status";
+        scr = "systemctl restart";
+        jc = "journalctl";
+        ".." = "cd ..";
+        "。。" = "cd ..";
+        "..." = "cd ../..";
+        "。。。" = "cd ../..";
+        "...." = "cd ../../..";
+        "。。。。" = "cd ../../..";
       };
 
-      # tide
-      # home.activation.configure-tide = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      #   ${pkgs.fish}/bin/fish -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='12-hour format' --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=No"
-      # '';
+      shellInit = ''
+        fish_vi_key_bindings
+        set -U fish_greeting
+      '';
+
+      interactiveShellInit = ''
+        eval "$(${lib.getExe pkgs.atuin} init fish)"
+        ${lib.getExe pkgs.zoxide} init fish | source
+      '';
+
+      fishPackages = with pkgs; [
+        fishPlugins.tide
+        fzf
+        eza
+        atuin
+        zoxide
+        just
+        lazygit
+        systemctl-tui
+        yazi
+      ];
+    in
+    {
+      users.users.${config.my.name}.shell = pkgs.fish;
+
+      programs.fish = {
+        enable = true;
+        shellAliases = shellAliases;
+        shellInit = shellInit;
+        interactiveShellInit = interactiveShellInit;
+      };
+
+      my.packages = fishPackages;
     };
 }

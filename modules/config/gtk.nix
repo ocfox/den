@@ -1,28 +1,47 @@
 {
-  flake.modules.homeManager.gtk =
-    { pkgs, ... }:
+  flake.modules.nixos.gtk =
     {
-      gtk = {
-        enable = true;
-        theme = {
-          name = "Adwaita-dark";
-          package = pkgs.gnome-themes-extra;
-        };
-        iconTheme = {
-          name = "Numix-Circle";
-          package = pkgs.numix-icon-theme-circle;
-        };
-        gtk3.extraConfig = {
+      lib,
+      pkgs,
+      config,
+      ...
+    }:
+    let
+      settingsIniContent = lib.generators.toINI { } {
+        Settings = {
+          gtk-theme-name = "Adwaita-dark";
+          gtk-icon-theme-name = "Numix-Circle";
+          gtk-cursor-theme-name = "macOS";
+          gtk-cursor-theme-size = 24;
           gtk-xft-hinting = 1;
           gtk-xft-hintstyle = "hintslight";
         };
       };
 
-      home.pointerCursor = {
-        size = 24;
-        gtk.enable = true;
-        package = pkgs.apple-cursor;
-        name = "macOS";
+      gtk2Content = ''
+        gtk-theme-name = "Adwaita-dark"
+        gtk-icon-theme-name = "Numix-Circle"
+        gtk-cursor-theme-name = "macOS"
+        gtk-cursor-theme-size = 24
+      '';
+    in
+    {
+      my.packages = [
+        pkgs.gnome-themes-extra
+        pkgs.numix-icon-theme-circle
+        pkgs.apple-cursor
+      ];
+
+      my.config = {
+        "gtk-3.0" = {
+          "settings.ini" = pkgs.writeText "gtk3-settings.ini" settingsIniContent;
+        };
+        "gtk-4.0" = {
+          "settings.ini" = pkgs.writeText "gtk4-settings.ini" settingsIniContent;
+        };
+        "gtk-2.0" = {
+          "gtkrc" = pkgs.writeText "gtkrc-2.0" gtk2Content;
+        };
       };
     };
 }

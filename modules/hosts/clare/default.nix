@@ -13,7 +13,7 @@ in
     {
       imports = mkHostModule {
         stateVersion = "25.11";
-        extraModules = [
+        modules = [
           {
             boot.loader.grub.enable = true;
             boot.loader.grub.device = "/dev/vda";
