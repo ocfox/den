@@ -1,172 +1,169 @@
-{ config, ... }:
-let
-  inherit (config.flake.modules.homeManager)
-    waybar
-    gtk
-    mako
-    ;
-in
 {
-  flake.modules.homeManager.sway =
+  flake.modules.nixos.sway =
     {
-      config,
       lib,
       pkgs,
+      config,
       ...
     }:
+    let
+      bg = pkgs.fetchurl {
+        url = "https://pb.ocfox.me/oshino";
+        name = "oshino.jpg";
+        hash = "sha256-gy+LJsN0tulKG8iKsbrRAU2SAeb2VgRkQ3A/JPyigsg=";
+      };
+      config = ''
+        font pango:monospace 8.000000
+        floating_modifier Mod4
+        default_border pixel 2
+        default_floating_border normal 2
+        hide_edge_borders smart
+        focus_wrapping no
+        focus_follows_mouse yes
+        focus_on_window_activation smart
+        mouse_warping output
+        workspace_layout default
+        workspace_auto_back_and_forth no
+        client.focused #83b6af #83b6af #ffffff #a7c080 #83b6af
+        client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
+        client.unfocused #2b3339 #2b3339 #888888 #a7c080 #2b3339
+        client.urgent #e68183 #e68183 #ffffff #a7c080 #e68183
+        client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+        client.background #ffffff
+
+        bindsym Mod4+0 workspace number 10
+        bindsym Mod4+1 workspace number 1
+        bindsym Mod4+2 workspace number 2
+        bindsym Mod4+3 workspace number 3
+        bindsym Mod4+4 workspace number 4
+        bindsym Mod4+5 workspace number 5
+        bindsym Mod4+6 workspace number 6
+        bindsym Mod4+7 workspace number 7
+        bindsym Mod4+8 workspace number 8
+        bindsym Mod4+9 workspace number 9
+        bindsym Mod4+Down focus down
+        bindsym Mod4+Left focus left
+        bindsym Mod4+Return exec ${lib.getExe pkgs.foot}
+        bindsym Mod4+Right focus right
+        bindsym Mod4+Shift+0 move container to workspace number 10
+        bindsym Mod4+Shift+1 move container to workspace number 1
+        bindsym Mod4+Shift+2 move container to workspace number 2
+        bindsym Mod4+Shift+3 move container to workspace number 3
+        bindsym Mod4+Shift+4 move container to workspace number 4
+        bindsym Mod4+Shift+5 move container to workspace number 5
+        bindsym Mod4+Shift+6 move container to workspace number 6
+        bindsym Mod4+Shift+7 move container to workspace number 7
+        bindsym Mod4+Shift+8 move container to workspace number 8
+        bindsym Mod4+Shift+9 move container to workspace number 9
+        bindsym Mod4+Shift+Down move down
+        bindsym Mod4+Shift+Left move left
+        bindsym Mod4+Shift+Right move right
+        bindsym Mod4+Shift+Up move up
+        bindsym Mod4+Shift+a exec ${lib.getExe pkgs.local.macshot}
+        bindsym Mod4+Shift+c reload
+        bindsym Mod4+Shift+d exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%-
+        bindsym Mod4+Shift+e exec ${lib.getExe pkgs.local.powermenu}
+        bindsym Mod4+Shift+h move left
+        bindsym Mod4+Shift+j move down
+        bindsym Mod4+Shift+k move up
+        bindsym Mod4+Shift+l move right
+        bindsym Mod4+Shift+m exec ${lib.getExe pkgs.local.monitor-toggle}
+        bindsym Mod4+Shift+minus move scratchpad
+        bindsym Mod4+Shift+p exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy output
+        bindsym Mod4+Shift+q kill
+        bindsym Mod4+Shift+r exec ${lib.getExe pkgs.local.recorder-toggle}
+        bindsym Mod4+Shift+s exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area
+        bindsym Mod4+Shift+u exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+
+        bindsym Mod4+Up focus up
+        bindsym Mod4+a focus parent
+        bindsym Mod4+apostrophe exec ${lib.getExe pkgs.swaylock}
+        bindsym Mod4+b splith
+        bindsym Mod4+d move scratchpad
+        bindsym Mod4+e layout toggle split
+        bindsym Mod4+f fullscreen toggle
+        bindsym Mod4+h focus left
+        bindsym Mod4+i scratchpad show
+        bindsym Mod4+j focus down
+        bindsym Mod4+k focus up
+        bindsym Mod4+l focus right
+        bindsym Mod4+minus scratchpad show
+        bindsym Mod4+o exec ${lib.getExe pkgs.fuzzel}
+        bindsym Mod4+r mode resize
+        bindsym Mod4+s layout stacking
+        bindsym Mod4+space floating toggle
+        bindsym Mod4+v splitv
+        bindsym Mod4+w layout tabbed
+
+        output "HDMI-A-1" {
+          bg ${bg} fill
+          mode 3840x2160
+          scale 3
+        }
+
+        output "HDMI-A-2" {
+          bg ${bg} fill
+          mode 3840x2160
+          position 0 0
+          scale 3
+        }
+
+        mode "resize" {
+          bindsym Down resize grow height 10 px
+          bindsym Escape mode default
+          bindsym Left resize shrink width 10 px
+          bindsym Return mode default
+          bindsym Right resize grow width 10 px
+          bindsym Up resize shrink height 10 px
+          bindsym h resize shrink width 10 px
+          bindsym j resize grow height 10 px
+          bindsym k resize shrink height 10 px
+          bindsym l resize grow width 10 px
+        }
+
+        assign [app_id="firefox"] 1
+        assign [app_id="org.telegram.desktop"] 3
+        assign [app_id="thunderbird"] 4
+        for_window [title="Feishu Meetings"] floating enable
+        exec ${lib.getExe pkgs.fcitx5} -d
+
+        exec firefox
+
+        exec Telegram
+
+        exec thunderbird
+
+        workspace "10" output "HDMI-A-1"
+        titlebar_border_thickness 0
+        titlebar_padding 1
+      '';
+    in
     {
-      imports = [
-        waybar
-        mako
-        gtk
-      ];
-      home.packages = with pkgs; [
-        wl-clipboard
+      my.packages = with pkgs; [
+        sway
+        foot
+        local.macshot
+        wireplumber
+        local.powermenu
+        local.monitor-toggle
+        sway-contrib.grimshot
+        local.recorder-toggle
+        swaylock
+        fuzzel
+        fcitx5
+        dbus
         firefox
         telegram-desktop
         thunderbird
+        kitty
       ];
-      programs.fuzzel = {
-        enable = true;
-        settings = {
-          border.radius = 0;
-        };
+
+      programs.sway.enable = true;
+      programs.sway.wrapperFeatures.gtk = true;
+      programs.uwsm.enable = true;
+
+      my.config.sway = {
+        "config" = pkgs.writeText "sway-config" config;
       };
-      # Auto startup Sway
-      # programs.fish.interactiveShellInit = ''
-      #   if test (id --user $USER) = 1000 && test (tty) = "/dev/tty1"
-      #     exec sway
-      #   end
-      # '';
 
-      wayland.windowManager.sway = {
-        enable = true;
-        systemd.enable = true;
-
-        wrapperFeatures.gtk = true;
-        config = {
-          modifier = "Mod4";
-          startup = [
-            { command = "fcitx5 -d"; }
-            { command = "firefox"; }
-            { command = "Telegram"; }
-            { command = "thunderbird"; }
-          ];
-
-          floating.criteria = [
-            {
-              title = "Feishu Meetings";
-            }
-          ];
-
-          bars = [ ];
-
-          assigns = {
-            "1" = [ { app_id = "firefox"; } ];
-            "3" = [ { app_id = "org.telegram.desktop"; } ];
-            "4" = [ { app_id = "thunderbird"; } ];
-          };
-
-          output =
-            let
-              oshino = pkgs.fetchurl {
-                url = "https://pb.ocfox.me/oshino";
-                name = "oshino.jpg";
-                hash = "sha256-gy+LJsN0tulKG8iKsbrRAU2SAeb2VgRkQ3A/JPyigsg=";
-              };
-            in
-            {
-              HDMI-A-2 = {
-                mode = "3840x2160";
-                position = "0 0";
-                scale = "3";
-                bg = "${oshino} fill";
-              };
-
-              HDMI-A-1 = {
-                mode = "3840x2160";
-                scale = "3";
-                bg = "${oshino} fill";
-              };
-            };
-
-          defaultWorkspace = "1";
-
-          window = {
-            titlebar = false;
-            hideEdgeBorders = "smart";
-          };
-
-          workspaceOutputAssign = [
-            {
-              output = "HDMI-A-1";
-              workspace = "10";
-            }
-          ];
-
-          keybindings =
-            let
-              modifier = config.wayland.windowManager.sway.config.modifier;
-              inherit (pkgs.local)
-                macshot
-                powermenu
-                recorder-toggle
-                monitor-toggle
-                swaylock
-                ;
-            in
-            pkgs.lib.mkOptionDefault {
-              "${modifier}+h" = "focus left";
-              "${modifier}+j" = "focus down";
-              "${modifier}+k" = "focus up";
-              "${modifier}+l" = "focus right";
-              "${modifier}+apostrophe" = "exec ${lib.getExe swaylock}";
-              "${modifier}+d" = "move scratchpad";
-              "${modifier}+i" = "scratchpad show";
-              "${modifier}+Shift+a" = "exec ${lib.getExe macshot}";
-              "${modifier}+Shift+u" =
-                "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+";
-              "${modifier}+Shift+d" =
-                "exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-              "${modifier}+Shift+e" = "exec ${lib.getExe powermenu}";
-              "${modifier}+Return" = "exec ${lib.getExe pkgs.foot}";
-              "${modifier}+o" = "exec ${lib.getExe pkgs.fuzzel}";
-              "${modifier}+space" = "floating toggle";
-              "${modifier}+Shift+space" = null;
-              "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
-              "${modifier}+Shift+p" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy output";
-              "${modifier}+Shift+r" = "exec ${lib.getExe recorder-toggle}";
-              "${modifier}+Shift+m" = "exec ${lib.getExe monitor-toggle}";
-            };
-          colors = {
-            focused = {
-              background = "#83b6af";
-              border = "#83b6af";
-              childBorder = "#83b6af";
-              indicator = "#a7c080";
-              text = "#ffffff";
-            };
-            unfocused = {
-              background = "#2b3339";
-              border = "#2b3339";
-              childBorder = "#2b3339";
-              indicator = "#a7c080";
-              text = "#888888";
-            };
-            urgent = {
-              background = "#e68183";
-              border = "#e68183";
-              childBorder = "#e68183";
-              indicator = "#a7c080";
-              text = "#ffffff";
-            };
-          };
-        };
-
-        extraConfig = ''
-          titlebar_border_thickness 0
-          titlebar_padding 1
-        '';
-      };
     };
 }

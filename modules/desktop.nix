@@ -19,6 +19,7 @@
       mpv
       helix
       shell
+      sway
     ];
   };
 }
