@@ -1,33 +1,26 @@
-{
-  flake.modules.nixos.git =
-    {
-      lib,
-      pkgs,
-      config,
-      ...
-    }:
-    {
-      my.packages = [
-        pkgs.git
-        pkgs.lazygit
-      ];
+{ flake.modules.nixos.git = { lib, pkgs, config, ... }:
+  let
+    settingsFormat = pkgs.formats.ini {};
 
-      my.config.git = {
-        "config" = pkgs.writeText "git-config" (
-          lib.generators.toINI { } {
-            gpg = {
-              format = "ssh";
-            };
-            user = {
-              name = "ocfox";
-              email = "i@ocfox.me";
-            };
-            signing = {
-              signByDefault = true;
-              key = "key::sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIHnLWTS5/vPyPFY+tCVYn3Ejf3NQpQzcGnWLQTyE7lbzAAAAC3NzaDpwYXNzZm94";
-            };
-          }
-        );
+    gitSettings = {
+      gpg = {
+        format = "ssh";
+      };
+      user = {
+        name = "ocfox";
+        email = "i@ocfox.me";
+      };
+      signing = {
+        signByDefault = true;
+        key = "key::sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guCcomAAAAIHnLWTS5/vPyPFY+tCVYn3Ejf3NQpQzcGnWLQTyE7lbzAAAAC3NzaDpwYXNzZm94";
       };
     };
+  in
+  {
+    my.packages = [ pkgs.git pkgs.lazygit ];
+
+    my.config.git = {
+      "config" = settingsFormat.generate "git-config" gitSettings;
+    };
+  };
 }

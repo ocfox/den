@@ -16,6 +16,8 @@
       mako
       waybar
       gtk
+      mpv
+      helix
     ];
   };
 }
