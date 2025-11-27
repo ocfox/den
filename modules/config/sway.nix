@@ -33,11 +33,11 @@ in
         };
       };
       # Auto startup Sway
-      programs.fish.interactiveShellInit = ''
-        if test (id --user $USER) = 1000 && test (tty) = "/dev/tty1"
-          exec sway
-        end
-      '';
+      # programs.fish.interactiveShellInit = ''
+      #   if test (id --user $USER) = 1000 && test (tty) = "/dev/tty1"
+      #     exec sway
+      #   end
+      # '';
 
       wayland.windowManager.sway = {
         enable = true;
