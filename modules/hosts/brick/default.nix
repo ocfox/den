@@ -20,6 +20,7 @@ in
       # Host-specific overrides
       { facter.reportPath = ./facter.json; }
       { services.blueman.enable = true; }
+      { networking.nameservers = [ "10.10.0.157" ]; }
       { networking.firewall.enable = false; }
       { boot.binfmt.emulatedSystems = [ "aarch64-linux" ]; }
     ];

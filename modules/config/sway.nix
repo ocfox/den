@@ -136,12 +136,13 @@
         assign [app_id="org.telegram.desktop"] 3
         assign [app_id="thunderbird"] 4
         for_window [title="Feishu Meetings"] floating enable
-        exec ${lib.getExe pkgs.fcitx5} -d
 
-        exec firefox
-        exec waybar
-        exec Telegram
-        exec thunderbird
+        exec uwsm app -- fcitx5
+
+        exec uwsm app -- firefox
+        exec uwsm app -- waybar
+        exec uwsm app -- Telegram
+        exec uwsm app -- thunderbird
 
         workspace "10" output "HDMI-A-1"
         titlebar_border_thickness 0
@@ -162,7 +163,7 @@
       programs.uwsm.enable = true;
       programs.uwsm.waylandCompositors = {
         sway = {
-          prettyName = "Sway";
+          prettyName = "sway";
           comment = "Sway compositor managed by UWSM";
           binPath = "/run/current-system/sw/bin/sway";
         };

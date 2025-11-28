@@ -12,6 +12,7 @@
           gtk-theme-name = "Adwaita-dark";
           gtk-icon-theme-name = "Numix-Circle";
           gtk-cursor-theme-name = "macOS";
+          gtk-application-prefer-dark-theme = 1;
           gtk-cursor-theme-size = 24;
           gtk-xft-hinting = 1;
           gtk-xft-hintstyle = "hintslight";
