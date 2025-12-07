@@ -16,7 +16,15 @@ in
       imports = base;
       services = {
         pcscd.enable = true;
-        openssh.enable = true;
+        openssh = {
+          enable = true;
+          hostKeys = [
+            {
+              path = "/var/lib/ssh/ssh_host_ed25519_key";
+              type = "ed25519";
+            }
+          ];
+        };
         tailscale.enable = true;
       };
       hardware.enableRedistributableFirmware = true;

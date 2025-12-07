@@ -10,7 +10,9 @@
         fonts
         fcitx
         audio
-        networkmanager
+
+        networkd
+        dns
 
         foot
         mako

@@ -1,0 +1,32 @@
+{
+  flake.modules.nixos.dns = {
+    services.resolved.enable = false;
+    networking.resolvconf.enable = false;
+    services.dnsproxy = {
+      enable = true;
+      flags = [
+        "--cache"
+        "--cache-optimistic"
+        "--edns"
+      ];
+      settings = {
+        bootstrap = [
+          "8.8.8.8"
+          "119.29.29.29"
+          "114.114.114.114"
+          "223.6.6.6"
+        ];
+        listen-addrs = [ "::" ];
+        listen-ports = [ 53 ];
+        upstream-mode = "parallel";
+        upstream = [
+          "tls://1.1.1.1"
+          "quic://dns.alidns.com"
+          "h3://dns.alidns.com/dns-query"
+          "tls://dot.pub"
+          "https://doh.pub/dns-query"
+        ];
+      };
+    };
+  };
+}
