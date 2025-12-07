@@ -169,6 +169,7 @@
         };
       };
       services.gnome.gnome-keyring.enable = true;
+      security.pam.services.login.enableGnomeKeyring = true;
 
       my.config.sway = {
         "config" = pkgs.writeText "sway-config" config;
