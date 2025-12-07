@@ -37,6 +37,11 @@ in
               fsType = "ext4";
             };
 
+            environment.systemPackages = [
+              pkgs.hysteria
+              pkgs.tmux
+            ];
+
             networking = {
               firewall.enable = false;
               nftables = {

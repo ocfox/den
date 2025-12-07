@@ -1,20 +1,23 @@
 { config, ... }:
 {
-  flake.modules.nixos.desktop = {
-    programs.sway.enable = true;
-    imports = with config.flake.modules.nixos; [
-      xdg
-      fonts
-      fcitx
-      audio
-      networkmanager
+  flake.modules.nixos.desktop =
+    { pkgs, ... }:
+    {
+      programs.sway.enable = true;
+      environment.systemPackages = [ pkgs.yazi ];
+      imports = with config.flake.modules.nixos; [
+        xdg
+        fonts
+        fcitx
+        audio
+        networkmanager
 
-      foot
-      mako
-      waybar
-      gtk
-      mpv
-      sway
-    ];
-  };
+        foot
+        mako
+        waybar
+        gtk
+        mpv
+        sway
+      ];
+    };
 }

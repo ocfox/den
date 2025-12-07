@@ -51,7 +51,6 @@
         just
         lazygit
         systemctl-tui
-        yazi
       ];
     in
     {

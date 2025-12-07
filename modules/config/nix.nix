@@ -4,14 +4,12 @@
     { pkgs, ... }:
     {
       nix = {
-        package = inputs.nix.packages.${pkgs.system}.default;
         registry = {
           nixpkgs.flake = inputs.nixpkgs;
         };
 
         extraOptions = ''
           experimental-features = nix-command flakes
-          lazy-trees = true
           keep-outputs = true
           keep-derivations = true
         '';

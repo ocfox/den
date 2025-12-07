@@ -13,7 +13,6 @@
     vaultix.url = "github:ocfox/vaultix";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
-    nix.url = "github:DeterminateSystems/nix-src";
     nixos-facter.url = "github:numtide/nixos-facter-modules";
     disko = {
       url = "github:nix-community/disko";
