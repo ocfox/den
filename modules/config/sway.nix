@@ -8,9 +8,9 @@
     }:
     let
       bg = pkgs.fetchurl {
-        url = "https://pb.ocfox.me/oshino";
-        name = "oshino.jpg";
-        hash = "sha256-gy+LJsN0tulKG8iKsbrRAU2SAeb2VgRkQ3A/JPyigsg=";
+        url = "https://image.tmdb.org/t/p/original/iLis4CUhZ5cHmMEqEBYF7XcQl27.jpg";
+        name = "sawa";
+        hash = "sha256-5+uyUEmkp++hjc6xCis9MVXE0PKzKPHZZNrDIYD3qnQ=";
       };
       config = ''
         font pango:monospace 8.000000

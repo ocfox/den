@@ -26,28 +26,28 @@
             format = "{icon}";
             "all-outputs" = true;
             "format-icons" = {
-              "1" = "一";
-              "2" = "二";
-              "3" = "三";
-              "4" = "四";
-              "5" = "五";
-              "6" = "六";
-              "7" = "七";
-              "8" = "八";
-              "9" = "九";
-              "10" = "十";
+              "1" = "い";
+              "2" = "ろ";
+              "3" = "は";
+              "4" = "に";
+              "5" = "ほ";
+              "6" = "へ";
+              "7" = "と";
+              "8" = "ち";
+              "9" = "り";
+              "10" = "ぬ";
             };
           };
           idle_inhibitor = {
             format = "{icon}";
             "format-icons" = {
-              "activated" = "IDLE";
-              "deactivated" = "<s>IDLE</s>";
+              "activated" = "<s>待</s>";
+              "deactivated" = "待";
             };
             tooltip = false;
           };
           pulseaudio = {
-            format = "Vol {volume}%";
+            format = "響 {volume}%";
             "format-muted" = "󰝟 Muted";
             "max-volume" = 200;
             "format-icons".default = [
@@ -90,11 +90,11 @@
           };
           cpu = {
             interval = 1;
-            format = "CPU {usage}%";
+            format = "荷 {usage}%";
           };
           memory = {
             interval = 5;
-            format = "{used}/{total}";
+            format = "憶 {used}/{total}";
           };
           network = {
             interval = 1;
