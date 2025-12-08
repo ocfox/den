@@ -113,22 +113,10 @@
     in
     {
       my.packages = [
-        pkgs.waybar
         pkgs.pwvucontrol
       ];
 
-      # systemd.user.services.waybar = {
-      #   description = "Waybar";
-      #   wantedBy = [ "sway-session.target" ];
-      #   partOf = [ "sway-session.target" ];
-      #   serviceConfig = {
-      #     Type = "simple";
-      #     ExecStart = "${pkgs.waybar}/bin/waybar";
-      #     ExecReload = "${pkgs.procps}/bin/kill -SIGUSR2 $MAINPID";
-      #     Restart = "on-failure";
-      #     RestartSec = 1;
-      #   };
-      # };
+      programs.waybar.enable = true;
 
       my.config.waybar = {
         "config" = pkgs.writeText "waybar-config.json" (builtins.toJSON waybarSettings);

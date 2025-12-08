@@ -52,7 +52,6 @@
               "adbusers"
               "wheel"
               "podman"
-              "networkmanager"
               "realtime"
               "dialout"
               "libvirtd"

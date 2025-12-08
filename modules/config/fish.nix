@@ -14,6 +14,7 @@
         l = "eza --icons=auto --hyperlink --color=always --color-scale=all --color-scale-mode=gradient --git --git-repos -lh";
         swc = "sudo nixos-rebuild switch --flake /home/${config.my.name}/dev/den";
         off = "poweroff";
+        usd = "uwsm start default";
         g = "lazygit";
         "cd.." = "cd ..";
         fp = "fish --private";

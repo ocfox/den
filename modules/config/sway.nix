@@ -140,7 +140,6 @@
         exec uwsm app -- fcitx5
 
         exec uwsm app -- firefox
-        exec uwsm app -- waybar
         exec uwsm app -- Telegram
         exec uwsm app -- thunderbird
 
@@ -150,29 +149,36 @@
       '';
     in
     {
-      my.packages = with pkgs; [
-        wireplumber
-        sway-contrib.grimshot
-        firefox
-        telegram-desktop
-        thunderbird
-      ];
-
-      programs.sway.enable = true;
-      programs.sway.wrapperFeatures.gtk = true;
-      programs.uwsm.enable = true;
-      programs.uwsm.waylandCompositors = {
-        sway = {
-          prettyName = "sway";
-          comment = "Sway compositor managed by UWSM";
-          binPath = "/run/current-system/sw/bin/sway";
+      my = {
+        packages = with pkgs; [
+          wireplumber
+          sway-contrib.grimshot
+          firefox
+          telegram-desktop
+          thunderbird
+        ];
+        config.sway = {
+          "config" = pkgs.writeText "sway-config" config;
         };
       };
+
+      programs = {
+        sway = {
+          enable = true;
+          wrapperFeatures.gtk = true;
+          xwayland.enable = false;
+        };
+        uwsm = {
+          enable = true;
+          waylandCompositors.sway = {
+            prettyName = "sway";
+            comment = "Sway compositor managed by UWSM";
+            binPath = "/run/current-system/sw/bin/sway";
+          };
+        };
+      };
+
       services.gnome.gnome-keyring.enable = true;
       security.pam.services.login.enableGnomeKeyring = true;
-
-      my.config.sway = {
-        "config" = pkgs.writeText "sway-config" config;
-      };
     };
 }
