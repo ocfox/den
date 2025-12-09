@@ -8,8 +8,7 @@
     }:
     {
       my.packages = [
-        pkgs.mpv
-        pkgs.mpvScripts.uosc
+        (pkgs.mpv.override { scripts = [ pkgs.mpvScripts.uosc ]; })
       ];
 
       my.config = {
@@ -25,10 +24,6 @@
               "demuxer-max-bytes" = "2G";
             }
           );
-        };
-        "mpv/scripts" = {
-          # Assuming the main script file is uosc.lua. The pkgs.mpvScripts.uosc is a derivation containing the script.
-          "uosc.lua" = pkgs.mpvScripts.uosc;
         };
       };
     };
