@@ -137,7 +137,7 @@
         assign [app_id="thunderbird"] 4
         for_window [title="Feishu Meetings"] floating enable
 
-        exec uwsm app -- fcitx5
+        exec uwsm app -- fcitx5 -d
 
         exec uwsm app -- firefox
         exec uwsm app -- Telegram
@@ -161,6 +161,11 @@
         config.sway = {
           "config" = pkgs.writeText "sway-config" config;
         };
+      };
+
+      environment.sessionVariables = {
+        NIXOS_OZONE_WL = "1";
+        QT_IM_MODULES = "wayland;fcitx";
       };
 
       programs = {
