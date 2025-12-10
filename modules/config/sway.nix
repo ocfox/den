@@ -151,6 +151,7 @@
     {
       my = {
         packages = with pkgs; [
+          wl-clipboard
           wireplumber
           sway-contrib.grimshot
           firefox
