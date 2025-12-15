@@ -49,7 +49,8 @@
         packages = with pkgs; [
           inter
           sarasa-gothic
-          source-han-serif
+          local.lxgw-zhisong
+          local.lxgw-neoxihei
           noto-fonts-color-emoji
           nerd-fonts.jetbrains-mono
         ];
