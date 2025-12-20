@@ -9,6 +9,8 @@
       ];
       services.gnome.sushi.enable = true;
       xdg = {
+        terminal-exec.enable = true;
+        terminal-exec.settings.default = [ "foot.desktop" ];
         mime = {
           enable = true;
           defaultApplications = {
@@ -17,6 +19,7 @@
             "x-scheme-handler/mpv" = [ "mpv-handler.desktop" ];
             "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
             "application/pdf" = [ "sioyek.desktop" ];
+            "text/plain" = [ "helix.desktop" ];
           }
           // lib.genAttrs [
             "x-scheme-handler/unknown"

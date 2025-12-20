@@ -10,6 +10,7 @@
       settingsFormat = pkgs.formats.ini { };
 
       footSettings = {
+        url.launch = "foot -e xdg-open \${url}";
         main = {
           term = "xterm-256color";
           font = "JetBrainsMono Nerd Font:size=16";

@@ -134,14 +134,12 @@
 
         assign [app_id="firefox"] 1
         assign [app_id="org.telegram.desktop"] 3
-        assign [app_id="thunderbird"] 4
         for_window [title="Feishu Meetings"] floating enable
 
         exec uwsm app -- fcitx5 -d
 
         exec uwsm app -- firefox
         exec uwsm app -- Telegram
-        exec uwsm app -- thunderbird
 
         workspace "10" output "HDMI-A-1"
         titlebar_border_thickness 0
@@ -156,7 +154,6 @@
           sway-contrib.grimshot
           firefox
           telegram-desktop
-          thunderbird
         ];
         config.sway = {
           "config" = pkgs.writeText "sway-config" config;
