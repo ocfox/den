@@ -8,7 +8,7 @@ in
     {
       imports = mkHostModule {
         stateVersion = "25.11";
-        hostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILPsoj81WwIeKhmkl4V8qWEhQgRra1UW4u1TMWsaxQZD";
+        hostKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOI13Y5GVOaICSu+q2oUFGqAW894ioVvEXY6q7KdYa6G root@cave";
         modules = [
           {
             vaultix.secrets.mihomo = {
@@ -35,6 +35,8 @@ in
               "net.ipv6.conf.all.forwarding" = 1;
               "net.ipv4.conf.all.forwarding" = 1;
             };
+
+            documentation.man.generateCaches = false;
 
             services = {
               resolved.enable = false;
