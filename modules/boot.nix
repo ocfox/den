@@ -16,6 +16,8 @@
       boot.initrd.systemd.enable = true;
 
       boot.kernelPackages = pkgs.linuxPackages_latest;
+
+      zramSwap.enable = true;
       services.scx = {
         enable = true;
         scheduler = "scx_rustland";
