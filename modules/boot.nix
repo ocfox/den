@@ -20,7 +20,7 @@
       zramSwap.enable = true;
       services.scx = {
         enable = true;
-        scheduler = "scx_rustland";
+        scheduler = "scx_lavd";
       };
 
       environment.etc = {
