@@ -149,6 +149,7 @@
     {
       my = {
         packages = with pkgs; [
+          swaybg
           wl-clipboard
           wireplumber
           sway-contrib.grimshot

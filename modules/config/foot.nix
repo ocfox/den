@@ -19,7 +19,7 @@
           mouse = {
             "hide-when-typing" = "yes";
           };
-          colors = {
+          colors-dark = {
             background = "2b3339";
             foreground = "d8caac";
           };

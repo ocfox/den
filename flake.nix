@@ -1,6 +1,4 @@
 {
-  description = "ocfox's flake";
-
   outputs =
     inputs:
     inputs.flake-parts.lib.mkFlake {
@@ -14,6 +12,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     nixos-facter.url = "github:numtide/nixos-facter-modules";
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
