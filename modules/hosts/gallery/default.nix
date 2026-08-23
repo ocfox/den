@@ -10,7 +10,6 @@
         imports = with self.modules.nixos; [
           boot
           steam
-          obs
           networkd
           desktop
           waybar
@@ -38,9 +37,6 @@
           # tailscale only: the API is unauthenticated and the host firewall is off
           serveAddr = "100.64.0.1";
         };
-        hardware.graphics.extraPackages = with pkgs; [
-          rocmPackages.clr.icd
-        ];
         environment.sessionVariables.LIBVA_DRIVER_NAME = "radeonsi";
         programs.nix-ld.enable = true;
         programs.fuse.enable = true;
@@ -56,6 +52,10 @@
         fileSystems."/" = {
           device = "/dev/disk/by-uuid/fe0ecfb9-db21-43f0-915a-70c37765f181";
           fsType = "btrfs";
+          options = [
+            "compress=zstd"
+            "noatime"
+          ];
         };
         fileSystems."/boot" = {
           device = "/dev/disk/by-uuid/3307-5F4E";

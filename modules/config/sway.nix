@@ -209,6 +209,8 @@
         };
       };
 
+      services.speechd.enable = false;
+
       # oo7's pam_oo7 (0.6.0) forks during pam_open_session to unlock the keyring
       # and collides with util-linux login's child reaping (waitpid -> ECHILD),
       # which tears down the freshly-opened tty session -> instant auto-logout.

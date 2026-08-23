@@ -698,11 +698,11 @@ for d in $(findmnt -t fat,vfat -n -o TARGET 2>/dev/null) /efi /boot/efi /boot/EF
   if [ -d /sys/firmware/efi ] && command -v efibootmgr >/dev/null 2>&1; then
     part=$(findmnt -n -o SOURCE "$d" 2>/dev/null || df "$d" | awk 'NR==2{{print $1}}')
     if [ -b "$part" ]; then
-      disk=$(lsblk -rn --inverse "$part" 2>/dev/null | awk '$6=="disk"{{print $1}}' | head -1)
+      disk=$(lsblk -rn --inverse "$part" 2>/dev/null | grep -w disk | awk '{{print $1}}' | head -1)
       [ -z "$disk" ] && disk=$(echo "$part" | sed -E 's/p?[0-9]+$//' | sed 's|/dev/||')
       pnum=$(echo "$part" | grep -oE '[0-9]+$')
       for b in $(efibootmgr 2>/dev/null | awk '/induo/{{print $1}}' | tr -d 'Boot*'); do efibootmgr -B -b "$b" >/dev/null 2>&1 || true; done
-      if efibootmgr -c -d "/dev/$disk" -p "$pnum" -L "induo" -l "\\EFI\\induo\\grub.efi" >/dev/null 2>&1; then
+      if efibootmgr --create-only -d "/dev/$disk" -p "$pnum" -L "induo" -l "\\EFI\\induo\\grub.efi" >/dev/null 2>&1; then
         b=$(efibootmgr 2>/dev/null | awk '/induo/{{print $1}}' | tr -d 'Boot*' | head -1)
         [ -n "$b" ] && efibootmgr -n "$b" >/dev/null 2>&1 && echo "BOOT_EFI" && exit 0
       fi
@@ -721,7 +721,9 @@ EOF
         exit 0
       fi
     elif [ -f "$d/loader/loader.conf" ]; then
+      orig_default=$(grep '^default ' "$d/loader/loader.conf" || true)
       sed -i 's/^default .*/default induo.conf/' "$d/loader/loader.conf"
+      echo "$orig_default" > "$d/loader/induo-prev-default" 2>/dev/null || true
       echo "BOOT_SYSTEMD_BOOT_MANUAL"
       exit 0
     fi

@@ -7,7 +7,7 @@
       ...
     }:
     {
-      my.packages = [ pkgs.sioyek ];
+      # my.packages = [ pkgs.sioyek ];
 
       # ~/.config/<desktop>-mimeapps.list outranks ~/.config/mimeapps.list, so apps
       # writing the latter can no longer override what is declared here.
@@ -24,7 +24,7 @@
             "x-scheme-handler/discord" = [ "vesktop.desktop" ];
             "x-scheme-handler/claude-cli" = [ "claude-code-url-handler.desktop" ];
             "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
-            "application/pdf" = [ "sioyek.desktop" ];
+            # "application/pdf" = [ "sioyek.desktop" ];
           }
           // lib.genAttrs [
             "text/plain"
