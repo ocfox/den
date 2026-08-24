@@ -27,7 +27,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          nix shell nixpkgs#just --command just update-pkgs
+          nix shell nixpkgs#just --command just update
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
