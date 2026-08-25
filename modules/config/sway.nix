@@ -83,11 +83,11 @@
         bindsym Mod4+Shift+l move right
         bindsym Mod4+Shift+m exec ${lib.getExe pkgs.local.monitor-toggle}
         bindsym Mod4+Shift+minus move scratchpad
-        bindsym Mod4+Shift+p exec ${lib.getExe pkgs.local.grimshot} --cursor copy output
+        bindsym Mod4+Shift+p exec ${lib.getExe pkgs.local.grimshot} --notify --cursor copy output
         bindsym Mod4+Shift+i exec ${pkgs.procps}/bin/pkill -USR1 waybar
         bindsym Mod4+Shift+q kill
         bindsym Mod4+Shift+r exec ${lib.getExe pkgs.local.recorder-toggle}
-        bindsym Mod4+Shift+s exec ${lib.getExe pkgs.local.grimshot} copy area
+        bindsym Mod4+Shift+s exec ${lib.getExe pkgs.local.grimshot} --notify copy area
         bindsym Mod4+Shift+u exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bindsym Mod4+Up focus up
         bindsym Mod4+a focus parent
