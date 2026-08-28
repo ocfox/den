@@ -110,6 +110,8 @@
           description = "Sync sing-box config from aptor";
           after = [ "network-online.target" ];
           wants = [ "network-online.target" ];
+          restartIfChanged = false;
+          stopIfChanged = false;
           path = with pkgs; [
             curl
             coreutils
@@ -132,15 +134,6 @@
                 fi
               fi
             '';
-          };
-        };
-
-        systemd.timers.sing-box-sync = {
-          description = "Daily sync sing-box config from aptor";
-          wantedBy = [ "timers.target" ];
-          timerConfig = {
-            OnCalendar = "daily";
-            Persistent = true;
           };
         };
       };
