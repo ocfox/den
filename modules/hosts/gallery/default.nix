@@ -24,7 +24,7 @@
           "usbhid"
           "sd_mod"
         ];
-        boot.kernelModules = [ "kvm-amd" ];
+        boot.kernelModules = [ "kvm-amd" "ntsync" ];
         hardware.cpu.amd.updateMicrocode = true;
         hardware.keyboard.qmk.enable = true;
         kix.secrets.test = { };
