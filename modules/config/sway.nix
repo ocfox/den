@@ -141,7 +141,7 @@
         }
 
 
-        set $my_cursor teto-cursor
+        set $my_cursor macOS
         set $my_cursor_size 24
 
         seat "*" xcursor_theme $my_cursor $my_cursor_size
@@ -188,7 +188,7 @@
         NIXOS_OZONE_WL = "1";
         QT_QPA_PLATFORMTHEME = "gtk3";
         WLR_RENDERER = "vulkan";
-        XCURSOR_THEME = "teto-cursor";
+        XCURSOR_THEME = "macOS";
         XCURSOR_SIZE = "24";
       };
 
