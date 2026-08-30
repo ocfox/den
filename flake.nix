@@ -17,9 +17,5 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    vertere = {
-      url = "github:ocfox/vertere";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 }

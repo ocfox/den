@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   flake.modules.nixos.sway =
     {
@@ -8,7 +8,7 @@
       ...
     }:
     let
-      vertere = inputs.vertere.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      vertere = pkgs.local.vertere;
       bg = pkgs.fetchurl {
         url = "https://image.tmdb.org/t/p/original/iLis4CUhZ5cHmMEqEBYF7XcQl27.jpg";
         name = "sawa";
