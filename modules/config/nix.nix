@@ -24,6 +24,15 @@
           trusted-users = [ config.my.name ];
           warn-dirty = false;
 
+          substituters = [
+            "https://cache.nixos.org"
+            "https://oc.cachix.org"
+          ];
+          trusted-public-keys = [
+            "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+            "oc.cachix.org-1:HlK6/yxAithjAXT2xEPSuegWxgQwtlDPM3twEVcAdco="
+          ];
+
           nix-path = [ "nixpkgs=${inputs.nixpkgs}" ];
           auto-optimise-store = true;
         };
