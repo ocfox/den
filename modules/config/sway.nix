@@ -10,19 +10,9 @@
     let
       vertere = pkgs.local.vertere;
       bg = pkgs.fetchurl {
-        url = "https://image.tmdb.org/t/p/original/iLis4CUhZ5cHmMEqEBYF7XcQl27.jpg";
-        name = "sawa";
-        hash = "sha256-5+uyUEmkp++hjc6xCis9MVXE0PKzKPHZZNrDIYD3qnQ=";
-      };
-      lock = pkgs.fetchurl {
-        url = "https://image.tmdb.org/t/p/original/3OdV1eThn2ZvCCx1kVjAicEZgzW.jpg";
-        name = "walk";
-        hash = "sha256-ixxjr5u82bltvxAoptjcRLA/avdstJLJeLV2uoeUQkE=";
-      };
-      ed = pkgs.fetchurl {
-        url = "https://image.tmdb.org/t/p/original/s2XhIP2HQHbG4aLnIBqQsYCWEDB.jpg";
-        name = "ed";
-        hash = "sha256-FHRa6itAqi5i0XEqPbC1ueCoqKicbM7Qmvomwom/oX4=";
+        url = "https://s3.s4r.in/ai/golden-fish";
+        name = "golden-fish";
+        hash = "sha256-MUjitS6MOtmwncu0WVhpM2LMH8/5Bvap8AE6JPnYPbE=";
       };
       swayConfig = ''
         font pango:monospace 8.000000
@@ -91,7 +81,7 @@
         bindsym Mod4+Shift+u exec ${lib.getExe' pkgs.wireplumber "wpctl"} set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bindsym Mod4+Up focus up
         bindsym Mod4+a focus parent
-        bindsym Mod4+apostrophe exec ${lib.getExe pkgs.swaylock} -i ${lock}
+        bindsym Mod4+apostrophe exec ${lib.getExe pkgs.swaylock} -i ${bg}
         bindsym Mod4+Shift+equal exec swaymsg output DP-2 hdr toggle
         bindsym Mod4+b splith
         bindsym Mod4+d move scratchpad
@@ -119,7 +109,7 @@
         }
 
         output "DP-2" {
-          bg ${ed} fill
+          bg ${bg} fill
           mode 3840x2160
           position 0 0
           scale 3
