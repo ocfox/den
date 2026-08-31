@@ -142,13 +142,13 @@
 
         exec "${pkgs.dbus}/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE; systemctl --user start sway-session.target" 
 
-        assign [app_id="google-chrome"] 1
+        assign [app_id="zen"] 1
         assign [app_id="org.telegram.desktop"] 3
         for_window [title="Feishu Meetings"] floating enable
 
         exec uwsm app -- fcitx5 -d
 
-        exec uwsm app -- google-chrome
+        exec uwsm app -- zen
         exec uwsm app -- Telegram
 
         workspace "10" output "HDMI-A-1"

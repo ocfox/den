@@ -47,7 +47,7 @@
             "x-scheme-handler/mailto"
             "text/html"
             "application/xhtml+xml"
-          ] (_: "google-chrome.desktop");
+          ] (_: "zen.desktop");
         };
         portal = {
           enable = true;

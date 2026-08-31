@@ -16,6 +16,7 @@
           aqua
           vertere
           sing-box
+          zen
         ];
         boot.initrd.availableKernelModules = [
           "nvme"
