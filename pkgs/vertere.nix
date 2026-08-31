@@ -19,7 +19,7 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "vertere";
-  version = "0.1.0-unstable-2026-07-25";
+  version = "0-unstable-2026-07-25";
 
   src = fetchFromGitHub {
     owner = "ocfox";
